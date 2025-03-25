@@ -30,5 +30,7 @@ process SCVITOOLS_SCVI {
     dispersion = task.ext.dispersion ?: 'gene'
     gene_likelihood = task.ext.gene_likelihood ?: 'zinb'
     max_epochs = task.ext.max_epochs ?: null
+    categorical_covariates = task.ext.categorical_covariates ?: ''
+    continuous_covariates = task.ext.continuous_covariates ?: ''
     template 'scvi.py'
 }

@@ -42,7 +42,16 @@ elif reference_model_type == "scvi":
     SCVI.prepare_query_anndata(adata, reference_model_path)
     model = SCVI.load_query_data(adata, reference_model_path)
 else:
-    SCVI.setup_anndata(adata, batch_key = "batch")
+    categorical_covariates = "${categorical_covariates}"
+    continuous_covariates = "${continuous_covariates}"
+
+    categorical_covariates = categorical_covariates.split(",") if categorical_covariates else None
+    continuous_covariates = continuous_covariates.split(",") if continuous_covariates else None
+
+    SCVI.setup_anndata(adata, batch_key = "batch",
+                        categorical_covariate_keys = categorical_covariates,
+                        continuous_covariate_keys = continuous_covariates)
+
     model = SCVI(adata,
                     n_hidden=int("${n_hidden}"),
                     n_layers=int("${n_layers}"),
