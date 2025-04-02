@@ -53,7 +53,15 @@ else:
             scvi_model=model, labels_key="label", unlabeled_category="unknown"
         )
     else:
-        SCANVI.setup_anndata(adata, batch_key="batch", labels_key="label", unlabeled_category="unknown")
+        categorical_covariates = "${categorical_covariates}"
+        continuous_covariates = "${continuous_covariates}"
+
+        categorical_covariates = categorical_covariates.split(",") if categorical_covariates else None
+        continuous_covariates = continuous_covariates.split(",") if continuous_covariates else None
+
+        SCANVI.setup_anndata(adata, batch_key="batch", labels_key="label", unlabeled_category="unknown",
+                                categorical_covariate_keys = categorical_covariates,
+                                continuous_covariate_keys = continuous_covariates)
         model = SCANVI(adata,
                         n_hidden=int("${n_hidden}"),
                         n_layers=int("${n_layers}"),

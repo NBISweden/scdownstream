@@ -87,7 +87,7 @@
                     "default": "scvi",
                     "description": "Specify the type of model provided in the `reference_model` parameter",
                     "help_text": "Can be either 'scvi' or 'scanvi'.",
-                    "pattern": "^(scvi|scanvi)$"
+                    "enum": ["scvi", "scanvi"]
                 }
             }
         },
@@ -147,9 +147,9 @@
                 },
                 "integration_hvgs": {
                     "type": "integer",
-                    "default": 10000,
-                    "minimum": 100,
-                    "description": "Number of highly variable genes to use for integration"
+                    "default": 0,
+                    "description": "Number of highly variable genes to use for integration. If set to 0, the number of highly variable genes will be automatically determined. If set to a negative number, all genes will be used.",
+                    "help_text": "If a reference model is provided, this does not have any effect. This is because the reference model defines the set of genes that will be used for integration."
                 },
                 "clustering_resolutions": {
                     "type": "string",
@@ -249,6 +249,16 @@
                 "scvi_max_epochs": {
                     "type": "integer",
                     "description": "Maximum number of epochs for training scVI/scANVI. If not set, a heuristic provided by scVI/scANVI will be used."
+                },
+                "scvi_categorical_covariates": {
+                    "type": "string",
+                    "description": "Categorical covariates for scVI/scANVI",
+                    "help_text": "If you want to use multiple covariates, separate them with a comma."
+                },
+                "scvi_continuous_covariates": {
+                    "type": "string",
+                    "description": "Continuous covariates for scVI/scANVI",
+                    "help_text": "If you want to use multiple covariates, separate them with a comma."
                 }
             }
         },

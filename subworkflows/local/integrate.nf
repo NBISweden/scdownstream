@@ -22,7 +22,7 @@ workflow INTEGRATE {
 
     // If a reference model is provided, only the genes in the reference model are used
     // Otherwise, we would intersect the HVGs, which is not what we want
-    if (!params.reference_model) {
+    if (!params.reference_model && params.integration_hvgs >= 0) {
         SCANPY_HVGS(ch_h5ad, params.integration_hvgs)
         ch_versions = ch_versions.mix(SCANPY_HVGS.out.versions)
         ch_h5ad = SCANPY_HVGS.out.h5ad
