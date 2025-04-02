@@ -36,11 +36,15 @@ prefix = "${prefix}"
 n_hvgs = int("${n_hvgs}")
 use_gpu = "${task.ext.use_gpu}" == "true"
 
-if adata.n_vars > n_hvgs:
+if adata.n_vars > n_hvgs and n_hvgs >= 0:
     kwargs = {
-        "n_top_genes": n_hvgs,
         "batch_key": "batch"
     }
+
+    # If an actual limit is provided, use it
+    # Otherwise, scanpy will automatically determine the number of highly variable genes
+    if n_hvgs > 0:
+        kwargs["n_top_genes"] = n_hvgs
 
     raw_counts = adata.X.copy()
 
