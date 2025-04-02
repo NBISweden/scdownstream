@@ -87,7 +87,7 @@
                     "default": "scvi",
                     "description": "Specify the type of model provided in the `reference_model` parameter",
                     "help_text": "Can be either 'scvi' or 'scanvi'.",
-                    "pattern": "^(scvi|scanvi)$"
+                    "enum": ["scvi", "scanvi"]
                 }
             }
         },
