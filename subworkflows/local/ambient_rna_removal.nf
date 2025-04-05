@@ -13,7 +13,7 @@ workflow AMBIENT_RNA_REMOVAL {
 
     if (params.ambient_removal == 'none') {
         log.info "AMBIENT_RNA_REMOVAL: Not performed since 'none' selected."
-        ch_h5ad = ch_pairing.map{ meta, filtered, unfiltered -> [meta, filtered] }
+        ch_h5ad = ch_pairing.map{ meta, filtered, _unfiltered -> [meta, filtered] }
     }
     else if (params.ambient_removal == 'decontx') {
         CELDA_DECONTX(ch_pairing)
@@ -21,7 +21,7 @@ workflow AMBIENT_RNA_REMOVAL {
         ch_versions = ch_versions.mix(CELDA_DECONTX.out.versions)
     }
     else if (params.ambient_removal == 'cellbender') {
-        CELLBENDER_REMOVEBACKGROUND(ch_pairing.map{meta, filtered, unfiltered -> [meta, unfiltered]})
+        CELLBENDER_REMOVEBACKGROUND(ch_pairing.map{meta, _filtered, unfiltered -> [meta, unfiltered]})
         ch_versions = ch_versions.mix(CELLBENDER_REMOVEBACKGROUND.out.versions)
 
         CELLBENDER_MERGE(ch_pairing.map{ meta, filtered, raw -> [meta.id, meta, filtered, raw] }

@@ -144,25 +144,21 @@ def validateInputParameters() {
         throw new Exception("If preprocess_only is set to true, an input samplesheet must be provided")
     }
 
-    if (params.base_adata && params.input && !params.reference_model) {
-        throw new Exception("If a base adata file is provided and a samplesheet is provided, a reference model must also be provided")
+    def integration_methods = params.integration_methods.split(',').collect{it.trim().toLowerCase()}
+    if (params.input && params.base_adata && (integration_methods - ['scvi', 'scanvi', 'scimilarity']).size() > 0) {
+        throw new Exception("Only scvi, scanvi and scimilarity integration methods are supported if base_adata is provided")
     }
 
-    if (params.reference_model && !params.reference_model_type) {
-        throw new Exception("If a reference model is provided, a reference model type must also be provided")
+    if (params.base_adata && 'scvi' in integration_methods && !params.scvi_model) {
+        throw new Exception("If base_adata is provided and scvi is used as integration method, scvi_model must be provided.")
     }
 
-    integration_methods = params.integration_methods.split(',').collect{it.trim().toLowerCase()}
-    if (params.input && params.base_adata && (integration_methods - ['scvi', 'scanvi']).size() > 0) {
-        throw new Exception("Only scvi and scanvi integration methods are supported if base_adata is provided")
+    if (params.base_adata && 'scanvi' in integration_methods && !params.scanvi_model) {
+        throw new Exception("If base_adata is provided and scanvi is used as integration method, scanvi_model must be provided.")
     }
 
-    if (params.base_adata && params.reference_model_type == "scanvi" && (integration_methods - ['scanvi']).size() > 0) {
-        throw new Exception("If the reference model type is scanvi, only the scanvi integration method is supported")
-    }
-
-    if (params.base_adata && params.reference_model_type == "scvi" && (integration_methods - ['scvi', 'scanvi']).size() > 0) {
-        throw new Exception("If the reference model type is scvi, only the scvi and scanvi integration methods are supported")
+    if (params.base_adata && 'scimilarity' in integration_methods && !params.scimilarity_model) {
+        throw new Exception("If base_adata is provided and scimilarity is used as integration method, scimilarity_model must be provided.")
     }
 }
 

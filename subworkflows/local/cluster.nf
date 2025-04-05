@@ -34,7 +34,7 @@ workflow CLUSTER {
 
     ch_h5ad = ch_h5ad.map{meta, h5ad -> [meta + [id: meta.integration + "-" + meta.subset], h5ad]}
 
-    ch_h5ad.branch{ meta, h5ad ->
+    ch_h5ad.branch{ meta, _h5ad ->
         has_neighbors: meta.integration == "bbknn"
         needs_neighbors: true
     }.set { ch_h5ad }

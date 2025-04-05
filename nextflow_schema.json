@@ -212,6 +212,20 @@
                 }
             }
         },
+        "tool_options": {
+            "title": "Tool options",
+            "type": "object",
+            "fa_icon": "fas fa-tools",
+            "description": "Options for various tools used in the pipeline.",
+            "properties": {
+                "celltypist_model": {
+                    "type": "string",
+                    "description": "Specify the models to use for the celltypist cell type annotation",
+                    "help_text": "If you want to use multiple models, separate them with a comma. Available models can be found [here](https://www.celltypist.org/models).",
+                    "pattern": "^([a-zA-Z0-9_]*(,[a-zA-Z0-9_]*)*)?$"
+                }
+            }
+        },
         "resource_options": {
             "title": "Resource options",
             "type": "object",
@@ -248,12 +262,6 @@
                 "skip_rankgenesgroups": {
                     "type": "boolean",
                     "description": "Skip the rank_genes_groups step. For large datasets, the pipeline might fail due to high memory usage in this step. Use this option to skip it."
-                },
-                "celltypist_model": {
-                    "type": "string",
-                    "description": "Specify the models to use for the celltypist cell type annotation",
-                    "help_text": "If you want to use multiple models, separate them with a comma. Available models can be found [here](https://www.celltypist.org/models).",
-                    "pattern": "^([a-zA-Z0-9_]*(,[a-zA-Z0-9_]*)*)?$"
                 },
                 "prep_cellxgene": {
                     "type": "boolean",
