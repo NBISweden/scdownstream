@@ -26,7 +26,7 @@ workflow AMBIENT_RNA_REMOVAL {
 
         CELLBENDER_MERGE(ch_pairing.map{ meta, filtered, raw -> [meta.id, meta, filtered, raw] }
             .join(CELLBENDER_REMOVEBACKGROUND.out.h5.map{ meta, h5 -> [meta.id, h5] }, by: 0, failOnMismatch: true)
-            .map{ id, meta, filtered, raw, h5 -> [meta, filtered, raw, h5] })
+            .map{ _id, meta, filtered, raw, h5 -> [meta, filtered, raw, h5] })
         ch_h5ad = CELLBENDER_MERGE.out.h5ad
         ch_versions = ch_versions.mix(CELLBENDER_MERGE.out.versions)
     }
