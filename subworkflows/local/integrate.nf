@@ -104,7 +104,7 @@ workflow INTEGRATE {
             error "scimilarity_model is required for scimilarity integration"
         }
 
-        ch_scimilarity_model = Channel.value([[id: 'scimilarity_model'], params.scimilarity_model])
+        ch_scimilarity_model = Channel.value([[id: 'scimilarity_model'], file(params.scimilarity_model, checkIfExists: true)])
         if (params.scimilarity_model.endsWith('.tar.gz')) {
             UNTAR(ch_scimilarity_model)
             ch_versions = ch_versions.mix(UNTAR.out.versions)
