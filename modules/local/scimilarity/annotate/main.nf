@@ -14,6 +14,7 @@ process SCIMILARITY_ANNOTATE {
 
     output:
     tuple val(meta), path("${prefix}.h5ad"), emit: h5ad
+    path("${prefix}.pkl")                  , emit: obs
     path "versions.yml"                    , emit: versions
 
     when:

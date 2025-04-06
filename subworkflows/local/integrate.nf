@@ -7,6 +7,7 @@ include { INTEGRATION_BBKNN  } from '../../modules/local/integration/bbknn'
 include { SCANPY_COMBAT      } from '../../modules/local/scanpy/combat'
 include { UNTAR              } from '../../modules/nf-core/untar'
 include { SCIMILARITY_EMBED  } from '../../modules/local/scimilarity/embed'
+include { SCIMILARITY_ANNOTATE } from '../../modules/local/scimilarity/annotate'
 include { SEURAT_INTEGRATION } from '../../modules/local/seurat/integration'
 include { ADATA_READRDS      } from '../../modules/local/adata/readrds'
 
@@ -118,6 +119,13 @@ workflow INTEGRATE {
         ch_versions = ch_versions.mix(SCIMILARITY_EMBED.out.versions)
         ch_integrations = ch_integrations.mix(SCIMILARITY_EMBED.out.h5ad)
         ch_obsm = ch_obsm.mix(SCIMILARITY_EMBED.out.obsm)
+
+        SCIMILARITY_ANNOTATE(
+            SCIMILARITY_EMBED.out.h5ad,
+            ch_scimilarity_model
+        )
+        ch_versions = ch_versions.mix(SCIMILARITY_ANNOTATE.out.versions)
+        ch_obs = ch_obs.mix(SCIMILARITY_ANNOTATE.out.obs)
     }
 
     emit:
