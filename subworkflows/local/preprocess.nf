@@ -28,14 +28,14 @@ workflow PREPROCESS {
     ch_sizes = Channel.empty()
 
     ch_files = ch_files.mix(ch_samples
-        .map { meta, filtered, unfiltered -> [meta + [type: 'filtered'], filtered] }
-        .filter { meta, filtered -> filtered }
+        .map { meta, filtered, _unfiltered -> [meta + [type: 'filtered'], filtered] }
+        .filter { _meta, filtered -> filtered }
     )
     ch_files = ch_files.mix(ch_samples
-        .map { meta, filtered, unfiltered -> [meta + [type: 'unfiltered'], unfiltered] }
-        .filter { meta, unfiltered -> unfiltered }
+        .map { meta, _filtered, unfiltered -> [meta + [type: 'unfiltered'], unfiltered] }
+        .filter { _meta, unfiltered -> unfiltered }
     )
-    ch_metas = ch_samples.map{ meta, filtered, unfiltered -> meta }
+    ch_metas = ch_samples.map{ meta, _filtered, _unfiltered -> meta }
 
     ch_files = ch_files.map { meta, file -> [meta, file, file.extension.toLowerCase()] }
         .branch { meta, file, ext ->
@@ -69,7 +69,7 @@ workflow PREPROCESS {
     ch_h5ad = ADATA_UNIFY.out.h5ad
     ch_versions = ch_versions.mix(ADATA_UNIFY.out.versions)
 
-    GET_UNFILTERED_SIZE(ch_h5ad.filter{ meta, h5ad -> meta.type == 'unfiltered' })
+    GET_UNFILTERED_SIZE(ch_h5ad.filter{ meta, _h5ad -> meta.type == 'unfiltered' })
     ch_versions = ch_versions.mix(GET_UNFILTERED_SIZE.out.versions)
     ch_sizes = ch_sizes.mix(GET_UNFILTERED_SIZE.out.txt
         .map{ meta, txt -> [meta.id, 'unfiltered', txt.text.toInteger()] })
@@ -78,15 +78,15 @@ workflow PREPROCESS {
 
     ch_samples = ch_metas.map{ meta -> [meta.id, meta]}
             .join(
-                ch_h5ad.filter { meta, h5ad -> meta.type == 'filtered' }
+                ch_h5ad.filter { meta, _h5ad -> meta.type == 'filtered' }
                 .map{ meta, filtered -> [meta.id, filtered]},
                 failOnMismatch: false, remainder: true
             )
             .join(ch_h5ad
-                .filter { meta, h5ad -> meta.type == 'unfiltered' }
+                .filter { meta, _h5ad -> meta.type == 'unfiltered' }
                 .map{ meta, unfiltered -> [meta.id, unfiltered]},
                 failOnMismatch: false, remainder: true)
-            .map{ id, meta, filtered, unfiltered -> [meta, filtered ?: [], unfiltered ?: []] }
+            .map{ _id, meta, filtered, unfiltered -> [meta, filtered ?: [], unfiltered ?: []] }
             .branch{ meta, filtered, unfiltered ->
                 complete: filtered
                     return [meta, filtered, unfiltered]
@@ -99,20 +99,20 @@ workflow PREPROCESS {
     ch_complete = ch_samples.complete
     ch_needs_filtering = ch_samples.needs_filtering
 
-    EMPTY_DROPLET_REMOVAL(ch_needs_filtering.map{ meta, filtered, unfiltered -> [meta, unfiltered] })
+    EMPTY_DROPLET_REMOVAL(ch_needs_filtering.map{ meta, _filtered, unfiltered -> [meta, unfiltered] })
     ch_versions = ch_versions.mix(EMPTY_DROPLET_REMOVAL.out.versions)
 
     ch_complete = ch_complete.mix(ch_needs_filtering
         .join(EMPTY_DROPLET_REMOVAL.out.h5ad)
-        .map{ meta, empty, unfiltered, filtered -> [meta, filtered, unfiltered] }
+        .map{ meta, _empty, unfiltered, filtered -> [meta, filtered, unfiltered] }
     )
 
-    GET_FILTERED_SIZE(ch_complete.map{ meta, filtered, unfiltered -> [meta, filtered] })
+    GET_FILTERED_SIZE(ch_complete.map{ meta, filtered, _unfiltered -> [meta, filtered] })
     ch_versions = ch_versions.mix(GET_FILTERED_SIZE.out.versions)
     ch_sizes = ch_sizes.mix(GET_FILTERED_SIZE.out.txt
         .map{ meta, txt -> [meta.id, 'filtered', txt.text.toInteger()] })
 
-    QC_RAW(ch_complete.map{ meta, filtered, unfiltered -> [meta, filtered] })
+    QC_RAW(ch_complete.map{ meta, filtered, _unfiltered -> [meta, filtered] })
     ch_multiqc_files = ch_multiqc_files.mix(QC_RAW.out.multiqc_files)
     ch_versions = ch_versions.mix(QC_RAW.out.versions)
 

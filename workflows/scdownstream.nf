@@ -28,7 +28,6 @@ workflow SCDOWNSTREAM {
     take:
     ch_samplesheet // channel: samplesheet read in from --input
     ch_base  // value channel: [ val(meta), path(h5ad) ]
-    ch_reference_model // value channel: [ val(meta), path(model) ]
 
     main:
 
@@ -65,7 +64,7 @@ workflow SCDOWNSTREAM {
             // Combine samples and perform integration
             //
 
-            COMBINE(ch_h5ad, ch_base, ch_reference_model)
+            COMBINE(ch_h5ad, ch_base)
             ch_versions      = ch_versions.mix(COMBINE.out.versions)
             ch_multiqc_files = ch_multiqc_files.mix(COMBINE.out.multiqc_files)
             ch_obs           = ch_obs.mix(COMBINE.out.obs)
@@ -86,7 +85,7 @@ workflow SCDOWNSTREAM {
         ch_versions = ch_versions.mix(ADATA_SPLITEMBEDDINGS.out.versions)
         ch_integrations = ch_integrations.mix(
             ADATA_SPLITEMBEDDINGS.out.h5ad
-                .map{meta, h5ads -> h5ads}
+                .map{_meta, h5ads -> h5ads}
                 .flatten()
                 .map{h5ad -> [[id: h5ad.simpleName, integration: h5ad.simpleName], h5ad]}
         )

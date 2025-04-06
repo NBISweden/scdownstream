@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 
 import os
+import shutil
 
 os.environ["NUMBA_CACHE_DIR"] = "./tmp/numba"
 
 import platform
-import anndata as ad
+import pandas as pd
 import scanpy as sc
-from scipy.sparse import csc_matrix
-import numpy as np
-import scipy as sp
+from scimilarity.utils import lognorm_counts, align_dataset
+from scimilarity import CellAnnotation
+import scimilarity
 
 def format_yaml_like(data: dict, indent: int = 0) -> str:
     """Formats a dictionary to a YAML-like string.
@@ -30,30 +31,27 @@ def format_yaml_like(data: dict, indent: int = 0) -> str:
             yaml_str += f"{spaces}{key}: {value}\\n"
     return yaml_str
 
-adata = ad.read_h5ad("${h5ad}")
+adata = sc.read_h5ad("${h5ad}")
+adata_raw = adata.copy()
 
-integration_methods = ["harmony", "scvi", "scanvi", "scimilarity", "seurat", "bbknn", "combat"]
+use_gpu = "${task.ext.use_gpu}" == "true"
+ca = CellAnnotation("${model}", use_gpu=use_gpu)
 
-for integration in integration_methods:
-    embedding_key = f"X_{integration}"
-    if embedding_key in adata.obsm.keys():
-        adata.obsm[integration] = adata.obsm.pop(embedding_key)
+predictions, nn_idxs, nn_dists, nn_stats = ca.get_predictions_knn(
+    adata.obsm["X_emb"]
+)
 
-for layer in adata.layers.keys():
-    adata.layers[layer] = csc_matrix(adata.layers[layer]).astype(np.float32)
-adata.X = csc_matrix(adata.X).astype(np.float32)
-sc.pp.log1p(adata)
+adata_raw.obs["annotation:scimilarity"] = predictions.values
 
-adata.write_h5ad("${prefix}.h5ad")
-
-# Versions
+# Write the output
+adata_raw.write_h5ad("${prefix}.h5ad")
+adata_raw.obs[["annotation:scimilarity"]].to_pickle("${prefix}.pkl")
 
 versions = {
     "${task.process}": {
         "python": platform.python_version(),
-        "anndata": ad.__version__,
-        "scipy": sp.__version__,
-        "numpy": np.__version__
+        "scimilarity": scimilarity.__version__,
+        "scanpy": sc.__version__,
     }
 }
 

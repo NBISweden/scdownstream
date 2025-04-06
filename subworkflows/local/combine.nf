@@ -8,7 +8,6 @@ workflow COMBINE {
     take:
     ch_h5ad // queue channel: [ val(meta), path(h5ad) ]
     ch_base  // value channel: [ val(meta), path(h5ad) ]
-    ch_reference_model // value channel: [ val(meta), path(model) ]
 
     main:
 
@@ -20,7 +19,7 @@ workflow COMBINE {
     ch_multiqc_files = Channel.empty()
 
     ADATA_MERGE(
-        ch_h5ad.map { meta, h5ad -> [[id: "merged"], h5ad] }.groupTuple(),
+        ch_h5ad.map { _meta, h5ad -> [[id: "merged"], h5ad] }.groupTuple(),
         ch_base
     )
     ch_var           = ADATA_MERGE.out.intersect_genes
@@ -31,16 +30,16 @@ workflow COMBINE {
     ch_versions      = ch_versions.mix(ADATA_UPSETGENES.out.versions)
     ch_multiqc_files = ch_multiqc_files.mix(ADATA_UPSETGENES.out.multiqc_files)
 
-    INTEGRATE( ADATA_MERGE.out.integrate, ch_reference_model )
+    INTEGRATE( ADATA_MERGE.out.integrate )
     ch_versions      = ch_versions.mix(INTEGRATE.out.versions)
 
     if (params.base_adata) {
         ADATA_MERGEEMBEDDINGS(
             INTEGRATE.out.integrations
             .combine(
-                ch_base.map{meta, base -> base}
+                ch_base.map{ _meta, base -> base }
             ).combine(
-                ADATA_MERGE.out.inner.map{meta, inner -> inner}
+                ADATA_MERGE.out.inner.map{ _meta, inner -> inner }
             )
         )
         ch_versions      = ch_versions.mix(ADATA_MERGEEMBEDDINGS.out.versions)
