@@ -32,7 +32,7 @@ def format_yaml_like(data: dict, indent: int = 0) -> str:
 
 adata = ad.read_h5ad("${h5ad}")
 
-integration_methods = ["harmony", "scvi", "scanvi", "seurat", "bbknn", "combat"]
+integration_methods = ["harmony", "scvi", "scanvi", "scimilarity", "seurat", "bbknn", "combat"]
 
 for integration in integration_methods:
     embedding_key = f"X_{integration}"
