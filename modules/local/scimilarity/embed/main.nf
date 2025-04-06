@@ -13,8 +13,9 @@ process SCIMILARITY_EMBED {
     tuple val(meta2), path(model)
 
     output:
-    tuple val(meta), path("${prefix}.h5ad")          , emit: h5ad
-    path "versions.yml"                              , emit: versions
+    tuple val(meta), path("${prefix}.h5ad"), emit: h5ad
+    path("X_${prefix}.pkl")                , emit: obsm
+    path "versions.yml"                    , emit: versions
 
     when:
     task.ext.when == null || task.ext.when

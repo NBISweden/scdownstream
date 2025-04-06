@@ -117,7 +117,7 @@ workflow INTEGRATE {
         )
         ch_versions = ch_versions.mix(SCIMILARITY_EMBED.out.versions)
         ch_integrations = ch_integrations.mix(SCIMILARITY_EMBED.out.h5ad)
-        //ch_obsm = ch_obsm.mix(SCIMILARITY_EMBED.out.obsm)
+        ch_obsm = ch_obsm.mix(SCIMILARITY_EMBED.out.obsm)
     }
 
     emit:
