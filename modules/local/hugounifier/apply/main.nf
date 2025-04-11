@@ -1,6 +1,6 @@
-process HUGOUNIFIER_GET {
+process HUGOUNIFIER_APPLY {
     tag "$meta.id"
-    label 'process_low'
+    label 'process_medium'
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
@@ -8,18 +8,17 @@ process HUGOUNIFIER_GET {
         'wave.seqera.io/wt/cef85d5ae444/wave/build:pip_hugo-unifier-0.2.3--4616eee88d40455b' }"
 
     input:
-    tuple val(meta), val(names), path(h5ads, stageAs: 'input/file_?.h5ad')
+    tuple val(meta), path(h5ad, arity: 1), path(changes, arity: 1)
 
     output:
-    tuple val(meta), path("${meta.id}/*.csv"), emit: changes
-    path("versions.yml")                     , emit: versions
+    tuple val(meta), path("${prefix}.h5ad"), emit: h5ad
+    path("versions.yml")                   , emit: versions
 
 
     script:
-    def namedFiles = [names, h5ads].transpose()
-    def input = namedFiles.collect { name, h5ad -> "-i ${name}:${h5ad}" }.join(' ')
+    prefix = task.ext.prefix ?: meta.id
     """
-    hugo-unifier get -o ${meta.id} ${input}
+    hugo-unifier apply -i ${h5ad} -c ${changes} -o ${prefix}.h5ad
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
