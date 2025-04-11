@@ -29,21 +29,6 @@ def format_yaml_like(data: dict, indent: int = 0) -> str:
             yaml_str += f"{spaces}{key}: {value}\\n"
     return yaml_str
 
-# Function borrowed from https://github.com/icbi-lab/luca/blob/5ffb0a4671e9c288b10e73de18d447ee176bef1d/lib/scanpy_helper_submodule/scanpy_helpers/util.py#L122C1-L135C21
-def aggregate_duplicate_var(adata, aggr_fun=np.mean):
-    retain_var = ~adata.var_names.duplicated(keep="first")
-    duplicated_var = adata.var_names[adata.var_names.duplicated()].unique()
-    if len(duplicated_var):
-        for var in duplicated_var:
-            mask = adata.var_names == var
-            var_aggr = aggr_fun(adata.X[:, mask], axis=1)[:, np.newaxis]
-            adata.X[:, mask] = np.repeat(var_aggr, np.sum(mask), axis=1)
-
-        adata_dedup = adata[:, retain_var].copy()
-        return adata_dedup
-    else:
-        return adata
-
 def to_Florent_case(s: str):
     corrected = s.lower().strip()
 
@@ -85,6 +70,9 @@ adata.X = csr_matrix(adata.X.astype(np.float32))
 # Prevent duplicate cells
 adata.obs_names_make_unique()
 adata.obs_names = "${meta.id}_" + adata.obs_names
+
+# Prevent duplicate genes
+adata.var_names_make_unique()
 
 # Remove all obsm, varm, uns and layers
 adata.obsm = {}
@@ -136,29 +124,10 @@ adata.obs["label"] = adata.obs["label"].astype("category")
 
 # Unify gene symbols
 symbol_col = "${meta.symbol_col ?: 'index'}"
-unify_gene_symbols = "${unify_gene_symbols}" == "true"
 
 if symbol_col not in ["index", "none"]:
     adata.var.index = adata.var[symbol_col]
     del adata.var[symbol_col]
-
-if unify_gene_symbols or symbol_col == "none":
-    import mygene
-
-    mg = mygene.MyGeneInfo()
-    df_genes = mg.querymany(adata.var.index,
-        scopes=["symbol", "entrezgene", "ensemblgene"],
-        fields="symbol", species="human", as_dataframe=True)
-    mapping = df_genes["symbol"].dropna().to_dict()
-
-    adata.var.index = adata.var.index.map(lambda x: mapping.get(x, x))
-
-# Aggregate duplicate genes
-method = "${params.var_aggr_method}"
-if not method in ["mean", "sum", "max"]:
-    raise ValueError(f"Invalid aggregation method: {method}")
-
-adata = aggregate_duplicate_var(adata, aggr_fun=getattr(np, method))
 
 # Add "sample" column
 if "sample" in adata.obs and not adata.obs["sample"].equals("${meta.id}"):

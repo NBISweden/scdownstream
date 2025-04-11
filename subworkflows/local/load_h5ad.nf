@@ -22,8 +22,6 @@ workflow LOAD_H5AD {
 
     ch_files = ch_files.map { meta, file -> [meta, file, file.extension.toLowerCase()] }
         .branch { meta, file, ext ->
-            unified: ext == "h5ad" && meta.unified == true
-                return [meta, file]
             h5ad: ext == "h5ad"
                 return [meta, file]
             h5: ext == "h5"
@@ -50,6 +48,5 @@ workflow LOAD_H5AD {
 
     emit:
     h5ad = ch_h5ad
-    unified = ch_files.unified
     versions = ch_versions
 }

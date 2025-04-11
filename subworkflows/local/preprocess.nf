@@ -1,4 +1,5 @@
 include { LOAD_H5AD                             } from './load_h5ad'
+include { UNIFY_GENES                           } from './unify_genes'
 include { EMPTY_DROPLET_REMOVAL                 } from './empty_droplet_removal'
 include { ADATA_UNIFY                           } from '../../modules/local/adata/unify'
 include { ADATA_GETSIZE as GET_UNFILTERED_SIZE  } from '../../modules/local/adata/getsize'
@@ -29,16 +30,20 @@ workflow PREPROCESS {
     ch_h5ad = LOAD_H5AD.out.h5ad
     ch_versions = ch_versions.mix(LOAD_H5AD.out.versions)
 
-    ADATA_UNIFY(ch_h5ad)
-    ch_h5ad = ADATA_UNIFY.out.h5ad
+    ch_h5ad = ch_h5ad.branch{ meta, _h5ad ->
+        unified: meta.unified == true
+            return [meta, _h5ad]
+        needs_unify: true
+            return [meta, _h5ad]}
+
+    ADATA_UNIFY(ch_h5ad.needs_unify)
+    ch_h5ad = ADATA_UNIFY.out.h5ad.mix(ch_h5ad.unified)
     ch_versions = ch_versions.mix(ADATA_UNIFY.out.versions)
 
     GET_UNFILTERED_SIZE(ch_h5ad.filter{ meta, _h5ad -> meta.type == 'unfiltered' })
     ch_versions = ch_versions.mix(GET_UNFILTERED_SIZE.out.versions)
     ch_sizes = ch_sizes.mix(GET_UNFILTERED_SIZE.out.txt
         .map{ meta, txt -> [meta.id, 'unfiltered', txt.text.toInteger()] })
-
-    ch_h5ad = ch_h5ad.mix(LOAD_H5AD.unified)
 
     ch_samples = ch_metas.map{ meta -> [meta.id, meta]}
             .join(
@@ -117,6 +122,12 @@ workflow PREPROCESS {
     COLLECT_SIZES(ch_sizes)
     ch_versions = ch_versions.mix(COLLECT_SIZES.out.versions)
     ch_multiqc_files = ch_multiqc_files.mix(COLLECT_SIZES.out.multiqc_files)
+
+    if (params.unify_gene_symbols) {
+        UNIFY_GENES(ch_h5ad)
+        ch_h5ad = UNIFY_GENES.out.h5ad
+        ch_versions = ch_versions.mix(UNIFY_GENES.out.versions)
+    }
 
     emit:
     h5ad          = ch_h5ad
