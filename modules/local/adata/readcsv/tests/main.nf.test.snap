@@ -30,17 +30,17 @@
             "nf-test": "0.9.0",
             "nextflow": "24.04.4"
         },
-        "timestamp": "2025-04-11T20:19:57.163588817"
+        "timestamp": "2025-04-11T20:37:51.229408688"
     },
     "Should run without failures - stub": {
         "content": [
             {
                 "0": [
                     [
-                        [
-                            
-                        ],
-                        "[].h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
+                        {
+                            "id": "test"
+                        },
+                        "test.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
                 ],
                 "1": [
@@ -48,10 +48,10 @@
                 ],
                 "h5ad": [
                     [
-                        [
-                            
-                        ],
-                        "[].h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
+                        {
+                            "id": "test"
+                        },
+                        "test.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
                 ],
                 "versions": [
@@ -63,17 +63,17 @@
             "nf-test": "0.9.0",
             "nextflow": "24.04.4"
         },
-        "timestamp": "2025-04-11T20:19:42.881705859"
+        "timestamp": "2025-04-11T20:37:36.542121428"
     },
     "Should run without failures": {
         "content": [
             {
                 "0": [
                     [
-                        [
-                            
-                        ],
-                        "[].h5ad:md5,7fadbc3f846b876a51cf1126f493d09a"
+                        {
+                            "id": "test"
+                        },
+                        "test.h5ad:md5,7fadbc3f846b876a51cf1126f493d09a"
                     ]
                 ],
                 "1": [
@@ -81,10 +81,10 @@
                 ],
                 "h5ad": [
                     [
-                        [
-                            
-                        ],
-                        "[].h5ad:md5,7fadbc3f846b876a51cf1126f493d09a"
+                        {
+                            "id": "test"
+                        },
+                        "test.h5ad:md5,7fadbc3f846b876a51cf1126f493d09a"
                     ]
                 ],
                 "versions": [
@@ -96,7 +96,7 @@
             "nf-test": "0.9.0",
             "nextflow": "24.04.4"
         },
-        "timestamp": "2025-04-11T20:19:12.76514168"
+        "timestamp": "2025-04-11T20:37:06.579272397"
     },
     "Should run without failures - prefix": {
         "content": [
@@ -129,6 +129,6 @@
             "nf-test": "0.9.0",
             "nextflow": "24.04.4"
         },
-        "timestamp": "2025-04-11T20:19:28.034308281"
+        "timestamp": "2025-04-11T20:37:22.253375467"
     }
 }

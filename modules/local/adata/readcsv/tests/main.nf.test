@@ -16,7 +16,7 @@ nextflow_process {
             process {
                 """
                 input[0] = Channel.of([
-                        [],
+                        [ id: 'test' ],
                         file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_processed.csv', checkIfExists: true)
                     ]
                 )
@@ -72,7 +72,7 @@ nextflow_process {
             process {
                 """
                 input[0] = Channel.of([
-                        [],
+                        [ id: 'test' ],
                         file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_processed.csv', checkIfExists: true)
                     ]
                 )
