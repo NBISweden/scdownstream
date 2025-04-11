@@ -4,6 +4,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
+include { LOAD_H5AD              } from '../subworkflows/local/load_h5ad'
 include { PREPROCESS             } from '../subworkflows/local/preprocess'
 include { CELLTYPE_ASSIGNMENT    } from '../subworkflows/local/celltype_assignment'
 include { COMBINE                } from '../subworkflows/local/combine'
@@ -43,10 +44,18 @@ workflow SCDOWNSTREAM {
 
     if (params.input) {
         //
+        // Load/Convert input to h5ad
+        //
+
+        LOAD_H5AD(ch_samplesheet)
+        ch_h5ad = LOAD_H5AD.out.h5ad
+        ch_versions = ch_versions.mix(LOAD_H5AD.out.versions)
+
+        //
         // Per-sample preprocessing
         //
 
-        PREPROCESS(ch_samplesheet)
+        PREPROCESS(ch_h5ad, ch_samplesheet.map{ meta, _h5ad -> meta })
         ch_versions = ch_versions.mix(PREPROCESS.out.versions)
         ch_multiqc_files = ch_multiqc_files.mix(PREPROCESS.out.multiqc_files)
         ch_h5ad = PREPROCESS.out.h5ad

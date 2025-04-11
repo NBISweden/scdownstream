@@ -1,7 +1,5 @@
-include { LOAD_H5AD                             } from './load_h5ad'
 include { UNIFY_GENES                           } from './unify_genes'
 include { EMPTY_DROPLET_REMOVAL                 } from './empty_droplet_removal'
-include { ADATA_UNIFY                           } from '../../modules/local/adata/unify'
 include { ADATA_GETSIZE as GET_UNFILTERED_SIZE  } from '../../modules/local/adata/getsize'
 include { ADATA_GETSIZE as GET_FILTERED_SIZE    } from '../../modules/local/adata/getsize'
 include { ADATA_GETSIZE as GET_THRESHOLDED_SIZE } from '../../modules/local/adata/getsize'
@@ -16,7 +14,8 @@ include { CUSTOM_COLLECTSIZES as COLLECT_SIZES  } from '../../modules/local/cust
 workflow PREPROCESS {
 
     take:
-    ch_samples // channel: [ val(meta), file ]
+    ch_h5ad // channel: [ val(meta), file ]
+    ch_samples // channel: [ val(meta) ]
 
     main:
 
@@ -24,28 +23,12 @@ workflow PREPROCESS {
     ch_multiqc_files = Channel.empty()
     ch_sizes = Channel.empty()
 
-    ch_metas = ch_samples.map{ meta, _filtered, _unfiltered -> meta }
-
-    LOAD_H5AD(ch_samples)
-    ch_h5ad = LOAD_H5AD.out.h5ad
-    ch_versions = ch_versions.mix(LOAD_H5AD.out.versions)
-
-    ch_h5ad = ch_h5ad.branch{ meta, _h5ad ->
-        unified: meta.unified == true
-            return [meta, _h5ad]
-        needs_unify: true
-            return [meta, _h5ad]}
-
-    ADATA_UNIFY(ch_h5ad.needs_unify)
-    ch_h5ad = ADATA_UNIFY.out.h5ad.mix(ch_h5ad.unified)
-    ch_versions = ch_versions.mix(ADATA_UNIFY.out.versions)
-
     GET_UNFILTERED_SIZE(ch_h5ad.filter{ meta, _h5ad -> meta.type == 'unfiltered' })
     ch_versions = ch_versions.mix(GET_UNFILTERED_SIZE.out.versions)
     ch_sizes = ch_sizes.mix(GET_UNFILTERED_SIZE.out.txt
         .map{ meta, txt -> [meta.id, 'unfiltered', txt.text.toInteger()] })
 
-    ch_samples = ch_metas.map{ meta -> [meta.id, meta]}
+    ch_samples = ch_samples.map{ meta -> [meta.id, meta]}
             .join(
                 ch_h5ad.filter { meta, _h5ad -> meta.type == 'filtered' }
                 .map{ meta, filtered -> [meta.id, filtered]},
