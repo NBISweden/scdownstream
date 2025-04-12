@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 
+import os
+import platform
+
+os.environ["NUMBA_CACHE_DIR"] = "./tmp/numba"
+
 import scanpy
 import anndata2ri
 import rpy2
 import rpy2.robjects as ro
-import platform
 soupx = ro.packages.importr('SoupX')
 
 def format_yaml_like(data: dict, indent: int = 0) -> str:
