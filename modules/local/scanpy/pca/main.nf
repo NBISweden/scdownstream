@@ -21,6 +21,9 @@ process SCANPY_PCA {
     script:
     prefix = task.ext.prefix ?: "${meta.id}"
     args = task.ext.args ?: ""
+
+    if ("${prefix}.h5ad" == "${h5ad}")
+        error "Input and output names are the same, use \"task.ext.prefix\" to disambiguate!"
     """
     scanpy-cli pp pca -i ${h5ad} -o ${prefix}.h5ad --embedding-output ${prefix}.pkl ${args}
 
