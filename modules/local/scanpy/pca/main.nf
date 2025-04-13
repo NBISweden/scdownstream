@@ -4,15 +4,14 @@ process SCANPY_PCA {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'oras://community.wave.seqera.io/library/pip_scanpy-cli:a15ba86fec3c8ea8':
-        'wave.seqera.io/wt/5c36b639fa1d/wave/build:pip_scanpy-cli-0.2.0--ad9d0103a18eb835' }"
+        'oras://community.wave.seqera.io/library/scanpy-cli:0.1.6--6ce8e193a0ecbf8a':
+        'community.wave.seqera.io/library/scanpy-cli:0.1.6--f0a9e6aaa5c7abbd' }"
 
     input:
     tuple val(meta), path(h5ad)
 
     output:
     tuple val(meta), path("*.h5ad"), emit: h5ad
-    path "*.pkl"                   , emit: obsm
     path "versions.yml"            , emit: versions
 
     when:
@@ -25,7 +24,8 @@ process SCANPY_PCA {
     if ("${prefix}.h5ad" == "${h5ad}")
         error "Input and output names are the same, use \"task.ext.prefix\" to disambiguate!"
     """
-    scanpy-cli pp pca -i ${h5ad} -o ${prefix}.h5ad --embedding-output ${prefix}.pkl ${args}
+    export NUMBA_CACHE_DIR=./tmp
+    scanpy-cli pp pca -i ${h5ad} -o ${prefix}.h5ad ${args}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -34,9 +34,9 @@ process SCANPY_PCA {
     """
 
     stub:
-    """"
+    prefix = task.ext.prefix ?: "${meta.id}"
+    """
     touch ${prefix}.h5ad
-    touch ${prefix}.pkl
     touch versions.yml
     """
 }
