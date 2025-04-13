@@ -52,7 +52,7 @@ workflow SCDOWNSTREAM {
         ch_versions = ch_versions.mix(LOAD_H5AD.out.versions)
 
         //
-        // Per-sample preprocessing
+        // Quality control per sample
         //
 
         QUALITY_CONTROL(ch_h5ad)
