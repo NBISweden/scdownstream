@@ -4,8 +4,8 @@ process ADATA_GETSIZE {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'oras://community.wave.seqera.io/library/anndata:0.11.1--426fb199a9be8838':
-        'community.wave.seqera.io/library/anndata:0.11.1--75463acd25743929' }"
+        'oras://community.wave.seqera.io/library/anndata_pyyaml:5f82ece6392dc30c':
+        'community.wave.seqera.io/library/anndata_pyyaml:b30e03a395613673' }"
 
     input:
     tuple val(meta), path(h5ad)
@@ -20,4 +20,11 @@ process ADATA_GETSIZE {
     script:
     prefix = task.ext.prefix ?: "${meta.id}"
     template 'getsize.py'
+
+    stub:
+    prefix = task.ext.prefix ?: "${meta.id}"
+    """
+    touch ${prefix}.txt
+    touch versions.yml
+    """
 }
