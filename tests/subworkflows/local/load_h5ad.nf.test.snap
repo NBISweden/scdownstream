@@ -5,21 +5,24 @@
                 "0": [
                     [
                         {
-                            "id": "SAMN14430799"
+                            "id": "SAMN14430799",
+                            "batch_col": "batch"
                         },
                         "/nf-core/test-datasets/42be2e94124cdda7f6ae5a493c9759f7daaf379c/samples/SAMN14430799_raw_matrix.h5ad",
                         "/nf-core/test-datasets/42be2e94124cdda7f6ae5a493c9759f7daaf379c/samples/SAMN14430799_custom_emptydrops_filter_matrix.h5ad"
                     ],
                     [
                         {
-                            "id": "SAMN14430801"
+                            "id": "SAMN14430801",
+                            "batch_col": "batch"
                         },
                         "SAMN14430801.h5ad:md5,1b39e5d15aaa307a9724fa5443020d29",
                         "SAMN14430801.h5ad:md5,020d50a8f51b43784efadb0c628456e0"
                     ],
                     [
                         {
-                            "id": "csv"
+                            "id": "csv",
+                            "batch_col": "batch"
                         },
                         "csv.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e",
                         [
@@ -28,7 +31,8 @@
                     ],
                     [
                         {
-                            "id": "h5"
+                            "id": "h5",
+                            "batch_col": "batch"
                         },
                         "h5.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e",
                         [
@@ -45,21 +49,24 @@
                 "h5ad": [
                     [
                         {
-                            "id": "SAMN14430799"
+                            "id": "SAMN14430799",
+                            "batch_col": "batch"
                         },
                         "/nf-core/test-datasets/42be2e94124cdda7f6ae5a493c9759f7daaf379c/samples/SAMN14430799_raw_matrix.h5ad",
                         "/nf-core/test-datasets/42be2e94124cdda7f6ae5a493c9759f7daaf379c/samples/SAMN14430799_custom_emptydrops_filter_matrix.h5ad"
                     ],
                     [
                         {
-                            "id": "SAMN14430801"
+                            "id": "SAMN14430801",
+                            "batch_col": "batch"
                         },
                         "SAMN14430801.h5ad:md5,1b39e5d15aaa307a9724fa5443020d29",
                         "SAMN14430801.h5ad:md5,020d50a8f51b43784efadb0c628456e0"
                     ],
                     [
                         {
-                            "id": "csv"
+                            "id": "csv",
+                            "batch_col": "batch"
                         },
                         "csv.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e",
                         [
@@ -68,7 +75,8 @@
                     ],
                     [
                         {
-                            "id": "h5"
+                            "id": "h5",
+                            "batch_col": "batch"
                         },
                         "h5.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e",
                         [
@@ -88,7 +96,7 @@
             "nf-test": "0.9.0",
             "nextflow": "24.04.4"
         },
-        "timestamp": "2025-04-13T17:47:08.852789594"
+        "timestamp": "2025-04-13T18:24:50.712531526"
     },
     "Should run without failures": {
         "content": [
@@ -96,21 +104,24 @@
                 "0": [
                     [
                         {
-                            "id": "SAMN14430799"
+                            "id": "SAMN14430799",
+                            "batch_col": "batch"
                         },
                         "/nf-core/test-datasets/42be2e94124cdda7f6ae5a493c9759f7daaf379c/samples/SAMN14430799_raw_matrix.h5ad",
                         "/nf-core/test-datasets/42be2e94124cdda7f6ae5a493c9759f7daaf379c/samples/SAMN14430799_custom_emptydrops_filter_matrix.h5ad"
                     ],
                     [
                         {
-                            "id": "SAMN14430801"
+                            "id": "SAMN14430801",
+                            "batch_col": "batch"
                         },
                         "SAMN14430801.h5ad:md5,1b39e5d15aaa307a9724fa5443020d29",
                         "SAMN14430801.h5ad:md5,020d50a8f51b43784efadb0c628456e0"
                     ],
                     [
                         {
-                            "id": "csv"
+                            "id": "csv",
+                            "batch_col": "batch"
                         },
                         "csv.h5ad:md5,7fadbc3f846b876a51cf1126f493d09a",
                         [
@@ -119,7 +130,8 @@
                     ],
                     [
                         {
-                            "id": "h5"
+                            "id": "h5",
+                            "batch_col": "batch"
                         },
                         "h5.h5ad:md5,21c4adb5fe4d572d55059833c8c8cb60",
                         [
@@ -136,21 +148,24 @@
                 "h5ad": [
                     [
                         {
-                            "id": "SAMN14430799"
+                            "id": "SAMN14430799",
+                            "batch_col": "batch"
                         },
                         "/nf-core/test-datasets/42be2e94124cdda7f6ae5a493c9759f7daaf379c/samples/SAMN14430799_raw_matrix.h5ad",
                         "/nf-core/test-datasets/42be2e94124cdda7f6ae5a493c9759f7daaf379c/samples/SAMN14430799_custom_emptydrops_filter_matrix.h5ad"
                     ],
                     [
                         {
-                            "id": "SAMN14430801"
+                            "id": "SAMN14430801",
+                            "batch_col": "batch"
                         },
                         "SAMN14430801.h5ad:md5,1b39e5d15aaa307a9724fa5443020d29",
                         "SAMN14430801.h5ad:md5,020d50a8f51b43784efadb0c628456e0"
                     ],
                     [
                         {
-                            "id": "csv"
+                            "id": "csv",
+                            "batch_col": "batch"
                         },
                         "csv.h5ad:md5,7fadbc3f846b876a51cf1126f493d09a",
                         [
@@ -159,7 +174,8 @@
                     ],
                     [
                         {
-                            "id": "h5"
+                            "id": "h5",
+                            "batch_col": "batch"
                         },
                         "h5.h5ad:md5,21c4adb5fe4d572d55059833c8c8cb60",
                         [
@@ -179,6 +195,6 @@
             "nf-test": "0.9.0",
             "nextflow": "24.04.4"
         },
-        "timestamp": "2025-04-13T17:44:30.215771925"
+        "timestamp": "2025-04-13T18:24:04.81237548"
     }
 }
