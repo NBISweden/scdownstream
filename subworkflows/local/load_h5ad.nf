@@ -46,7 +46,20 @@ workflow LOAD_H5AD {
     ch_h5ad = ch_h5ad.mix(ADATA_READCSV.out.h5ad)
     ch_versions = ch_versions.mix(ADATA_READCSV.out.versions)
 
+    ch_output = ch_samples.map{ meta, _filtered, _unfiltered -> [meta.id, meta]}
+        .join(
+            ch_h5ad.filter { meta, _h5ad -> meta.type == 'filtered' }
+            .map{ meta, filtered -> [meta.id, filtered]},
+                failOnMismatch: false, remainder: true
+        )
+        .join(ch_h5ad
+            .filter { meta, _h5ad -> meta.type == 'unfiltered' }
+            .map{ meta, unfiltered -> [meta.id, unfiltered]},
+                failOnMismatch: false, remainder: true)
+        .map{ _id, meta, filtered, unfiltered -> [meta, filtered ?: [], unfiltered ?: []] }
+
     emit:
-    h5ad = ch_h5ad
+    h5ad = ch_output
+
     versions = ch_versions
 }

@@ -5,7 +5,7 @@
 */
 
 include { LOAD_H5AD              } from '../subworkflows/local/load_h5ad'
-include { PREPROCESS             } from '../subworkflows/local/preprocess'
+include { QUALITY_CONTROL        } from '../subworkflows/local/quality_control'
 include { CELLTYPE_ASSIGNMENT    } from '../subworkflows/local/celltype_assignment'
 include { COMBINE                } from '../subworkflows/local/combine'
 include { ADATA_SPLITEMBEDDINGS  } from '../modules/local/adata/splitembeddings'
@@ -55,10 +55,10 @@ workflow SCDOWNSTREAM {
         // Per-sample preprocessing
         //
 
-        PREPROCESS(ch_h5ad, ch_samplesheet.map{ meta, _h5ad -> meta })
-        ch_versions = ch_versions.mix(PREPROCESS.out.versions)
-        ch_multiqc_files = ch_multiqc_files.mix(PREPROCESS.out.multiqc_files)
-        ch_h5ad = PREPROCESS.out.h5ad
+        QUALITY_CONTROL(ch_h5ad)
+        ch_versions = ch_versions.mix(QUALITY_CONTROL.out.versions)
+        ch_multiqc_files = ch_multiqc_files.mix(QUALITY_CONTROL.out.multiqc_files)
+        ch_h5ad = QUALITY_CONTROL.out.h5ad
 
         //
         // Perform automated celltype assignment

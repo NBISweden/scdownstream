@@ -11,11 +11,10 @@ include { DOUBLET_DETECTION                     } from './doublet_detection'
 include { SCANPY_PLOTQC as QC_FILTERED          } from '../../modules/local/scanpy/plotqc'
 include { CUSTOM_COLLECTSIZES as COLLECT_SIZES  } from '../../modules/local/custom/collectsizes'
 
-workflow PREPROCESS {
+workflow QUALITY_CONTROL {
 
     take:
-    ch_h5ad // channel: [ val(meta), file ]
-    ch_samples // channel: [ val(meta) ]
+    ch_h5ad // channel: [ val(meta), filtered, unfiltered ]
 
     main:
 
@@ -28,17 +27,7 @@ workflow PREPROCESS {
     ch_sizes = ch_sizes.mix(GET_UNFILTERED_SIZE.out.txt
         .map{ meta, txt -> [meta.id, 'unfiltered', txt.text.toInteger()] })
 
-    ch_samples = ch_samples.map{ meta -> [meta.id, meta]}
-            .join(
-                ch_h5ad.filter { meta, _h5ad -> meta.type == 'filtered' }
-                .map{ meta, filtered -> [meta.id, filtered]},
-                failOnMismatch: false, remainder: true
-            )
-            .join(ch_h5ad
-                .filter { meta, _h5ad -> meta.type == 'unfiltered' }
-                .map{ meta, unfiltered -> [meta.id, unfiltered]},
-                failOnMismatch: false, remainder: true)
-            .map{ _id, meta, filtered, unfiltered -> [meta, filtered ?: [], unfiltered ?: []] }
+    ch_h5ad = ch_h5ad
             .branch{ meta, filtered, unfiltered ->
                 complete: filtered
                     return [meta, filtered, unfiltered]
@@ -48,8 +37,8 @@ workflow PREPROCESS {
                     return [meta, filtered, unfiltered]
             }
 
-    ch_complete = ch_samples.complete
-    ch_needs_filtering = ch_samples.needs_filtering
+    ch_complete = ch_h5ad.complete
+    ch_needs_filtering = ch_h5ad.needs_filtering
 
     EMPTY_DROPLET_REMOVAL(ch_needs_filtering.map{ meta, _filtered, unfiltered -> [meta, unfiltered] })
     ch_versions = ch_versions.mix(EMPTY_DROPLET_REMOVAL.out.versions)
