@@ -14,8 +14,8 @@ workflow DOUBLET_DETECTION {
     ch_multiqc_files = Channel.empty()
     ch_predictions = Channel.empty()
 
-    if (params.doublet_detection == 'none') {
-        log.info("DOUBLET_DETECTION: Not performed since 'none' selected.")
+    if (!params.doublet_detection || params.doublet_detection == 'none') {
+        log.info("DOUBLET_DETECTION: Not performed since none selected.")
     }
     else {
         methods = params.doublet_detection.split(',').collect { it.trim().toLowerCase() }
