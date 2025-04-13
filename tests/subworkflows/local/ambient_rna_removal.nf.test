@@ -32,14 +32,14 @@ nextflow_workflow {
 
     }
 
-    test("Should run with 'decontx' ambient removal") {
+    test("Should fail with unknown ambient removal method") {
 
         config './ambient_rna_removal.config'
 
         when {
             params {
                 outdir = "$outputDir"
-                ambient_removal = 'decontx'
+                ambient_removal = 'test'
             }
             workflow {
                 """
@@ -54,20 +54,19 @@ nextflow_workflow {
         }
 
         then {
-            assert workflow.success
-            assert snapshot(workflow.out).match()
+            assert !workflow.success
         }
 
     }
 
-    test("Should run with 'cellbender' ambient removal") {
+    test("Should run with 'decontx' ambient removal") {
 
         config './ambient_rna_removal.config'
 
         when {
             params {
                 outdir = "$outputDir"
-                ambient_removal = 'cellbender'
+                ambient_removal = 'decontx'
             }
             workflow {
                 """
@@ -144,14 +143,14 @@ nextflow_workflow {
 
     }
 
-    test("Should fail with unknown ambient removal method") {
+    test("Should run with 'cellbender' ambient removal") {
 
         config './ambient_rna_removal.config'
 
         when {
             params {
                 outdir = "$outputDir"
-                ambient_removal = 'test'
+                ambient_removal = 'cellbender'
             }
             workflow {
                 """
@@ -166,7 +165,8 @@ nextflow_workflow {
         }
 
         then {
-            assert workflow.failure
+            assert workflow.success
+            assert snapshot(workflow.out).match()
         }
 
     }
