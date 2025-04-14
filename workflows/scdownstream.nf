@@ -8,6 +8,7 @@ include { LOAD_H5AD              } from '../subworkflows/local/load_h5ad'
 include { QUALITY_CONTROL        } from '../subworkflows/local/quality_control'
 include { UNIFY                  } from '../subworkflows/local/unify'
 include { CELLTYPE_ASSIGNMENT    } from '../subworkflows/local/celltype_assignment'
+include { ADATA_MERGE            } from '../../modules/local/adata/merge'
 include { COMBINE                } from '../subworkflows/local/combine'
 include { ADATA_SPLITEMBEDDINGS  } from '../modules/local/adata/splitembeddings'
 include { CLUSTER                } from '../subworkflows/local/cluster'
@@ -26,10 +27,9 @@ include { methodsDescriptionText } from '../subworkflows/local/utils_nfcore_scdo
 */
 
 workflow SCDOWNSTREAM {
-
     take:
     ch_samplesheet // channel: samplesheet read in from --input
-    ch_base  // value channel: [ val(meta), path(h5ad) ]
+    ch_base        // value channel: [ val(meta), path(h5ad) ]
 
     main:
 
@@ -75,34 +75,40 @@ workflow SCDOWNSTREAM {
             ch_multiqc_files = ch_multiqc_files.mix(UNIFY.out.multiqc_files)
             ch_h5ad = UNIFY.out.h5ad
 
+            ADATA_MERGE(
+                ch_h5ad.map { _meta, h5ad -> [[id: "merged"], h5ad] }.groupTuple(),
+                ch_base,
+            )
+            ch_var = ch_var.mix(ADATA_MERGE.out.intersect_genes)
+            ch_outer = ADATA_MERGE.out.outer
+            ch_versions = ch_versions.mix(ADATA_MERGE.out.versions)
+
             //
             // Combine samples and perform integration
             //
 
             COMBINE(ch_h5ad, ch_base)
-            ch_versions      = ch_versions.mix(COMBINE.out.versions)
+            ch_versions = ch_versions.mix(COMBINE.out.versions)
             ch_multiqc_files = ch_multiqc_files.mix(COMBINE.out.multiqc_files)
-            ch_obs           = ch_obs.mix(COMBINE.out.obs)
-            ch_var           = ch_var.mix(COMBINE.out.var)
-            ch_obsm          = ch_obsm.mix(COMBINE.out.obsm)
-            ch_layers        = ch_layers.mix(COMBINE.out.layers)
-            ch_integrations  = ch_integrations.mix(COMBINE.out.integrations)
+            ch_obs = ch_obs.mix(COMBINE.out.obs)
+            ch_var = ch_var.mix(COMBINE.out.var)
+            ch_obsm = ch_obsm.mix(COMBINE.out.obsm)
+            ch_layers = ch_layers.mix(COMBINE.out.layers)
+            ch_integrations = ch_integrations.mix(COMBINE.out.integrations)
 
             ch_finalization_base = COMBINE.out.h5ad
         }
 
         ch_label_grouping = COMBINE.out.h5ad_inner
         grouping_col = "label"
-    } else {
-        ch_embeddings = Channel.value(params.base_embeddings.split(',').collect{it.trim()})
+    }
+    else {
+        ch_embeddings = Channel.value(params.base_embeddings.split(',').collect { it.trim() })
 
         ADATA_SPLITEMBEDDINGS(ch_base, ch_embeddings)
         ch_versions = ch_versions.mix(ADATA_SPLITEMBEDDINGS.out.versions)
         ch_integrations = ch_integrations.mix(
-            ADATA_SPLITEMBEDDINGS.out.h5ad
-                .map{_meta, h5ads -> h5ads}
-                .flatten()
-                .map{h5ad -> [[id: h5ad.simpleName, integration: h5ad.simpleName], h5ad]}
+            ADATA_SPLITEMBEDDINGS.out.h5ad.map { _meta, h5ads -> h5ads }.flatten().map { h5ad -> [[id: h5ad.simpleName, integration: h5ad.simpleName], h5ad] }
         )
 
         ch_finalization_base = ch_base
@@ -124,9 +130,9 @@ workflow SCDOWNSTREAM {
         ch_multiqc_files = ch_multiqc_files.mix(CLUSTER.out.multiqc_files)
 
         PER_GROUP(
-            CLUSTER.out.h5ad_clustering.map{meta, h5ad -> [meta + [obs_key: "${meta.id}_leiden"], h5ad]},
-            CLUSTER.out.h5ad_neighbors.map{meta, h5ad -> [meta + [obs_key: grouping_col], h5ad]},
-            ch_label_grouping.map{meta, h5ad -> [meta + [obs_key: grouping_col], h5ad]}
+            CLUSTER.out.h5ad_clustering.map { meta, h5ad -> [meta + [obs_key: "${meta.id}_leiden"], h5ad] },
+            CLUSTER.out.h5ad_neighbors.map { meta, h5ad -> [meta + [obs_key: grouping_col], h5ad] },
+            ch_label_grouping.map { meta, h5ad -> [meta + [obs_key: grouping_col], h5ad] },
         )
         ch_versions = ch_versions.mix(PER_GROUP.out.versions)
         ch_uns = ch_uns.mix(PER_GROUP.out.uns)
@@ -142,59 +148,60 @@ workflow SCDOWNSTREAM {
     softwareVersionsToYAML(ch_versions)
         .collectFile(
             storeDir: "${params.outdir}/pipeline_info",
-            name: 'nf_core_'  +  'scdownstream_software_'  + 'mqc_'  + 'versions.yml',
+            name: 'nf_core_' + 'scdownstream_software_' + 'mqc_' + 'versions.yml',
             sort: true,
-            newLine: true
-        ).set { ch_collated_versions }
+            newLine: true,
+        )
+        .set { ch_collated_versions }
 
 
     //
     // MODULE: MultiQC
     //
-    ch_multiqc_config        = Channel.fromPath(
-        "$projectDir/assets/multiqc_config.yml", checkIfExists: true)
-    ch_multiqc_custom_config = params.multiqc_config ?
-        Channel.fromPath(params.multiqc_config, checkIfExists: true) :
-        Channel.empty()
-    ch_multiqc_logo          = params.multiqc_logo ?
-        Channel.fromPath(params.multiqc_logo, checkIfExists: true) :
-        Channel.empty()
+    ch_multiqc_config = Channel.fromPath(
+        "${projectDir}/assets/multiqc_config.yml",
+        checkIfExists: true
+    )
+    ch_multiqc_custom_config = params.multiqc_config
+        ? Channel.fromPath(params.multiqc_config, checkIfExists: true)
+        : Channel.empty()
+    ch_multiqc_logo = params.multiqc_logo
+        ? Channel.fromPath(params.multiqc_logo, checkIfExists: true)
+        : Channel.empty()
 
-    summary_params      = paramsSummaryMap(
-        workflow, parameters_schema: "nextflow_schema.json")
+    summary_params = paramsSummaryMap(
+        workflow,
+        parameters_schema: "nextflow_schema.json"
+    )
     ch_workflow_summary = Channel.value(paramsSummaryMultiqc(summary_params))
     ch_multiqc_files = ch_multiqc_files.mix(
-        ch_workflow_summary.collectFile(name: 'workflow_summary_mqc.yaml'))
-    ch_multiqc_custom_methods_description = params.multiqc_methods_description ?
-        file(params.multiqc_methods_description, checkIfExists: true) :
-        file("$projectDir/assets/methods_description_template.yml", checkIfExists: true)
-    ch_methods_description                = Channel.value(
-        methodsDescriptionText(ch_multiqc_custom_methods_description))
+        ch_workflow_summary.collectFile(name: 'workflow_summary_mqc.yaml')
+    )
+    ch_multiqc_custom_methods_description = params.multiqc_methods_description
+        ? file(params.multiqc_methods_description, checkIfExists: true)
+        : file("${projectDir}/assets/methods_description_template.yml", checkIfExists: true)
+    ch_methods_description = Channel.value(
+        methodsDescriptionText(ch_multiqc_custom_methods_description)
+    )
 
     ch_multiqc_files = ch_multiqc_files.mix(ch_collated_versions)
     ch_multiqc_files = ch_multiqc_files.mix(
         ch_methods_description.collectFile(
             name: 'methods_description_mqc.yaml',
-            sort: true
+            sort: true,
         )
     )
 
-    MULTIQC (
+    MULTIQC(
         ch_multiqc_files.collect(),
         ch_multiqc_config.toList(),
         ch_multiqc_custom_config.toList(),
         ch_multiqc_logo.toList(),
         [],
-        []
+        [],
     )
 
-    emit:multiqc_report = MULTIQC.out.report.toList() // channel: /path/to/multiqc_report.html
-    versions       = ch_versions                 // channel: [ path(versions.yml) ]
-
+    emit:
+    multiqc_report = MULTIQC.out.report.toList() // channel: /path/to/multiqc_report.html
+    versions       = ch_versions // channel: [ path(versions.yml) ]
 }
-
-/*
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    THE END
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*/

@@ -4,7 +4,6 @@ include { ADATA_UPSETGENES as UPSET_GENES_RAW } from '../../modules/local/adata/
 include { UNIFY_GENES                         } from './unify_genes'
 include { ADATA_UPSETGENES as UPSET_GENES     } from '../../modules/local/adata/upsetgenes'
 include { ADATA_UNIFY                         } from '../../modules/local/adata/unify'
-include { ADATA_MERGE                         } from '../../modules/local/adata/merge'
 
 workflow UNIFY {
     take:
