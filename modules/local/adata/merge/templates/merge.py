@@ -12,25 +12,7 @@ import scipy
 from scipy.sparse import csr_matrix
 import anndata as ad
 import scanpy as sc
-
-def format_yaml_like(data: dict, indent: int = 0) -> str:
-    """Formats a dictionary to a YAML-like string.
-
-    Args:
-        data (dict): The dictionary to format.
-        indent (int): The current indentation level.
-
-    Returns:
-        str: A string formatted as YAML.
-    """
-    yaml_str = ""
-    for key, value in data.items():
-        spaces = "  " * indent
-        if isinstance(value, dict):
-            yaml_str += f"{spaces}{key}:\\n{format_yaml_like(value, indent + 1)}"
-        else:
-            yaml_str += f"{spaces}{key}: {value}\\n"
-    return yaml_str
+import yaml
 
 adatas = [sc.read_h5ad(f) for f in "${h5ads}".split()]
 
@@ -100,7 +82,6 @@ else:
     # Create symlink to the inner dataset
     os.symlink("${prefix}_inner.h5ad", "${prefix}_integrate.h5ad")
 
-
 # Versions
 
 versions = {
@@ -113,4 +94,4 @@ versions = {
 }
 
 with open("versions.yml", "w") as f:
-    f.write(format_yaml_like(versions))
+    yaml.dump(versions, f)
