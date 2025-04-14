@@ -53,11 +53,27 @@ def to_Florent_case(s: str):
 
 adata = ad.read_h5ad("$h5ad")
 
+counts_layer = "${counts_layer}"
+if counts_layer != "X":
+    adata.X = adata.layers[counts_layer]
+
+# Remove all obsm, varm, uns and layers
+adata.obsm = {}
+adata.varm = {}
+adata.uns = {}
+adata.layers = {}
+
 # Convert to float32 CSR matrix
 adata.X = csr_matrix(adata.X.astype(np.float32))
 
+# Unify gene symbols
+symbol_col = "${symbol_col}"
+
+if symbol_col not in ["index", "none"]:
+    adata.var.index = adata.var[symbol_col]
+
 # Deal with duplicate genes
-method = "${params.var_aggr_method}"
+method = "${duplicate_var_resolution}"
 if method in ["mean", "sum", "max"]:
     adata = aggregate_duplicate_var(adata, aggr_fun=getattr(np, method))
 elif method == "make_unique":
@@ -69,14 +85,8 @@ else:
 adata.obs_names_make_unique()
 adata.obs_names = "${meta.id}_" + adata.obs_names
 
-# Remove all obsm, varm, uns and layers
-adata.obsm = {}
-adata.varm = {}
-adata.layers = {}
-adata.uns = {}
-
 # Unify batches
-batch_col = "${meta.batch_col}"
+batch_col = "${batch_col}"
 if batch_col not in adata.obs:
     adata.obs[batch_col] = "${meta.id}"
 
@@ -88,8 +98,8 @@ if batch_col != "batch":
 adata.obs["batch"] = adata.obs["batch"].astype(str).astype("category")
 
 # Unify labels
-label_col = "${meta.label_col ?: ''}"
-unknown_label = "${meta.unknown_label}"
+label_col = "${label_col ?: ''}"
+unknown_label = "${unknown_label}"
 
 if label_col:
     if label_col not in adata.obs:
@@ -116,13 +126,6 @@ else:
         raise ValueError("The label column already exists.")
     adata.obs["label"] = "unknown"
 adata.obs["label"] = adata.obs["label"].astype("category")
-
-# Unify gene symbols
-symbol_col = "${meta.symbol_col ?: 'index'}"
-
-if symbol_col not in ["index", "none"]:
-    adata.var.index = adata.var[symbol_col]
-    del adata.var[symbol_col]
 
 # Add "sample" column
 if "sample" in adata.obs and not adata.obs["sample"].equals("${meta.id}"):
