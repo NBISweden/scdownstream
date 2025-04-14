@@ -21,7 +21,7 @@ process ADATA_UNIFY {
     prefix = task.ext.prefix ?: "${meta.id}"
     duplicate_var_resolution = task.ext.duplicate_var_resolution ?: "make_unique"
     batch_col = task.ext.batch_col ?: "batch"
-    label_col = task.ext.label_col ?: "label"
+    label_col = task.ext.label_col ?: ""
     unknown_label = task.ext.unknown_label ?: "unknown"
     symbol_col = task.ext.symbol_col ?: "index"
     counts_layer = task.ext.counts_layer ?: "X"

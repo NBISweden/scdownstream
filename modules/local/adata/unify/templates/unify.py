@@ -100,7 +100,7 @@ if batch_col != "batch":
 adata.obs["batch"] = adata.obs["batch"].astype(str).astype("category")
 
 # Unify labels
-label_col = "${label_col ?: ''}"
+label_col = "${label_col}"
 unknown_label = "${unknown_label}"
 
 if label_col:
