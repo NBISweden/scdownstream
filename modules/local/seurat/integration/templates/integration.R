@@ -10,7 +10,7 @@ seurat_obj <- seurat_obj[, unname(which(colSums(GetAssayData(seurat_obj)) != 0))
 batches <- SplitObject(seurat_obj, split.by = "batch")
 batches <- lapply(X = batches, FUN = SCTransform, assay = "originalexp")
 
-features <- SelectIntegrationFeatures(object.list = batches, nfeatures = 2000)
+features <- SelectIntegrationFeatures(object.list = batches, nfeatures = nrow(seurat_obj))
 batches <- PrepSCTIntegration(object.list = batches, anchor.features = features)
 batches <- lapply(X = batches, FUN = RunPCA, features = features, verbose=F)
 
@@ -27,7 +27,10 @@ integrated <- IntegrateData(
 
 integrated <- RunPCA(integrated, reduction.name = "X_emb")
 
-saveRDS(integrated, "${prefix}.rds")
+# Add X_emb to the original object
+seurat_obj[["X_emb"]] <- integrated[["X_emb"]]
+
+saveRDS(seurat_obj, "${prefix}.rds")
 
 ################################################
 ################################################
