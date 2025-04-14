@@ -6,7 +6,7 @@
 
 include { LOAD_H5AD              } from '../subworkflows/local/load_h5ad'
 include { QUALITY_CONTROL        } from '../subworkflows/local/quality_control'
-include { MERGE                  } from '../subworkflows/local/merge'
+include { UNIFY                  } from '../subworkflows/local/unify'
 include { CELLTYPE_ASSIGNMENT    } from '../subworkflows/local/celltype_assignment'
 include { COMBINE                } from '../subworkflows/local/combine'
 include { ADATA_SPLITEMBEDDINGS  } from '../modules/local/adata/splitembeddings'
@@ -70,10 +70,10 @@ workflow SCDOWNSTREAM {
             ch_versions = ch_versions.mix(CELLTYPE_ASSIGNMENT.out.versions)
             ch_h5ad = CELLTYPE_ASSIGNMENT.out.h5ad
 
-            MERGE(ch_h5ad)
-            ch_versions = ch_versions.mix(MERGE.out.versions)
-            ch_multiqc_files = ch_multiqc_files.mix(MERGE.out.multiqc_files)
-            ch_h5ad = MERGE.out.h5ad
+            UNIFY(ch_h5ad)
+            ch_versions = ch_versions.mix(UNIFY.out.versions)
+            ch_multiqc_files = ch_multiqc_files.mix(UNIFY.out.multiqc_files)
+            ch_h5ad = UNIFY.out.h5ad
 
             //
             // Combine samples and perform integration
