@@ -21,7 +21,7 @@ workflow QUALITY_CONTROL {
     ch_multiqc_files = Channel.empty()
     ch_sizes = Channel.empty()
 
-    GET_UNFILTERED_SIZE(ch_h5ad.filter{ meta, filtered, unfiltered -> [meta, unfiltered ?: filtered] })
+    GET_UNFILTERED_SIZE(ch_h5ad.map{ meta, filtered, unfiltered -> [meta, unfiltered ?: filtered] })
     ch_versions = ch_versions.mix(GET_UNFILTERED_SIZE.out.versions)
     ch_sizes = ch_sizes.mix(GET_UNFILTERED_SIZE.out.txt
         .map{ meta, txt -> [meta.id, 'unfiltered', (txt.text ?: "0").toInteger()] })
