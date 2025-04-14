@@ -69,7 +69,9 @@ adata.X = csr_matrix(adata.X.astype(np.float32))
 # Unify gene symbols
 symbol_col = "${symbol_col}"
 
-if symbol_col not in ["index", "none"]:
+if symbol_col != "index":
+    assert symbol_col in adata.var.columns, f"Symbol column {symbol_col} not found in var table"
+    adata.var["original_index"] = adata.var.index
     adata.var.index = adata.var[symbol_col]
 
 # Deal with duplicate genes
