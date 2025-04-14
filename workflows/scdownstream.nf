@@ -64,7 +64,7 @@ workflow SCDOWNSTREAM {
         // Perform automated celltype assignment
         //
 
-        if (!params.preprocess_only) {
+        if (!params.qc_only) {
             CELLTYPE_ASSIGNMENT(ch_h5ad)
             ch_versions = ch_versions.mix(CELLTYPE_ASSIGNMENT.out.versions)
             ch_h5ad = CELLTYPE_ASSIGNMENT.out.h5ad
@@ -115,7 +115,7 @@ workflow SCDOWNSTREAM {
     // Perform clustering and per-cluster analysis
     //
 
-    if (!params.preprocess_only) {
+    if (!params.qc_only) {
         CLUSTER(ch_integrations)
         ch_versions = ch_versions.mix(CLUSTER.out.versions)
         ch_obs = ch_obs.mix(CLUSTER.out.obs)

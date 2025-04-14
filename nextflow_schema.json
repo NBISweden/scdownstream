@@ -251,7 +251,7 @@
             "type": "object",
             "description": "Options for selecting which tools should be used for certain tasks",
             "properties": {
-                "preprocess_only": {
+                "qc_only": {
                     "type": "boolean",
                     "description": "Only run the preprocessing steps, skip the integration and clustering steps"
                 },
