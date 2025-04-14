@@ -6,7 +6,7 @@ process SCANPY_HVGS {
     conda "${moduleDir}/environment.yml"
     container "${ task.ext.use_gpu ? 'ghcr.io/scverse/rapids_singlecell:v0.11.0' :
         workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'oras://community.wave.seqera.io/library/scanpy-cli:0.2.0--4eb2797376cf13be':
+        'oras://community.wave.seqera.io/library/pyyaml_scanpy:158b12038812cf13':
         'community.wave.seqera.io/library/pyyaml_scanpy:61c9ab8e312bbe0a' }"
 
     input:
@@ -22,6 +22,7 @@ process SCANPY_HVGS {
 
     script:
     prefix = task.ext.prefix ?: "${meta.id}"
+    batch_key = task.ext.batch_key ?: ""
     template 'hvgs.py'
 
     stub:

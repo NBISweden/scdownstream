@@ -16,11 +16,13 @@ adata = sc.read_h5ad("${h5ad}")
 prefix = "${prefix}"
 n_hvgs = int("${n_hvgs}")
 use_gpu = "${task.ext.use_gpu}" == "true"
+batch_key = "${batch_key}"
 
 if adata.n_vars > n_hvgs and n_hvgs >= 0:
-    kwargs = {
-        "batch_key": "batch"
-    }
+    kwargs = {}
+
+    if batch_key:
+        kwargs["batch_key"] = batch_key
 
     # If an actual limit is provided, use it
     # Otherwise, scanpy will automatically determine the number of highly variable genes
