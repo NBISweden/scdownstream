@@ -7,39 +7,22 @@ from threadpoolctl import threadpool_limits
 os.environ["NUMBA_CACHE_DIR"] = "./tmp/numba"
 
 import scanpy as sc
+import yaml
 
 threadpool_limits(int("${task.cpus}"))
 sc.settings.n_jobs = int("${task.cpus}")
-
-def format_yaml_like(data: dict, indent: int = 0) -> str:
-    """Formats a dictionary to a YAML-like string.
-
-    Args:
-        data (dict): The dictionary to format.
-        indent (int): The current indentation level.
-
-    Returns:
-        str: A string formatted as YAML.
-    """
-    yaml_str = ""
-    for key, value in data.items():
-        spaces = "  " * indent
-        if isinstance(value, dict):
-            yaml_str += f"{spaces}{key}:\\n{format_yaml_like(value, indent + 1)}"
-        else:
-            yaml_str += f"{spaces}{key}: {value}\\n"
-    return yaml_str
-
 
 adata = sc.read_h5ad("${h5ad}")
 prefix = "${prefix}"
 n_hvgs = int("${n_hvgs}")
 use_gpu = "${task.ext.use_gpu}" == "true"
+batch_key = "${batch_key}"
 
 if adata.n_vars > n_hvgs and n_hvgs >= 0:
-    kwargs = {
-        "batch_key": "batch"
-    }
+    kwargs = {}
+
+    if batch_key:
+        kwargs["batch_key"] = batch_key
 
     # If an actual limit is provided, use it
     # Otherwise, scanpy will automatically determine the number of highly variable genes
@@ -86,4 +69,4 @@ versions = {
 }
 
 with open("versions.yml", "w") as f:
-    f.write(format_yaml_like(versions))
+    yaml.dump(versions, f)

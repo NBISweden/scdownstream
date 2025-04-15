@@ -58,12 +58,12 @@
                     "type": "boolean",
                     "description": "Unify gene symbols to the latest version of the Ensembl database"
                 },
-                "var_aggr_method": {
+                "duplicate_var_resolution": {
                     "type": "string",
                     "default": "mean",
                     "description": "Method to aggregate gene expression values for non-unique genes",
-                    "help_text": "Method to aggregate gene expression values for non-unique genes. Available methods are: mean, sum, max",
-                    "enum": ["mean", "sum", "max"]
+                    "help_text": "Method to aggregate gene expression values for non-unique genes. Available methods are: mean, sum, max, make_unique",
+                    "enum": ["mean", "sum", "max", "make_unique"]
                 },
                 "force_obs_cols": {
                     "type": "string",
@@ -238,7 +238,7 @@
             "type": "object",
             "description": "Options for selecting which tools should be used for certain tasks",
             "properties": {
-                "preprocess_only": {
+                "qc_only": {
                     "type": "boolean",
                     "description": "Only run the preprocessing steps, skip the integration and clustering steps"
                 },
@@ -442,7 +442,7 @@
                     "type": "string",
                     "fa_icon": "far fa-check-circle",
                     "description": "Base URL or local path to location of pipeline test dataset files",
-                    "default": "https://raw.githubusercontent.com/nf-core/test-datasets/",
+                    "default": "https://raw.githubusercontent.com/nf-core/test-datasets/e6462fd14224c06ab10bac424b036ed63fec349f/",
                     "hidden": true
                 },
                 "trace_report_suffix": {

@@ -20,4 +20,11 @@ process SCANPY_READH5 {
     script:
     prefix = task.ext.prefix ?: "${meta.id}"
     template 'readh5.py'
+
+    stub:
+    prefix = task.ext.prefix ?: "${meta.id}"
+    """
+    touch "${prefix}.h5ad"
+    touch "versions.yml"
+    """
 }

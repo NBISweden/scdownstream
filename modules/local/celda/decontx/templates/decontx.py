@@ -36,8 +36,9 @@ sce = anndata2ri.py2rpy(adata)
 
 kwargs = {}
 
-if len(adata.obs['${batch_col}'].unique()) > 1:
-    kwargs['batch'] = adata.obs['${batch_col}'].tolist()
+batch_col = "${batch_col}"
+if batch_col and len(adata.obs[batch_col].unique()) > 1:
+    kwargs['batch'] = adata.obs[batch_col].tolist()
 
 raw_path = "${raw}"
 if os.path.exists(raw_path):

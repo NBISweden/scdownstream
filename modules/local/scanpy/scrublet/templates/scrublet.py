@@ -36,7 +36,7 @@ use_gpu = "${task.ext.use_gpu}" == "true"
 batch_col = "${batch_col}"
 
 kwargs = {}
-if adata.obs[batch_col].nunique() > 1:
+if batch_col and adata.obs[batch_col].nunique() > 1:
     kwargs["batch_key"] = batch_col
 
 if use_gpu:

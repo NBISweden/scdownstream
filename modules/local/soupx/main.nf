@@ -20,4 +20,11 @@ process SOUPX {
     script:
     prefix = task.ext.prefix ?: "${meta.id}"
     template 'soupx.py'
+
+    stub:
+    prefix = task.ext.prefix ?: "${meta.id}"
+    """
+    touch ${prefix}.h5ad
+    touch versions.yml
+    """
 }

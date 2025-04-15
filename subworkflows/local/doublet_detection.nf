@@ -14,10 +14,15 @@ workflow DOUBLET_DETECTION {
     ch_multiqc_files = Channel.empty()
     ch_predictions = Channel.empty()
 
-    if (params.doublet_detection == 'none') {
-        log.info "DOUBLET_DETECTION: Not performed since 'none' selected."
-    } else {
-        methods = params.doublet_detection.split(',').collect{it.trim().toLowerCase()}
+    if (!params.doublet_detection || params.doublet_detection == 'none') {
+        log.info("DOUBLET_DETECTION: Not performed since none selected.")
+    }
+    else {
+        methods = params.doublet_detection.split(',').collect { it.trim().toLowerCase() }
+
+        if (methods.size() == 0) {
+            error("No doublet detection methods selected. If you want to skip this step, set 'doublet_detection' to 'none'.")
+        }
 
         // Special treatment for R-based methods
         if (methods.intersect(['scds']).size() > 0) {
@@ -52,7 +57,7 @@ workflow DOUBLET_DETECTION {
 
         DOUBLET_REMOVAL(
             ch_h5ad.join(ch_predictions.groupTuple()),
-            params.doublet_detection_threshold
+            params.doublet_detection_threshold,
         )
 
         ch_h5ad = DOUBLET_REMOVAL.out.h5ad
@@ -60,10 +65,8 @@ workflow DOUBLET_DETECTION {
         ch_versions = ch_versions.mix(DOUBLET_REMOVAL.out.versions)
     }
 
-
     emit:
-    h5ad = ch_h5ad
-
+    h5ad          = ch_h5ad
     multiqc_files = ch_multiqc_files
-    versions = ch_versions
+    versions      = ch_versions
 }
