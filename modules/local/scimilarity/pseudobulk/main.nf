@@ -19,9 +19,20 @@ process SCIMILARITY_PSEUDOBULK {
 
     script:
     prefix = task.ext.prefix ?: "${meta.id}"
+    counts_layer = task.ext.counts_layer ?: "counts"
+    groupby_labels = task.ext.groupby_labels ?: ["batch"]
+    min_num_cells = task.ext.min_num_cells ?: 1
+
     if ("${prefix}.h5ad" == "${h5ad}") {
         error("Input and output names are the same, use \"task.ext.prefix\" to disambiguate!")
     }
 
     template('pseudobulk.py')
+
+    stub:
+    prefix = task.ext.prefix ?: "${meta.id}"
+    """
+    touch ${prefix}.h5ad
+    touch versions.yml
+    """
 }
