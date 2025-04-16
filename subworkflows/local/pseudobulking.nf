@@ -1,4 +1,4 @@
-include { SCIMILARITY_PSEUDOBULK } from '../../modules/local/scimilarity/pseudobulk'
+include { SCIMILARITY_PSEUDOBULK as PSEUDOBULK } from '../../modules/local/scimilarity/pseudobulk'
 
 workflow PSEUDOBULKING {
     take:
@@ -7,10 +7,10 @@ workflow PSEUDOBULKING {
     main:
     ch_versions = Channel.empty()
 
-    SCIMILARITY_PSEUDOBULK(ch_h5ad)
-    ch_versions = ch_versions.mix(SCIMILARITY_PSEUDOBULK.out.versions)
+    PSEUDOBULK(ch_h5ad)
+    ch_versions = ch_versions.mix(PSEUDOBULK.out.versions)
 
-    ch_h5ad_pseudobulk = SCIMILARITY_PSEUDOBULK.out.h5ad
+    ch_h5ad_pseudobulk = PSEUDOBULK.out.h5ad
 
     emit:
     h5ad_pseudobulk = ch_h5ad_pseudobulk
