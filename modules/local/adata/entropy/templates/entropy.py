@@ -12,7 +12,9 @@ os.environ["MPLCONFIGDIR"] = "./tmp/matplotlib"
 import scanpy as sc
 from scipy.stats import entropy
 import scipy
+import numpy as np
 import matplotlib.pyplot as plt
+
 group_col = "${group_col}"
 entropy_col = "${entropy_col}"
 prefix = "${prefix}"
@@ -24,8 +26,9 @@ def entropy_of_group(group):
 
 entropies = adata.obs.groupby(group_col)[entropy_col].apply(entropy_of_group)
 
+n_unique = adata.obs[entropy_col].nunique()
 colname = "${meta.id}:entropy"
-adata.obs[colname] = adata.obs[group_col].map(entropies).astype(float)
+adata.obs[colname] = adata.obs[group_col].map(entropies).astype(float) / np.log2(n_unique)
 
 adata.obs[[colname]].to_pickle(f"{prefix}.pkl")
 adata.write_h5ad(f"{prefix}.h5ad")
