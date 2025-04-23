@@ -4,15 +4,17 @@ process ADATA_ENTROPY {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'oras://community.wave.seqera.io/library/anndata_pyyaml_scipy:71dced6759c2f3b8':
-        'community.wave.seqera.io/library/anndata_pyyaml_scipy:ff09149e11f2b4ee' }"
+        'oras://community.wave.seqera.io/library/pyyaml_scanpy:158b12038812cf13':
+        'community.wave.seqera.io/library/pyyaml_scanpy:61c9ab8e312bbe0a' }"
 
     input:
     tuple val(meta), path(h5ad)
 
     output:
     tuple val(meta), path("*.h5ad"), emit: h5ad
-    tuple val(meta), path("*.pkl") , emit: pkl
+    path "*.pkl"                   , emit: obs
+    path "*.png"                   , emit: plots, optional: true
+    path "*_mqc.json"              , emit: multiqc_files, optional: true
     path "versions.yml"            , emit: versions
 
     when:
@@ -29,6 +31,8 @@ process ADATA_ENTROPY {
     """
     touch ${prefix}.h5ad
     touch ${prefix}.pkl
+    touch ${prefix}.png
+    touch ${prefix}_mqc.json
     touch versions.yml
     """
 }

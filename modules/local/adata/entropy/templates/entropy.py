@@ -1,36 +1,64 @@
 #!/usr/bin/env python3
 
+import os
 import platform
-import anndata as ad
-import pandas as pd
-from scipy.stats import entropy
-import scipy
+import json
+import base64
 import yaml
 
+os.environ["NUMBA_CACHE_DIR"] = "./tmp/numba"
+os.environ["MPLCONFIGDIR"] = "./tmp/matplotlib"
+
+import scanpy as sc
+from scipy.stats import entropy
+import scipy
+import matplotlib.pyplot as plt
 group_col = "${group_col}"
 entropy_col = "${entropy_col}"
 prefix = "${prefix}"
-adata = ad.read_h5ad("${h5ad}", backed='r')
+adata = sc.read_h5ad("${h5ad}", backed='r')
 
-def entropy_of_b(group):
+def entropy_of_group(group):
     counts = group.value_counts(normalize=True)
     return entropy(counts, base=2)
 
-entropies = adata.obs.groupby(group_col)[entropy_col].apply(entropy_of_b)
+entropies = adata.obs.groupby(group_col)[entropy_col].apply(entropy_of_group)
 
-colname = f"{entropy_col}:entropy"
-adata.obs[colname] = adata.obs[group_col].map(entropies)
+colname = "${meta.id}:entropy"
+adata.obs[colname] = adata.obs[group_col].map(entropies).astype(float)
 
 adata.obs[[colname]].to_pickle(f"{prefix}.pkl")
 adata.write_h5ad(f"{prefix}.h5ad")
+
+# Plot
+sc.pl.umap(adata, title="${meta.id} Entropy", color=colname, show=False)
+path = f"{prefix}.png"
+plt.savefig(path, bbox_inches='tight')
+
+# MultiQC
+with open(path, "rb") as f_plot, open("${prefix}_mqc.json", "w") as f_json:
+    image_string = base64.b64encode(f_plot.read()).decode("utf-8")
+    image_html = f'<div class="mqc-custom-content-image"><img src="data:image/png;base64,{image_string}" /></div>'
+
+    custom_json = {
+        "id": "${prefix}",
+        "parent_id": "${meta.integration}",
+        "parent_name": "${meta.integration}",
+        "parent_description": "Results of the ${meta.integration} integration.",
+
+        "section_name": "${meta.id} Entropy",
+        "plot_type": "image",
+        "data": image_html,
+    }
+
+    json.dump(custom_json, f_json)
 
 # Versions
 
 versions = {
     "${task.process}": {
         "python": platform.python_version(),
-        "anndata": ad.__version__,
-        "pandas": pd.__version__,
+        "scanpy": sc.__version__,
         "scipy": scipy.__version__
     }
 }
