@@ -2,7 +2,7 @@ include { ADATA_SPLITCOL         } from '../../modules/local/adata/splitcol'
 include { SCANPY_NEIGHBORS       } from '../../modules/local/scanpy/neighbors'
 include { SCANPY_LEIDEN          } from '../../modules/local/scanpy/leiden'
 include { SCANPY_UMAP            } from '../../modules/local/scanpy/umap'
-
+include { ADATA_ENTROPY          } from '../../modules/local/adata/entropy'
 workflow CLUSTER {
     take:
     ch_input
@@ -60,6 +60,9 @@ workflow CLUSTER {
     ch_versions = ch_versions.mix(SCANPY_LEIDEN.out.versions)
     ch_obs = ch_obs.mix(SCANPY_LEIDEN.out.obs)
     ch_multiqc_files = ch_multiqc_files.mix(SCANPY_LEIDEN.out.multiqc_files)
+
+    ADATA_ENTROPY(SCANPY_LEIDEN.out.h5ad)
+    ch_versions = ch_versions.mix(ADATA_ENTROPY.out.versions)
 
     emit:
     obs             = ch_obs
