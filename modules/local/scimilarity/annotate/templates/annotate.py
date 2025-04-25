@@ -2,13 +2,12 @@
 
 import os
 import shutil
+import platform
 
 os.environ["NUMBA_CACHE_DIR"] = "./tmp/numba"
+os.environ["MPLCONFIGDIR"] = "./tmp/mpl"
 
-import platform
-import pandas as pd
 import scanpy as sc
-from scimilarity.utils import lognorm_counts, align_dataset
 from scimilarity import CellAnnotation
 import scimilarity
 import yaml
