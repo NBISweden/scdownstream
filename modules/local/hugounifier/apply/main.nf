@@ -4,8 +4,8 @@ process HUGOUNIFIER_APPLY {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'oras://community.wave.seqera.io/library/pip_hugo-unifier:98cad6c07a357a66':
-        'wave.seqera.io/wt/7231f9ebfc62/wave/build:pip_hugo-unifier-0.2.4--323130be100e102e' }"
+        'oras://community.wave.seqera.io/library/pip_hugo-unifier:4f8c38b9ae820cc3':
+        'wave.seqera.io/wt/2c2d1e85a2a0/wave/build:pip_hugo-unifier-0.2.5--b209754a13c0f75f' }"
 
     input:
     tuple val(meta), path(h5ad, arity: 1), path(changes, arity: 1)
