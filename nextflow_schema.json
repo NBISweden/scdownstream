@@ -320,7 +320,8 @@
             "properties": {
                 "pseudobulk_groupby_labels": {
                     "type": "string",
-                    "description": "Group by labels for pseudobulking. If you want to use multiple labels, separate them with a comma."
+                    "description": "Group by labels for pseudobulking. If you want to use multiple labels, separate them with a comma.",
+                    "default": "batch"
                 },
                 "pseudobulk_min_num_cells": {
                     "type": "integer",
@@ -515,5 +516,10 @@
         {
             "$ref": "#/$defs/generic_options"
         }
-    ]
+    ],
+    "properties": {
+        "celldex_reference": {
+            "type": "string"
+        }
+    }
 }
