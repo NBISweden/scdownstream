@@ -30,6 +30,7 @@ import os
 import scanpy as sc
 import seaborn as sns
 import anndata as ad
+import glob
 
 #from IPython.display import display, Markdown
 #from textwrap import dedent
@@ -65,7 +66,7 @@ mitochondrial, ribosomal and haemoglobin genes:
 
 ```{python}
 #| layout-nrow: 2
-sc.pl.violin(adata, ['n_genes_by_counts', 'total_counts'], groupby = "batch",
+sc.pl.violin(adata, ['n_genes_by_counts', 'total_counts'], #groupby = "batch",
     multi_panel=True, jitter=0.4, rotation= 45)
 
 ```
