@@ -12,11 +12,11 @@ Write a nice summary here....
 ```{python}
 #| tags: [parameters]
 #| echo: false
-input_sdata = 'SAMN14430801_unified.h5ad SAMN14430799_unified.h5ad' 
+input_h5ad = 'SAMN14430801_unified.h5ad SAMN14430799_unified.h5ad'
 
  # Input: all the sample files with space delim from .collect.
 
-# for now, skip all parts with filtering cutofss. 
+# for now, skip all parts with filtering cutofss.
 samplesheet = 'samples_mouse.csv'
 
 ```
