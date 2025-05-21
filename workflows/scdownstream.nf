@@ -97,6 +97,7 @@ workflow SCDOWNSTREAM {
         extensions = Channel.fromPath("${projectDir}/assets/_extensions").collect()
         ch_qc_report_input_data = ch_h5ad
             .map { _meta, h5ad -> h5ad }
+            .collect()
         ch_qc_report_notebook = ch_h5ad
             .map { meta, _h5ad -> tuple(meta, qc_report_notebook) }
         qc_report_params = [
