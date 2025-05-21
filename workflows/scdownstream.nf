@@ -101,7 +101,7 @@ workflow SCDOWNSTREAM {
         ch_qc_report_notebook = ch_h5ad
             .map { meta, _h5ad -> tuple(meta, qc_report_notebook) }
         qc_report_params = [
-            input_h5ad: "input.h5ad"
+            my_param: "temp"
         ]
         QC_REPORT (
             ch_qc_report_notebook,

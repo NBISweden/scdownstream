@@ -12,7 +12,7 @@ Write a nice summary here....
 ```{python}
 #| tags: [parameters]
 #| echo: false
-input_h5ad = 'SAMN14430801_unified.h5ad SAMN14430799_unified.h5ad'
+my_param = 'default'
 
  # Input: all the sample files with space delim from .collect.
 
