@@ -64,12 +64,11 @@ workflow SCDOWNSTREAM {
         //
         // Perform automated celltype assignment
         //
+        CELLTYPE_ASSIGNMENT(ch_h5ad)
+        ch_versions = ch_versions.mix(CELLTYPE_ASSIGNMENT.out.versions)
+        ch_h5ad = CELLTYPE_ASSIGNMENT.out.h5ad
 
         if (!params.qc_only) {
-            CELLTYPE_ASSIGNMENT(ch_h5ad)
-            ch_versions = ch_versions.mix(CELLTYPE_ASSIGNMENT.out.versions)
-            ch_h5ad = CELLTYPE_ASSIGNMENT.out.h5ad
-
             //
             // Unify samples to make them compatible for integration
             //
