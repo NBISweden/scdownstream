@@ -1,0 +1,70 @@
+---
+title: "Pre-processing and quality control"
+format:
+    nf-core-html: default
+jupyter: python3
+---
+
+# Introduction
+
+Write a nice summary here....
+
+```{python}
+#| tags: [parameters]
+#| echo: false
+input_sdata = 'SAMN14430801_unified.h5ad SAMN14430799_unified.h5ad' 
+
+ # Input: all the sample files with space delim from .collect.
+
+# for now, skip all parts with filtering cutofss. 
+samplesheet = 'samples_mouse.csv'
+
+```
+
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import os
+import scanpy as sc
+import seaborn as sns
+import anndata as ad
+
+#from IPython.display import display, Markdown
+#from textwrap import dedent
+#plt.rcParams["figure.figsize"] = (6, 6)
+```
+
+```{python}
+input_files = input_sdata.split(" ")
+
+alldata = {}
+for file in input_files:
+    alldata[file] = sc.read_h5ad(file)
+
+adata = ad.concat(alldata)
+```
+
+# Quality controls
+
+There are several different quality metrics that are normally computed for
+spatial data. Common metrics include the number of genes with a least 1 count
+(`n_genes_by_counts`), counts per spot (`total_counts`) as well as the
+percentage of counts from mitochondrial, ribosomal and haemoglobin genes
+(`pct_counts_[mt/ribo/hb]`).
+
+
+
+## Violin plots
+
+The following violin plots show the distribution of the number of genes per
+counts and counts per spot, as well as the percentage of counts from
+mitochondrial, ribosomal and haemoglobin genes:
+
+```{python}
+#| layout-nrow: 2
+sc.pl.violin(adata, ['n_genes_by_counts', 'total_counts'], groupby = "batch",
+    multi_panel=True, jitter=0.4, rotation= 45)
+
+```
