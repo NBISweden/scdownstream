@@ -9,6 +9,7 @@ include { QUALITY_CONTROL                      } from '../subworkflows/local/qua
 include { UNIFY                                } from '../subworkflows/local/unify'
 include { CELLTYPE_ASSIGNMENT                  } from '../subworkflows/local/celltype_assignment'
 include { ADATA_EXTEND as FINALIZE_QC_ANNDATAS } from '../modules/local/adata/extend'
+include { QUARTONOTEBOOK as QC_REPORT          } from '../modules/nf-core/quartonotebook'
 include { COMBINE                              } from '../subworkflows/local/combine'
 include { ADATA_SPLITEMBEDDINGS                } from '../modules/local/adata/splitembeddings'
 include { CLUSTER                              } from '../subworkflows/local/cluster'
@@ -88,6 +89,26 @@ workflow SCDOWNSTREAM {
         )
         ch_h5ad = FINALIZE_QC_ANNDATAS.out.h5ad
         ch_versions = ch_versions.mix(FINALIZE_QC_ANNDATAS.out.versions)
+
+        //
+        // Render quality control report
+        //
+        qc_report_notebook = file("${projectDir}/bin/qc-report.qmd", checkIfExists: true)
+        extensions = Channel.fromPath("${projectDir}/assets/_extensions").collect()
+        ch_qc_report_input_data = ch_h5ad
+            .map { _meta, h5ad -> h5ad }
+        ch_qc_report_notebook = ch_h5ad
+            .map { meta, _h5ad -> tuple(meta, qc_report_notebook) }
+        qc_report_params = [
+            input_h5ad: "input.h5ad"
+        ]
+        QC_REPORT (
+            ch_qc_report_notebook,
+            qc_report_params,
+            ch_qc_report_input_data,
+            extensions
+        )
+        ch_versions = ch_versions.mix(QC_REPORT.out.versions)
 
         if (!params.qc_only) {
             //
