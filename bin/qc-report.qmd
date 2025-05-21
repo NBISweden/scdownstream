@@ -37,7 +37,8 @@ import anndata as ad
 ```
 
 ```{python}
-input_files = input_h5ad.split(" ")
+#input_files = input_h5ad.split(" ")
+input_files = glob.glob("*.h5ad")
 
 alldata = {}
 for file in input_files:
