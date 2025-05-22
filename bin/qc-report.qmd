@@ -51,10 +51,19 @@ adata = ad.concat(alldata)
 # Quality controls
 
 There are several different quality metrics that are normally computed for
-spatial data. Common metrics include the number of genes with a least 1 count
+scRNA-seq data. Common metrics include the number of genes with a least 1 count
 (`n_genes_by_counts`), counts per spot (`total_counts`) as well as the
 percentage of counts from mitochondrial, ribosomal and haemoglobin genes
 (`pct_counts_[mt/ribo/hb]`).
+
+
+## Available metadata
+
+```{python}
+
+adata.obs
+
+```
 
 
 
