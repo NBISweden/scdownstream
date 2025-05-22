@@ -44,6 +44,7 @@ input_files = glob.glob("*.h5ad")
 alldata = {}
 for file in input_files:
     alldata[file] = sc.read_h5ad(file)
+    alldata[file].obs['file'] = file
 
 adata = ad.concat(alldata)
 ```
@@ -75,7 +76,7 @@ mitochondrial, ribosomal and haemoglobin genes:
 
 ```{python}
 #| layout-nrow: 2
-sc.pl.violin(adata, ['n_genes_by_counts', 'total_counts'], #groupby = "batch",
+sc.pl.violin(adata, ['n_genes_by_counts', 'total_counts'], groupby = "file",#groupby = "batch",
     multi_panel=True, jitter=0.4, rotation= 45)
 
 ```
