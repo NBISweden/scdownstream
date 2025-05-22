@@ -14,7 +14,7 @@ Write a nice summary here....
 #| echo: false
 my_param = 'default'
 
- # Input: all the sample files with space delim from .collect.
+# Input: all the sample files with space delim from .collect.
 
 # for now, skip all parts with filtering cutofss.
 samplesheet = 'samples_mouse.csv'
