@@ -10,4 +10,3 @@ null/
 .nf-test*
 SetUp.and.Conf.txt
 nextflow
-modules/local/celltypes/singler/templates/singleR.R
