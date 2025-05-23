@@ -41,7 +41,12 @@ for (ref in references) {
   reference <- loadHDF5SummarizedExperiment(dir = "${reference}")
   predictions <- SingleR(test = assay(sce, 'counts'), ref = reference, labels = colData(reference)[['label.main']]) #TODO make the label column name a parameter that defaults to label.main
 
-  # Save predictions as CSV file
+  #predictions_df <- predictions
+  #rownames(predictions_df) <- NULL
+  #predictions_df <- cbind(Barcode = rownames(predictions), predictions_df)
+
+  #predictions_df |> write.csv(quote = FALSE, row.names = FALSE, file = paste0(prefix, "_", ref, "_predictions.csv") )
+
   write.csv(predictions, file = paste0(prefix, "_", ref, "_predictions.csv"), row.names = TRUE)
 
   # Unique column names for each reference
@@ -88,6 +93,15 @@ versions <- list(
 if (file.exists("Rplots.pdf")) {
   file.remove("Rplots.pdf")
 }
-write_h5ad(sce, path = paste0(prefix, ".h5ad"), mode = "w") # Save the SingleCellExperiment object as h5ad
+
+print(head(colData(sce), n = 3))
+
+#write_h5ad(sce, path = paste0(prefix, ".h5ad"), mode = "w") # Save the SingleCellExperiment object as h5ad
+
+#adata <- as_AnnData(sce)
+#print(adata)
+#h5ad_file <- paste0(prefix, ".h5ad")
+#adata\$write_h5ad(h5ad_file, mode = "w")
+
 # Write versions info into a YAML file, as before
 write(format_yaml_like(versions), file = "versions.yml")

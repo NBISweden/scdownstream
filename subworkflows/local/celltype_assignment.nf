@@ -42,7 +42,7 @@ workflow CELLTYPE_ASSIGNMENT {
         CELLDEX_REFERENCE_PROCESSING(params.celldex_reference)
         CELLTYPES_SINGLER(ch_h5ad, CELLDEX_REFERENCE_PROCESSING.out.refdir)
         ch_obs = ch_obs.mix(CELLTYPES_SINGLER.out.obs)
-        ch_h5ad = CELLTYPES_SINGLER.out.h5ad
+        //ch_h5ad = CELLTYPES_SINGLER.out.h5ad
         ch_versions = ch_versions.mix(CELLTYPES_SINGLER.out.versions)
     }
 

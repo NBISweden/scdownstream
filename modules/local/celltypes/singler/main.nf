@@ -17,9 +17,9 @@ process CELLTYPES_SINGLER {
     path(reference)
 
     output:
-    tuple val(meta), path("*.h5ad"), emit: h5ad
+    //tuple val(meta), path("*.h5ad"), emit: h5ad
     path "*.pdf"                   , emit: pdf
-    path "*.csv"                   , emit: obs
+    tuple val(meta), path("*.csv") , emit: obs
     path "versions.yml"            , emit: versions
 
     when:
@@ -31,8 +31,8 @@ process CELLTYPES_SINGLER {
 
     stub:
     prefix = task.ext.prefix ?: "${meta.id}"
+    //touch ${prefix}.h5ad
     """
-    touch ${prefix}.h5ad
     touch ${prefix}.pdf
     touch ${prefix}.csv
     touch versions.yml
