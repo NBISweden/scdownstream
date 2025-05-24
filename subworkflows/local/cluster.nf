@@ -46,7 +46,6 @@ workflow CLUSTER {
     UMAP(ch_h5ad)
     ch_versions = ch_versions.mix(UMAP.out.versions)
     ch_obsm = ch_obsm.mix(UMAP.out.obsm)
-    ch_multiqc_files = ch_multiqc_files.mix(UMAP.out.multiqc_files)
 
     ch_resolutions = Channel.from(params.clustering_resolutions.split(","))
 
