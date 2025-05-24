@@ -12,6 +12,8 @@ process SCVITOOLS_SCVI {
     input:
     tuple val(meta), path(h5ad)
     tuple val(meta2), path(reference_model, stageAs: 'reference_model/model.pt')
+    val(categorical_covariates)
+    val(continuous_covariates)
 
     output:
     tuple val(meta), path("${prefix}.h5ad")          , emit: h5ad
@@ -30,8 +32,8 @@ process SCVITOOLS_SCVI {
     dispersion = task.ext.dispersion ?: 'gene'
     gene_likelihood = task.ext.gene_likelihood ?: 'zinb'
     max_epochs = task.ext.max_epochs ?: null
-    categorical_covariates = task.ext.categorical_covariates ?: ''
-    continuous_covariates = task.ext.continuous_covariates ?: ''
+
+    if ("$h5ad" == "${prefix}.h5ad") error "Input and output names are the same, set prefix in module configuration to disambiguate!"
     template 'scvi.py'
 
     stub:
