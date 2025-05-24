@@ -10,7 +10,7 @@ process SCVITOOLS_SCVI {
         'community.wave.seqera.io/library/anndata_scvi-tools:ffa9ea8d87e194a8' }"
 
     input:
-    tuple val(meta), path(h5ad)
+    tuple val(meta), path(h5ad, arity: 1)
     tuple val(meta2), path(reference_model, stageAs: 'reference_model/model.pt')
     val(categorical_covariates)
     val(continuous_covariates)
