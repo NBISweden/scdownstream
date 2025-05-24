@@ -9,9 +9,9 @@ workflow CELLDEX_REFERENCE_PROCESSING {
     main:
     def refdirs = Channel.empty()
     def ref_list = reference_string.split(',').collect{it.trim()}
-    log.info(" ${ref_list}")
+    # log.info(" ${ref_list}")
     for (r in ref_list) {
-        log.info("${r}")
+        # log.info("${r}")
         referencedir = r ==~ /celldex_.*_h5_se/ ? 
             file(r) : 
             file("celldex_${r}_h5_se")
@@ -22,7 +22,7 @@ workflow CELLDEX_REFERENCE_PROCESSING {
             refdirs = refdirs.mix(CELLTYPES_CELLDEXDOWNLOAD.out.refdir)
         }else{
             if( referencedir.exists() && referencedir.isDirectory() ){
-                log.info(file("${r}/assays.h5").view())
+                # log.info(file("${r}/assays.h5").view())
                 assaysFile = file("${r}/assays.h5")
                 seFile     = file("${r}/se.rds")
                 if(seFile.exists() && assaysFile.exists()){

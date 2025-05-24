@@ -29,7 +29,7 @@ sce <- read_h5ad(h5ad_file, as = "SingleCellExperiment") # Converts .h5ad to a S
 
 # Split the references by comma and loop over each
 # references <- strsplit("${reference}", ",")[[1]]
-references <- stringr::strsplit("${models.join(',')}", ",")[[1]]
+references <- stringr::strsplit("${reference.join(',')}", ",")[[1]]
 prefix <- "${prefix}"
 Sys.setenv(XDG_CACHE_HOME = file.path(getwd(), ".cache"))
 for (ref in references) {
