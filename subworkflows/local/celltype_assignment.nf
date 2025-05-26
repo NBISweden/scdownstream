@@ -11,32 +11,23 @@ workflow CELLDEX_REFERENCE_PROCESSING {
     def ref_list = reference_string.split(',').collect{it.trim()}
     def to_download = []
 
-    // log.info(" ${ref_list}")
-    for (r in ref_list) {
-        // log.info("${r}")
-        referencedir = r ==~ /celldex_.*_h5_se/ ?
-            file(r) :
-            file("celldex_${r}_h5_se")
+    ref_list.each { r ->
+        def referencedir = r ==~ /celldex_.*_h5_se/ ? file(r) : file("celldex_${r}_h5_se")
 
-        if(!referencedir.exists()){
-            log.info("Celldex reference ${r} will be downloaded into folder ${referencedir}")
-            to_download = to_download + [r]
-        }else{
-            if( referencedir.exists() && referencedir.isDirectory() ){
-                // log.info(file("${r}/assays.h5").view())
-                assaysFile = file("${r}/assays.h5")
-                seFile     = file("${r}/se.rds")
-                if(seFile.exists() && assaysFile.exists()){
-                    log.info("SummarizedExperiment serialized to HDF5 was found at ${referencedir}")
-                    refdirs = refdirs.mix(Channel.fromPath(referencedir))
-                }else{
-                    error "Directory ${referencedir} exists but doesn't contain the expected 'assays.h5' and 'se.rds' files"
-                }
+        if (!referencedir.exists()) {
+            to_download << r // Appending to the list using the left-shift operator
+        } else if (referencedir.isDirectory()) {
+            def assaysFile = file("${r}/assays.h5")
+            def seFile = file("${r}/se.rds")
+            if (seFile.exists() && assaysFile.exists()) {
+                refdirs = refdirs.mix(Channel.value(referencedir))
+            } else {
+                error "Directory ${referencedir} exists but doesn't contain the expected 'assays.h5' and 'se.rds' files"
             }
         }
     }
-    if(to_download.size() > 0){
-        log.info("Starting download for references: $to_download")
+
+    if (to_download.size() > 0) {
         Channel.fromList(to_download) | CELLTYPES_CELLDEXDOWNLOAD
         refdirs = refdirs.mix(CELLTYPES_CELLDEXDOWNLOAD.out.refdir)
     }
@@ -53,7 +44,6 @@ workflow CELLTYPE_ASSIGNMENT {
 
     if (params.celldex_reference) { //a celldex reference was specified so we need to process it and possibly download it
         CELLDEX_REFERENCE_PROCESSING(params.celldex_reference)
-        log.info("Reference labels are: ${params.celldex_reference_label}")
         CELLTYPES_SINGLER(ch_h5ad, CELLDEX_REFERENCE_PROCESSING.out.referenceDirs, params.celldex_reference_label)
         ch_obs = ch_obs.mix(CELLTYPES_SINGLER.out.obs)
         //ch_h5ad = CELLTYPES_SINGLER.out.h5ad
