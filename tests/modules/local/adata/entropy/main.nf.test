@@ -6,8 +6,6 @@ nextflow_process {
 
     test("Should run without failures") {
 
-        config "./nextflow.config"
-
         when {
             params {
                 outdir = "$outputDir"
@@ -16,9 +14,11 @@ nextflow_process {
                 """
                 input[0] = Channel.of([
                         [id: 'test'],
-                        file(params.pipelines_testdata_base_path + 'lupus/base/merged.h5ad', checkIfExists: true)
+                        file(params.pipelines_testdata_base_path + 'scrnaseq/combined_filtered_matrix_processed.h5ad', checkIfExists: true)
                     ]
                 )
+                input[1] = 'leiden'
+                input[2] = 'sample'
                 """
             }
         }
@@ -44,9 +44,11 @@ nextflow_process {
                 """
                 input[0] = Channel.of([
                         [id: 'test'],
-                        file(params.pipelines_testdata_base_path + 'lupus/base/merged.h5ad', checkIfExists: true)
+                        file(params.pipelines_testdata_base_path + 'scrnaseq/combined_filtered_matrix_processed.h5ad', checkIfExists: true)
                     ]
                 )
+                input[1] = 'leiden'
+                input[2] = 'sample'
                 """
             }
         }

@@ -64,7 +64,12 @@ workflow CLUSTER {
     ch_h5ad_clustering = LEIDEN.out.h5ad
     ch_multiqc_files = ch_multiqc_files.mix(LEIDEN.out.multiqc_files)
 
-    ENTROPY(LEIDEN.out.h5ad)
+    ch_entropy = LEIDEN.out.h5ad.multiMap { meta, h5ad ->
+        h5ad: [meta, h5ad]
+        group_col: meta.resolution + "_leiden"
+    }
+
+    ENTROPY(ch_entropy.h5ad, ch_entropy.group_col, "batch")
     ch_obs = ch_obs.mix(ENTROPY.out.obs)
     ch_versions = ch_versions.mix(ENTROPY.out.versions)
     ch_multiqc_files = ch_multiqc_files.mix(ENTROPY.out.multiqc_files)
