@@ -15,6 +15,7 @@ process CELLTYPES_SINGLER {
     input:
     tuple val(meta), path(h5ad)
     path(reference)
+    val(label)
 
     output:
     //tuple val(meta), path("*.h5ad"), emit: h5ad

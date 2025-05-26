@@ -23,9 +23,13 @@ process CELLTYPES_CELLDEXDOWNLOAD {
     //               For Conda, the build (i.e. "h9402c20_2") must be EXCLUDED to support installation on different operating systems.
     // TODO nf-core: See section in main README for further information regarding finding and adding container addresses to the section below.
     conda "${moduleDir}/environment.yml"
+    //container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+    //    'oras://community.wave.seqera.io/library/bioconductor-celldex_bioconductor-hdf5array_bioconductor-singlecellexperiment_r-yaml:c4e76f99d7b45118':
+    //    'community.wave.seqera.io/library/bioconductor-celldex_bioconductor-hdf5array_bioconductor-singlecellexperiment_r-yaml:13bf33457e3e7490' }"
+
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'oras://community.wave.seqera.io/library/bioconductor-celldex_bioconductor-hdf5array_bioconductor-singlecellexperiment_r-yaml:c4e76f99d7b45118':
-        'community.wave.seqera.io/library/bioconductor-celldex_bioconductor-hdf5array_bioconductor-singlecellexperiment_r-yaml:13bf33457e3e7490' }"
+        'library://paulpyl/scqc/singler:latest':
+        'paulpyl/scqc/singler:latest' }"
 
     input:
     // TODO nf-core: Where applicable all sample-specific information e.g. "id", "single_end", "read_group"
@@ -38,9 +42,9 @@ process CELLTYPES_CELLDEXDOWNLOAD {
 
     output:
     // TODO nf-core: Named file extensions MUST be emitted for ALL output channels
-    path("celldex_${ref}_h5_se/assays.h5"), emit: h5 
-    path("celldex_${ref}_h5_se/se.rds"),    emit: rds 
-    path("celldex_${ref}_h5_se"),           emit: refdir 
+    path("celldex_${ref}_h5_se/assays.h5"), emit: h5
+    path("celldex_${ref}_h5_se/se.rds"),    emit: rds
+    path("celldex_${ref}_h5_se"),           emit: refdir
     // TODO nf-core: List additional required output channels/values here
     path "versions.yml"           , emit: versions
 
@@ -65,13 +69,15 @@ process CELLTYPES_CELLDEXDOWNLOAD {
     library(SingleCellExperiment)
     library(yaml)
     library(HDF5Array)
-    ref <- "${ref}"
-    # Split the ref into ref and version based on __
+    r="${ref}"
+    print(paste("Attempting to fetch reference:", r))
+    # Split the reference into refName and refVersion based on __
     refName <- strsplit(r, "__")[[1]][1]
     refVersion <- strsplit(r, "__")[[1]][2]
     reference <- fetchReference(refName, refVersion)
     # Save SummarizedExperiment to HDF5 files
-    saveHDF5SummarizedExperiment(reference, dir="celldex_${ref}_h5_se")
+    saveHDF5SummarizedExperiment(reference, dir=paste0("celldex_", r, "_h5_se"), replace = TRUE)
+
 
     # Capturing version information, as before
     versions <- list(

@@ -29,25 +29,38 @@ sce <- read_h5ad(h5ad_file, as = "SingleCellExperiment") # Converts .h5ad to a S
 
 # Split the references by comma and loop over each
 # references <- strsplit("${reference}", ",")[[1]]
-references <- stringr::strsplit("${reference.join(',')}", ",")[[1]]
+references <- strsplit("${reference.join(',')}", ",")[[1]]
+#reference_labels <- strsplit("${label.join(',')}", ",")[[1]]
+reference_labels <- strsplit("${label}", ",")[[1]]
+print(references)
+print(reference_labels)
+stopifnot(
+    #"Lengths of references and reference_labels vectors must match",
+    length(references) == length(reference_labels)
+    )
 prefix <- "${prefix}"
 Sys.setenv(XDG_CACHE_HOME = file.path(getwd(), ".cache"))
-for (ref in references) {
+prediction_results <- list()
+for (ref_idx in seq_along(references)) {
+  ref <- references[ref_idx]
+  reflabel <- reference_labels[ref_idx]
   # ref <- trimws(ref)
-  # ref_name <- strsplit(ref, "__")[[1]][1]
-  # ref_ver <- strsplit(ref, "__")[[1]][2]
+  ref_name <- strsplit(ref, "__")[[1]][1]
+  ref_ver <- strsplit(ref, "__")[[1]][2]
   # Read the SummarizedExperiment object from the provided path
   print(ref)
   print(list.files(ref))
   reference <- loadHDF5SummarizedExperiment(dir = ref)
-  predictions <- SingleR(test = assay(sce, 'counts'), ref = reference, labels = colData(reference)[['label.main']]) #TODO make the label column name a parameter that defaults to label.main
+  stopifnot(
+    #paste("The label column (", reflabel, ") must be contained in the colData of the reference object."),
+    reflabel %in% colnames(colData(reference))
+  )
+  predictions <- SingleR(test = assay(sce, 'counts'), ref = reference, labels = colData(reference)[[reflabel]])
 
   #predictions_df <- predictions
   #rownames(predictions_df) <- NULL
   #predictions_df <- cbind(Barcode = rownames(predictions), predictions_df)
   #predictions_df |> write.csv(quote = FALSE, row.names = FALSE, file = paste0(prefix, "_", ref, "_predictions.csv") )
-  colnames(predictions) <- paste0(colnames(predictions), "_", ref_name, "_", ref_ver)
-  write.csv(predictions, file = paste0(prefix, "_", ref, "_predictions.csv"), row.names = TRUE)
 
   # Unique column names for each reference
   # pred_col <- paste0("SingleR_", ref_name, "_", ref_ver)
@@ -74,7 +87,24 @@ for (ref in references) {
   p2 <- plotDeltaDistribution(predictions, ncol = 3)
   p2 <- p2 + ggtitle(paste0("SingleR Predictions: ", basename(h5ad_file), " [", ref, "]"))
   ggsave(filename = paste0(prefix, "_", ref, "_distribution.pdf"), plot = p2, width = 14, height = 12)
+
+  colnames(predictions) <- paste0(colnames(predictions), "_", ref_name, "_", ref_ver)
+  prediction_results[[ref]] <- predictions
 }
+
+prediction_nrows <- lapply(prediction_results, nrow)
+prediction_rownames <- lapply(prediction_results, rownames)
+
+print(prediction_nrows)
+print(prediction_rownames)
+
+stopifnot(
+    all(sapply(prediction_nrows, function(x) x == prediction_nrows[[1]])) &
+    all(sapply(prediction_rownames, function(x) all(x == prediction_rownames[[1]])))
+)
+
+predictions <- do.call(cbind, prediction_results) # This is predicated in the assumption that all prediction data frames have exactly the same rows ... see the stopifnot clause above
+write.csv(predictions, file = paste0(prefix, "_predictions.csv"), row.names = TRUE)
 
 # Capturing version information, as before
 versions <- list(
