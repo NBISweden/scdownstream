@@ -11,7 +11,7 @@ include { SCIMILARITY        } from './scimilarity'
 
 workflow INTEGRATE {
     take:
-    ch_h5ad
+    ch_h5ad // channel: [ merged, h5ad ]
 
     main:
     ch_versions = Channel.empty()
@@ -117,9 +117,9 @@ workflow INTEGRATE {
     }
 
     emit:
-    integrations = ch_integrations
-    obs          = ch_obs
-    obsm         = ch_obsm
+    integrations = ch_integrations // channel: [ integration, h5ad ]
+    obs          = ch_obs          // channel: [ pkl ]
+    obsm         = ch_obsm         // channel: [ pkl ]
     layers       = ch_layers
-    versions     = ch_versions
+    versions     = ch_versions     // channel: [ versions.yml ]
 }

@@ -7,7 +7,7 @@ include { DOUBLET_REMOVAL  } from '../../modules/local/doublet_detection/doublet
 
 workflow DOUBLET_DETECTION {
     take:
-    ch_h5ad
+    ch_h5ad // channel: [ meta, h5ad ]
 
     main:
     ch_versions = Channel.empty()
@@ -66,7 +66,7 @@ workflow DOUBLET_DETECTION {
     }
 
     emit:
-    h5ad          = ch_h5ad
-    multiqc_files = ch_multiqc_files
-    versions      = ch_versions
+    h5ad          = ch_h5ad          // channel: [ meta, h5ad ]
+    multiqc_files = ch_multiqc_files // channel: [ json ]
+    versions      = ch_versions      // channel: [ versions.yml ]
 }

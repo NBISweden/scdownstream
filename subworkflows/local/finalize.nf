@@ -4,12 +4,12 @@ include { ADATA_PREPCELLXGENE } from '../../modules/local/adata/prepcellxgene'
 
 workflow FINALIZE {
     take:
-    ch_h5ad
-    ch_obs
-    ch_var
-    ch_obsm
+    ch_h5ad   // channel: [ merged, h5ad ]
+    ch_obs    // channel: [ pkl ]
+    ch_var    // channel: [ pkl ]
+    ch_obsm   // channel: [ pkl ]
     ch_obsp
-    ch_uns
+    ch_uns    // channel: [ pkl ]
     ch_layers
 
     main:
@@ -34,5 +34,5 @@ workflow FINALIZE {
     }
 
     emit:
-    versions = ch_versions
+    versions = ch_versions // channel: [ versions.yml ]
 }

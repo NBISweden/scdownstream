@@ -2,7 +2,7 @@ include { CELLTYPES_CELLTYPIST } from '../../modules/local/celltypes/celltypist'
 
 workflow CELLTYPE_ASSIGNMENT {
     take:
-    ch_h5ad
+    ch_h5ad // channel: [ meta, h5ad ]
 
     main:
     ch_versions = Channel.empty()
@@ -18,7 +18,7 @@ workflow CELLTYPE_ASSIGNMENT {
     }
 
     emit:
-    obs      = ch_obs
-    h5ad     = ch_h5ad
-    versions = ch_versions
+    obs      = ch_obs      // channel: [ meta, pkl ]
+    h5ad     = ch_h5ad     // channel: [ meta, h5ad ]
+    versions = ch_versions // channel: [ versions.yml ]
 }

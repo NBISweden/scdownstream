@@ -13,7 +13,7 @@ include { CUSTOM_COLLECTSIZES as COLLECT_SIZES  } from '../../modules/local/cust
 workflow QUALITY_CONTROL {
 
     take:
-    ch_h5ad // channel: [ val(meta), filtered, unfiltered ]
+    ch_h5ad // channel: [ meta, filtered, unfiltered ]
 
     main:
     ch_versions = Channel.empty()
@@ -94,7 +94,7 @@ workflow QUALITY_CONTROL {
     ch_multiqc_files = ch_multiqc_files.mix(COLLECT_SIZES.out.multiqc_files)
 
     emit:
-    h5ad          = ch_h5ad
-    multiqc_files = ch_multiqc_files
+    h5ad          = ch_h5ad          // channel: [ meta, h5ad ]
+    multiqc_files = ch_multiqc_files // channel: [ json ]
     versions      = ch_versions      // channel: [ versions.yml ]
 }

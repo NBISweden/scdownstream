@@ -30,7 +30,7 @@ include { methodsDescriptionText               } from '../subworkflows/local/uti
 workflow SCDOWNSTREAM {
     take:
     ch_samplesheet // channel: samplesheet read in from --input
-    ch_base        // value channel: [ val(meta), path(h5ad) ]
+    ch_base        // channel: [ val(meta), path(h5ad) ]
 
     main:
 
