@@ -16,12 +16,12 @@ workflow FINALIZE {
     ch_versions = Channel.empty()
 
     ADATA_EXTEND(ch_h5ad
-        .combine(ch_obs.flatten().collect().ifEmpty([]).map{ [it] })
-        .combine(ch_var.flatten().collect().ifEmpty([]).map{ [it] })
-        .combine(ch_obsm.flatten().collect().ifEmpty([]).map{ [it] })
-        .combine(ch_obsp.flatten().collect().ifEmpty([]).map{ [it] })
-        .combine(ch_uns.flatten().collect().ifEmpty([]).map{ [it] })
-        .combine(ch_layers.flatten().collect().ifEmpty([]).map{ [it] })
+        .combine(ch_obs.flatten().collect().ifEmpty([]).map{ it -> [it] })
+        .combine(ch_var.flatten().collect().ifEmpty([]).map{ it -> [it] })
+        .combine(ch_obsm.flatten().collect().ifEmpty([]).map{ it -> [it] })
+        .combine(ch_obsp.flatten().collect().ifEmpty([]).map{ it -> [it] })
+        .combine(ch_uns.flatten().collect().ifEmpty([]).map{ it -> [it] })
+        .combine(ch_layers.flatten().collect().ifEmpty([]).map{ it -> [it] })
     )
     ch_versions = ch_versions.mix(ADATA_EXTEND.out.versions)
 

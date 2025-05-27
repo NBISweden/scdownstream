@@ -119,7 +119,7 @@ workflow SCDOWNSTREAM {
         grouping_col = "label"
     }
     else {
-        ch_embeddings = Channel.value(params.base_embeddings.split(',').collect { it.trim() })
+        ch_embeddings = Channel.value(params.base_embeddings.split(',').collect { it -> it.trim() })
 
         ADATA_SPLITEMBEDDINGS(ch_base, ch_embeddings)
         ch_versions = ch_versions.mix(ADATA_SPLITEMBEDDINGS.out.versions)

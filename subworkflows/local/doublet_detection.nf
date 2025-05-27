@@ -18,7 +18,7 @@ workflow DOUBLET_DETECTION {
         log.info("DOUBLET_DETECTION: Not performed since none selected.")
     }
     else {
-        methods = params.doublet_detection.split(',').collect { it.trim().toLowerCase() }
+        methods = params.doublet_detection.split(',').collect { it -> it.trim().toLowerCase() }
 
         if (methods.size() == 0) {
             error("No doublet detection methods selected. If you want to skip this step, set 'doublet_detection' to 'none'.")

@@ -30,7 +30,7 @@ workflow INTEGRATE {
         ch_h5ad_hvg = ch_h5ad
     }
 
-    methods = params.integration_methods.split(',').collect { it.trim().toLowerCase() }
+    methods = params.integration_methods.split(',').collect { it -> it.trim().toLowerCase() }
 
     // Special treatment for R-based methods
     if (methods.intersect(['seurat']).size() > 0) {
