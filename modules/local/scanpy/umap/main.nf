@@ -1,12 +1,9 @@
 process SCANPY_UMAP {
     tag "${meta.id}"
     label 'process_medium'
-    label 'process_gpu'
 
     conda "${moduleDir}/environment.yml"
-    container "${task.ext.use_gpu
-        ? 'ghcr.io/scverse/rapids_singlecell:v0.12.5'
-        : workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
+    container "${workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
             ? 'oras://community.wave.seqera.io/library/scanpy:1.10.4--c2d474f46255931c'
             : 'community.wave.seqera.io/library/scanpy:1.10.4--f905699eb17b6536'}"
 

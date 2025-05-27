@@ -1,12 +1,9 @@
 process SCANPY_HVGS {
     tag "${meta.id}"
     label 'process_medium'
-    label 'process_gpu'
 
     conda "${moduleDir}/environment.yml"
-    container "${task.ext.use_gpu
-        ? 'ghcr.io/scverse/rapids_singlecell:v0.12.5'
-        : workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
+    container "${workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
             ? 'oras://community.wave.seqera.io/library/pyyaml_scanpy:158b12038812cf13'
             : 'community.wave.seqera.io/library/pyyaml_scanpy:61c9ab8e312bbe0a'}"
 
