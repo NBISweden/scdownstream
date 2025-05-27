@@ -59,7 +59,6 @@ workflow LOAD_H5AD {
         .map{ _id, meta, filtered, unfiltered -> [meta, filtered ?: [], unfiltered ?: []] }
 
     emit:
-    h5ad = ch_output
-
+    h5ad     = ch_output
     versions = ch_versions
 }

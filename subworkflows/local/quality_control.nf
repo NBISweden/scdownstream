@@ -16,7 +16,6 @@ workflow QUALITY_CONTROL {
     ch_h5ad // channel: [ val(meta), filtered, unfiltered ]
 
     main:
-
     ch_versions = Channel.empty()
     ch_multiqc_files = Channel.empty()
     ch_sizes = Channel.empty()
@@ -96,7 +95,6 @@ workflow QUALITY_CONTROL {
 
     emit:
     h5ad          = ch_h5ad
-
     multiqc_files = ch_multiqc_files
-    versions      = ch_versions                     // channel: [ versions.yml ]
+    versions      = ch_versions      // channel: [ versions.yml ]
 }

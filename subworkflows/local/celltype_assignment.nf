@@ -18,8 +18,7 @@ workflow CELLTYPE_ASSIGNMENT {
     }
 
     emit:
-    obs = ch_obs
-    h5ad = ch_h5ad
-
+    obs      = ch_obs
+    h5ad     = ch_h5ad
     versions = ch_versions
 }

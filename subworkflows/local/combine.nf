@@ -5,7 +5,7 @@ include { ADATA_MERGE            } from '../../modules/local/adata/merge'
 workflow COMBINE {
 
     take:
-    ch_h5ad // queue channel: [ val(meta), path(h5ad) ]
+    ch_h5ad  // queue channel: [ val(meta), path(h5ad) ]
     ch_base  // value channel: [ val(meta), path(h5ad) ]
 
     main:
@@ -17,7 +17,6 @@ workflow COMBINE {
     ch_layers        = Channel.empty()
     ch_multiqc_files = Channel.empty()
 
-
     ADATA_MERGE(
         ch_h5ad.map { _meta, h5ad -> [[id: "merged"], h5ad] }.groupTuple(),
         ch_base,
@@ -25,7 +24,6 @@ workflow COMBINE {
     ch_var = ch_var.mix(ADATA_MERGE.out.intersect_genes)
     ch_outer = ADATA_MERGE.out.outer
     ch_versions = ch_versions.mix(ADATA_MERGE.out.versions)
-
 
     INTEGRATE( ADATA_MERGE.out.integrate )
     ch_versions      = ch_versions.mix(INTEGRATE.out.versions)

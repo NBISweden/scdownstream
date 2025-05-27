@@ -45,7 +45,6 @@ workflow AMBIENT_RNA_REMOVAL {
     }
 
     emit:
-    h5ad = ch_h5ad
-
+    h5ad     = ch_h5ad
     versions = ch_versions
 }
