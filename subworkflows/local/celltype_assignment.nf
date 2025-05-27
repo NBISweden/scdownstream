@@ -2,14 +2,14 @@ include { CELLTYPES_CELLTYPIST } from '../../modules/local/celltypes/celltypist'
 
 workflow CELLTYPE_ASSIGNMENT {
     take:
-    ch_h5ad
+    ch_h5ad // channel: [ meta, h5ad ]
 
     main:
     ch_versions = Channel.empty()
     ch_obs = Channel.empty()
 
     if (params.celltypist_model) {
-        celltypist_models = Channel.value(params.celltypist_model.split(',').collect{it.trim()})
+        celltypist_models = Channel.value(params.celltypist_model.split(',').collect{ it -> it.trim() })
 
         CELLTYPES_CELLTYPIST(ch_h5ad, celltypist_models)
         ch_obs = ch_obs.mix(CELLTYPES_CELLTYPIST.out.obs)
@@ -18,8 +18,7 @@ workflow CELLTYPE_ASSIGNMENT {
     }
 
     emit:
-    obs = ch_obs
-    h5ad = ch_h5ad
-
-    versions = ch_versions
+    obs      = ch_obs      // channel: [ meta, pkl ]
+    h5ad     = ch_h5ad     // channel: [ meta, h5ad ]
+    versions = ch_versions // channel: [ versions.yml ]
 }

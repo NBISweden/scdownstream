@@ -5,16 +5,13 @@ include { SCANPY_UMAP as UMAP           } from '../../modules/local/scanpy/umap'
 include { ADATA_ENTROPY as ENTROPY      } from '../../modules/local/adata/entropy'
 workflow CLUSTER {
     take:
-    ch_input
+    ch_input // channel: [ integration, h5ad ]
 
     main:
     ch_versions = Channel.empty()
     ch_obs = Channel.empty()
     ch_obsm = Channel.empty()
-    ch_obsp = Channel.empty()
-    ch_uns = Channel.empty()
     ch_multiqc_files = Channel.empty()
-
     ch_h5ad = Channel.empty()
 
     if (params.cluster_global) {
@@ -32,16 +29,16 @@ workflow CLUSTER {
 
     ch_h5ad = ch_h5ad.map { meta, h5ad -> [meta + [id: meta.integration + "-" + meta.subset], h5ad] }
 
-    ch_h5ad
+    ch_h5ad = ch_h5ad
         .branch { meta, _h5ad ->
             has_neighbors: meta.integration == "bbknn"
             needs_neighbors: true
         }
-        .set { ch_h5ad }
 
     NEIGHBORS(ch_h5ad.needs_neighbors)
     ch_versions = ch_versions.mix(NEIGHBORS.out.versions)
     ch_h5ad = NEIGHBORS.out.h5ad.mix(ch_h5ad.has_neighbors)
+    ch_h5ad_neighbours = NEIGHBORS.out.h5ad
 
     UMAP(ch_h5ad)
     ch_versions = ch_versions.mix(UMAP.out.versions)
@@ -64,6 +61,7 @@ workflow CLUSTER {
     LEIDEN(ch_h5ad.map { meta, h5ad -> [meta, h5ad, meta.resolution] }, true)
     ch_versions = ch_versions.mix(LEIDEN.out.versions)
     ch_obs = ch_obs.mix(LEIDEN.out.obs)
+    ch_h5ad_clustering = LEIDEN.out.h5ad
     ch_multiqc_files = ch_multiqc_files.mix(LEIDEN.out.multiqc_files)
 
     ENTROPY(LEIDEN.out.h5ad)
@@ -72,12 +70,10 @@ workflow CLUSTER {
     ch_multiqc_files = ch_multiqc_files.mix(ENTROPY.out.multiqc_files)
 
     emit:
-    obs             = ch_obs
-    obsm            = ch_obsm
-    obsp            = ch_obsp
-    uns             = ch_uns
-    h5ad_clustering = LEIDEN.out.h5ad
-    h5ad_neighbors  = NEIGHBORS.out.h5ad
-    multiqc_files   = ch_multiqc_files
-    versions        = ch_versions
+    obs             = ch_obs             // channel: [ pkl ]
+    obsm            = ch_obsm            // channel: [ pkl ]
+    h5ad_neighbors  = ch_h5ad_neighbours // channel: [ integration, h5ad ]
+    h5ad_clustering = ch_h5ad_clustering // channel: [ integration, h5ad ]
+    multiqc_files   = ch_multiqc_files   // channel: [ json ]
+    versions        = ch_versions        // channel: [ versions.yml ]
 }
