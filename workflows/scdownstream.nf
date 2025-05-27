@@ -101,11 +101,9 @@ workflow SCDOWNSTREAM {
             //
             COMBINE(ch_h5ad, ch_base)
             ch_versions = ch_versions.mix(COMBINE.out.versions)
-            ch_multiqc_files = ch_multiqc_files.mix(COMBINE.out.multiqc_files)
             ch_obs = ch_obs.mix(COMBINE.out.obs)
             ch_var = ch_var.mix(COMBINE.out.var)
             ch_obsm = ch_obsm.mix(COMBINE.out.obsm)
-            ch_layers = ch_layers.mix(COMBINE.out.layers)
             ch_integrations = ch_integrations.mix(COMBINE.out.integrations)
             ch_finalization_base = COMBINE.out.h5ad
         }
@@ -135,8 +133,6 @@ workflow SCDOWNSTREAM {
         ch_versions = ch_versions.mix(CLUSTER.out.versions)
         ch_obs = ch_obs.mix(CLUSTER.out.obs)
         ch_obsm = ch_obsm.mix(CLUSTER.out.obsm)
-        ch_obsp = ch_obsp.mix(CLUSTER.out.obsp)
-        ch_uns = ch_uns.mix(CLUSTER.out.uns)
         ch_multiqc_files = ch_multiqc_files.mix(CLUSTER.out.multiqc_files)
 
         if (params.pseudobulk) {

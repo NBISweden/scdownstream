@@ -17,7 +17,6 @@ workflow INTEGRATE {
     ch_versions = Channel.empty()
     ch_obs = Channel.empty()
     ch_obsm = Channel.empty()
-    ch_layers = Channel.empty()
     ch_integrations = Channel.empty()
 
     // If a reference model is provided, only the genes in the reference model are used
@@ -120,6 +119,5 @@ workflow INTEGRATE {
     integrations = ch_integrations // channel: [ integration, h5ad ]
     obs          = ch_obs          // channel: [ pkl ]
     obsm         = ch_obsm         // channel: [ pkl ]
-    layers       = ch_layers
     versions     = ch_versions     // channel: [ versions.yml ]
 }

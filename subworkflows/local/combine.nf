@@ -14,8 +14,6 @@ workflow COMBINE {
     ch_obs           = Channel.empty()
     ch_var           = Channel.empty()
     ch_obsm          = Channel.empty()
-    ch_layers        = Channel.empty()
-    ch_multiqc_files = Channel.empty()
 
     ADATA_MERGE(
         ch_h5ad.map { _meta, h5ad -> [[id: "merged"], h5ad] }.groupTuple(),
@@ -58,7 +56,5 @@ workflow COMBINE {
     var              = ch_var           // channel: [ pkl ]
     obs              = ch_obs           // channel: [ pkl ]
     obsm             = ch_obsm          // channel: [ pkl ]
-    layers           = ch_layers
-    multiqc_files    = ch_multiqc_files
     versions         = ch_versions      // channel: [ versions.yml ]
 }

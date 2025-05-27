@@ -11,8 +11,6 @@ workflow CLUSTER {
     ch_versions = Channel.empty()
     ch_obs = Channel.empty()
     ch_obsm = Channel.empty()
-    ch_obsp = Channel.empty()
-    ch_uns = Channel.empty()
     ch_multiqc_files = Channel.empty()
     ch_h5ad = Channel.empty()
 
@@ -74,8 +72,6 @@ workflow CLUSTER {
     emit:
     obs             = ch_obs             // channel: [ pkl ]
     obsm            = ch_obsm            // channel: [ pkl ]
-    obsp            = ch_obsp
-    uns             = ch_uns
     h5ad_neighbors  = ch_h5ad_neighbours // channel: [ integration, h5ad ]
     h5ad_clustering = ch_h5ad_clustering // channel: [ integration, h5ad ]
     multiqc_files   = ch_multiqc_files   // channel: [ json ]
