@@ -20,6 +20,7 @@ include { paramsSummaryMap                     } from 'plugin/nf-schema'
 include { paramsSummaryMultiqc                 } from '../subworkflows/nf-core/utils_nfcore_pipeline'
 include { softwareVersionsToYAML               } from '../subworkflows/nf-core/utils_nfcore_pipeline'
 include { methodsDescriptionText               } from '../subworkflows/local/utils_nfcore_scdownstream_pipeline'
+include { CELLDEX_REFERENCE_PROCESSING         } from '../subworkflows/local/celldex_reference_processing'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -72,7 +73,12 @@ workflow SCDOWNSTREAM {
         //
         // Perform automated celltype assignment
         //
-        CELLTYPE_ASSIGNMENT(ch_h5ad)
+        if (params.celldex_reference) {
+            CELLDEX_REFERENCE_PROCESSING(params.celldex_reference)
+            CELLTYPE_ASSIGNMENT(ch_h5ad, CELLDEX_REFERENCE_PROCESSING.out.referenceDirs)
+        } else {
+            CELLTYPE_ASSIGNMENT(ch_h5ad, Channel.empty())
+        }
         ch_versions = ch_versions.mix(CELLTYPE_ASSIGNMENT.out.versions)
         ch_obs_per_sample = ch_obs_per_sample.mix(CELLTYPE_ASSIGNMENT.out.obs)
 
