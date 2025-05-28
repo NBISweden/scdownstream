@@ -1,12 +1,9 @@
 process SCANPY_SCRUBLET {
     tag "${meta.id}"
     label 'process_medium'
-    label 'process_gpu'
 
     conda "${moduleDir}/environment.yml"
-    container "${task.ext.use_gpu
-        ? 'ghcr.io/scverse/rapids_singlecell:v0.12.5'
-        : workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
+    container "${workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
             ? 'oras://community.wave.seqera.io/library/scanpy_scikit-image:b6fd928892eb1ee9'
             : 'community.wave.seqera.io/library/scanpy_scikit-image:da08bbc13cee72b2'}"
 
