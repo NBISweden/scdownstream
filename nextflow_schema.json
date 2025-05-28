@@ -210,6 +210,16 @@
                     "description": "Specify the models to use for the celltypist cell type annotation",
                     "help_text": "If you want to use multiple models, separate them with a comma. Available models can be found [here](https://www.celltypist.org/models).",
                     "pattern": "^([a-zA-Z0-9_]*(,[a-zA-Z0-9_]*)*)?$"
+                },
+                "celldex_reference": {
+                    "type": "string",
+                    "description": "Specify the reference(s) alongwith their version(s) separated by \"__\" and multiple references separated by comma a \",\" with no spaces",
+                    "help_text": ""
+                },
+                "celldex_reference_label": {
+                    "type": "string",
+                    "default": "label.main",
+                    "description": "Specify label(s) for the celldex reference(s) specified earlier"
                 }
             }
         },
@@ -490,10 +500,16 @@
             "$ref": "#/$defs/integration_options"
         },
         {
+            "$ref": "#/$defs/extension_options"
+        },
+        {
             "$ref": "#/$defs/clustering_options"
         },
         {
-            "$ref": "#/$defs/extension_options"
+            "$ref": "#/$defs/tool_options"
+        },
+        {
+            "$ref": "#/$defs/resource_options"
         },
         {
             "$ref": "#/$defs/pipeline_options"
@@ -505,25 +521,10 @@
             "$ref": "#/$defs/pseudobulking_options"
         },
         {
-            "$ref": "#/$defs/tool_options"
-        },
-        {
-            "$ref": "#/$defs/resource_options"
-        },
-        {
             "$ref": "#/$defs/institutional_config_options"
         },
         {
             "$ref": "#/$defs/generic_options"
         }
-    ],
-    "properties": {
-        "celldex_reference": {
-            "type": "string"
-        },
-        "celldex_reference_label": {
-            "type": "string",
-            "default": "label.main"
-        }
-    }
+    ]
 }
