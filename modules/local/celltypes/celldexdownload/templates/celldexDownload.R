@@ -20,6 +20,7 @@ versions <- list(
         R = R.version.string,
         celldex = as.character(packageVersion("celldex")),
         yaml = as.character(packageVersion("yaml")),
+        SingleCellExperiment = as.character(packageVersion("SingleCellExperiment")),
         HDF5Array = as.character(packageVersion("HDF5Array"))
     )
 )

@@ -2,11 +2,6 @@ process CELLTYPES_SINGLER {
     tag "$meta.id"
     label 'process_medium'
 
-    //conda "${moduleDir}/environment.yml"
-    //container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-    //   'docker://saditya88/singler:0.0.1':
-    //    'docker://saditya88/singler:0.0.1' }"
-
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'docker://saditya88/singler:0.0.1':
         'docker.io/saditya88/singler:0.0.1' }"
