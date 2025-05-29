@@ -11,7 +11,7 @@ sce <- adata\$as_SingleCellExperiment()
 
 # Prepare parameters for decontX
 params <- list()
-params\$assayName <- "${input_layer}"
+params\$assayName <- "${input_layer == 'X' ? 'counts' : input_layer}"
 
 # Handle batch information if available
 batch_col <- "${batch_col}"

@@ -16,7 +16,13 @@ workflow AMBIENT_RNA_REMOVAL {
         ch_h5ad = ch_pairing.map{ meta, filtered, _unfiltered -> [meta, filtered] }
     }
     else if (params.ambient_removal == 'decontx') {
-        CELDA_DECONTX(ch_pairing)
+        ch_decontx = ch_pairing.multiMap{ meta, filtered, unfiltered ->
+            input: [meta, filtered, unfiltered]
+            batch_col: meta.batch_col
+            input_layer: meta.counts_layer
+        }
+
+        CELDA_DECONTX(ch_decontx.input, ch_decontx.batch_col, ch_decontx.input_layer)
         ch_h5ad = CELDA_DECONTX.out.h5ad
         ch_versions = ch_versions.mix(CELDA_DECONTX.out.versions)
     }
