@@ -66,7 +66,7 @@ workflow CLUSTER {
 
     ch_entropy = LEIDEN.out.h5ad.multiMap { meta, h5ad ->
         h5ad: [meta, h5ad]
-        group_col: meta.resolution + "_leiden"
+        group_col: meta.id + "_leiden"
     }
 
     ENTROPY(ch_entropy.h5ad, ch_entropy.group_col, "batch")
