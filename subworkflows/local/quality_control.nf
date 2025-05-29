@@ -20,10 +20,13 @@ workflow QUALITY_CONTROL {
     ch_multiqc_files = Channel.empty()
     ch_sizes = Channel.empty()
 
-    GET_UNFILTERED_SIZE(ch_h5ad.map{ meta, filtered, unfiltered -> [meta, unfiltered ?: filtered] })
+    GET_UNFILTERED_SIZE(
+        ch_h5ad.map{ meta, filtered, unfiltered -> [meta, unfiltered ?: filtered] },
+        "cells"
+    )
     ch_versions = ch_versions.mix(GET_UNFILTERED_SIZE.out.versions)
-    ch_sizes = ch_sizes.mix(GET_UNFILTERED_SIZE.out.txt
-        .map{ meta, txt -> [meta.id, 'unfiltered', (txt.text ?: "0").toInteger()] })
+    ch_sizes = ch_sizes.mix(GET_UNFILTERED_SIZE.out.size
+        .map{ meta, size -> [meta.id, 'unfiltered', (size.text ?: "0").toInteger()] })
 
     ch_h5ad = ch_h5ad
             .branch{ meta, filtered, unfiltered ->
@@ -46,10 +49,13 @@ workflow QUALITY_CONTROL {
         .map{ meta, _empty, unfiltered, filtered -> [meta, filtered, unfiltered] }
     )
 
-    GET_FILTERED_SIZE(ch_complete.map{ meta, filtered, _unfiltered -> [meta, filtered] })
+    GET_FILTERED_SIZE(
+        ch_complete.map{ meta, filtered, _unfiltered -> [meta, filtered] },
+        "cells"
+    )
     ch_versions = ch_versions.mix(GET_FILTERED_SIZE.out.versions)
-    ch_sizes = ch_sizes.mix(GET_FILTERED_SIZE.out.txt
-        .map{ meta, txt -> [meta.id, 'filtered', (txt.text ?: "0").toInteger()] })
+    ch_sizes = ch_sizes.mix(GET_FILTERED_SIZE.out.size
+        .map{ meta, size -> [meta.id, 'filtered', (size.text ?: "0").toInteger()] })
 
     QC_RAW(ch_complete.map{ meta, filtered, _unfiltered -> [meta, filtered] })
     ch_multiqc_files = ch_multiqc_files.mix(QC_RAW.out.multiqc_files)
@@ -63,20 +69,20 @@ workflow QUALITY_CONTROL {
     ch_h5ad = SCANPY_FILTER.out.h5ad
     ch_versions = ch_versions.mix(SCANPY_FILTER.out.versions)
 
-    GET_THRESHOLDED_SIZE(ch_h5ad)
+    GET_THRESHOLDED_SIZE(ch_h5ad, "cells")
     ch_versions = ch_versions.mix(GET_THRESHOLDED_SIZE.out.versions)
-    ch_sizes = ch_sizes.mix(GET_THRESHOLDED_SIZE.out.txt
-        .map{ meta, txt -> [meta.id, 'thresholded', (txt.text ?: "0").toInteger()] })
+    ch_sizes = ch_sizes.mix(GET_THRESHOLDED_SIZE.out.size
+        .map{ meta, size -> [meta.id, 'thresholded', (size.text ?: "0").toInteger()] })
 
     DOUBLET_DETECTION(ch_h5ad)
     ch_h5ad = DOUBLET_DETECTION.out.h5ad
     ch_multiqc_files = ch_multiqc_files.mix(DOUBLET_DETECTION.out.multiqc_files)
     ch_versions = ch_versions.mix(DOUBLET_DETECTION.out.versions)
 
-    GET_DEDOUBLETED_SIZE(ch_h5ad)
+    GET_DEDOUBLETED_SIZE(ch_h5ad, "cells")
     ch_versions = ch_versions.mix(GET_DEDOUBLETED_SIZE.out.versions)
-    ch_sizes = ch_sizes.mix(GET_DEDOUBLETED_SIZE.out.txt
-        .map{ meta, txt -> [meta.id, 'dedoubleted', (txt.text ?: "0").toInteger()] })
+    ch_sizes = ch_sizes.mix(GET_DEDOUBLETED_SIZE.out.size
+        .map{ meta, size -> [meta.id, 'dedoubleted', (size.text ?: "0").toInteger()] })
 
     QC_FILTERED(ch_h5ad)
     ch_multiqc_files = ch_multiqc_files.mix(QC_FILTERED.out.multiqc_files)
