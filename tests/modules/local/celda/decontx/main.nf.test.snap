@@ -1,28 +1,56 @@
 {
     "Should run without failures without raw - single batch": {
         "content": [
+            [
+                "versions.yml:md5,c546ef8ddb5673ef5f14e733d02de1d1"
+            ],
+            true,
+            927624
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "24.10.4"
+        },
+        "timestamp": "2025-05-29T12:44:19.982104545"
+    },
+    "Should run without failures with raw": {
+        "content": [
+            [
+                "versions.yml:md5,c546ef8ddb5673ef5f14e733d02de1d1"
+            ],
+            true,
+            927624
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "24.10.4"
+        },
+        "timestamp": "2025-05-29T12:45:23.655462703"
+    },
+    "Should run without failures with raw - stub": {
+        "content": [
             {
                 "0": [
                     [
                         {
                             "id": "test"
                         },
-                        "test_decontx.h5ad:md5,67ad2beceb70cf62e822dda1ad53e804"
+                        "test_decontx.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,c546ef8ddb5673ef5f14e733d02de1d1"
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "h5ad": [
                     [
                         {
                             "id": "test"
                         },
-                        "test_decontx.h5ad:md5,67ad2beceb70cf62e822dda1ad53e804"
+                        "test_decontx.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,c546ef8ddb5673ef5f14e733d02de1d1"
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ]
             }
         ],
@@ -30,6 +58,53 @@
             "nf-test": "0.9.2",
             "nextflow": "24.10.4"
         },
-        "timestamp": "2025-05-26T13:40:12.912263156"
+        "timestamp": "2025-05-29T12:45:35.181787714"
+    },
+    "Should run without failures without raw - multi-batch": {
+        "content": [
+            [
+                "versions.yml:md5,c546ef8ddb5673ef5f14e733d02de1d1"
+            ],
+            true,
+            927624
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "24.10.4"
+        },
+        "timestamp": "2025-05-29T12:44:43.502287906"
+    },
+    "Should run without failures without raw - stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_decontx.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_decontx.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "24.10.4"
+        },
+        "timestamp": "2025-05-29T12:44:50.967586386"
     }
 }
