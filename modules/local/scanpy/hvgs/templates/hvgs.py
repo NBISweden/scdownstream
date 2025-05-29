@@ -35,6 +35,8 @@ if adata.n_vars > n_hvgs and n_hvgs >= 0:
     sc.pp.log1p(adata)
     sc.pp.highly_variable_genes(adata, **kwargs)
 
+    adata.var[["highly_variable"]].to_pickle(f"{prefix}.pkl")
+
     adata.X = raw_counts
     adata = adata[:, adata.var["highly_variable"]]
 

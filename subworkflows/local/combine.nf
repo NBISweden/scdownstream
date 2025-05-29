@@ -26,6 +26,7 @@ workflow COMBINE {
 
     INTEGRATE( ADATA_MERGE.out.integrate )
     ch_versions      = ch_versions.mix(INTEGRATE.out.versions)
+    ch_var           = ch_var.mix(INTEGRATE.out.var)
 
     if (params.base_adata) {
         ADATA_MERGEEMBEDDINGS(

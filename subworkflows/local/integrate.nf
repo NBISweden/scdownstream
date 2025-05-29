@@ -16,6 +16,7 @@ workflow INTEGRATE {
     main:
     ch_versions = Channel.empty()
     ch_obs = Channel.empty()
+    ch_var = Channel.empty()
     ch_obsm = Channel.empty()
     ch_integrations = Channel.empty()
 
@@ -25,6 +26,7 @@ workflow INTEGRATE {
         SCANPY_HVGS(ch_h5ad, params.integration_hvgs)
         ch_versions = ch_versions.mix(SCANPY_HVGS.out.versions)
         ch_h5ad_hvg = SCANPY_HVGS.out.h5ad
+        ch_var = ch_var.mix(SCANPY_HVGS.out.var)
     } else {
         ch_h5ad_hvg = ch_h5ad
     }
@@ -118,6 +120,7 @@ workflow INTEGRATE {
     emit:
     integrations = ch_integrations // channel: [ integration, h5ad ]
     obs          = ch_obs          // channel: [ pkl ]
+    var          = ch_var          // channel: [ pkl ]
     obsm         = ch_obsm         // channel: [ pkl ]
     versions     = ch_versions     // channel: [ versions.yml ]
 }
