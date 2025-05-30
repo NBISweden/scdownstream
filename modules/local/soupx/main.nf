@@ -3,7 +3,7 @@ process SOUPX {
     label 'process_medium'
 
     conda "${moduleDir}/environment.yml"
-    container "wave.seqera.io/wt/8511871aa43b/wave/build:ab33cc397ffa8686"
+    container "wave.seqera.io/wt/dfb3be8c1700/wave/build:8e268df4fea6573f"
 
     input:
     tuple val(meta), path(h5ad), path(raw)
