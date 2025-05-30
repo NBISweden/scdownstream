@@ -39,9 +39,9 @@ sc <- SoupChannel(data_raw, data, calcSoupProfile = FALSE)
 
 # Set soup profile - following SoupX vignette approach
 soupProf <- data.frame(
-  row.names = rownames(data),
-  est = rowSums(data)/sum(data),
-  counts = rowSums(data)
+    row.names = rownames(data),
+    est = rowSums(data)/sum(data),
+    counts = rowSums(data)
 )
 sc <- setSoupProfile(sc, soupProf)
 
@@ -60,12 +60,12 @@ write_h5ad(adata, "${prefix}.h5ad")
 
 # Write version information
 writeLines(
-  c(
-    '"${task.process}":',
-    paste('    r:', paste(R.Version()\$major, R.Version()\$minor, sep = ".")),
-    paste('    anndataR:', as.character(packageVersion('anndataR'))),
-    paste('    SoupX:', as.character(packageVersion('SoupX'))),
-    paste('    Seurat:', as.character(packageVersion('Seurat')))
-  ),
-  'versions.yml'
+    c(
+        '"${task.process}":',
+        paste('    r:', paste(R.Version()\$major, R.Version()\$minor, sep = ".")),
+        paste('    anndataR:', as.character(packageVersion('anndataR'))),
+        paste('    SoupX:', as.character(packageVersion('SoupX'))),
+        paste('    Seurat:', as.character(packageVersion('Seurat')))
+    ),
+    'versions.yml'
 )
