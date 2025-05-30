@@ -6,6 +6,8 @@ library(anndataR)
 
 Sys.setenv(TMP = ".")
 
+set.seed(0)
+
 adata <- read_h5ad("${h5ad}")
 sce <- adata\$as_SingleCellExperiment()
 
