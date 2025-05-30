@@ -2,10 +2,12 @@
 
 library(scds)
 library(SingleCellExperiment)
+library(anndataR)
 
 Sys.setenv(TMP = ".")
 
-sce <- readRDS("${rds}")
+adata <- read_h5ad("${h5ad}")
+sce <- adata\$as_SingleCellExperiment()
 
 ## Annotate doublet using binary classification based doublet scoring:
 sce <- bcds(sce, retRes = TRUE, estNdbl=TRUE)
@@ -25,7 +27,8 @@ if ("cxds_score" %in% colnames(colData(sce))) {
     predictions <- colData(sce)[, 'bcds_call', drop=FALSE]
 }
 
-saveRDS(sce, "${prefix}.rds")
+adata_processed <- as_AnnData(sce)
+write_h5ad(adata_processed, "${prefix}.h5ad")
 
 colnames(predictions) <- "${prefix}"
 write.csv(predictions, "${prefix}.csv")
