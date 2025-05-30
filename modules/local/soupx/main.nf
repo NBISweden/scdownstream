@@ -3,15 +3,14 @@ process SOUPX {
     label 'process_medium'
 
     conda "${moduleDir}/environment.yml"
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'oras://community.wave.seqera.io/library/anndata2ri_bioconductor-singlecellexperiment_leidenalg_python-igraph_pruned:a4f5f3e8f08b77df':
-        'community.wave.seqera.io/library/anndata2ri_bioconductor-singlecellexperiment_leidenalg_python-igraph_pruned:8724302c7a7eddbb' }"
+    container "wave.seqera.io/wt/8511871aa43b/wave/build:ab33cc397ffa8686"
 
     input:
     tuple val(meta), path(h5ad), path(raw)
+    val(input_layer)
 
     output:
-    tuple val(meta), path("*.h5ad"), emit: h5ad
+    tuple val(meta), path("${prefix}.h5ad"), emit: h5ad
     path "versions.yml"            , emit: versions
 
     when:
@@ -19,7 +18,9 @@ process SOUPX {
 
     script:
     prefix = task.ext.prefix ?: "${meta.id}"
-    template 'soupx.py'
+    cluster_resolution = task.ext.cluster_resolution ?: 0.8
+    output_layer = task.ext.output_layer ?: "ambient_corrected"
+    template 'soupx.R'
 
     stub:
     prefix = task.ext.prefix ?: "${meta.id}"

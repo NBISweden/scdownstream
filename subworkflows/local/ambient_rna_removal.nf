@@ -11,18 +11,18 @@ workflow AMBIENT_RNA_REMOVAL {
     main:
     ch_versions = Channel.empty()
 
+    ch_multi = ch_pairing.multiMap{ meta, filtered, unfiltered ->
+        input: [meta, filtered, unfiltered]
+        batch_col: meta.batch_col
+        input_layer: meta.counts_layer
+    }
+
     if (params.ambient_removal == 'none') {
         log.info "AMBIENT_RNA_REMOVAL: Not performed since 'none' selected."
         ch_h5ad = ch_pairing.map{ meta, filtered, _unfiltered -> [meta, filtered] }
     }
     else if (params.ambient_removal == 'decontx') {
-        ch_decontx = ch_pairing.multiMap{ meta, filtered, unfiltered ->
-            input: [meta, filtered, unfiltered]
-            batch_col: meta.batch_col
-            input_layer: meta.counts_layer
-        }
-
-        CELDA_DECONTX(ch_decontx.input, ch_decontx.batch_col, ch_decontx.input_layer)
+        CELDA_DECONTX(ch_multi.input, ch_multi.batch_col, ch_multi.input_layer)
         ch_h5ad = CELDA_DECONTX.out.h5ad
         ch_versions = ch_versions.mix(CELDA_DECONTX.out.versions)
     }
@@ -37,7 +37,7 @@ workflow AMBIENT_RNA_REMOVAL {
         ch_versions = ch_versions.mix(CELLBENDER_MERGE.out.versions)
     }
     else if (params.ambient_removal == 'soupx') {
-        SOUPX(ch_pairing)
+        SOUPX(ch_multi.input, ch_multi.input_layer)
         ch_h5ad = SOUPX.out.h5ad
         ch_versions = ch_versions.mix(SOUPX.out.versions)
     }
