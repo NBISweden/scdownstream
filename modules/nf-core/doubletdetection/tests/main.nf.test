@@ -21,12 +21,11 @@ nextflow_process {
         }
 
         then {
-            def mb = 1024 * 1024
-            def kb = 1024
             assertAll(
                 { assert process.success },
 
-                // Only check if output exists, as phenotype supports no random seeding:
+                // Only check if output exists and has constant size,
+                // as phenotype supports no random seeding:
                 // https://github.com/jacoblevine/PhenoGraph/issues/16
                 { assert path(process.out.h5ad.get(0).get(1)).exists() },
                 { assert path(process.out.predictions.get(0).get(1)).exists() },
