@@ -1,0 +1,76 @@
+{
+    "Should run without failures - stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.0",
+            "nextflow": "25.04.2"
+        },
+        "timestamp": "2025-06-01T13:27:14.727665176"
+    },
+    "Should run without failures": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        [
+                            "SRR28679756_filtered.h5ad:md5,9577989495fb74cc48b2f7d863710877",
+                            "SRR28679757_filtered.h5ad:md5,e19f230b6c9279c9db16752d0e3a7025",
+                            "SRR28679758_filtered.h5ad:md5,11d6198eb5b56c90dd4881a8ac4c5274"
+                        ]
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,b89749bd800ea4e6db8828a4bee24143"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        [
+                            "SRR28679756_filtered.h5ad:md5,9577989495fb74cc48b2f7d863710877",
+                            "SRR28679757_filtered.h5ad:md5,e19f230b6c9279c9db16752d0e3a7025",
+                            "SRR28679758_filtered.h5ad:md5,11d6198eb5b56c90dd4881a8ac4c5274"
+                        ]
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,b89749bd800ea4e6db8828a4bee24143"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.0",
+            "nextflow": "25.04.2"
+        },
+        "timestamp": "2025-06-01T13:27:02.970532653"
+    }
+}
