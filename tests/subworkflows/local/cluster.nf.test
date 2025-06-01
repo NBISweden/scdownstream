@@ -1,0 +1,82 @@
+nextflow_workflow {
+
+    name "Test Workflow CLUSTER"
+    script "subworkflows/local/cluster.nf"
+    workflow "CLUSTER"
+
+    setup {
+
+        run("ADATA_UNIFY") {
+            script "modules/local/adata/unify/main.nf"
+            process {
+                """
+                input[0] = Channel.of([
+                        [ id: 'test' ],
+                        file(params.pipelines_testdata_base_path + 'pbmc/combined_filtered_matrix.h5ad', checkIfExists: true)
+                    ]
+                )
+                input[1] = 'sample'
+                input[2] = ''
+                input[3] = 'unknown'
+                input[4] = 'index'
+                input[5] = 'X'
+                input[6] = 'make_unique'
+                """
+            }
+        }
+        run("SCANPY_PCA") {
+            script "modules/local/scanpy/pca/main.nf"
+            process {
+                """
+                input[0] = ADATA_UNIFY.out.h5ad
+                """
+            }
+        }
+    }
+
+    test("Should run without failures - stub") {
+
+        options '-stub'
+        config './cluster.config'
+
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            workflow {
+                """
+                input[0] = SCANPY_PCA.out.h5ad
+                """
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert snapshot(workflow.out).match()
+        }
+
+    }
+
+    test("Should run without failures") {
+
+        config './cluster.config'
+
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            workflow {
+                """
+                input[0] = SCANPY_PCA.out.h5ad
+                """
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert snapshot(workflow.out).match()
+        }
+
+    }
+
+}
