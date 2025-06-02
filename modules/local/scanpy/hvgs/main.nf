@@ -28,6 +28,7 @@ process SCANPY_HVGS {
     prefix = task.ext.prefix ?: "${meta.id}"
     """
     touch ${prefix}.h5ad
+    touch ${prefix}.pkl
     touch versions.yml
     """
 }
