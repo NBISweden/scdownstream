@@ -89,7 +89,7 @@ workflow INTEGRATE {
     }
 
     if (methods.contains('harmony')) {
-        SCANPY_HARMONY(ch_h5ad_hvg.map { _meta, h5ad -> [[id: 'harmony'], h5ad] })
+        SCANPY_HARMONY(ch_h5ad_hvg.map { _meta, h5ad -> [[id: 'harmony'], h5ad] }, "batch", "X")
         ch_versions = ch_versions.mix(SCANPY_HARMONY.out.versions)
         ch_integrations = ch_integrations.mix(SCANPY_HARMONY.out.h5ad)
         ch_obsm = ch_obsm.mix(SCANPY_HARMONY.out.obsm)
