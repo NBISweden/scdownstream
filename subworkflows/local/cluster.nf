@@ -55,11 +55,16 @@ workflow CLUSTER {
                     resolution: resolution,
                     id: meta.integration + "-" + meta.subset + "-" + resolution,
                 ],
-                h5ad,
+                h5ad
             ]
         }
 
-    LEIDEN(ch_h5ad.map { meta, h5ad -> [meta, h5ad, meta.resolution] }, true)
+    ch_leiden = ch_h5ad.multiMap{ meta, h5ad ->
+        h5ad: [meta, h5ad]
+        resolution: meta.resolution
+        key_added: meta.id + "_leiden"
+    }
+    LEIDEN(ch_leiden.h5ad, ch_leiden.resolution, ch_leiden.key_added, true)
     ch_versions = ch_versions.mix(LEIDEN.out.versions)
     ch_obs = ch_obs.mix(LEIDEN.out.obs)
     ch_h5ad_clustering = LEIDEN.out.h5ad

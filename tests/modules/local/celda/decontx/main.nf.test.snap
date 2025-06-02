@@ -11,7 +11,7 @@
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-01T21:52:07.571594167"
+        "timestamp": "2025-06-02T09:02:13.478395398"
     },
     "Should run without failures with raw": {
         "content": [
@@ -19,13 +19,13 @@
                 "versions.yml:md5,c546ef8ddb5673ef5f14e733d02de1d1"
             ],
             true,
-            19019658
+            15596748
         ],
         "meta": {
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-01T21:55:52.778862176"
+        "timestamp": "2025-06-02T09:05:19.569809787"
     },
     "Should run without failures with raw - stub": {
         "content": [
@@ -58,7 +58,7 @@
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-01T21:56:27.827006987"
+        "timestamp": "2025-06-02T09:05:32.260303593"
     },
     "Should run without failures without raw - multi-batch": {
         "content": [
@@ -66,13 +66,13 @@
                 "versions.yml:md5,c546ef8ddb5673ef5f14e733d02de1d1"
             ],
             true,
-            19019938
+            75263624
         ],
         "meta": {
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-01T21:53:42.833504075"
+        "timestamp": "2025-06-02T09:04:08.206055805"
     },
     "Should run without failures without raw - stub": {
         "content": [
@@ -105,6 +105,6 @@
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-01T21:54:10.347146456"
+        "timestamp": "2025-06-02T09:04:19.461943941"
     }
 }
