@@ -29,6 +29,7 @@ nextflow_workflow {
             process {
                 """
                 input[0] = ADATA_UNIFY.out.h5ad.map{ meta, h5ad -> [meta + [integration: 'pca'], h5ad] }
+                input[1] = 'X_emb'
                 """
             }
         }
@@ -37,7 +38,6 @@ nextflow_workflow {
     test("Should run without failures - global - stub") {
 
         options '-stub'
-        config './cluster.config'
 
         when {
             params {
@@ -62,8 +62,6 @@ nextflow_workflow {
     }
 
     test("Should run without failures - global") {
-
-        config './cluster.config'
 
         when {
             params {
@@ -90,7 +88,6 @@ nextflow_workflow {
     test("Should run without failures - per-label - stub") {
 
         options '-stub'
-        config './cluster.config'
 
         when {
             params {
@@ -115,8 +112,6 @@ nextflow_workflow {
     }
 
     test("Should run without failures - per-label") {
-
-        config './cluster.config'
 
         when {
             params {
@@ -143,7 +138,6 @@ nextflow_workflow {
     test("Should run without failures - both - stub") {
 
         options '-stub'
-        config './cluster.config'
 
         when {
             params {
@@ -168,8 +162,6 @@ nextflow_workflow {
     }
 
     test("Should run without failures - both") {
-
-        config './cluster.config'
 
         when {
             params {

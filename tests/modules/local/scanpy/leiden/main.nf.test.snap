@@ -48,7 +48,7 @@
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-02T08:59:10.633057818"
+        "timestamp": "2025-06-02T10:30:47.150449287"
     },
     "Should run without failures": {
         "content": [
@@ -58,7 +58,7 @@
                         {
                             "id": "test"
                         },
-                        "test.h5ad:md5,ec22b43106ab376f788b94105498586f"
+                        "test.h5ad:md5,2076c8d6584e1bfe1dc6a2752ec8af47"
                     ]
                 ],
                 "1": [
@@ -78,7 +78,7 @@
                         {
                             "id": "test"
                         },
-                        "test.h5ad:md5,ec22b43106ab376f788b94105498586f"
+                        "test.h5ad:md5,2076c8d6584e1bfe1dc6a2752ec8af47"
                     ]
                 ],
                 "multiqc_files": [
@@ -99,6 +99,6 @@
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-02T08:58:55.126582782"
+        "timestamp": "2025-06-02T10:30:31.306826878"
     }
 }

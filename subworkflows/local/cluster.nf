@@ -38,7 +38,7 @@ workflow CLUSTER {
         needs_neighbors: true
     }
 
-    NEIGHBORS(ch_h5ad.needs_neighbors)
+    NEIGHBORS(ch_h5ad.needs_neighbors, "X_emb")
     ch_versions = ch_versions.mix(NEIGHBORS.out.versions)
     ch_h5ad = NEIGHBORS.out.h5ad.mix(ch_h5ad.has_neighbors)
     ch_h5ad_neighbours = NEIGHBORS.out.h5ad
