@@ -5,7 +5,6 @@ workflow CELLTYPE_ASSIGNMENT {
     take:
     ch_h5ad // channel: [ meta, h5ad ]
     celldex_ref_dirs
-    
     main:
     ch_versions = Channel.empty()
     ch_obs = Channel.empty()
