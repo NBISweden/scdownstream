@@ -60,6 +60,7 @@ workflow INTEGRATE {
             params.scvi_model
                 ? Channel.value([[id: 'scvi_model'], params.scvi_model])
                 : [[], []],
+            "batch",
             params.scvi_categorical_covariates,
             params.scvi_continuous_covariates,
         )
@@ -76,7 +77,8 @@ workflow INTEGRATE {
                 : methods.contains('scvi')
                     ? SCVITOOLS_SCVI.out.model
                     : [[], []],
-            "label",
+            ["label", "unknown"],
+            "batch",
             params.scvi_categorical_covariates,
             params.scvi_continuous_covariates,
         )
