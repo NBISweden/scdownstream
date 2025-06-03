@@ -2,7 +2,7 @@ process CELDA_DECONTX {
     tag "$meta.id"
     label 'process_medium'
 
-    container "wave.seqera.io/wt/2c3b10f7c367/wave/build:c805fdf0a2290cf2"
+    container "docker.io/nicotru/celda:1d48a68e9d534b2b"
 
     input:
     tuple val(meta), path(h5ad), path(raw)
