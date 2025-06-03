@@ -9,8 +9,6 @@ nextflow_workflow {
         when {
             params {
                 outdir = "$outputDir"
-                ambient_removal = 'none'
-                doublet_detection = 'none'
             }
             workflow {
                 """
@@ -20,6 +18,8 @@ nextflow_workflow {
                         file(params.pipelines_testdata_base_path + 'pbmc/SRR28679756_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
+                input[1] = 'none'
+                input[2] = []
                 """
             }
         }
@@ -36,8 +36,6 @@ nextflow_workflow {
         when {
             params {
                 outdir = "$outputDir"
-                ambient_removal = 'decontx'
-                doublet_detection = 'scrublet'
             }
             workflow {
                 """
@@ -47,6 +45,8 @@ nextflow_workflow {
                         file(params.pipelines_testdata_base_path + 'pbmc/SRR28679756_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
+                input[1] = 'decontx'
+                input[2] = ['scrublet']
                 """
             }
         }
@@ -65,8 +65,6 @@ nextflow_workflow {
         when {
             params {
                 outdir = "$outputDir"
-                ambient_removal = 'decontx'
-                doublet_detection = 'scrublet'
             }
             workflow {
                 """
@@ -76,6 +74,8 @@ nextflow_workflow {
                         file(params.pipelines_testdata_base_path + 'pbmc/SRR28679756_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
+                input[1] = 'decontx'
+                input[2] = ['scrublet']
                 """
             }
         }

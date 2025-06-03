@@ -7,22 +7,16 @@ include { DOUBLET_REMOVAL  } from '../../modules/local/doublet_detection/doublet
 workflow DOUBLET_DETECTION {
     take:
     ch_h5ad // channel: [ meta, h5ad ]
+    methods // value: list of strings
 
     main:
     ch_versions = Channel.empty()
     ch_multiqc_files = Channel.empty()
     ch_predictions = Channel.empty()
 
-    if (!params.doublet_detection || params.doublet_detection == 'none') {
-        log.info("DOUBLET_DETECTION: Not performed since none selected.")
-    }
-    else {
-        methods = params.doublet_detection.split(',').collect { it -> it.trim().toLowerCase() }
-
-        if (methods.size() == 0) {
-            error("No doublet detection methods selected. If you want to skip this step, set 'doublet_detection' to 'none'.")
-        }
-
+    if (methods.size() == 0) {
+        log.info("DOUBLET_DETECTION: Not performed since no methods selected.")
+    } else {
         if (methods.contains('scds')) {
             SCDS(ch_h5ad)
             ch_predictions = ch_predictions.mix(SCDS.out.predictions)
@@ -36,7 +30,7 @@ workflow DOUBLET_DETECTION {
         }
 
         if (methods.contains('scrublet')) {
-            ch_scrublet = ch_h5ad.multiMap{ meta, h5ad ->
+            ch_scrublet = ch_h5ad.multiMap { meta, h5ad ->
                 input: [meta, h5ad]
                 batch_col: meta.batch_col
             }
@@ -62,7 +56,7 @@ workflow DOUBLET_DETECTION {
     }
 
     emit:
-    h5ad          = ch_h5ad          // channel: [ meta, h5ad ]
+    h5ad          = ch_h5ad // channel: [ meta, h5ad ]
     multiqc_files = ch_multiqc_files // channel: [ json ]
-    versions      = ch_versions      // channel: [ versions.yml ]
+    versions      = ch_versions // channel: [ versions.yml ]
 }

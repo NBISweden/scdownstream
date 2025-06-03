@@ -9,7 +9,6 @@ nextflow_workflow {
         when {
             params {
                 outdir = "$outputDir"
-                ambient_removal = 'none'
             }
             workflow {
                 """
@@ -19,6 +18,7 @@ nextflow_workflow {
                         file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
+                input[1] = 'none'
                 """
             }
         }
@@ -35,7 +35,6 @@ nextflow_workflow {
         when {
             params {
                 outdir = "$outputDir"
-                ambient_removal = 'test'
             }
             workflow {
                 """
@@ -45,6 +44,7 @@ nextflow_workflow {
                         file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
+                input[1] = 'test'
                 """
             }
         }
@@ -60,7 +60,6 @@ nextflow_workflow {
         when {
             params {
                 outdir = "$outputDir"
-                ambient_removal = 'decontx'
             }
             workflow {
                 """
@@ -70,6 +69,7 @@ nextflow_workflow {
                         file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
+                input[1] = 'decontx'
                 """
             }
         }
@@ -92,7 +92,6 @@ nextflow_workflow {
         when {
             params {
                 outdir = "$outputDir"
-                ambient_removal = 'soupx'
             }
             workflow {
                 """
@@ -102,6 +101,7 @@ nextflow_workflow {
                         file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
+                input[1] = 'soupx'
                 """
             }
         }
@@ -124,7 +124,6 @@ nextflow_workflow {
         when {
             params {
                 outdir = "$outputDir"
-                ambient_removal = 'scar'
             }
             workflow {
                 """
@@ -134,6 +133,7 @@ nextflow_workflow {
                         file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
+                input[1] = 'scar'
                 """
             }
         }
@@ -150,7 +150,6 @@ nextflow_workflow {
         when {
             params {
                 outdir = "$outputDir"
-                ambient_removal = 'cellbender'
             }
             workflow {
                 """
@@ -160,6 +159,7 @@ nextflow_workflow {
                         file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
+                input[1] = 'cellbender'
                 """
             }
         }

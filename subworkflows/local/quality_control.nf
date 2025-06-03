@@ -13,6 +13,8 @@ include { CUSTOM_COLLECTSIZES as COLLECT_SIZES                                  
 workflow QUALITY_CONTROL {
     take:
     ch_h5ad // channel: [ meta, filtered, unfiltered ]
+    ambient_removal_method // value: string
+    doublet_detection_methods // value: list of strings
 
     main:
     ch_versions = Channel.empty()
@@ -60,7 +62,7 @@ workflow QUALITY_CONTROL {
     ch_multiqc_files = ch_multiqc_files.mix(QC_RAW.out.multiqc_files)
     ch_versions = ch_versions.mix(QC_RAW.out.versions)
 
-    AMBIENT_RNA_REMOVAL(ch_complete)
+    AMBIENT_RNA_REMOVAL(ch_complete, ambient_removal_method)
     ch_h5ad = AMBIENT_RNA_REMOVAL.out.h5ad
     ch_versions = ch_versions.mix(AMBIENT_RNA_REMOVAL.out.versions)
 
@@ -82,7 +84,7 @@ workflow QUALITY_CONTROL {
         GET_THRESHOLDED_SIZE.out.size.map { meta, size -> [meta.id, 'thresholded', (size.text ?: "0").toInteger()] }
     )
 
-    DOUBLET_DETECTION(ch_h5ad)
+    DOUBLET_DETECTION(ch_h5ad, doublet_detection_methods)
     ch_h5ad = DOUBLET_DETECTION.out.h5ad
     ch_multiqc_files = ch_multiqc_files.mix(DOUBLET_DETECTION.out.multiqc_files)
     ch_versions = ch_versions.mix(DOUBLET_DETECTION.out.versions)
