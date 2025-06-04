@@ -27,9 +27,8 @@
                     },
                     "doubletdetection": {
                         "branch": "master",
-                        "git_sha": "81880787133db07d9b4c1febd152c090eb8325dc",
-                        "installed_by": ["modules"],
-                        "patch": "modules/nf-core/doubletdetection/doubletdetection.diff"
+                        "git_sha": "b82d04bf00be51dacffeb5568380470fa85dbb46",
+                        "installed_by": ["modules"]
                     },
                     "multiqc": {
                         "branch": "master",
