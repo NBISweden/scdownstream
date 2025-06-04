@@ -153,7 +153,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,59434ae587b2431ff9bcf0039174b668",
+                    "versions.yml:md5,15672d83c24edaf665342791531c24ea",
                     "versions.yml:md5,5b260ea1255030014b0fb69427ed7818",
                     "versions.yml:md5,5b260ea1255030014b0fb69427ed7818",
                     "versions.yml:md5,5b260ea1255030014b0fb69427ed7818",
@@ -202,7 +202,7 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,59434ae587b2431ff9bcf0039174b668",
+                    "versions.yml:md5,15672d83c24edaf665342791531c24ea",
                     "versions.yml:md5,5b260ea1255030014b0fb69427ed7818",
                     "versions.yml:md5,5b260ea1255030014b0fb69427ed7818",
                     "versions.yml:md5,5b260ea1255030014b0fb69427ed7818",
@@ -215,6 +215,6 @@
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-04T16:58:20.523619843"
+        "timestamp": "2025-06-04T23:57:29.594047616"
     }
 }
