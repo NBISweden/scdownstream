@@ -1,4 +1,5 @@
 include { SCANPY_HVGS        } from '../../modules/local/scanpy/hvgs'
+include { SCANPY_FILTER      } from '../../modules/local/scanpy/filter'
 include { ADATA_TORDS        } from '../../modules/local/adata/tords'
 include { SCVITOOLS_SCVI     } from '../../modules/local/scvitools/scvi'
 include { SCVITOOLS_SCANVI   } from '../../modules/local/scvitools/scanvi'
@@ -35,6 +36,11 @@ workflow INTEGRATE {
         ch_versions = ch_versions.mix(SCANPY_HVGS.out.versions)
         ch_h5ad_hvg = SCANPY_HVGS.out.h5ad
         ch_var = ch_var.mix(SCANPY_HVGS.out.var)
+
+        // Filter out empty cells from the AnnData object
+        SCANPY_FILTER(ch_h5ad_hvg, 1, 0, 0, 0, 100)
+        ch_h5ad_hvg = SCANPY_FILTER.out.h5ad
+        ch_versions = ch_versions.mix(SCANPY_FILTER.out.versions)
     }
     else {
         ch_h5ad_hvg = ch_h5ad
