@@ -38,6 +38,15 @@ nextflow_process {
                 """
             }
         }
+        run("SCANPY_HVGS") {
+            script "modules/local/scanpy/hvgs/main.nf"
+            process {
+                """
+                input[0] = SCANPY_LEIDEN.out.h5ad
+                input[1] = 100
+                """
+            }
+        }
     }
 
     test("Should run without failures") {
@@ -50,7 +59,7 @@ nextflow_process {
             }
             process {
                 """
-                input[0] = SCANPY_LEIDEN.out.h5ad
+                input[0] = SCANPY_HVGS.out.h5ad
                 input[1] = [[], []]
                 input[2] = ['leiden', 'unknown']
                 input[3] = 'sample'
@@ -86,7 +95,7 @@ nextflow_process {
             }
             process {
                 """
-                input[0] = SCANPY_LEIDEN.out.h5ad
+                input[0] = SCANPY_HVGS.out.h5ad
                 input[1] = [[], []]
                 input[2] = ['leiden', 'unknown']
                 input[3] = 'sample'
