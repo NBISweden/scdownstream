@@ -7,7 +7,7 @@
                         {
                             "id": "combined"
                         },
-                        "combined_outer.h5ad:md5,317c914790987bf102950e0faf38d909"
+                        "combined_outer.h5ad:md5,bf3c0606fc3720dbd3dff54dfef9f655"
                     ]
                 ],
                 "1": [
@@ -15,7 +15,7 @@
                         {
                             "id": "combined"
                         },
-                        "combined_inner.h5ad:md5,317c914790987bf102950e0faf38d909"
+                        "combined_inner.h5ad:md5,bf3c0606fc3720dbd3dff54dfef9f655"
                     ]
                 ],
                 "2": [
@@ -23,7 +23,7 @@
                         {
                             "id": "combined"
                         },
-                        "combined_integrate.h5ad:md5,317c914790987bf102950e0faf38d909"
+                        "combined_integrate.h5ad:md5,bf3c0606fc3720dbd3dff54dfef9f655"
                     ]
                 ],
                 "3": [
@@ -37,7 +37,7 @@
                         {
                             "id": "combined"
                         },
-                        "combined_inner.h5ad:md5,317c914790987bf102950e0faf38d909"
+                        "combined_inner.h5ad:md5,bf3c0606fc3720dbd3dff54dfef9f655"
                     ]
                 ],
                 "integrate": [
@@ -45,7 +45,7 @@
                         {
                             "id": "combined"
                         },
-                        "combined_integrate.h5ad:md5,317c914790987bf102950e0faf38d909"
+                        "combined_integrate.h5ad:md5,bf3c0606fc3720dbd3dff54dfef9f655"
                     ]
                 ],
                 "intersect_genes": [
@@ -56,7 +56,7 @@
                         {
                             "id": "combined"
                         },
-                        "combined_outer.h5ad:md5,317c914790987bf102950e0faf38d909"
+                        "combined_outer.h5ad:md5,bf3c0606fc3720dbd3dff54dfef9f655"
                     ]
                 ],
                 "versions": [
@@ -68,7 +68,7 @@
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-01T20:28:18.0835123"
+        "timestamp": "2025-06-05T00:16:51.379209007"
     },
     "Should run with base": {
         "content": [
