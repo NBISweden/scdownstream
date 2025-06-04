@@ -14,8 +14,8 @@ nextflow_workflow {
                 """
                 input[0] = Channel.of([
                         [ id: 'test' ],
-                        file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_filtered_matrix.h5ad', checkIfExists: true),
-                        file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_filtered_matrix.h5ad', checkIfExists: true),
+                        file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
                 input[1] = 'none'
@@ -40,8 +40,8 @@ nextflow_workflow {
                 """
                 input[0] = Channel.of([
                         [ id: 'test' ],
-                        file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_filtered_matrix.h5ad', checkIfExists: true),
-                        file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_filtered_matrix.h5ad', checkIfExists: true),
+                        file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
                 input[1] = 'test'
@@ -65,8 +65,8 @@ nextflow_workflow {
                 """
                 input[0] = Channel.of([
                         [ id: 'test', batch_col: 'sample', counts_layer: 'X' ],
-                        file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_filtered_matrix.h5ad', checkIfExists: true),
-                        file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_filtered_matrix.h5ad', checkIfExists: true),
+                        file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
                 input[1] = 'decontx'
@@ -97,8 +97,8 @@ nextflow_workflow {
                 """
                 input[0] = Channel.of([
                         [ id: 'test', input_layer: 'X' ],
-                        file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_filtered_matrix.h5ad', checkIfExists: true),
-                        file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_filtered_matrix.h5ad', checkIfExists: true),
+                        file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
                 input[1] = 'soupx'
@@ -129,8 +129,8 @@ nextflow_workflow {
                 """
                 input[0] = Channel.of([
                         [ id: 'test' ],
-                        file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_filtered_matrix.h5ad', checkIfExists: true),
-                        file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_filtered_matrix.h5ad', checkIfExists: true),
+                        file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
                 input[1] = 'scar'
@@ -155,8 +155,8 @@ nextflow_workflow {
                 """
                 input[0] = Channel.of([
                         [ id: 'test' ],
-                        file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_filtered_matrix.h5ad', checkIfExists: true),
-                        file(params.pipelines_testdata_base_path + 'pbmc/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_filtered_matrix.h5ad', checkIfExists: true),
+                        file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
                 input[1] = 'cellbender'

@@ -12,7 +12,7 @@ nextflow_workflow {
                 """
                 input[0] = Channel.of([
                         [ id: 'test', integration: 'pca' ],
-                        file(params.pipelines_testdata_base_path + 'pbmc/combined_filtered_matrix.h5ad', checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/combined_filtered_matrix.h5ad', checkIfExists: true)
                     ]
                 )
                 input[1] = 'X_emb'

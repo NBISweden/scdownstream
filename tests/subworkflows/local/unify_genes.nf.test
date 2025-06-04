@@ -15,11 +15,11 @@ nextflow_workflow {
                 input[0] = Channel.of(
                         [
                             [ id: 'test1' ],
-                            file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_processed.h5ad', checkIfExists: true)
+                            file(params.modules_testdata_base_path + 'pbmc3k/pbmc3k_processed.h5ad', checkIfExists: true)
                         ],
                         [
                             [ id: 'test2' ],
-                            file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_processed.h5ad', checkIfExists: true)
+                            file(params.modules_testdata_base_path + 'pbmc3k/pbmc3k_processed.h5ad', checkIfExists: true)
                         ]
                 )
                 """
@@ -46,11 +46,11 @@ nextflow_workflow {
                 input[0] = Channel.of(
                         [
                             [ id: 'test1' ],
-                            file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_processed.h5ad', checkIfExists: true)
+                            file(params.modules_testdata_base_path + 'pbmc3k/pbmc3k_processed.h5ad', checkIfExists: true)
                         ],
                         [
                             [ id: 'test2' ],
-                            file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_processed.h5ad', checkIfExists: true)
+                            file(params.modules_testdata_base_path + 'pbmc3k/pbmc3k_processed.h5ad', checkIfExists: true)
                         ]
                 )
                 """

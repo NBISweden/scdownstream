@@ -15,7 +15,7 @@ nextflow_process {
                             "test1",
                         ],
                         [
-                            file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_processed.h5ad', checkIfExists: true),
+                            file(params.modules_testdata_base_path + 'pbmc3k/pbmc3k_processed.h5ad', checkIfExists: true),
                         ]
                     ]
                 )
@@ -35,7 +35,7 @@ nextflow_process {
                 ch_h5ad = Channel.of([
                         [ id: 'test1' ],
                         [
-                            file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_processed.h5ad', checkIfExists: true),
+                            file(params.modules_testdata_base_path + 'pbmc3k/pbmc3k_processed.h5ad', checkIfExists: true),
                         ]
                     ]
                 )
@@ -77,7 +77,7 @@ nextflow_process {
                 ch_h5ad = Channel.of([
                         [ id: 'test1' ],
                         [
-                            file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_processed.h5ad', checkIfExists: true),
+                            file(params.modules_testdata_base_path + 'pbmc3k/pbmc3k_processed.h5ad', checkIfExists: true),
                         ]
                     ]
                 )

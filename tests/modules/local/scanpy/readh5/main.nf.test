@@ -17,7 +17,7 @@ nextflow_process {
                 """
                 input[0] = Channel.of([
                         [ id: 'test' ],
-                        file(params.pipelines_testdata_base_path + 'misc/filtered_feature_bc_matrix.h5', checkIfExists: true)
+                        file(params.pipelines_testdata_base_path + '/misc/filtered_feature_bc_matrix.h5', checkIfExists: true)
                     ]
                 )
                 """
@@ -45,7 +45,7 @@ nextflow_process {
                 """
                 input[0] = Channel.of([
                         [ id: 'test' ],
-                        file(params.pipelines_testdata_base_path + 'misc/filtered_feature_bc_matrix.h5', checkIfExists: true)
+                        file(params.pipelines_testdata_base_path + '/misc/filtered_feature_bc_matrix.h5', checkIfExists: true)
                     ]
                 )
                 """

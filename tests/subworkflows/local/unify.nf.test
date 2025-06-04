@@ -17,13 +17,13 @@ nextflow_workflow {
                 """
                 input[0] = Channel.of([
                         [id: 'test1', symbol_col: 'none'],
-                        file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_raw_geneid.h5ad', checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'pbmc3k/pbmc3k_raw_geneid.h5ad', checkIfExists: true)
                     ], [
                         [id: 'test2', symbol_col: 'symbols'],
-                        file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_raw_geneid.h5ad', checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'pbmc3k/pbmc3k_raw_geneid.h5ad', checkIfExists: true)
                     ], [
                         [id: 'test3', symbol_col: 'index'],
-                        file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_raw.h5ad', checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'pbmc3k/pbmc3k_raw.h5ad', checkIfExists: true)
                     ]
                 )
                 """
@@ -50,13 +50,13 @@ nextflow_workflow {
                 """
                 input[0] = Channel.of([
                         [id: 'test1', symbol_col: 'none'],
-                        file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_raw_geneid.h5ad', checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'pbmc3k/pbmc3k_raw_geneid.h5ad', checkIfExists: true)
                     ], [
                         [id: 'test2', symbol_col: 'symbols'],
-                        file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_raw_geneid.h5ad', checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'pbmc3k/pbmc3k_raw_geneid.h5ad', checkIfExists: true)
                     ], [
                         [id: 'test3', symbol_col: 'index'],
-                        file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_raw.h5ad', checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'pbmc3k/pbmc3k_raw.h5ad', checkIfExists: true)
                     ]
                 )
                 """
@@ -83,13 +83,13 @@ nextflow_workflow {
                 """
                 input[0] = Channel.of([
                         [id: 'test1', symbol_col: 'none'],
-                        file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_raw_geneid.h5ad', checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'pbmc3k/pbmc3k_raw_geneid.h5ad', checkIfExists: true)
                     ], [
                         [id: 'test2', symbol_col: 'symbols'],
-                        file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_raw_geneid.h5ad', checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'pbmc3k/pbmc3k_raw_geneid.h5ad', checkIfExists: true)
                     ], [
                         [id: 'test3', symbol_col: 'index'],
-                        file(params.pipelines_testdata_base_path + 'pbmc3k/pbmc3k_raw.h5ad', checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'pbmc3k/pbmc3k_raw.h5ad', checkIfExists: true)
                     ]
                 )
                 """
