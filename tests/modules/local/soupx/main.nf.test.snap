@@ -30,7 +30,7 @@
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-05-30T11:14:27.593195965"
+        "timestamp": "2025-06-04T16:55:06.610381614"
     },
     "Should run without failures": {
         "content": [
@@ -38,12 +38,12 @@
                 "versions.yml:md5,9c2fb6c515c7ddc9276461ce589a82d7"
             ],
             true,
-            8652012
+            8531996
         ],
         "meta": {
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-05-30T11:14:07.523129386"
+        "timestamp": "2025-06-04T16:54:51.115547813"
     }
 }

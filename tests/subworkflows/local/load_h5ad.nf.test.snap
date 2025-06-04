@@ -7,8 +7,8 @@
                         {
                             "id": "SRR28679756"
                         },
-                        "/nf-core/test-datasets/36ba4e5f076f4b46b0dc5f02ec77b390fb76bf2d/pbmc/SRR28679756_filtered_matrix.h5ad",
-                        "/nf-core/test-datasets/36ba4e5f076f4b46b0dc5f02ec77b390fb76bf2d/pbmc/SRR28679756_raw_matrix.h5ad"
+                        "/nf-core/test-datasets/modules/data/genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_filtered_matrix.h5ad",
+                        "/nf-core/test-datasets/modules/data/genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_raw_matrix.h5ad"
                     ],
                     [
                         {
@@ -30,7 +30,7 @@
                         },
                         "csv.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e",
                         [
-
+                            
                         ]
                     ],
                     [
@@ -39,7 +39,7 @@
                         },
                         "h5.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e",
                         [
-
+                            
                         ]
                     ]
                 ],
@@ -56,8 +56,8 @@
                         {
                             "id": "SRR28679756"
                         },
-                        "/nf-core/test-datasets/36ba4e5f076f4b46b0dc5f02ec77b390fb76bf2d/pbmc/SRR28679756_filtered_matrix.h5ad",
-                        "/nf-core/test-datasets/36ba4e5f076f4b46b0dc5f02ec77b390fb76bf2d/pbmc/SRR28679756_raw_matrix.h5ad"
+                        "/nf-core/test-datasets/modules/data/genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_filtered_matrix.h5ad",
+                        "/nf-core/test-datasets/modules/data/genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_raw_matrix.h5ad"
                     ],
                     [
                         {
@@ -79,7 +79,7 @@
                         },
                         "csv.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e",
                         [
-
+                            
                         ]
                     ],
                     [
@@ -88,7 +88,7 @@
                         },
                         "h5.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e",
                         [
-
+                            
                         ]
                     ]
                 ],
@@ -106,7 +106,7 @@
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-02T13:54:44.741062172"
+        "timestamp": "2025-06-04T16:58:37.629573415"
     },
     "Should run without failures": {
         "content": [
@@ -116,8 +116,8 @@
                         {
                             "id": "SRR28679756"
                         },
-                        "/nf-core/test-datasets/36ba4e5f076f4b46b0dc5f02ec77b390fb76bf2d/pbmc/SRR28679756_filtered_matrix.h5ad",
-                        "/nf-core/test-datasets/36ba4e5f076f4b46b0dc5f02ec77b390fb76bf2d/pbmc/SRR28679756_raw_matrix.h5ad"
+                        "/nf-core/test-datasets/modules/data/genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_filtered_matrix.h5ad",
+                        "/nf-core/test-datasets/modules/data/genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_raw_matrix.h5ad"
                     ],
                     [
                         {
@@ -139,7 +139,7 @@
                         },
                         "csv.h5ad:md5,e28b88c987fde8c847fbece9c4c4d06f",
                         [
-
+                            
                         ]
                     ],
                     [
@@ -148,7 +148,7 @@
                         },
                         "h5.h5ad:md5,21c4adb5fe4d572d55059833c8c8cb60",
                         [
-
+                            
                         ]
                     ]
                 ],
@@ -165,8 +165,8 @@
                         {
                             "id": "SRR28679756"
                         },
-                        "/nf-core/test-datasets/36ba4e5f076f4b46b0dc5f02ec77b390fb76bf2d/pbmc/SRR28679756_filtered_matrix.h5ad",
-                        "/nf-core/test-datasets/36ba4e5f076f4b46b0dc5f02ec77b390fb76bf2d/pbmc/SRR28679756_raw_matrix.h5ad"
+                        "/nf-core/test-datasets/modules/data/genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_filtered_matrix.h5ad",
+                        "/nf-core/test-datasets/modules/data/genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_raw_matrix.h5ad"
                     ],
                     [
                         {
@@ -188,7 +188,7 @@
                         },
                         "csv.h5ad:md5,e28b88c987fde8c847fbece9c4c4d06f",
                         [
-
+                            
                         ]
                     ],
                     [
@@ -197,7 +197,7 @@
                         },
                         "h5.h5ad:md5,21c4adb5fe4d572d55059833c8c8cb60",
                         [
-
+                            
                         ]
                     ]
                 ],
@@ -215,6 +215,6 @@
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-02T13:54:28.483702052"
+        "timestamp": "2025-06-04T16:58:20.523619843"
     }
 }

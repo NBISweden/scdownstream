@@ -9,11 +9,11 @@
                             "batch_col": "sample",
                             "counts_layer": "X"
                         },
-                        "test_filtered.h5ad:md5,61bfa1ca3b9bc330354511fad6bc84ec"
+                        "test_filtered.h5ad:md5,43c35926fd84e0988499efe697f9c80e"
                     ]
                 ],
                 "1": [
-                    "sizes_mqc.json:md5,a43b257a3c6e4c8b90be1ceaf3cc596d",
+                    "sizes_mqc.json:md5,b1dac75917f87f97025d5c8e20e4a3b1",
                     "test_preprocessed_mqc.json:md5,b1b70fe5a7e0b468ef7ca46d830c459c",
                     "test_raw_mqc.json:md5,056c301623fb615ba22293e6b4b83cc3"
                 ],
@@ -34,11 +34,11 @@
                             "batch_col": "sample",
                             "counts_layer": "X"
                         },
-                        "test_filtered.h5ad:md5,61bfa1ca3b9bc330354511fad6bc84ec"
+                        "test_filtered.h5ad:md5,43c35926fd84e0988499efe697f9c80e"
                     ]
                 ],
                 "multiqc_files": [
-                    "sizes_mqc.json:md5,a43b257a3c6e4c8b90be1ceaf3cc596d",
+                    "sizes_mqc.json:md5,b1dac75917f87f97025d5c8e20e4a3b1",
                     "test_preprocessed_mqc.json:md5,b1b70fe5a7e0b468ef7ca46d830c459c",
                     "test_raw_mqc.json:md5,056c301623fb615ba22293e6b4b83cc3"
                 ],
@@ -58,7 +58,7 @@
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-02T12:16:33.861788492"
+        "timestamp": "2025-06-04T16:57:31.950960632"
     },
     "Should run with ambient RNA removal and doublet detection - stub": {
         "content": [
@@ -127,7 +127,7 @@
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-02T12:19:54.164934349"
+        "timestamp": "2025-06-04T17:01:01.845691662"
     },
     "Should run with ambient RNA removal and doublet detection": {
         "content": [
@@ -139,11 +139,11 @@
                             "batch_col": "sample",
                             "counts_layer": "X"
                         },
-                        "test.h5ad:md5,806221ebb2855a758ea2df4f1a53c839"
+                        "test.h5ad:md5,4f41527329be196bde88be81aa5727db"
                     ]
                 ],
                 "1": [
-                    "sizes_mqc.json:md5,6bf323bb1f270339ca8f39de663d2387",
+                    "sizes_mqc.json:md5,1793ebee5833403df06e38d4c73f25c5",
                     "test_preprocessed_mqc.json:md5,a50a11c5d7eb529fb75d23acb6733813",
                     "test_raw_mqc.json:md5,056c301623fb615ba22293e6b4b83cc3"
                 ],
@@ -167,11 +167,11 @@
                             "batch_col": "sample",
                             "counts_layer": "X"
                         },
-                        "test.h5ad:md5,806221ebb2855a758ea2df4f1a53c839"
+                        "test.h5ad:md5,4f41527329be196bde88be81aa5727db"
                     ]
                 ],
                 "multiqc_files": [
-                    "sizes_mqc.json:md5,6bf323bb1f270339ca8f39de663d2387",
+                    "sizes_mqc.json:md5,1793ebee5833403df06e38d4c73f25c5",
                     "test_preprocessed_mqc.json:md5,a50a11c5d7eb529fb75d23acb6733813",
                     "test_raw_mqc.json:md5,056c301623fb615ba22293e6b4b83cc3"
                 ],
@@ -194,6 +194,6 @@
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-02T12:19:28.243466212"
+        "timestamp": "2025-06-04T17:00:33.851296456"
     }
 }
