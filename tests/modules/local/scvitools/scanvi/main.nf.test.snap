@@ -67,23 +67,23 @@
                     {
                         "id": "test"
                     },
-                    "test_scanvi.h5ad:md5,7d669e06b16f45882a273864b5b35f3f"
+                    "test_scanvi.h5ad:md5,a6aa79b1e2d94c75c10e3ec5241b693d"
                 ]
             ],
             [
-                "test_scanvi.pkl:md5,c9bd908ea37a289c6d28d7830403f51a"
+                "test_scanvi.pkl:md5,b6f606859f4c4ba60efc6f411cfa2459"
             ],
             [
-                "X_test_scanvi.pkl:md5,8bcd31b47c97c227318afcdda9159724"
+                "X_test_scanvi.pkl:md5,8f200f4f71eea3eb04e6a117aab4b36c"
             ],
             [
-                "versions.yml:md5,40ff10e21575728a54740cc2dd502194"
+                "versions.yml:md5,dcc5dcaf0ed31ba1d9695b817bd70d2d"
             ]
         ],
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-05T14:01:15.020497849"
+        "timestamp": "2025-06-05T17:32:33.403511335"
     }
 }
