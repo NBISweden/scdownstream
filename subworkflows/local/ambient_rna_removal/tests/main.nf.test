@@ -1,7 +1,7 @@
 nextflow_workflow {
 
     name "Test Workflow AMBIENT_RNA_REMOVAL"
-    script "subworkflows/local/ambient_rna_removal.nf"
+    script "subworkflows/local/ambient_rna_removal/main.nf"
     workflow "AMBIENT_RNA_REMOVAL"
 
     test("Should run with 'none' ambient removal") {

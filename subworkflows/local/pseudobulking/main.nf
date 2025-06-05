@@ -1,4 +1,4 @@
-include { SCIMILARITY_PSEUDOBULK as PSEUDOBULK } from '../../modules/local/scimilarity/pseudobulk'
+include { SCIMILARITY_PSEUDOBULK as PSEUDOBULK } from '../../../modules/local/scimilarity/pseudobulk'
 
 workflow PSEUDOBULKING {
     take:

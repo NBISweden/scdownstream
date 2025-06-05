@@ -1,7 +1,7 @@
 nextflow_workflow {
 
     name "Test Workflow PSEUDOBULKING"
-    script "subworkflows/local/pseudobulking.nf"
+    script "subworkflows/local/pseudobulking/main.nf"
     workflow "PSEUDOBULKING"
 
     test("Should run without failures") {

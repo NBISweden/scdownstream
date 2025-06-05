@@ -1,7 +1,7 @@
 nextflow_workflow {
 
     name "Test Workflow DOUBLET_DETECTION"
-    script "subworkflows/local/doublet_detection.nf"
+    script "subworkflows/local/doublet_detection/main.nf"
     workflow "DOUBLET_DETECTION"
 
     test("Should run without methods") {

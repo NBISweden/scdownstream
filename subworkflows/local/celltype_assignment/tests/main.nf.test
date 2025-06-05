@@ -1,7 +1,7 @@
 nextflow_workflow {
 
     name "Test Workflow CELLTYPE_ASSIGNMENT"
-    script "subworkflows/local/celltype_assignment.nf"
+    script "subworkflows/local/celltype_assignment/main.nf"
     workflow "CELLTYPE_ASSIGNMENT"
 
     test("Should run without failures") {

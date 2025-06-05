@@ -1,4 +1,4 @@
-include { CELLTYPES_CELLTYPIST } from '../../modules/local/celltypes/celltypist'
+include { CELLTYPES_CELLTYPIST } from '../../../modules/local/celltypes/celltypist'
 
 workflow CELLTYPE_ASSIGNMENT {
     take:

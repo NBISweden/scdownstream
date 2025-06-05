@@ -1,7 +1,7 @@
 nextflow_workflow {
 
     name "Test Workflow QUALITY_CONTROL"
-    script "subworkflows/local/quality_control.nf"
+    script "subworkflows/local/quality_control/main.nf"
     workflow "QUALITY_CONTROL"
 
     test("Should run without ambient RNA removal and doublet detection") {

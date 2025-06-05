@@ -1,8 +1,8 @@
-include { ADATA_SPLITCOL as SPLITCOL    } from '../../modules/local/adata/splitcol'
-include { SCANPY_NEIGHBORS as NEIGHBORS } from '../../modules/local/scanpy/neighbors'
-include { SCANPY_LEIDEN as LEIDEN       } from '../../modules/local/scanpy/leiden'
-include { SCANPY_UMAP as UMAP           } from '../../modules/local/scanpy/umap'
-include { ADATA_ENTROPY as ENTROPY      } from '../../modules/local/adata/entropy'
+include { ADATA_SPLITCOL as SPLITCOL    } from '../../../modules/local/adata/splitcol'
+include { SCANPY_NEIGHBORS as NEIGHBORS } from '../../../modules/local/scanpy/neighbors'
+include { SCANPY_LEIDEN as LEIDEN       } from '../../../modules/local/scanpy/leiden'
+include { SCANPY_UMAP as UMAP           } from '../../../modules/local/scanpy/umap'
+include { ADATA_ENTROPY as ENTROPY      } from '../../../modules/local/adata/entropy'
 workflow CLUSTER {
     take:
     ch_input       // channel: [ integration, h5ad ]

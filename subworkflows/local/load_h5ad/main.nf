@@ -1,6 +1,6 @@
-include { SCANPY_READH5 } from '../../modules/local/scanpy/readh5'
-include { ADATA_READRDS } from '../../modules/local/adata/readrds'
-include { ADATA_READCSV } from '../../modules/local/adata/readcsv'
+include { SCANPY_READH5 } from '../../../modules/local/scanpy/readh5'
+include { ADATA_READRDS } from '../../../modules/local/adata/readrds'
+include { ADATA_READCSV } from '../../../modules/local/adata/readcsv'
 
 workflow LOAD_H5AD {
     take:
