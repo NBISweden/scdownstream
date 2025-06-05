@@ -77,7 +77,7 @@ nextflow_process {
                     file(process.out.h5ad.get(0).get(1)).size(),
                     file(process.out.model.get(0).get(1)).size(),
                     file(process.out.obsm.get(0)).size(),
-                    process.out.obs,
+                    file(process.out.obs.get(0)).size(),
                     process.out.versions
                 ).match()
             },
