@@ -4,6 +4,9 @@ nextflow_process {
     script "modules/local/doublet_detection/scds/main.nf"
     process "SCDS"
 
+    tag "modules"
+    tag "modules_local"
+
     test("Should run without failures") {
 
         when {

@@ -4,6 +4,9 @@ nextflow_process {
     script "modules/local/scanpy/pca/main.nf"
     process "SCANPY_PCA"
 
+    tag "modules"
+    tag "modules_local"
+
     test("Should run without failures") {
 
         when {

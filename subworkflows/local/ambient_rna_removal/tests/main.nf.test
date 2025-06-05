@@ -4,6 +4,9 @@ nextflow_workflow {
     script "subworkflows/local/ambient_rna_removal/main.nf"
     workflow "AMBIENT_RNA_REMOVAL"
 
+    tag "subworkflows"
+    tag "subworkflows_local"
+
     test("Should run with 'none' ambient removal") {
 
         when {

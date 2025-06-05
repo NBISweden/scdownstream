@@ -4,6 +4,9 @@ nextflow_process {
     script "modules/local/scvitools/scvi/main.nf"
     process "SCVITOOLS_SCVI"
 
+    tag "modules"
+    tag "modules_local"
+
     test("Should run without failures") {
 
         when {

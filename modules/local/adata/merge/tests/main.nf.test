@@ -4,6 +4,9 @@ nextflow_process {
     script "modules/local/adata/merge/main.nf"
     process "ADATA_MERGE"
 
+    tag "modules"
+    tag "modules_local"
+
     setup {
         run("ADATA_UNIFY") {
             script "modules/local/adata/unify/main.nf"

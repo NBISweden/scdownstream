@@ -4,6 +4,9 @@ nextflow_process {
     script "modules/local/scanpy/combat/main.nf"
     process "SCANPY_COMBAT"
 
+    tag "modules"
+    tag "modules_local"
+
     setup {
         run("SCANPY_HVGS") {
             script "modules/local/scanpy/hvgs/main.nf"

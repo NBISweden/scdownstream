@@ -4,6 +4,9 @@ nextflow_process {
     script "modules/local/scanpy/hvgs/main.nf"
     process "SCANPY_HVGS"
 
+    tag "modules"
+    tag "modules_local"
+
     test("Should run without a specified number of HVGs") {
 
         when {

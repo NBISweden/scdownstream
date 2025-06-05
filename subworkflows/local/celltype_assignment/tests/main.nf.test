@@ -4,6 +4,9 @@ nextflow_workflow {
     script "subworkflows/local/celltype_assignment/main.nf"
     workflow "CELLTYPE_ASSIGNMENT"
 
+    tag "subworkflows"
+    tag "subworkflows_local"
+
     test("Should run without failures") {
 
         when {

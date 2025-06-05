@@ -4,6 +4,9 @@ nextflow_workflow {
     script "subworkflows/local/quality_control/main.nf"
     workflow "QUALITY_CONTROL"
 
+    tag "subworkflows"
+    tag "subworkflows_local"
+
     test("Should run without ambient RNA removal and doublet detection") {
 
         when {

@@ -4,6 +4,9 @@ nextflow_workflow {
     script "subworkflows/local/cluster/main.nf"
     workflow "CLUSTER"
 
+    tag "subworkflows"
+    tag "subworkflows_local"
+
     setup {
 
         run("SCANPY_PCA") {

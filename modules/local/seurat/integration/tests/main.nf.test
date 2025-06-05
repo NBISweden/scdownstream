@@ -4,6 +4,9 @@ nextflow_process {
     script "modules/local/seurat/integration/main.nf"
     process "SEURAT_INTEGRATION"
 
+    tag "modules"
+    tag "modules_local"
+
     setup {
         run("SCANPY_HVGS") {
             script "modules/local/scanpy/hvgs/main.nf"

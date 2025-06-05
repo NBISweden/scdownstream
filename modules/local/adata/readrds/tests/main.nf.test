@@ -3,9 +3,9 @@ nextflow_process {
     name "Test Process ADATA_READRDS"
     script "modules/local/adata/readrds/main.nf"
     process "ADATA_READRDS"
-    tag "anndata"
-    tag "modules_nfcore"
+
     tag "modules"
+    tag "modules_local"
 
     test("Should read seurat file") {
 

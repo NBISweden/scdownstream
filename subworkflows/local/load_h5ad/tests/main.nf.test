@@ -4,6 +4,9 @@ nextflow_workflow {
     script "subworkflows/local/load_h5ad/main.nf"
     workflow "LOAD_H5AD"
 
+    tag "subworkflows"
+    tag "subworkflows_local"
+
     test("Should run without failures") {
 
         when {

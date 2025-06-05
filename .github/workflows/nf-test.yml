@@ -58,6 +58,7 @@ jobs:
           NFT_VER: ${{ env.NFT_VER }}
         with:
           max_shards: 15
+          tags: "modules_local,subworkflows_local"
 
       - name: debug
         run: |
@@ -96,14 +97,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Disk space cleanup
-        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
-        with:
-          tool-cache: true
-
       - name: Run nf-test
         uses: ./.github/actions/nf-test
         env:
+          NFT_DIFF: ${{ env.NFT_DIFF }}
+          NFT_DIFF_ARGS: ${{ env.NFT_DIFF_ARGS }}
           NFT_WORKDIR: ${{ env.NFT_WORKDIR }}
         with:
           profile: ${{ matrix.profile }}

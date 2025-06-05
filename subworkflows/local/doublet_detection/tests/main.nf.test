@@ -4,6 +4,9 @@ nextflow_workflow {
     script "subworkflows/local/doublet_detection/main.nf"
     workflow "DOUBLET_DETECTION"
 
+    tag "subworkflows"
+    tag "subworkflows_local"
+
     test("Should run without methods") {
 
         when {

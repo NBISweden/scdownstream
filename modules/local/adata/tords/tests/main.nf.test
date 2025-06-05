@@ -3,9 +3,9 @@ nextflow_process {
     name "Test Process ADATA_TORDS"
     script "modules/local/adata/tords/main.nf"
     process "ADATA_TORDS"
-    tag "anndata"
-    tag "modules_nfcore"
+
     tag "modules"
+    tag "modules_local"
 
     test("Should run without failures") {
 

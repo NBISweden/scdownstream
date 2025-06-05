@@ -4,6 +4,9 @@ nextflow_workflow {
     script "subworkflows/local/pseudobulking/main.nf"
     workflow "PSEUDOBULKING"
 
+    tag "subworkflows"
+    tag "subworkflows_local"
+
     test("Should run without failures") {
 
         when {

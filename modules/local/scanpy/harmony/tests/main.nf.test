@@ -4,6 +4,9 @@ nextflow_process {
     script "modules/local/scanpy/harmony/main.nf"
     process "SCANPY_HARMONY"
 
+    tag "modules"
+    tag "modules_local"
+
     test("Should run without failures") {
 
         when {

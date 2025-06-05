@@ -4,6 +4,9 @@ nextflow_process {
     script "modules/local/scvitools/scanvi/main.nf"
     process "SCVITOOLS_SCANVI"
 
+    tag "modules"
+    tag "modules_local"
+
     setup {
         run("SCANPY_PCA") {
             script "modules/local/scanpy/pca/main.nf"

@@ -4,6 +4,9 @@ nextflow_process {
     script "modules/local/celda/decontx/main.nf"
     process "CELDA_DECONTX"
 
+    tag "modules"
+    tag "modules_local"
+
     test("Should run without failures without raw - single batch") {
 
         when {
