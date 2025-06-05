@@ -60,9 +60,11 @@ else:
         categorical_covariates = categorical_covariates.split(",") if categorical_covariates else None
         continuous_covariates = continuous_covariates.split(",") if continuous_covariates else None
 
+        scvi.settings.seed = 0
         SCANVI.setup_anndata(adata, batch_key="${batch_col}", labels_key="${label_col}", unlabeled_category="${unlabeled_category}",
                                 categorical_covariate_keys = categorical_covariates,
                                 continuous_covariate_keys = continuous_covariates)
+        scvi.settings.seed = 0
         model = SCANVI(adata,
                         n_hidden=int("${n_hidden}"),
                         n_layers=int("${n_layers}"),
@@ -73,6 +75,7 @@ else:
 if "${task.ext.use_gpu}" == "true":
     model.to_device(0)
 
+scvi.settings.seed = 0
 model.train(early_stopping=True,
             max_epochs=int("${max_epochs}") if "${max_epochs?:''}" else None)
 

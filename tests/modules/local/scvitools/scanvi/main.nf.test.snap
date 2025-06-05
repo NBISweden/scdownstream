@@ -67,14 +67,14 @@
                     {
                         "id": "test"
                     },
-                    "test_scanvi.h5ad:md5,cde15c766dfbf8b077c71da3e318a2ed"
+                    "test_scanvi.h5ad:md5,7d669e06b16f45882a273864b5b35f3f"
                 ]
             ],
             [
-                "test_scanvi.pkl:md5,202c139c176ac767d8cd5c01d297e40c"
+                "test_scanvi.pkl:md5,c9bd908ea37a289c6d28d7830403f51a"
             ],
             [
-                "X_test_scanvi.pkl:md5,20e2d625ba748d193d2a314bc86695b2"
+                "X_test_scanvi.pkl:md5,8bcd31b47c97c227318afcdda9159724"
             ],
             [
                 "versions.yml:md5,40ff10e21575728a54740cc2dd502194"
@@ -84,6 +84,6 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-05T13:45:23.111606159"
+        "timestamp": "2025-06-05T14:01:15.020497849"
     }
 }

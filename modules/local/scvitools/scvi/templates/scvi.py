@@ -66,9 +66,8 @@ if "${task.ext.use_gpu}" == "true":
 model.train(early_stopping=True,
             max_epochs=int("${max_epochs}") if "${max_epochs?:''}" else None)
 
-# Round to 10 decimal places
-# This ensures hashes are stable
-adata.obsm["X_emb"] = model.get_latent_representation().round(10)
+# Round to ensure hashes are stable
+adata.obsm["X_emb"] = model.get_latent_representation().round(6)
 
 del adata.uns["_scvi_manager_uuid"]
 del adata.uns["_scvi_uuid"]
