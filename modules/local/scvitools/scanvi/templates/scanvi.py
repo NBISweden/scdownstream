@@ -15,13 +15,9 @@ torch.set_float32_matmul_precision('medium')
 
 from threadpoolctl import threadpool_limits
 threadpool_limits(int("${task.cpus}"))
-scvi.settings.num_threads = int("${task.cpus}")
 
-def set_seed(seed):
-    scvi.settings.seed = seed
-    torch.manual_seed(seed)
-    np.random.seed(seed)
-    random.seed(seed)
+scvi.settings.num_threads = int("${task.cpus}")
+scvi.settings.seed = 0
 
 adata = ad.read_h5ad("${h5ad}")
 reference_model_path = "reference_model"
@@ -54,7 +50,6 @@ else:
                                 categorical_covariate_keys = categorical_covariates,
                                 continuous_covariate_keys = continuous_covariates)
 
-        set_seed(0)
         model = SCANVI(adata,
                         n_hidden=int("${n_hidden}"),
                         n_layers=int("${n_layers}"),
@@ -65,13 +60,11 @@ else:
 if "${task.ext.use_gpu}" == "true":
     model.to_device(0)
 
-set_seed(0)
 model.train(early_stopping=True,
             max_epochs=int("${max_epochs}") if "${max_epochs?:''}" else None)
 
-# Round to 10 decimal places
-# This ensures hashes are stable
-adata.obsm["X_emb"] = model.get_latent_representation().round(10)
+# Round to ensure hashes are stable
+adata.obsm["X_emb"] = model.get_latent_representation().round(4)
 
 adata.obs["label:scANVI"] = model.predict()
 

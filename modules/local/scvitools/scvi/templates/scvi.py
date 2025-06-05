@@ -14,15 +14,10 @@ torch.set_float32_matmul_precision("medium")
 torch.use_deterministic_algorithms(True)
 
 from threadpoolctl import threadpool_limits
-
 threadpool_limits(int("${task.cpus}"))
-scvi.settings.num_threads = int("${task.cpus}")
 
-def set_seed(seed):
-    scvi.settings.seed = seed
-    torch.manual_seed(seed)
-    np.random.seed(seed)
-    random.seed(seed)
+scvi.settings.num_threads = int("${task.cpus}")
+scvi.settings.seed = 0
 
 adata = ad.read_h5ad("${h5ad}")
 reference_model_path = "reference_model"
@@ -51,7 +46,6 @@ else:
         continuous_covariate_keys=continuous_covariates,
     )
 
-    set_seed(0)
     model = SCVI(
         adata,
         n_hidden=int("${n_hidden}"),
@@ -64,14 +58,13 @@ else:
 if "${task.ext.use_gpu}" == "true":
     model.to_device(0)
 
-set_seed(0)
 model.train(
     early_stopping=True,
     max_epochs=int("${max_epochs}") if "${max_epochs?:''}" else None,
 )
 
 # Round to ensure hashes are stable
-adata.obsm["X_emb"] = model.get_latent_representation().round(10)
+adata.obsm["X_emb"] = model.get_latent_representation().round(4)
 
 del adata.uns["_scvi_manager_uuid"]
 del adata.uns["_scvi_uuid"]
