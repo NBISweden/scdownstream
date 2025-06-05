@@ -58,6 +58,7 @@ jobs:
           NFT_VER: ${{ env.NFT_VER }}
         with:
           max_shards: 15
+          paths: "modules/local subworkflows/local"
 
       - name: debug
         run: |
@@ -109,6 +110,7 @@ jobs:
           profile: ${{ matrix.profile }}
           shard: ${{ matrix.shard }}
           total_shards: ${{ env.TOTAL_SHARDS }}
+          paths: "modules/local subworkflows/local"
   confirm-pass:
     needs: [nf-test]
     if: always()

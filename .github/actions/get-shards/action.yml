@@ -34,7 +34,8 @@ runs:
           $(if [ -n "${{ inputs.tags }}" ]; then echo "--tag ${{ inputs.tags }}"; fi) \
           --dry-run \
           --ci \
-          --changed-since HEAD^) || {
+          --changed-since HEAD^ \
+          $(if [ -n "${{ inputs.paths }}" ]; then echo "${{ inputs.paths }}"; fi)) || {
             echo "nf-test command failed with exit code $?"
             echo "Full output: $nftest_output"
             exit 1
