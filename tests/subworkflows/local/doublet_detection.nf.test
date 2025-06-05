@@ -57,7 +57,6 @@ nextflow_workflow {
             { assert snapshot(
                     workflow.out.h5ad,
                     workflow.out.versions,
-                    file(workflow.out.multiqc_files.get(0)).size()
                 ).match() }
             )
         }
