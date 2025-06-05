@@ -75,7 +75,11 @@ if "${task.ext.use_gpu}" == "true":
 
 model.train(early_stopping=True,
             max_epochs=int("${max_epochs}") if "${max_epochs?:''}" else None)
-adata.obsm["X_emb"] = model.get_latent_representation()
+
+# Round to 10 decimal places
+# This ensures hashes are stable
+adata.obsm["X_emb"] = model.get_latent_representation().round(10)
+
 adata.obs["label:scANVI"] = model.predict()
 
 del adata.uns["_scvi_manager_uuid"]
