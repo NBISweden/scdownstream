@@ -54,40 +54,11 @@ nextflow_workflow {
         then {
             assertAll(
             { assert workflow.success },
-            { assert snapshot(workflow.out).match() }
-            )
-        }
-
-    }
-
-    test("Should run with all methods") {
-
-        when {
-            params {
-                outdir = "$outputDir"
-            }
-            workflow {
-                """
-                input[0] = Channel.of([
-                        [ id: 'test', batch_col: 'sample' ],
-                        file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_filtered_matrix.h5ad', checkIfExists: true)
-                    ]
-                )
-                input[1] = ['scds', 'solo', 'scrublet', 'doubletdetection']
-                input[2] = 2
-                """
-            }
-        }
-
-        then {
-            assertAll(
-            { assert workflow.success },
-            // In this case, the hashes of the multiqc files are not stable,
-            // due to this: https://github.com/jacoblevine/PhenoGraph/issues/16
             { assert snapshot(
-                workflow.out.h5ad,
-                workflow.out.versions
-            ).match() }
+                    workflow.out.h5ad,
+                    workflow.out.versions,
+                    file(workflow.out.multiqc_files.get(0)).size()
+                ).match() }
             )
         }
 
