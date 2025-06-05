@@ -8,6 +8,7 @@ workflow DOUBLET_DETECTION {
     take:
     ch_h5ad // channel: [ meta, h5ad ]
     methods // value: list of strings
+    threshold // value: integer
 
     main:
     ch_versions = Channel.empty()
@@ -47,7 +48,7 @@ workflow DOUBLET_DETECTION {
 
         DOUBLET_REMOVAL(
             ch_h5ad.join(ch_predictions.groupTuple()),
-            params.doublet_detection_threshold,
+            threshold,
         )
 
         ch_h5ad = DOUBLET_REMOVAL.out.h5ad

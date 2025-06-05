@@ -8,7 +8,7 @@
                             "id": "test",
                             "batch_col": "sample"
                         },
-                        "test.h5ad:md5,6289bfedeef18873b082c0cee9069694"
+                        "test.h5ad:md5,e75fc5ccfbb087f29e444989deb75d2e"
                     ]
                 ],
                 "1": [
@@ -24,7 +24,7 @@
                             "id": "test",
                             "batch_col": "sample"
                         },
-                        "test.h5ad:md5,6289bfedeef18873b082c0cee9069694"
+                        "test.h5ad:md5,e75fc5ccfbb087f29e444989deb75d2e"
                     ]
                 ],
                 "multiqc_files": [
@@ -40,7 +40,7 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-05T06:48:04.045824916"
+        "timestamp": "2025-06-05T12:06:23.696546056"
     },
     "Should run without failures - stub": {
         "content": [
@@ -93,7 +93,7 @@
                         "id": "test",
                         "batch_col": "sample"
                     },
-                    "test.h5ad:md5,6289bfedeef18873b082c0cee9069694"
+                    "test.h5ad:md5,e4de12170611acd7a8f52ca3120c61c0"
                 ]
             ],
             [
@@ -105,6 +105,6 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-05T06:53:57.736336576"
+        "timestamp": "2025-06-05T12:09:49.024199026"
     }
 }

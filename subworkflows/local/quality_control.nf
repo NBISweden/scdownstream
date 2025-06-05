@@ -84,7 +84,7 @@ workflow QUALITY_CONTROL {
         GET_THRESHOLDED_SIZE.out.size.map { meta, size -> [meta.id, 'thresholded', (size.text ?: "0").toInteger()] }
     )
 
-    DOUBLET_DETECTION(ch_h5ad, doublet_detection_methods)
+    DOUBLET_DETECTION(ch_h5ad, doublet_detection_methods, params.doublet_detection_threshold)
     ch_h5ad = DOUBLET_DETECTION.out.h5ad
     ch_multiqc_files = ch_multiqc_files.mix(DOUBLET_DETECTION.out.multiqc_files)
     ch_versions = ch_versions.mix(DOUBLET_DETECTION.out.versions)
