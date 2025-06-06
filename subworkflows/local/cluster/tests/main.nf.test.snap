@@ -321,9 +321,9 @@
         "content": [
             {
                 "0": [
-                    "pca-global-0.5_entropy.pkl:md5,6cb133a1817bc7a5f0fe664e0dd35c85",
+                    "pca-global-0.5_entropy.pkl:md5,2a816c926b0470014811a212a2aacc3b",
                     "pca-global-0.5_leiden.pkl:md5,0a583fdbc5746135846f6eff01c7a6c2",
-                    "pca-global-1_entropy.pkl:md5,eecc2299f5e675549daedb48541a0652",
+                    "pca-global-1_entropy.pkl:md5,ec35e1fc897b34a1787c5a4af9830e64",
                     "pca-global-1_leiden.pkl:md5,c0b77e8494dc7761527eb416d0827021"
                 ],
                 "1": [
@@ -360,9 +360,9 @@
                     ]
                 ],
                 "4": [
-                    "pca-global-0.5_entropy_mqc.json:md5,b927bfa8f038fcc4d5bd2abf6ddf9004",
+                    "pca-global-0.5_entropy_mqc.json:md5,673d0a3ac59a7ff31bdc04f18e5d68ac",
                     "pca-global-0.5_leiden_mqc.json:md5,36c856b7132340bb858d9183836055ae",
-                    "pca-global-1_entropy_mqc.json:md5,c48aa99f5b9ba1669b5fd4cf85fc906e",
+                    "pca-global-1_entropy_mqc.json:md5,7cd9d104362d871231a2604f9b28ac08",
                     "pca-global-1_leiden_mqc.json:md5,3ebb2521a3fd33d63f5e8f999c629349"
                 ],
                 "5": [
@@ -404,15 +404,15 @@
                     ]
                 ],
                 "multiqc_files": [
-                    "pca-global-0.5_entropy_mqc.json:md5,b927bfa8f038fcc4d5bd2abf6ddf9004",
+                    "pca-global-0.5_entropy_mqc.json:md5,673d0a3ac59a7ff31bdc04f18e5d68ac",
                     "pca-global-0.5_leiden_mqc.json:md5,36c856b7132340bb858d9183836055ae",
-                    "pca-global-1_entropy_mqc.json:md5,c48aa99f5b9ba1669b5fd4cf85fc906e",
+                    "pca-global-1_entropy_mqc.json:md5,7cd9d104362d871231a2604f9b28ac08",
                     "pca-global-1_leiden_mqc.json:md5,3ebb2521a3fd33d63f5e8f999c629349"
                 ],
                 "obs": [
-                    "pca-global-0.5_entropy.pkl:md5,6cb133a1817bc7a5f0fe664e0dd35c85",
+                    "pca-global-0.5_entropy.pkl:md5,2a816c926b0470014811a212a2aacc3b",
                     "pca-global-0.5_leiden.pkl:md5,0a583fdbc5746135846f6eff01c7a6c2",
-                    "pca-global-1_entropy.pkl:md5,eecc2299f5e675549daedb48541a0652",
+                    "pca-global-1_entropy.pkl:md5,ec35e1fc897b34a1787c5a4af9830e64",
                     "pca-global-1_leiden.pkl:md5,c0b77e8494dc7761527eb416d0827021"
                 ],
                 "obsm": [
@@ -429,10 +429,10 @@
             }
         ],
         "meta": {
-            "nf-test": "0.9.0",
+            "nf-test": "0.9.2",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-04T20:51:24.59328022"
+        "timestamp": "2025-06-06T19:25:27.72880657"
     },
     "Should run without failures - both - stub": {
         "content": [
@@ -1016,9 +1016,9 @@
                     "pca-SRR28679758_filtered-0.5_leiden.pkl:md5,253abef3598c7c187ab22617ea9b5a39",
                     "pca-SRR28679758_filtered-1_entropy.pkl:md5,4a4a18b83fbb62f02cf47b35a5cc475c",
                     "pca-SRR28679758_filtered-1_leiden.pkl:md5,ad8d1ca9ff4f63bf42cf45a1e49b4228",
-                    "pca-global-0.5_entropy.pkl:md5,6cb133a1817bc7a5f0fe664e0dd35c85",
+                    "pca-global-0.5_entropy.pkl:md5,2a816c926b0470014811a212a2aacc3b",
                     "pca-global-0.5_leiden.pkl:md5,0a583fdbc5746135846f6eff01c7a6c2",
-                    "pca-global-1_entropy.pkl:md5,eecc2299f5e675549daedb48541a0652",
+                    "pca-global-1_entropy.pkl:md5,ec35e1fc897b34a1787c5a4af9830e64",
                     "pca-global-1_leiden.pkl:md5,c0b77e8494dc7761527eb416d0827021"
                 ],
                 "1": [
@@ -1148,9 +1148,9 @@
                     "pca-SRR28679758_filtered-0.5_leiden_mqc.json:md5,ece535841ab30ee1e4afc96e742bc530",
                     "pca-SRR28679758_filtered-1_entropy_mqc.json:md5,778a32aa9ca9a9aa1e580c30a425018f",
                     "pca-SRR28679758_filtered-1_leiden_mqc.json:md5,6e61924b03a459666905d878032ec54b",
-                    "pca-global-0.5_entropy_mqc.json:md5,b927bfa8f038fcc4d5bd2abf6ddf9004",
+                    "pca-global-0.5_entropy_mqc.json:md5,673d0a3ac59a7ff31bdc04f18e5d68ac",
                     "pca-global-0.5_leiden_mqc.json:md5,36c856b7132340bb858d9183836055ae",
-                    "pca-global-1_entropy_mqc.json:md5,c48aa99f5b9ba1669b5fd4cf85fc906e",
+                    "pca-global-1_entropy_mqc.json:md5,7cd9d104362d871231a2604f9b28ac08",
                     "pca-global-1_leiden_mqc.json:md5,3ebb2521a3fd33d63f5e8f999c629349"
                 ],
                 "5": [
@@ -1301,9 +1301,9 @@
                     "pca-SRR28679758_filtered-0.5_leiden_mqc.json:md5,ece535841ab30ee1e4afc96e742bc530",
                     "pca-SRR28679758_filtered-1_entropy_mqc.json:md5,778a32aa9ca9a9aa1e580c30a425018f",
                     "pca-SRR28679758_filtered-1_leiden_mqc.json:md5,6e61924b03a459666905d878032ec54b",
-                    "pca-global-0.5_entropy_mqc.json:md5,b927bfa8f038fcc4d5bd2abf6ddf9004",
+                    "pca-global-0.5_entropy_mqc.json:md5,673d0a3ac59a7ff31bdc04f18e5d68ac",
                     "pca-global-0.5_leiden_mqc.json:md5,36c856b7132340bb858d9183836055ae",
-                    "pca-global-1_entropy_mqc.json:md5,c48aa99f5b9ba1669b5fd4cf85fc906e",
+                    "pca-global-1_entropy_mqc.json:md5,7cd9d104362d871231a2604f9b28ac08",
                     "pca-global-1_leiden_mqc.json:md5,3ebb2521a3fd33d63f5e8f999c629349"
                 ],
                 "obs": [
@@ -1319,9 +1319,9 @@
                     "pca-SRR28679758_filtered-0.5_leiden.pkl:md5,253abef3598c7c187ab22617ea9b5a39",
                     "pca-SRR28679758_filtered-1_entropy.pkl:md5,4a4a18b83fbb62f02cf47b35a5cc475c",
                     "pca-SRR28679758_filtered-1_leiden.pkl:md5,ad8d1ca9ff4f63bf42cf45a1e49b4228",
-                    "pca-global-0.5_entropy.pkl:md5,6cb133a1817bc7a5f0fe664e0dd35c85",
+                    "pca-global-0.5_entropy.pkl:md5,2a816c926b0470014811a212a2aacc3b",
                     "pca-global-0.5_leiden.pkl:md5,0a583fdbc5746135846f6eff01c7a6c2",
-                    "pca-global-1_entropy.pkl:md5,eecc2299f5e675549daedb48541a0652",
+                    "pca-global-1_entropy.pkl:md5,ec35e1fc897b34a1787c5a4af9830e64",
                     "pca-global-1_leiden.pkl:md5,c0b77e8494dc7761527eb416d0827021"
                 ],
                 "obsm": [
@@ -1360,9 +1360,9 @@
             }
         ],
         "meta": {
-            "nf-test": "0.9.0",
+            "nf-test": "0.9.2",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-04T20:57:25.606666257"
+        "timestamp": "2025-06-06T19:30:26.775844655"
     }
 }
