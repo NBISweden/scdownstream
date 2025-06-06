@@ -58,7 +58,7 @@ jobs:
           NFT_VER: ${{ env.NFT_VER }}
         with:
           max_shards: 15
-          tags: "modules_local,subworkflows_local"
+          tags: modules_local,subworkflows_local
 
       - name: debug
         run: |
@@ -107,6 +107,7 @@ jobs:
           profile: ${{ matrix.profile }}
           shard: ${{ matrix.shard }}
           total_shards: ${{ env.TOTAL_SHARDS }}
+          tags: modules_local,subworkflows_local
 
   pipeline-tests:
     name: "Pipeline Test | ${{ matrix.test_name }} | ${{ matrix.NXF_VER }} | ${{ matrix.profile }}"
