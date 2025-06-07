@@ -11,3 +11,4 @@ pipeline_info/*.{html,json,txt,yml}
 finalized/merged_metadata.csv
 **/multiqc_sizes.txt
 **/sizes.tsv
+**/base_metadata.csv
