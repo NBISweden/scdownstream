@@ -8,4 +8,4 @@ multiqc/multiqc_report.html
 pipeline_info/*.{html,json,txt,yml}
 
 **/*.{png,pt,h5ad,rds}
-results/finalized/merged_metadata.csv
+finalized/merged_metadata.csv
