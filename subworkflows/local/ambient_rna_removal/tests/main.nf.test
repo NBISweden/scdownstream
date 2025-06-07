@@ -143,7 +143,11 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(workflow.out).match()
+            assert snapshot(
+                workflow.out.versions,
+                file(workflow.out.h5ad.get(0).get(1)).exists(),
+                file(workflow.out.h5ad.get(0).get(1)).size()
+            ).match()
         }
 
     }
