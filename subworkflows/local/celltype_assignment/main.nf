@@ -1,4 +1,5 @@
 include { CELLTYPES_CELLTYPIST } from '../../../modules/local/celltypes/celltypist'
+include { CELLTYPES_SINGLER } from '../../../modules/local/celltypes/singler'
 workflow CELLTYPE_ASSIGNMENT {
     take:
     ch_h5ad // channel: [ meta, h5ad ]
