@@ -11,10 +11,8 @@ process CELLTYPES_CELLDEXDOWNLOAD {
     val(ref)
 
     output:
-    path("celldex_${ref}_h5_se/assays.h5"), emit: h5
-    path("celldex_${ref}_h5_se/se.rds"),    emit: rds
-    path("celldex_${ref}_h5_se"),           emit: refdir
-    path "versions.yml"           , emit: versions
+    path("celldex_${ref}_h5_se.tar.gz"),        emit: tar
+    path "versions.yml",                        emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -27,8 +25,6 @@ process CELLTYPES_CELLDEXDOWNLOAD {
     def args = task.ext.args ?: ''
 
     """
-    mkdir -p celldex_${ref}_h5_se
-    touch "celldex_${ref}_h5_se/assays.h5"
-    touch "celldex_${ref}_h5_se/se.rds"
+    touch "celldex_${ref}_h5_se.tar.gz"
     """
 }

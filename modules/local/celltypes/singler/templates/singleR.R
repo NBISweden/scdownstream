@@ -43,8 +43,11 @@ for (ref_idx in seq_along(references)) {
   reflabel <- reference_labels[ref_idx]
   ref_name <- strsplit(ref, "__")[[1]][1]
   ref_ver <- strsplit(ref, "__")[[1]][2]
+  # Untar the reference files into a directory named after the reference without the extension
+  ref_dir <- gsub(".tar.gz", "", ref)
+  untar(ref, exdir = "./")
   # Read the SummarizedExperiment object from the provided path
-  reference <- loadHDF5SummarizedExperiment(dir = ref)
+  reference <- loadHDF5SummarizedExperiment(dir = ref_dir)
   stopifnot(
     reflabel %in% colnames(colData(reference))
   )
