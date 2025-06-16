@@ -77,7 +77,7 @@ workflow SCDOWNSTREAM {
         //
         if (params.celldex_reference) {
             CELLDEX_REFERENCE_PROCESSING(params.celldex_reference)
-            CELLTYPE_ASSIGNMENT(ch_h5ad, CELLDEX_REFERENCE_PROCESSING.out.referenceDirs)
+            CELLTYPE_ASSIGNMENT(ch_h5ad, CELLDEX_REFERENCE_PROCESSING.out.referenceTars)
         } else {
             CELLTYPE_ASSIGNMENT(ch_h5ad, Channel.empty())
         }

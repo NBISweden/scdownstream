@@ -16,6 +16,9 @@ saveHDF5SummarizedExperiment(
   dir = paste0("celldex_", r, "_h5_se"),
   replace = TRUE
 )
+# Compress the HDF5 files into a tar.gz archive
+tar(tarfile = paste0("celldex_", r, "_h5_se.tar.gz"), files = paste0("celldex_", r, "_h5_se"))
+
 # Capturing version information, as before
 versions <- list(
   "${task.process}" = list(
