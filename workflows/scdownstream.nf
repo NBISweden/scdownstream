@@ -31,7 +31,7 @@ include { methodsDescriptionText               } from '../subworkflows/local/uti
 workflow SCDOWNSTREAM {
     take:
     ch_samplesheet // channel: samplesheet read in from --input
-    ch_base        // value channel: [ val(meta), path(h5ad) ]
+    ch_base        // channel: [ val(meta), path(h5ad) ]
 
     main:
 
@@ -56,7 +56,6 @@ workflow SCDOWNSTREAM {
         //
         // Load/Convert input to h5ad
         //
-
         LOAD_H5AD(ch_samplesheet)
         ch_h5ad = LOAD_H5AD.out.h5ad
         ch_versions = ch_versions.mix(LOAD_H5AD.out.versions)
@@ -64,8 +63,11 @@ workflow SCDOWNSTREAM {
         //
         // Quality control per sample
         //
-
-        QUALITY_CONTROL(ch_h5ad)
+        QUALITY_CONTROL(
+            ch_h5ad,
+            params.ambient_removal,
+            (!params.doublet_detection || params.doublet_detection == 'none') ? [] : params.doublet_detection.split(',').collect { it -> it.trim().toLowerCase() },
+        )
         ch_versions = ch_versions.mix(QUALITY_CONTROL.out.versions)
         ch_multiqc_files = ch_multiqc_files.mix(QUALITY_CONTROL.out.multiqc_files)
         ch_h5ad = QUALITY_CONTROL.out.h5ad
@@ -77,15 +79,10 @@ workflow SCDOWNSTREAM {
         ch_versions = ch_versions.mix(CELLTYPE_ASSIGNMENT.out.versions)
         ch_obs_per_sample = ch_obs_per_sample.mix(CELLTYPE_ASSIGNMENT.out.obs)
 
-        FINALIZE_QC_ANNDATAS(ch_h5ad
-            .join(ch_obs_per_sample.groupTuple(), remainder: true)
-            .join(ch_var_per_sample.groupTuple(), remainder: true)
-            .join(ch_obsm_per_sample.groupTuple(), remainder: true)
-            .join(ch_obsp_per_sample.groupTuple(), remainder: true)
-            .join(ch_uns_per_sample.groupTuple(), remainder: true)
-            .join(ch_layers_per_sample.groupTuple(), remainder: true)
-            .map { meta, h5ad, obs, var, obsm, obsp, uns, layers ->
-                [meta, h5ad, obs ?: [], var ?: [], obsm ?: [], obsp ?: [], uns ?: [], layers ?: []] }
+        FINALIZE_QC_ANNDATAS(
+            ch_h5ad.join(ch_obs_per_sample.groupTuple(), remainder: true).join(ch_var_per_sample.groupTuple(), remainder: true).join(ch_obsm_per_sample.groupTuple(), remainder: true).join(ch_obsp_per_sample.groupTuple(), remainder: true).join(ch_uns_per_sample.groupTuple(), remainder: true).join(ch_layers_per_sample.groupTuple(), remainder: true).map { meta, h5ad, obs, var, obsm, obsp, uns, layers ->
+                [meta, h5ad, obs ?: [], var ?: [], obsm ?: [], obsp ?: [], uns ?: [], layers ?: []]
+            }
         )
         ch_h5ad = FINALIZE_QC_ANNDATAS.out.h5ad
         ch_versions = ch_versions.mix(FINALIZE_QC_ANNDATAS.out.versions)
@@ -113,7 +110,6 @@ workflow SCDOWNSTREAM {
             //
             // Unify samples to make them compatible for integration
             //
-
             UNIFY(ch_h5ad)
             ch_versions = ch_versions.mix(UNIFY.out.versions)
             ch_multiqc_files = ch_multiqc_files.mix(UNIFY.out.multiqc_files)
@@ -122,24 +118,20 @@ workflow SCDOWNSTREAM {
             //
             // Combine samples and perform integration
             //
-
             COMBINE(ch_h5ad, ch_base)
             ch_versions = ch_versions.mix(COMBINE.out.versions)
-            ch_multiqc_files = ch_multiqc_files.mix(COMBINE.out.multiqc_files)
             ch_obs = ch_obs.mix(COMBINE.out.obs)
             ch_var = ch_var.mix(COMBINE.out.var)
             ch_obsm = ch_obsm.mix(COMBINE.out.obsm)
-            ch_layers = ch_layers.mix(COMBINE.out.layers)
             ch_integrations = ch_integrations.mix(COMBINE.out.integrations)
-
             ch_finalization_base = COMBINE.out.h5ad
-        }
 
-        ch_label_grouping = COMBINE.out.h5ad_inner
-        grouping_col = "label"
+            ch_label_grouping = COMBINE.out.h5ad_inner
+            grouping_col = "label"
+        }
     }
     else {
-        ch_embeddings = Channel.value(params.base_embeddings.split(',').collect { it.trim() })
+        ch_embeddings = Channel.value(params.base_embeddings.split(',').collect { it -> it.trim() })
 
         ADATA_SPLITEMBEDDINGS(ch_base, ch_embeddings)
         ch_versions = ch_versions.mix(ADATA_SPLITEMBEDDINGS.out.versions)
@@ -155,18 +147,28 @@ workflow SCDOWNSTREAM {
     //
     // Perform clustering and per-cluster analysis
     //
-
     if (!params.qc_only) {
-        CLUSTER(ch_integrations)
+        CLUSTER(
+            ch_integrations,
+            params.cluster_per_label,
+            params.cluster_global,
+            params.input ? "label" : params.base_label_col,
+            params.clustering_resolutions.split(','),
+            "batch",
+            "X_emb"
+        )
         ch_versions = ch_versions.mix(CLUSTER.out.versions)
         ch_obs = ch_obs.mix(CLUSTER.out.obs)
         ch_obsm = ch_obsm.mix(CLUSTER.out.obsm)
-        ch_obsp = ch_obsp.mix(CLUSTER.out.obsp)
-        ch_uns = ch_uns.mix(CLUSTER.out.uns)
         ch_multiqc_files = ch_multiqc_files.mix(CLUSTER.out.multiqc_files)
 
         if (params.pseudobulk) {
-            PSEUDOBULKING(CLUSTER.out.h5ad_clustering)
+            PSEUDOBULKING(
+                CLUSTER.out.h5ad_clustering,
+                params.pseudobulk_groupby_labels.split(','),
+                params.pseudobulk_min_num_cells,
+                "X",
+            )
             ch_versions = ch_versions.mix(PSEUDOBULKING.out.versions)
         }
 
@@ -194,7 +196,6 @@ workflow SCDOWNSTREAM {
             newLine: true,
         )
         .set { ch_collated_versions }
-
 
     //
     // MODULE: MultiQC

@@ -7,7 +7,7 @@ include { ADATA_UNIFY                         } from '../../modules/local/adata/
 
 workflow UNIFY {
     take:
-    ch_h5ad
+    ch_h5ad // channel: [ meta, h5ad ]
 
     main:
     ch_versions = Channel.empty()
@@ -45,7 +45,23 @@ workflow UNIFY {
         ch_versions = ch_versions.mix(UNIFY_GENES.out.versions)
     }
 
-    ADATA_UNIFY(ch_h5ad)
+    ch_adata_unify = ch_h5ad.multiMap { meta, h5ad ->
+        h5ad: [meta, h5ad]
+        batch_col: meta.batch_col ?: "batch"
+        label_col: meta.label_col ?: ""
+        unknown_label: meta.unknown_label ?: "unknown"
+        symbol_col: meta.symbol_col ?: "index"
+        counts_layer: meta.counts_layer ?: "X"
+    }
+    ADATA_UNIFY(
+        ch_adata_unify.h5ad,
+        ch_adata_unify.batch_col,
+        ch_adata_unify.label_col,
+        ch_adata_unify.unknown_label,
+        ch_adata_unify.symbol_col,
+        ch_adata_unify.counts_layer,
+        params.duplicate_var_resolution,
+    )
     ch_h5ad = ADATA_UNIFY.out.h5ad
     ch_versions = ch_versions.mix(ADATA_UNIFY.out.versions)
 
@@ -54,7 +70,7 @@ workflow UNIFY {
     ch_multiqc_files = ch_multiqc_files.mix(UPSET_GENES.out.multiqc_files)
 
     emit:
-    h5ad          = ch_h5ad
-    multiqc_files = ch_multiqc_files
-    versions      = ch_versions
+    h5ad          = ch_h5ad          // channel: [ meta, h5ad ]
+    multiqc_files = ch_multiqc_files // channel: [ json ]
+    versions      = ch_versions      // channel: [ versions.yml ]
 }

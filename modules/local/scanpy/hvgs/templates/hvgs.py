@@ -16,7 +16,6 @@ sc.settings.n_jobs = int("${task.cpus}")
 adata = sc.read_h5ad("${h5ad}")
 prefix = "${prefix}"
 n_hvgs = int("${n_hvgs}")
-use_gpu = "${task.ext.use_gpu}" == "true"
 batch_key = "${batch_key}"
 
 if adata.n_vars > n_hvgs and n_hvgs >= 0:
@@ -32,28 +31,10 @@ if adata.n_vars > n_hvgs and n_hvgs >= 0:
 
     raw_counts = adata.X.copy()
 
-    if use_gpu:
-        os.environ["CUPY_CACHE_DIR"] = "./tmp/cupy"
+    sc.pp.log1p(adata)
+    sc.pp.highly_variable_genes(adata, **kwargs)
 
-        import rapids_singlecell as rsc
-        import rmm
-        from rmm.allocators.cupy import rmm_cupy_allocator
-        import cupy as cp
-        rmm.reinitialize(
-            managed_memory=True,
-            pool_allocator=False,
-        )
-        cp.cuda.set_allocator(rmm_cupy_allocator)
-
-        rsc.get.anndata_to_GPU(adata)
-
-        rsc.pp.log1p(adata)
-        rsc.pp.highly_variable_genes(adata, **kwargs)
-
-        rsc.get.anndata_to_CPU(adata)
-    else:
-        sc.pp.log1p(adata)
-        sc.pp.highly_variable_genes(adata, **kwargs)
+    adata.var[["highly_variable"]].to_pickle(f"{prefix}.pkl")
 
     adata.X = raw_counts
     adata = adata[:, adata.var["highly_variable"]]
