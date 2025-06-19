@@ -1,77 +1,67 @@
 Changes in component 'nf-core/quartonotebook'
-'modules/nf-core/quartonotebook/parametrize.nf' is unchanged
 'modules/nf-core/quartonotebook/environment.yml' is unchanged
-'modules/nf-core/quartonotebook/Dockerfile' is unchanged
 'modules/nf-core/quartonotebook/meta.yml' is unchanged
 Changes in 'quartonotebook/main.nf':
 --- modules/nf-core/quartonotebook/main.nf
 +++ modules/nf-core/quartonotebook/main.nf
-@@ -6,7 +6,6 @@
+@@ -4,7 +4,6 @@
  // Papermill and whatever language you are running your analyses on; you can see
- // an example in this module's Dockerfile.
+ // an example in this module's environment file.
  process QUARTONOTEBOOK {
 -    tag "${meta.id}"
      label 'process_low'
      conda "${moduleDir}/environment.yml"
      container "${workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
-@@ -14,17 +13,17 @@
-         : 'community.wave.seqera.io/library/quarto_jupyter_matplotlib_papermill_r-rmarkdown:95c6620495eabcd1'}"
+@@ -12,28 +11,27 @@
+         : 'community.wave.seqera.io/library/jupyter_matplotlib_papermill_quarto_r-rmarkdown:6d15193ce3dfc665'}"
  
      input:
 -    tuple val(meta), path(notebook)
 +    path(notebook)
-     val parameters
+     val(parameters)
      path input_files
      path extensions
  
      output:
--    tuple val(meta), path("*.html"), emit: html
--    tuple val(meta), path("${notebook}"), emit: notebook
--    tuple val(meta), path("artifacts/*"), emit: artifacts, optional: true
--    tuple val(meta), path("params.yml"), emit: params_yaml, optional: true
--    tuple val(meta), path("_extensions"), emit: extensions, optional: true
-+    path("*.html")     , emit: html
-+    path("${notebook}"), emit: notebook
-+    path("artifacts/*"), emit: artifacts  , optional: true
-+    path("params.yml") , emit: params_yaml, optional: true
-+    path("_extensions"), emit: extensions , optional: true
-     path "versions.yml", emit: versions
+-    tuple val(meta), path("*.html")                               , emit: html
+-    tuple val(meta), path(notebook)                               , emit: notebook
+-    tuple val(meta), path("params.yml")                           , emit: params_yaml
+-    tuple val(meta), path("${notebook_parameters.artifact_dir}/*"), emit: artifacts  , optional: true
+-    tuple val(meta), path("_extensions")                          , emit: extensions , optional: true
+-    path "versions.yml"                                           , emit: versions
++    path("*.html")                               , emit: html
++    path(notebook)                               , emit: notebook
++    path("params.yml")                           , emit: params_yaml
++    path("${notebook_parameters.artifact_dir}/*"), emit: artifacts , optional: true
++    path("_extensions")                          , emit: extensions, optional: true
++    path "versions.yml"                          , emit: versions
  
      when:
-@@ -43,10 +42,9 @@
-         }
-     }
+     task.ext.when == null || task.ext.when
+ 
+     script:
      def args = task.ext.args ?: ''
 -    def prefix = task.ext.prefix ?: "${meta.id}"
-+    def prefix = task.ext.prefix ?: ''
-     def parametrize = task.ext.parametrize == null ? true : task.ext.parametrize
-     def implicit_params = task.ext.implicit_params == null ? true : task.ext.implicit_params
--    def meta_params = task.ext.meta_params == null ? true : task.ext.meta_params
- 
-     // Dump parameters to yaml file.
-     // Using a YAML file over using the CLI params because
-@@ -61,9 +59,6 @@
-             nb_params["cpus"] = task.cpus
-             nb_params["artifact_dir"] = "artifacts"
-             nb_params["input_dir"] = "./"
--        }
--        if (meta_params) {
--            nb_params["meta"] = meta
-         }
-         nb_params += parameters
-         params_cmd = dumpParamsYaml(nb_params)
-@@ -102,7 +97,7 @@
++    def prefix = task.ext.prefix ?: ""
+     // Implicit parameters can be overwritten by supplying a value with parameters
+     notebook_parameters = [
+-        meta: meta,
+         cpus: task.cpus,
+         artifact_dir: "artifacts",
+     ] + (parameters ?: [:])
+@@ -86,10 +84,9 @@
+     """
  
      stub:
-     def args = task.ext.args ?: ''
 -    def prefix = task.ext.prefix ?: "${meta.id}"
-+    def prefix = task.ext.prefix ?: ''
-     """
-     touch ${prefix}.html
- 
++    def prefix = task.ext.prefix ?: ""
+     // Implicit parameters can be overwritten by supplying a value with parameters
+     notebook_parameters = [
+-        meta: meta,
+         cpus: task.cpus,
+         artifact_dir: "artifacts",
+     ] + (parameters ?: [:])
 
 'modules/nf-core/quartonotebook/tests/main.nf.test.snap' is unchanged
-'modules/nf-core/quartonotebook/tests/no-parametrization.config' is unchanged
 'modules/nf-core/quartonotebook/tests/main.nf.test' is unchanged
-'modules/nf-core/quartonotebook/tests/with-parametrization.config' is unchanged
 ************************************************************
