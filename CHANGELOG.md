@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Initial release of nf-core/scdownstream, created with the [nf-core](https://nf-co.re/) template.
 
 ### `Added`
+
 - Added `singleR` module for automated cell type annotation.
 
 ### `Fixed`
@@ -15,4 +16,3 @@ Initial release of nf-core/scdownstream, created with the [nf-core](https://nf-c
 ### `Dependencies`
 
 ### `Deprecated`
-
