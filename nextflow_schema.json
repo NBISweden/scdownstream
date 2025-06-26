@@ -70,6 +70,10 @@
                     "description": "Force keeping certain columns in the merged AnnData object, even if they are not present in all samples",
                     "help_text": "If you want to keep certain columns in the merged AnnData object, even if they are not present in all samples, specify them here. Separate them with a comma.",
                     "pattern": "^([a-zA-Z0-9_]*(,[a-zA-Z0-9_]*)*)?$"
+                },
+                "aggregate_isoforms": {
+                    "type": "boolean",
+                    "description": "Aggregate isoforms of the same gene. If set to true, genes like 'SOD2.1' will be renamed to 'SOD2' before `duplicate_var_resolution` is applied. All numeric suffixes following a dot will be removed."
                 }
             }
         },
