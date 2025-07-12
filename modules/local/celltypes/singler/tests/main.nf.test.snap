@@ -1,0 +1,135 @@
+{
+    "Should run with a single reference": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_predictions.csv:md5,05d2397c3d0dbe58dad5fd81424dad8d"
+                    ]
+                ],
+                "1": [
+                    [
+                        "test_celldex_hpca__2024-02-26_h5_se.tar.gz_distribution.pdf:md5,2b0a7be92698fb137856edb73c17f91e",
+                        "test_celldex_hpca__2024-02-26_h5_se.tar.gz_heatmap.pdf:md5,e7be22123da0f7db5bc5c24e7db23a5e"
+                    ]
+                ],
+                "2": [
+                    "versions.yml:md5,448f2705ce813b3f6e93bb74b092a60c"
+                ],
+                "obs": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_predictions.csv:md5,05d2397c3d0dbe58dad5fd81424dad8d"
+                    ]
+                ],
+                "pdf": [
+                    [
+                        "test_celldex_hpca__2024-02-26_h5_se.tar.gz_distribution.pdf:md5,2b0a7be92698fb137856edb73c17f91e",
+                        "test_celldex_hpca__2024-02-26_h5_se.tar.gz_heatmap.pdf:md5,e7be22123da0f7db5bc5c24e7db23a5e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,448f2705ce813b3f6e93bb74b092a60c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.3"
+        },
+        "timestamp": "2025-07-12T17:36:12.598344413"
+    },
+    "Should run with a single reference - stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.csv:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    "test.pdf:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ],
+                "2": [
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ],
+                "obs": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.csv:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "pdf": [
+                    "test.pdf:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ],
+                "versions": [
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.3"
+        },
+        "timestamp": "2025-07-12T17:41:34.763310953"
+    },
+    "Should run with two references": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_predictions.csv:md5,6bd5372b43985c9281dad8a4a63d2802"
+                    ]
+                ],
+                "1": [
+                    [
+                        "test_celldex_hpca__2024-02-26_h5_se.tar.gz_distribution.pdf:md5,06158bd5641afba4bb8b63f46d329674",
+                        "test_celldex_hpca__2024-02-26_h5_se.tar.gz_heatmap.pdf:md5,1fc6bbc1f8344232610f82d36b9cfff3",
+                        "test_celldex_monaco_immune__2024-02-26_h5_se.tar.gz_distribution.pdf:md5,3a0aae4e99deb8523079a32076da44fd",
+                        "test_celldex_monaco_immune__2024-02-26_h5_se.tar.gz_heatmap.pdf:md5,397388612ca30460e3f3c7e64e8ac269"
+                    ]
+                ],
+                "2": [
+                    "versions.yml:md5,448f2705ce813b3f6e93bb74b092a60c"
+                ],
+                "obs": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_predictions.csv:md5,6bd5372b43985c9281dad8a4a63d2802"
+                    ]
+                ],
+                "pdf": [
+                    [
+                        "test_celldex_hpca__2024-02-26_h5_se.tar.gz_distribution.pdf:md5,06158bd5641afba4bb8b63f46d329674",
+                        "test_celldex_hpca__2024-02-26_h5_se.tar.gz_heatmap.pdf:md5,1fc6bbc1f8344232610f82d36b9cfff3",
+                        "test_celldex_monaco_immune__2024-02-26_h5_se.tar.gz_distribution.pdf:md5,3a0aae4e99deb8523079a32076da44fd",
+                        "test_celldex_monaco_immune__2024-02-26_h5_se.tar.gz_heatmap.pdf:md5,397388612ca30460e3f3c7e64e8ac269"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,448f2705ce813b3f6e93bb74b092a60c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.3"
+        },
+        "timestamp": "2025-07-12T17:41:09.720736131"
+    }
+}

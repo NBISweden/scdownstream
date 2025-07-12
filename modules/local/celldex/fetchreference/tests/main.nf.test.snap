@@ -1,0 +1,35 @@
+{
+    "Should run without failures - stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "/home/nico/Software/nf-core/scdownstream/.nf-test/tests/672ca2ddc00da4a82f9d4446a477decf/work/cf/d1158c37c3d523c90a08f353cb0c05/celldex_hpca__2024-02-26_h5_se.tar.gz"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ],
+                "tar": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "/home/nico/Software/nf-core/scdownstream/.nf-test/tests/672ca2ddc00da4a82f9d4446a477decf/work/cf/d1158c37c3d523c90a08f353cb0c05/celldex_hpca__2024-02-26_h5_se.tar.gz"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.3"
+        },
+        "timestamp": "2025-07-12T17:44:20.811094702"
+    }
+}

@@ -23,5 +23,6 @@ process CELLDEX_FETCHREFERENCE {
     stub:
     """
     touch "celldex_${ref}_h5_se.tar.gz"
+    touch "versions.yml"
     """
 }

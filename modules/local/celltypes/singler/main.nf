@@ -11,8 +11,8 @@ process CELLTYPES_SINGLER {
 
     output:
     //tuple val(meta), path("*.h5ad"), emit: h5ad
-    path "*.pdf"                   , emit: pdf
     tuple val(meta), path("*.csv") , emit: obs
+    path "*.pdf"                   , emit: pdf
     path "versions.yml"            , emit: versions
 
     when:
