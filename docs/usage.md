@@ -110,7 +110,7 @@ You can also generate such `YAML`/`JSON` files via [nf-core/launch](https://nf-c
 
 ### Cell type annotation
 
-Automated cell type annotation using [Celltypist](https://github.com/Teichlab/celltypist) is supported. You can specify the models to use with the [`celltypist_model` parameter](https://nf-co.re/scdownstream/dev/parameters/#celltypist_model). If no models are specified, no cell type annotation will be performed.
+Automated cell type annotation using [Celltypist](https://github.com/Teichlab/celltypist) and [singleR](https://bioconductor.org/packages/release/bioc/html/SingleR.html) are supported. For `Celltypist`, you can specify the models to use with the [`celltypist_model` parameter](https://nf-co.re/scdownstream/dev/parameters/#celltypist_model). For `singleR`, you can specify [celldex]() references along with their version separated by `__` with [`celldex_reference` parameter](https://nf-co.re/scdownstream/dev/parameters/#celltdex_reference). Multiple `celldex` models can be specified separated by a ",". If no models/ references are specified, no cell type annotation will be performed.
 
 ### Reference mapping
 
