@@ -10,10 +10,10 @@ workflow CELLTYPE_ASSIGNMENT {
     ch_versions = Channel.empty()
     ch_obs = Channel.empty()
 
-    if (params.celldex_references ) {
+    if (params.celldex_reference ) {
         SINGLER(
             ch_h5ad,
-            Channel.fromList(samplesheetToList(params.celldex_references, "${projectDir}/assets/schema_singler.json"))
+            Channel.fromList(samplesheetToList(params.celldex_reference, "${projectDir}/assets/schema_singler.json"))
         )
 
         ch_versions = ch_versions.mix(SINGLER.out.versions)

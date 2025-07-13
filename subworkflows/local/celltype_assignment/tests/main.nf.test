@@ -13,7 +13,7 @@ nextflow_workflow {
             params {
                 outdir = "$outputDir"
                 celltypist_model = "Adult_COVID19_PBMC"
-                celldex_references = "https://raw.githubusercontent.com/nf-core/test-datasets/scdownstream/singleR/references.csv"
+                celldex_reference = "https://raw.githubusercontent.com/nf-core/test-datasets/scdownstream/singleR/references.csv"
             }
             workflow {
                 """
@@ -41,7 +41,7 @@ nextflow_workflow {
             params {
                 outdir = "$outputDir"
                 celltypist_model = "Adult_COVID19_PBMC"
-                celldex_references = "https://raw.githubusercontent.com/nf-core/test-datasets/scdownstream/singleR/references.csv"
+                celldex_reference = "https://raw.githubusercontent.com/nf-core/test-datasets/scdownstream/singleR/references.csv"
             }
             workflow {
                 """
