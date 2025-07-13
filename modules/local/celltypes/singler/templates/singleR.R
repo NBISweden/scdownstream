@@ -65,13 +65,13 @@ for (ref_idx in seq_along(references)) {
     main = paste0(
       "SingleR Predictions: ",
       basename(h5ad_file),
-      " [", ref_name, "]"
+      " [", prefix, "_", ref_name, "]"
     ),
     show_rownames = TRUE,
     show_colnames = FALSE
   )
   ggsave(
-    filename = paste0(ref_name, "_heatmap.pdf"),
+    filename = paste0(prefix, "_", ref_name, "_heatmap.pdf"),
     plot = p,
     width = 10,
     height = 8
@@ -83,18 +83,18 @@ for (ref_idx in seq_along(references)) {
     paste0(
       "SingleR Predictions: ",
       basename(h5ad_file),
-      " [", ref, "]"
+      " [", prefix, "_", ref_name, "]"
     )
   )
   ggsave(
-    filename = paste0(ref_name, "_distribution.pdf"),
+    filename = paste0(prefix, "_", ref_name, "_distribution.pdf"),
     plot = p2,
     width = 14,
     height = 12
   )
 
   colnames(predictions) <- paste0(
-    colnames(predictions), "_", ref_name
+    colnames(predictions), "_", prefix, "_", ref_name
   )
   prediction_results[[ref]] <- predictions
 }
