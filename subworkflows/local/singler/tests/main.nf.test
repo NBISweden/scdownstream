@@ -18,8 +18,8 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = Channel.of([
-                        [ id: 'test' ],
-                        file(params.pipelines_testdata_base_path + '/singleR/celldex_hpca__2024-02-26_h5_se.tar.gz', checkIfExists: true)
+                        [ id: 'test', label: 'label.fine' ],
+                        file(params.pipelines_testdata_base_path + '/singleR/celldex_hpca__2024-02-26_h5_se.tar', checkIfExists: true)
                     ]
                 )
                 """

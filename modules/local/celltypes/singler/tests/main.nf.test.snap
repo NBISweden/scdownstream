@@ -12,8 +12,13 @@
                 ],
                 "1": [
                     [
-                        "test_test.tar_distribution.pdf:md5,8f0897771367697d5452021e1c98f574",
-                        "test_test_heatmap.pdf:md5,861f23b890d20c2be7df341236ac68a1"
+                        {
+                            "id": "test"
+                        },
+                        [
+                            "test_distribution.pdf:md5,6d065aa6035c758ef7578b08c2adc2c3",
+                            "test_heatmap.pdf:md5,6e7ea83b6a7debdfa0b7e261fd9cc4fa"
+                        ]
                     ]
                 ],
                 "2": [
@@ -29,8 +34,13 @@
                 ],
                 "pdf": [
                     [
-                        "test_test.tar_distribution.pdf:md5,8f0897771367697d5452021e1c98f574",
-                        "test_test_heatmap.pdf:md5,861f23b890d20c2be7df341236ac68a1"
+                        {
+                            "id": "test"
+                        },
+                        [
+                            "test_distribution.pdf:md5,6d065aa6035c758ef7578b08c2adc2c3",
+                            "test_heatmap.pdf:md5,6e7ea83b6a7debdfa0b7e261fd9cc4fa"
+                        ]
                     ]
                 ],
                 "versions": [
@@ -42,7 +52,7 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-07-13T11:42:12.803502862"
+        "timestamp": "2025-07-13T11:54:30.446368041"
     },
     "Should run with a single reference": {
         "content": [
@@ -57,8 +67,13 @@
                 ],
                 "1": [
                     [
-                        "test_celldex_hpca__2024-02-26_h5_se.tar_distribution.pdf:md5,3ff51aa680b47554d8ee9504cffa43f3",
-                        "test_hpca_heatmap.pdf:md5,e0a29584c3d021314e3788a8770e4380"
+                        {
+                            "id": "test"
+                        },
+                        [
+                            "hpca_distribution.pdf:md5,63d8a66ff112ff66a0d6935425dd221b",
+                            "hpca_heatmap.pdf:md5,4eb0188dc8b24638f7579ada52ece04c"
+                        ]
                     ]
                 ],
                 "2": [
@@ -74,8 +89,13 @@
                 ],
                 "pdf": [
                     [
-                        "test_celldex_hpca__2024-02-26_h5_se.tar_distribution.pdf:md5,3ff51aa680b47554d8ee9504cffa43f3",
-                        "test_hpca_heatmap.pdf:md5,e0a29584c3d021314e3788a8770e4380"
+                        {
+                            "id": "test"
+                        },
+                        [
+                            "hpca_distribution.pdf:md5,63d8a66ff112ff66a0d6935425dd221b",
+                            "hpca_heatmap.pdf:md5,4eb0188dc8b24638f7579ada52ece04c"
+                        ]
                     ]
                 ],
                 "versions": [
@@ -87,7 +107,7 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-07-13T11:47:32.167706927"
+        "timestamp": "2025-07-13T11:59:58.362958476"
     },
     "Should run with a single reference - stub": {
         "content": [
@@ -101,7 +121,12 @@
                     ]
                 ],
                 "1": [
-                    "test.pdf:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.pdf:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
                 ],
                 "2": [
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
@@ -115,7 +140,12 @@
                     ]
                 ],
                 "pdf": [
-                    "test.pdf:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.pdf:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
                 ],
                 "versions": [
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
@@ -124,9 +154,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.3"
+            "nextflow": "25.04.6"
         },
-        "timestamp": "2025-07-12T17:41:34.763310953"
+        "timestamp": "2025-07-13T12:06:03.320334686"
     },
     "Should run with two references": {
         "content": [
@@ -141,10 +171,15 @@
                 ],
                 "1": [
                     [
-                        "test_celldex_hpca__2024-02-26_h5_se.tar_distribution.pdf:md5,9fe7cd2880017ef4eb1d4edddf782c02",
-                        "test_celldex_monaco_immune__2024-02-26_h5_se.tar_distribution.pdf:md5,851b39dd011672eab1fc2b3a23320a5b",
-                        "test_hpca_heatmap.pdf:md5,68b6bd06ced73a9dc54ba3cccc4dc9c7",
-                        "test_monaco_immune_heatmap.pdf:md5,805a9cea42f1f3fd603de1348cb92c19"
+                        {
+                            "id": "test"
+                        },
+                        [
+                            "hpca_distribution.pdf:md5,2016c534363f4b09c6fb52f185db4998",
+                            "hpca_heatmap.pdf:md5,06b2ab40750a933055b608cf60fa20ac",
+                            "monaco_immune_distribution.pdf:md5,96a2d1d1f0e420ff70231ad3e63ec406",
+                            "monaco_immune_heatmap.pdf:md5,13227f2dbf3f496af3192ab65e90c34c"
+                        ]
                     ]
                 ],
                 "2": [
@@ -160,10 +195,15 @@
                 ],
                 "pdf": [
                     [
-                        "test_celldex_hpca__2024-02-26_h5_se.tar_distribution.pdf:md5,9fe7cd2880017ef4eb1d4edddf782c02",
-                        "test_celldex_monaco_immune__2024-02-26_h5_se.tar_distribution.pdf:md5,851b39dd011672eab1fc2b3a23320a5b",
-                        "test_hpca_heatmap.pdf:md5,68b6bd06ced73a9dc54ba3cccc4dc9c7",
-                        "test_monaco_immune_heatmap.pdf:md5,805a9cea42f1f3fd603de1348cb92c19"
+                        {
+                            "id": "test"
+                        },
+                        [
+                            "hpca_distribution.pdf:md5,2016c534363f4b09c6fb52f185db4998",
+                            "hpca_heatmap.pdf:md5,06b2ab40750a933055b608cf60fa20ac",
+                            "monaco_immune_distribution.pdf:md5,96a2d1d1f0e420ff70231ad3e63ec406",
+                            "monaco_immune_heatmap.pdf:md5,13227f2dbf3f496af3192ab65e90c34c"
+                        ]
                     ]
                 ],
                 "versions": [
@@ -175,6 +215,6 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-07-13T11:18:08.234577493"
+        "timestamp": "2025-07-13T12:05:45.655495688"
     }
 }
