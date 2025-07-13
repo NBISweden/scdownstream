@@ -17,7 +17,7 @@ workflow SINGLER {
 
     CELLDEX_FETCHREFERENCE(ch_reference.names.map { meta, ref -> {
         if (!meta.version) {
-            error "If you specify a celldex reference, you also need to specify a version."
+            error "If you specify a celldex reference, you also need to specify a version"
         }
         return [meta, ref, meta.version]
     }})

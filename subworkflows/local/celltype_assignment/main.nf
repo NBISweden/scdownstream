@@ -1,5 +1,7 @@
+include { samplesheetToList    } from 'plugin/nf-schema'
+include { SINGLER              } from '../singler'
 include { CELLTYPES_CELLTYPIST } from '../../../modules/local/celltypes/celltypist'
-include { SINGLER } from '../singler'
+
 workflow CELLTYPE_ASSIGNMENT {
     take:
     ch_h5ad // channel: [ meta, h5ad ]
@@ -8,17 +10,10 @@ workflow CELLTYPE_ASSIGNMENT {
     ch_versions = Channel.empty()
     ch_obs = Channel.empty()
 
-    // Process celldex references if specified
-    if (params.celldex_reference ) {
-
+    if (params.celldex_references ) {
         SINGLER(
-            ch_h5ad, 
-            Channel.from(
-                [
-                    params.celldex_reference.split(','),
-                    params.celldex_reference_label.split(',')
-                ].transpose()
-            ).map { ref, label -> [[id: label], ref] }
+            ch_h5ad,
+            Channel.fromList(samplesheetToList(params.celldex_references, "${projectDir}/assets/schema_singler.json"))
         )
 
         ch_versions = ch_versions.mix(SINGLER.out.versions)

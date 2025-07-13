@@ -29,7 +29,7 @@
                 "pattern": "^\\S+$",
                 "default": null,
                 "errorMessage": "Reference version cannot contain spaces",
-                "meta": ["reference_version"]
+                "meta": ["version"]
             }
         },
         "required": ["id", "label", "reference"]
