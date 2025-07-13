@@ -28,7 +28,7 @@ workflow SINGLER {
 
     CELLTYPES_SINGLER(
         ch_h5ad,
-        ch_reference.map { meta, ref -> [[id: "singler"], meta.id, meta.label, ref] }.groupTuple(),
+        ch_reference.map { meta, ref -> [[id: "singler"], meta.id, meta.label, ref] }.groupTuple().collect()
     )
     ch_versions = ch_versions.mix(CELLTYPES_SINGLER.out.versions)
     ch_obs = ch_obs.mix(CELLTYPES_SINGLER.out.obs)
