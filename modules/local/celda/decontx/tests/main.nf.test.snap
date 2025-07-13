@@ -4,14 +4,13 @@
             [
                 "versions.yml:md5,c546ef8ddb5673ef5f14e733d02de1d1"
             ],
-            true,
-            20739444
+            "test_decontx.h5ad"
         ],
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-07-13T20:45:07.584761417"
+        "timestamp": "2025-07-13T21:45:05.085755826"
     },
     "Should run without failures with raw": {
         "content": [
