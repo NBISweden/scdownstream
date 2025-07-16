@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+import os
+
+os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
+
 import scvi
 import anndata as ad
 import pandas as pd
