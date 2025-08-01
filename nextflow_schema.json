@@ -103,7 +103,7 @@
                 },
                 "cellbender_epochs": {
                     "type": "integer",
-                    "default": 150,
+                    "default": 151,
                     "description": "Number of epochs to train the CellBender model"
                 }
             }
