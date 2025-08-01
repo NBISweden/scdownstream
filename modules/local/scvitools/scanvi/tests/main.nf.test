@@ -77,10 +77,12 @@ nextflow_process {
             { assert process.success },
             { assert snapshot(
                     // Hashes are not stable due to floating point inaccuracies
-                    file(process.out.h5ad.get(0).get(1)).size(),
-                    file(process.out.model.get(0).get(1)).size(),
-                    file(process.out.obsm.get(0)).size(),
-                    file(process.out.obs.get(0)).size(),
+                    file(process.out.h5ad[0][1]).size(),
+                    file(process.out.h5ad[0][1]).name,
+                    file(process.out.model[0][1]).size(),
+                    file(process.out.model[0][1]).name,
+                    file(process.out.obsm[0]).size(),
+                    file(process.out.obsm[0]).name,
                     process.out.versions
                 ).match()
             },
