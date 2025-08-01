@@ -51,7 +51,7 @@ jobs:
           NFT_VER: ${{ env.NFT_VER }}
         with:
           max_shards: 15
-          tags: modules_local,subworkflows_local
+          tags: modules_local,subworkflows_local,pipeline
 
       - name: debug
         run: |
