@@ -121,7 +121,11 @@
         },
         {
             "@id": "main.nf",
-            "@type": ["File", "SoftwareSourceCode", "ComputationalWorkflow"],
+            "@type": [
+                "File",
+                "SoftwareSourceCode",
+                "ComputationalWorkflow"
+            ],
             "creator": [
                 {
                     "@id": "https://orcid.org/0000-0002-4639-0935"
@@ -140,21 +144,30 @@
                 "scverse",
                 "single-cell"
             ],
-            "license": ["MIT"],
+            "license": [
+                "MIT"
+            ],
             "maintainer": [
                 {
                     "@id": "https://orcid.org/0000-0002-4639-0935"
                 }
             ],
-            "name": ["nf-core/scdownstream"],
+            "name": [
+                "nf-core/scdownstream"
+            ],
             "programmingLanguage": {
                 "@id": "https://w3id.org/workflowhub/workflow-ro-crate#nextflow"
             },
             "sdPublisher": {
                 "@id": "https://nf-co.re/"
             },
-            "url": ["https://github.com/nf-core/scdownstream", "https://nf-co.re/scdownstream/dev/"],
-            "version": ["0.0.1dev"]
+            "url": [
+                "https://github.com/nf-core/scdownstream",
+                "https://nf-co.re/scdownstream/dev/"
+            ],
+            "version": [
+                "0.0.1dev"
+            ]
         },
         {
             "@id": "https://w3id.org/workflowhub/workflow-ro-crate#nextflow",

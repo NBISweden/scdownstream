@@ -50,7 +50,8 @@ jobs:
         env:
           NFT_VER: ${{ env.NFT_VER }}
         with:
-          max_shards: 7
+          max_shards: 15
+          tags: modules_local,subworkflows_local
 
       - name: debug
         run: |
@@ -64,6 +65,7 @@ jobs:
     runs-on: # use self-hosted runners
       - runs-on=${{ github.run_id }}-nf-test
       - runner=4cpu-linux-x64
+      - disk=large
     strategy:
       fail-fast: false
       matrix:
@@ -116,7 +118,7 @@ jobs:
           fi
 
   confirm-pass:
-    needs: [nf-test]
+    needs: [nf-test, pipeline-tests]
     if: always()
     runs-on: # use self-hosted runners
       - runs-on=${{ github.run_id }}-confirm-pass
