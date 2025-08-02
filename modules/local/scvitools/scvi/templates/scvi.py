@@ -10,8 +10,6 @@ import pandas as pd
 from scvi.model import SCVI
 import platform
 import torch
-import numpy as np
-import random
 import yaml
 
 torch.set_float32_matmul_precision("medium")
