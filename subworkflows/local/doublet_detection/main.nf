@@ -33,7 +33,7 @@ workflow DOUBLET_DETECTION {
         if (methods.contains('scrublet')) {
             ch_scrublet = ch_h5ad.multiMap { meta, h5ad ->
                 input: [meta, h5ad]
-                batch_col: meta.batch_col ?: ""
+                batch_col: meta.batch_col
             }
             SCANPY_SCRUBLET(ch_scrublet.input, ch_scrublet.batch_col)
             ch_predictions = ch_predictions.mix(SCANPY_SCRUBLET.out.predictions)
