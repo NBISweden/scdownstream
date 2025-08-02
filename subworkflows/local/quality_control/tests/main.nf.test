@@ -49,7 +49,7 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'decontx'
-                input[2] = ['scrublet']
+                input[2] = ['solo']
                 """
             }
         }
@@ -78,7 +78,7 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'decontx'
-                input[2] = ['scrublet']
+                input[2] = ['solo']
                 """
             }
         }
