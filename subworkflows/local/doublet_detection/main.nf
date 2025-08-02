@@ -1,5 +1,5 @@
 include { SCVITOOLS_SOLO   } from '../../../modules/nf-core/scvitools/solo'
-include { SCANPY_SCRUBLET  } from '../../../modules/local/scanpy/scrublet'
+include { SCANPY_SCRUBLET  } from '../../../modules/nf-core/scanpy/scrublet'
 include { DOUBLETDETECTION } from '../../../modules/nf-core/doubletdetection'
 include { SCDS             } from '../../../modules/local/doublet_detection/scds'
 include { DOUBLET_REMOVAL  } from '../../../modules/local/doublet_detection/doublet_removal'
@@ -33,7 +33,7 @@ workflow DOUBLET_DETECTION {
         if (methods.contains('scrublet')) {
             ch_scrublet = ch_h5ad.multiMap { meta, h5ad ->
                 input: [meta, h5ad]
-                batch_col: meta.batch_col
+                batch_col: meta.batch_col ?: ""
             }
             SCANPY_SCRUBLET(ch_scrublet.input, ch_scrublet.batch_col)
             ch_predictions = ch_predictions.mix(SCANPY_SCRUBLET.out.predictions)
