@@ -8,6 +8,7 @@ multiqc/multiqc_plots/{svg,pdf,png}/*.{svg,pdf,png}
 multiqc/multiqc_report.html
 pipeline_info/*.{html,json,txt,yml}
 celltypes/singler/**
+**/llms-full.txt
 
 **/*.{png,pt,h5ad,rds}
 finalized/merged_metadata.csv

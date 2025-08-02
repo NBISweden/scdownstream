@@ -11,9 +11,10 @@ process CELLTYPES_SINGLER {
 
     output:
     //tuple val(meta), path("*.h5ad"), emit: h5ad
-    tuple val(meta), path("*.csv"), emit: obs
-    tuple val(meta), path("*.pdf"), emit: pdf
-    path "versions.yml"           , emit: versions
+    tuple val(meta), path("*.csv")             , emit: obs
+    tuple val(meta), path("*_distribution.pdf"), emit: distribution
+    tuple val(meta), path("*_heatmap.pdf")     , emit: heatmap
+    path "versions.yml"                        , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -31,7 +32,8 @@ process CELLTYPES_SINGLER {
         error "SINGLER module does not support Conda. Please use Docker / Singularity / Podman instead."
     }
     """
-    touch ${prefix}.pdf
+    touch ${prefix}_distribution.pdf
+    touch ${prefix}_heatmap.pdf
     touch ${prefix}.csv
     touch versions.yml
     """
