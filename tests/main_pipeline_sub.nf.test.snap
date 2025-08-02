@@ -117,6 +117,8 @@
                 "finalized/base_metadata.csv",
                 "multiqc",
                 "multiqc/multiqc_data",
+                "multiqc/multiqc_data/BETA-multiqc.parquet",
+                "multiqc/multiqc_data/llms-full.txt",
                 "multiqc/multiqc_data/multiqc.log",
                 "multiqc/multiqc_data/multiqc_citations.txt",
                 "multiqc/multiqc_data/multiqc_data.json",
@@ -243,13 +245,14 @@
                 "splitcol/SRR28679758.h5ad"
             ],
             [
+                "llms-full.txt:md5,ce6f352349e7426aaee4c7973e8fc7cd",
                 "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f"
             ]
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.2"
+            "nextflow": "25.04.6"
         },
-        "timestamp": "2025-06-07T20:30:23.762223147"
+        "timestamp": "2025-08-02T08:59:59.730083586"
     }
 }
