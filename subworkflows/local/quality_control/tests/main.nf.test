@@ -48,7 +48,7 @@ nextflow_workflow {
                         file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
-                input[1] = 'cellbender'
+                input[1] = 'decontx'
                 input[2] = ['scrublet']
                 """
             }
@@ -77,7 +77,7 @@ nextflow_workflow {
                         file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_raw_matrix.h5ad', checkIfExists: true)
                     ]
                 )
-                input[1] = 'cellbender'
+                input[1] = 'decontx'
                 input[2] = ['scrublet']
                 """
             }

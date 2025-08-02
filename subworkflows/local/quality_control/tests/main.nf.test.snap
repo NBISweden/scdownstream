@@ -80,13 +80,12 @@
                     "test_raw_mqc.json:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "2": [
-                    "versions.yml:md5,0a112bf12cb08917b95bd92da16a324e",
                     "versions.yml:md5,3c7417bff601859a86cdcb86fa6bfcb3",
                     "versions.yml:md5,53938cd26fe63616cc4524da4b6062c5",
                     "versions.yml:md5,77789821b488f540f44bd4802394a948",
                     "versions.yml:md5,88b8f8687e69ee5ccecf75b7e6845176",
-                    "versions.yml:md5,b013e83203d9e6492355fe15531eb9cc",
                     "versions.yml:md5,c4bcd7799f794fb7a2ab6b9a32d346f9",
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
@@ -110,13 +109,12 @@
                     "test_raw_mqc.json:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "versions": [
-                    "versions.yml:md5,0a112bf12cb08917b95bd92da16a324e",
                     "versions.yml:md5,3c7417bff601859a86cdcb86fa6bfcb3",
                     "versions.yml:md5,53938cd26fe63616cc4524da4b6062c5",
                     "versions.yml:md5,77789821b488f540f44bd4802394a948",
                     "versions.yml:md5,88b8f8687e69ee5ccecf75b7e6845176",
-                    "versions.yml:md5,b013e83203d9e6492355fe15531eb9cc",
                     "versions.yml:md5,c4bcd7799f794fb7a2ab6b9a32d346f9",
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
@@ -129,7 +127,7 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-08-02T15:05:29.664776506"
+        "timestamp": "2025-08-02T17:17:31.627372726"
     },
     "Should run with ambient RNA removal and doublet detection": {
         "content": [
@@ -141,7 +139,7 @@
                             "batch_col": "sample",
                             "counts_layer": "X"
                         },
-                        "test.h5ad:md5,c22d5aca6a360de7dd852cdf2d6ac1be"
+                        "test.h5ad:md5,f78b5a85aaddbdd9d75cf9b73fa93831"
                     ]
                 ],
                 "1": [
@@ -150,16 +148,15 @@
                     "test_raw_mqc.json:md5,55fb1251be8f5e17f0ff337d94f7f3f8"
                 ],
                 "2": [
-                    "versions.yml:md5,0a112bf12cb08917b95bd92da16a324e",
                     "versions.yml:md5,3c7417bff601859a86cdcb86fa6bfcb3",
                     "versions.yml:md5,42c1abd6c5e1c373ee37d53bcdcedd13",
                     "versions.yml:md5,53938cd26fe63616cc4524da4b6062c5",
                     "versions.yml:md5,6a3ffc8a47600e0ebd907bb979d5d859",
                     "versions.yml:md5,88b8f8687e69ee5ccecf75b7e6845176",
                     "versions.yml:md5,8a904ed120b0307240c5a2ebe6dc34f8",
-                    "versions.yml:md5,8c6382be0d3ed2e43aed468cbbc32d5f",
                     "versions.yml:md5,8d42b8eebbd3b215d93707b3e14dba8d",
                     "versions.yml:md5,93254cb7ea8020ead8a711cde452236a",
+                    "versions.yml:md5,a377a3970aa010e36ca787f911d0bcfc",
                     "versions.yml:md5,c4bcd7799f794fb7a2ab6b9a32d346f9",
                     "versions.yml:md5,cd352ddaeb3e286706b51d74fe15d655"
                 ],
@@ -170,7 +167,7 @@
                             "batch_col": "sample",
                             "counts_layer": "X"
                         },
-                        "test.h5ad:md5,c22d5aca6a360de7dd852cdf2d6ac1be"
+                        "test.h5ad:md5,f78b5a85aaddbdd9d75cf9b73fa93831"
                     ]
                 ],
                 "multiqc_files": [
@@ -179,16 +176,15 @@
                     "test_raw_mqc.json:md5,55fb1251be8f5e17f0ff337d94f7f3f8"
                 ],
                 "versions": [
-                    "versions.yml:md5,0a112bf12cb08917b95bd92da16a324e",
                     "versions.yml:md5,3c7417bff601859a86cdcb86fa6bfcb3",
                     "versions.yml:md5,42c1abd6c5e1c373ee37d53bcdcedd13",
                     "versions.yml:md5,53938cd26fe63616cc4524da4b6062c5",
                     "versions.yml:md5,6a3ffc8a47600e0ebd907bb979d5d859",
                     "versions.yml:md5,88b8f8687e69ee5ccecf75b7e6845176",
                     "versions.yml:md5,8a904ed120b0307240c5a2ebe6dc34f8",
-                    "versions.yml:md5,8c6382be0d3ed2e43aed468cbbc32d5f",
                     "versions.yml:md5,8d42b8eebbd3b215d93707b3e14dba8d",
                     "versions.yml:md5,93254cb7ea8020ead8a711cde452236a",
+                    "versions.yml:md5,a377a3970aa010e36ca787f911d0bcfc",
                     "versions.yml:md5,c4bcd7799f794fb7a2ab6b9a32d346f9",
                     "versions.yml:md5,cd352ddaeb3e286706b51d74fe15d655"
                 ]
@@ -198,6 +194,6 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-08-02T15:04:31.919057656"
+        "timestamp": "2025-08-02T17:16:57.138826748"
     }
 }
