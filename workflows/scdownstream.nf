@@ -66,6 +66,7 @@ workflow SCDOWNSTREAM {
             ch_h5ad,
             params.ambient_removal,
             !params.doublet_detection || params.doublet_detection == 'none' ? [] : params.doublet_detection.split(',').collect { it -> it.trim().toLowerCase() },
+            params.doublet_detection_threshold,
         )
         ch_versions = ch_versions.mix(QUALITY_CONTROL.out.versions)
         ch_multiqc_files = ch_multiqc_files.mix(QUALITY_CONTROL.out.multiqc_files)

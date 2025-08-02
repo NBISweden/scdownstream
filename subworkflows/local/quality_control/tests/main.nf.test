@@ -23,6 +23,7 @@ nextflow_workflow {
                 )
                 input[1] = 'none'
                 input[2] = []
+                input[3] = 2
                 """
             }
         }
@@ -49,7 +50,8 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'decontx'
-                input[2] = ['solo']
+                input[2] = ['scds', 'solo', 'scrublet', 'doubletdetection']
+                input[3] = 2
                 """
             }
         }
@@ -78,7 +80,8 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'decontx'
-                input[2] = ['solo']
+                input[2] = ['scds', 'solo', 'scrublet', 'doubletdetection']
+                input[3] = 2
                 """
             }
         }
