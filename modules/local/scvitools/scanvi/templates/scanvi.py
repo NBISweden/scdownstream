@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 
+import os
+
+os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
+
 import scvi
 import anndata as ad
 import pandas as pd
 from scvi.model import SCVI, SCANVI
 import platform
 import torch
-import numpy as np
-import random
 import yaml
 
 torch.use_deterministic_algorithms(True)
