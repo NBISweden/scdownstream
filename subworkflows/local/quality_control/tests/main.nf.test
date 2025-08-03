@@ -50,7 +50,7 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'decontx'
-                input[2] = ['scds', 'solo', 'scrublet', 'doubletdetection']
+                input[2] = ['scrublet']
                 input[3] = 2
                 """
             }
@@ -80,7 +80,7 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'decontx'
-                input[2] = ['scds', 'solo', 'scrublet', 'doubletdetection']
+                input[2] = ['scrublet']
                 input[3] = 2
                 """
             }
