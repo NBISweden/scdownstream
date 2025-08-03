@@ -15,6 +15,7 @@ workflow QUALITY_CONTROL {
     ch_h5ad // channel: [ meta, filtered, unfiltered ]
     ambient_removal_method // value: string
     doublet_detection_methods // value: list of strings
+    doublet_detection_threshold // value: float
 
     main:
     ch_versions = Channel.empty()
@@ -84,7 +85,7 @@ workflow QUALITY_CONTROL {
         GET_THRESHOLDED_SIZE.out.size.map { meta, size -> [meta.id, 'thresholded', (size.text ?: "0").toInteger()] }
     )
 
-    DOUBLET_DETECTION(ch_h5ad, doublet_detection_methods, params.doublet_detection_threshold)
+    DOUBLET_DETECTION(ch_h5ad, doublet_detection_methods, doublet_detection_threshold)
     ch_h5ad = DOUBLET_DETECTION.out.h5ad
     ch_multiqc_files = ch_multiqc_files.mix(DOUBLET_DETECTION.out.multiqc_files)
     ch_versions = ch_versions.mix(DOUBLET_DETECTION.out.versions)

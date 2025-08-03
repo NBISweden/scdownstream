@@ -35,6 +35,11 @@
                         "git_sha": "c9a31c472ef2d86802eb44f27322955849859361",
                         "installed_by": ["modules"]
                     },
+                    "scanpy/scrublet": {
+                        "branch": "master",
+                        "git_sha": "57325b54221de072df0d3fc7002774b5cd9b6f34",
+                        "installed_by": ["modules"]
+                    },
                     "scvitools/scar": {
                         "branch": "master",
                         "git_sha": "05954dab2ff481bcb999f24455da29a5828af08d",
