@@ -5,10 +5,10 @@ process SCVITOOLS_SCVI {
 
     conda "${moduleDir}/environment.yml"
     container "${task.ext.use_gpu
-        ? 'docker.io/nicotru/scvitools-gpu:1.2.2'
+        ? 'ghcr.io/scverse/scvi-tools:py3.12-cu12-1.3.3-'
         : workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
-            ? 'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/9f/9f55aaa3fb4607a59599c43c54a7fbe7ca19bdea4a901ed068d716defe47a831/data'
-            : 'community.wave.seqera.io/library/pyyaml_scvi-tools:bcc03fef5bf6c7d3'}"
+            ? 'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/c8/c8764e4208e9639a54d636fc65c839c55dedbfd68def57baea90d1d2007d6a7f/data'
+            : 'community.wave.seqera.io/library/scvi-tools:1.3.3--df115aabdccb7d6b'}"
 
     input:
     tuple val(meta), path(h5ad, arity: 1)
