@@ -84,9 +84,7 @@ df.to_pickle("X_${prefix}.pkl")
 
 versions = {
     "${task.process}": {
-        "python": platform.python_version(),
-        "anndata": ad.__version__,
-        "scvi": scvi.__version__,
+        "scvi": scvi.__version__
     }
 }
 
