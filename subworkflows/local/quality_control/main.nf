@@ -90,11 +90,13 @@ workflow QUALITY_CONTROL {
     ch_multiqc_files = ch_multiqc_files.mix(DOUBLET_DETECTION.out.multiqc_files)
     ch_versions = ch_versions.mix(DOUBLET_DETECTION.out.versions)
 
-    GET_DEDOUBLETED_SIZE(ch_h5ad, "cells")
-    ch_versions = ch_versions.mix(GET_DEDOUBLETED_SIZE.out.versions)
-    ch_sizes = ch_sizes.mix(
-        GET_DEDOUBLETED_SIZE.out.size.map { meta, size -> [meta.id, 'dedoubleted', (size.text ?: "0").toInteger()] }
-    )
+    if (doublet_detection_methods.size() > 0) {
+        GET_DEDOUBLETED_SIZE(ch_h5ad, "cells")
+        ch_versions = ch_versions.mix(GET_DEDOUBLETED_SIZE.out.versions)
+        ch_sizes = ch_sizes.mix(
+            GET_DEDOUBLETED_SIZE.out.size.map { meta, size -> [meta.id, 'dedoubleted', (size.text ?: "0").toInteger()] }
+        )
+    }
 
     QC_FILTERED(ch_h5ad)
     ch_multiqc_files = ch_multiqc_files.mix(QC_FILTERED.out.multiqc_files)

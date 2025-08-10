@@ -13,6 +13,7 @@ df = adata.obs if axis == "obs" else adata.var
 
 assert column in df.columns, f"Column '{column}' not found in {axis}"
 df.index = df[column]
+df.index.name = None
 
 if axis == "obs":
     adata.obs = df
