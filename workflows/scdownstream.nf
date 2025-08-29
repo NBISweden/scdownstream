@@ -64,7 +64,7 @@ workflow SCDOWNSTREAM {
         //
         QUALITY_CONTROL(
             ch_h5ad,
-            params.ambient_removal,
+            params.ambient_correction,
             !params.doublet_detection || params.doublet_detection == 'none' ? [] : params.doublet_detection.split(',').collect { it -> it.trim().toLowerCase() },
             params.doublet_detection_threshold,
         )
