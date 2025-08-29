@@ -1,0 +1,30 @@
+Changes in component 'nf-core/scvitools/scar'
+Changes in 'scvitools/scar/main.nf':
+--- modules/nf-core/scvitools/scar/main.nf
++++ modules/nf-core/scvitools/scar/main.nf
+@@ -9,6 +9,8 @@
+ 
+     input:
+     tuple val(meta), path(filtered), path(unfiltered)
++    val(input_layer)
++    val(output_layer)
+ 
+     output:
+     tuple val(meta), path("*.h5ad"), emit: h5ad
+@@ -19,8 +21,6 @@
+ 
+     script:
+     prefix = task.ext.prefix ?: "${meta.id}"
+-    input_layer = task.ext.input_layer ?: "X"
+-    output_layer = task.ext.output_layer ?: "scar"
+     max_epochs = task.ext.max_epochs ?: ""
+     template 'scar.py'
+ 
+
+'modules/nf-core/scvitools/scar/meta.yml' is unchanged
+'modules/nf-core/scvitools/scar/environment.yml' is unchanged
+'modules/nf-core/scvitools/scar/templates/scar.py' is unchanged
+'modules/nf-core/scvitools/scar/tests/main.nf.test' is unchanged
+'modules/nf-core/scvitools/scar/tests/nextflow.config' is unchanged
+'modules/nf-core/scvitools/scar/tests/main.nf.test.snap' is unchanged
+************************************************************
