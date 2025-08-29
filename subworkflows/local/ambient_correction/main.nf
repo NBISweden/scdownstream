@@ -27,8 +27,8 @@ workflow AMBIENT_CORRECTION {
     ch_versions = Channel.empty()
 
     ch_do_ambient_correction = ch_pairing.branch { meta, _filtered, _unfiltered ->
-        yes: meta.correct_ambient == true
-        no: meta.correct_ambient == false
+        no: meta.ambient_correction == false
+        yes: true
     }
 
     ch_multi = ch_do_ambient_correction.yes.multiMap { meta, filtered, unfiltered ->

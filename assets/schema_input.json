@@ -119,8 +119,8 @@
             "ambient_correction": {
                 "type": "boolean",
                 "default": true,
-                "errorMessage": "'correct_ambient' must be a boolean.",
-                "meta": ["correct_ambient"]
+                "errorMessage": "'ambient_correction' must be a boolean.",
+                "meta": ["ambient_correction"]
             },
             "ambient_corrected_integration": {
                 "type": "boolean",

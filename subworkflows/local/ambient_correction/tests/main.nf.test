@@ -1,13 +1,13 @@
 nextflow_workflow {
 
-    name "Test Workflow AMBIENT_RNA_REMOVAL"
-    script "subworkflows/local/ambient_rna_removal/main.nf"
-    workflow "AMBIENT_RNA_REMOVAL"
+    name "Test Workflow AMBIENT_CORRECTION"
+    script "subworkflows/local/ambient_correction/main.nf"
+    workflow "AMBIENT_CORRECTION"
 
     tag "subworkflows"
     tag "subworkflows_local"
 
-    test("Should run with 'none' ambient removal") {
+    test("Should run with 'none' ambient correction") {
 
         when {
             params {
@@ -33,7 +33,7 @@ nextflow_workflow {
 
     }
 
-    test("Should fail with unknown ambient removal method") {
+    test("Should fail with unknown ambient correction method") {
 
         when {
             params {
@@ -58,7 +58,7 @@ nextflow_workflow {
 
     }
 
-    test("Should run with 'decontx' ambient removal") {
+    test("Should run with 'decontx' ambient correction") {
 
         when {
             params {
@@ -89,7 +89,7 @@ nextflow_workflow {
 
     }
 
-    test("Should run with 'soupx' ambient removal") {
+    test("Should run with 'soupx' ambient correction") {
 
         when {
             params {
@@ -120,7 +120,7 @@ nextflow_workflow {
 
     }
 
-    test("Should run with 'scar' ambient removal") {
+    test("Should run with 'scar' ambient correction") {
 
         when {
             params {
@@ -149,7 +149,7 @@ nextflow_workflow {
 
     }
 
-    test("Should run with 'cellbender' ambient removal") {
+    test("Should run with 'cellbender' ambient correction") {
 
         when {
             params {
