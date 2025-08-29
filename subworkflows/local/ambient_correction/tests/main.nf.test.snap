@@ -30,33 +30,148 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-08-29T13:45:54.205934856"
+        "timestamp": "2025-08-29T14:24:32.042514038"
+    },
+    "Should run with 'decontx' ambient correction to 'X'": {
+        "content": [
+            [
+                "versions.yml:md5,0df227098fc7a061a6c8ba36dd3ef859"
+            ],
+            "test_decontx.h5ad",
+            [
+                "X"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2025-08-29T14:29:39.66739441"
+    },
+    "Should run with 'cellbender' ambient correction to 'X'": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.h5ad:md5,20eed5e2fcf364c11da51284a59009f9"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,1d70371b0f0ca5e50f7ba70335f8946f",
+                    "versions.yml:md5,31438831f011ccfe5d615a86307f7dd6"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.h5ad:md5,20eed5e2fcf364c11da51284a59009f9"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,1d70371b0f0ca5e50f7ba70335f8946f",
+                    "versions.yml:md5,31438831f011ccfe5d615a86307f7dd6"
+                ]
+            },
+            [
+                
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2025-08-29T14:32:58.553889346"
     },
     "Should run with 'decontx' ambient correction": {
         "content": [
             [
                 "versions.yml:md5,0df227098fc7a061a6c8ba36dd3ef859"
             ],
-            "test_decontx.h5ad"
+            "test_decontx.h5ad",
+            [
+                "X"
+            ]
         ],
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-08-29T13:46:52.01784355"
+        "timestamp": "2025-08-29T14:25:27.729479929"
+    },
+    "Should run with 'soupx' ambient correction to 'X'": {
+        "content": [
+            [
+                "versions.yml:md5,0c67966bf597df322244bee055ece6b1"
+            ],
+            "test_soupX.h5ad",
+            [
+                "X"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2025-08-29T14:30:21.641241975"
     },
     "Should run with 'scar' ambient correction": {
         "content": [
             [
                 "versions.yml:md5,369ddbe3ce2ad585fc264126174f380f"
             ],
-            "test.h5ad"
+            "test.h5ad",
+            [
+                
+            ]
         ],
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-08-29T13:48:16.612556715"
+        "timestamp": "2025-08-29T14:26:52.370535346"
+    },
+    "Should not do anything if ambient correction is disabled in meta": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test",
+                            "batch_col": "sample",
+                            "counts_layer": "X",
+                            "ambient_correction": false
+                        },
+                        "/nf-core/test-datasets/modules/data/genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_filtered_matrix.h5ad"
+                    ]
+                ],
+                "1": [
+                    
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test",
+                            "batch_col": "sample",
+                            "counts_layer": "X",
+                            "ambient_correction": false
+                        },
+                        "/nf-core/test-datasets/modules/data/genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_filtered_matrix.h5ad"
+                    ]
+                ],
+                "versions": [
+                    
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2025-08-29T14:34:48.871481933"
     },
     "Should run with 'cellbender' ambient correction": {
         "content": [
@@ -85,25 +200,47 @@
                     "versions.yml:md5,1d70371b0f0ca5e50f7ba70335f8946f",
                     "versions.yml:md5,31438831f011ccfe5d615a86307f7dd6"
                 ]
-            }
+            },
+            [
+                
+            ]
         ],
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-08-29T13:50:12.439366324"
+        "timestamp": "2025-08-29T14:28:49.051180988"
     },
     "Should run with 'soupx' ambient correction": {
         "content": [
             [
                 "versions.yml:md5,0c67966bf597df322244bee055ece6b1"
             ],
-            "test_soupX.h5ad"
+            "test_soupX.h5ad",
+            [
+                "X"
+            ]
         ],
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-08-29T13:47:33.75141139"
+        "timestamp": "2025-08-29T14:26:09.958705813"
+    },
+    "Should run with 'scar' ambient correction to 'X'": {
+        "content": [
+            [
+                "versions.yml:md5,369ddbe3ce2ad585fc264126174f380f"
+            ],
+            "test.h5ad",
+            [
+                
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2025-08-29T14:31:03.754419831"
     }
 }
