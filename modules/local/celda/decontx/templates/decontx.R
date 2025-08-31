@@ -33,9 +33,9 @@ adata_corrected <- as_AnnData(corrected)
 
 # Convert back to AnnData and update layers
 if ("${output_layer}" == "X") {
-    adata\$X <- adata_corrected\$layers["decontXcounts"]
+    adata\$X <- adata_corrected\$layers[["decontXcounts"]]
 } else {
-    adata\$layers["${output_layer}"] <- adata_corrected\$layers["decontXcounts"]
+    adata\$layers[["${output_layer}"]] <- adata_corrected\$layers[["decontXcounts"]]
 }
 
 # Save the output
