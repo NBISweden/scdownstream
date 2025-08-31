@@ -115,6 +115,17 @@
                 "default": 0,
                 "errorMessage": "Number of cells expected from the experimental design, used as input to cellbender.",
                 "meta": ["expected_cells"]
+            },
+            "ambient_correction": {
+                "type": "boolean",
+                "default": true,
+                "errorMessage": "'ambient_correction' must be a boolean.",
+                "meta": ["ambient_correction"]
+            },
+            "ambient_corrected_integration": {
+                "type": "boolean",
+                "errorMessage": "'ambient_corrected_integration' must be a boolean.",
+                "meta": ["ambient_corrected_integration"]
             }
         },
         "anyOf": [

@@ -23,6 +23,7 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = "X"
+                input[3] = "X"
                 """
             }
         }
@@ -57,6 +58,7 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = "X"
+                input[3] = "X"
                 """
             }
         }
@@ -91,6 +93,7 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = "X"
+                input[3] = "X"
                 """
             }
         }
@@ -120,6 +123,7 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = "X"
+                input[3] = "X"
                 """
             }
         }
@@ -155,6 +159,7 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = "X"
+                input[3] = "X"
                 """
             }
         }

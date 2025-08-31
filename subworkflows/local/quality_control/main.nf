@@ -4,7 +4,7 @@ include { ANNDATA_GETSIZE as GET_FILTERED_SIZE                                  
 include { ANNDATA_GETSIZE as GET_THRESHOLDED_SIZE                                    } from '../../../modules/nf-core/anndata/getsize'
 include { ANNDATA_GETSIZE as GET_DEDOUBLETED_SIZE                                    } from '../../../modules/nf-core/anndata/getsize'
 include { SCANPY_PLOTQC as QC_RAW                                                    } from '../../../modules/local/scanpy/plotqc'
-include { AMBIENT_RNA_REMOVAL                                                        } from '../ambient_rna_removal'
+include { AMBIENT_CORRECTION                                                         } from '../ambient_correction'
 include { SCANPY_FILTER                                                              } from '../../../modules/local/scanpy/filter'
 include { DOUBLET_DETECTION                                                          } from '../doublet_detection'
 include { SCANPY_PLOTQC as QC_FILTERED                                               } from '../../../modules/local/scanpy/plotqc'
@@ -13,7 +13,7 @@ include { CUSTOM_COLLECTSIZES as COLLECT_SIZES                                  
 workflow QUALITY_CONTROL {
     take:
     ch_h5ad // channel: [ meta, filtered, unfiltered ]
-    ambient_removal_method // value: string
+    ambient_correction_method // value: string
     doublet_detection_methods // value: list of strings
     doublet_detection_threshold // value: float
 
@@ -63,9 +63,9 @@ workflow QUALITY_CONTROL {
     ch_multiqc_files = ch_multiqc_files.mix(QC_RAW.out.multiqc_files)
     ch_versions = ch_versions.mix(QC_RAW.out.versions)
 
-    AMBIENT_RNA_REMOVAL(ch_complete, ambient_removal_method)
-    ch_h5ad = AMBIENT_RNA_REMOVAL.out.h5ad
-    ch_versions = ch_versions.mix(AMBIENT_RNA_REMOVAL.out.versions)
+    AMBIENT_CORRECTION(ch_complete, ambient_correction_method)
+    ch_h5ad = AMBIENT_CORRECTION.out.h5ad
+    ch_versions = ch_versions.mix(AMBIENT_CORRECTION.out.versions)
 
     ch_filtering = ch_h5ad.multiMap { meta, h5ad ->
         h5ad: [meta, h5ad]

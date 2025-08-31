@@ -18,7 +18,8 @@
                     "cellbender/merge": {
                         "branch": "master",
                         "git_sha": "05954dab2ff481bcb999f24455da29a5828af08d",
-                        "installed_by": ["modules"]
+                        "installed_by": ["modules"],
+                        "patch": "modules/nf-core/cellbender/merge/cellbender-merge.diff"
                     },
                     "cellbender/removebackground": {
                         "branch": "master",
@@ -43,7 +44,8 @@
                     "scvitools/scar": {
                         "branch": "master",
                         "git_sha": "05954dab2ff481bcb999f24455da29a5828af08d",
-                        "installed_by": ["modules"]
+                        "installed_by": ["modules"],
+                        "patch": "modules/nf-core/scvitools/scar/scvitools-scar.diff"
                     },
                     "scvitools/solo": {
                         "branch": "master",
