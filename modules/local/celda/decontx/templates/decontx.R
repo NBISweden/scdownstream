@@ -32,7 +32,11 @@ corrected <- do.call(decontX, c(list(sce), params))
 adata_corrected <- as_AnnData(corrected)
 
 # Convert back to AnnData and update layers
-adata\$layers["${output_layer}"] <- adata_corrected\$layers["decontXcounts"]
+if ("${output_layer}" == "X") {
+    adata\$X <- adata_corrected\$layers["decontXcounts"]
+} else {
+    adata\$layers["${output_layer}"] <- adata_corrected\$layers["decontXcounts"]
+}
 
 # Save the output
 write_h5ad(adata, "${prefix}.h5ad")
