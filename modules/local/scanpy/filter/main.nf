@@ -9,6 +9,7 @@ process SCANPY_FILTER {
 
     input:
     tuple val(meta), path(h5ad)
+    val(symbol_col)
     val(min_genes)
     val(min_cells)
     val(min_counts_gene)

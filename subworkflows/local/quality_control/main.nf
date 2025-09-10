@@ -69,13 +69,14 @@ workflow QUALITY_CONTROL {
 
     ch_filtering = ch_h5ad.multiMap { meta, h5ad ->
         h5ad: [meta, h5ad]
+        symbol_col: meta.symbol_col ?: "index"
         min_genes: meta.min_genes ?: 0
         min_cells: meta.min_cells ?: 0
         min_counts_gene: meta.min_counts_gene ?: 0
         min_counts_cell: meta.min_counts_cell ?: 0
         max_mito_percentage: meta.max_mito_percentage ?: 100
     }
-    SCANPY_FILTER(ch_filtering.h5ad, ch_filtering.min_genes, ch_filtering.min_cells, ch_filtering.min_counts_gene, ch_filtering.min_counts_cell, ch_filtering.max_mito_percentage)
+    SCANPY_FILTER(ch_filtering.h5ad, ch_filtering.symbol_col, ch_filtering.min_genes, ch_filtering.min_cells, ch_filtering.min_counts_gene, ch_filtering.min_counts_cell, ch_filtering.max_mito_percentage)
     ch_h5ad = SCANPY_FILTER.out.h5ad
     ch_versions = ch_versions.mix(SCANPY_FILTER.out.versions)
 
