@@ -58,6 +58,65 @@
         },
         "timestamp": "2025-08-10T19:18:27.976431873"
     },
+    "Should run without ambient RNA removal and doublet detection, but with custom mito genes": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test",
+                            "batch_col": "sample",
+                            "counts_layer": "X"
+                        },
+                        "test_filtered.h5ad:md5,bb91347fbd5e49a6ee1cacd09f143796"
+                    ]
+                ],
+                "1": [
+                    "sizes_mqc.json:md5,756ad6aae0f322aadfac95c2b38fcef2",
+                    "test_preprocessed_mqc.json:md5,7b489c3d05c36ea80996d97951cb4e68",
+                    "test_raw_mqc.json:md5,55fb1251be8f5e17f0ff337d94f7f3f8"
+                ],
+                "2": [
+                    "versions.yml:md5,42c1abd6c5e1c373ee37d53bcdcedd13",
+                    "versions.yml:md5,53938cd26fe63616cc4524da4b6062c5",
+                    "versions.yml:md5,6a3ffc8a47600e0ebd907bb979d5d859",
+                    "versions.yml:md5,88b8f8687e69ee5ccecf75b7e6845176",
+                    "versions.yml:md5,93254cb7ea8020ead8a711cde452236a",
+                    "versions.yml:md5,c4bcd7799f794fb7a2ab6b9a32d346f9",
+                    "versions.yml:md5,cd352ddaeb3e286706b51d74fe15d655"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test",
+                            "batch_col": "sample",
+                            "counts_layer": "X"
+                        },
+                        "test_filtered.h5ad:md5,bb91347fbd5e49a6ee1cacd09f143796"
+                    ]
+                ],
+                "multiqc_files": [
+                    "sizes_mqc.json:md5,756ad6aae0f322aadfac95c2b38fcef2",
+                    "test_preprocessed_mqc.json:md5,7b489c3d05c36ea80996d97951cb4e68",
+                    "test_raw_mqc.json:md5,55fb1251be8f5e17f0ff337d94f7f3f8"
+                ],
+                "versions": [
+                    "versions.yml:md5,42c1abd6c5e1c373ee37d53bcdcedd13",
+                    "versions.yml:md5,53938cd26fe63616cc4524da4b6062c5",
+                    "versions.yml:md5,6a3ffc8a47600e0ebd907bb979d5d859",
+                    "versions.yml:md5,88b8f8687e69ee5ccecf75b7e6845176",
+                    "versions.yml:md5,93254cb7ea8020ead8a711cde452236a",
+                    "versions.yml:md5,c4bcd7799f794fb7a2ab6b9a32d346f9",
+                    "versions.yml:md5,cd352ddaeb3e286706b51d74fe15d655"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2025-09-10T19:25:46.006504889"
+    },
     "Should run with ambient RNA removal and doublet detection - stub": {
         "content": [
             {
