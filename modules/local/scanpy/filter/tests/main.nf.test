@@ -20,11 +20,13 @@ nextflow_process {
                         file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_filtered_matrix.h5ad', checkIfExists: true)
                     ]
                 )
-                input[1] = 20
+                input[1] = 'index'
                 input[2] = 20
-                input[3] = 50
+                input[3] = 20
                 input[4] = 50
                 input[5] = 50
+                input[6] = 50
+                input[7] = []
                 """
             }
         }
@@ -53,11 +55,13 @@ nextflow_process {
                         file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_filtered_matrix.h5ad', checkIfExists: true)
                     ]
                 )
-                input[1] = 20
+                input[1] = 'index'
                 input[2] = 20
-                input[3] = 50
+                input[3] = 20
                 input[4] = 50
                 input[5] = 50
+                input[6] = 50
+                input[7] = []
                 """
             }
         }
