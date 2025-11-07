@@ -97,6 +97,7 @@
                 },
                 "ambient_corrected_integration": {
                     "type": "boolean",
+                    "default": false,
                     "description": "Whether to use the ambient-corrected counts for integration. Can be overridden by the `ambient_corrected_integration` in the sample sheet.",
                     "help_text": "ambient_corrected_integration must be a boolean."
                 },
