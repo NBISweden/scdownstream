@@ -28,6 +28,7 @@ workflow COMBINE {
         ADATA_MERGE.out.integrate,
         params.base_adata != null,
         params.integration_hvgs,
+        params.integration_excluded_genes ? file(params.integration_excluded_genes) : [],
         params.integration_methods.split(',').collect { it -> it.trim().toLowerCase() },
         params.scvi_model,
         params.scanvi_model,

@@ -97,7 +97,6 @@
                 },
                 "ambient_corrected_integration": {
                     "type": "boolean",
-                    "default": false,
                     "description": "Whether to use the ambient-corrected counts for integration. Can be overridden by the `ambient_corrected_integration` in the sample sheet.",
                     "help_text": "ambient_corrected_integration must be a boolean."
                 },
@@ -138,6 +137,12 @@
                     "default": 0,
                     "description": "Number of highly variable genes to use for integration. If set to 0, the number of highly variable genes will be automatically determined. If set to a negative number, all genes will be used.",
                     "help_text": "If a reference model is provided, this does not have any effect. This is because the reference model defines the set of genes that will be used for integration."
+                },
+                "integration_excluded_genes": {
+                    "type": "string",
+                    "format": "file-path",
+                    "description": "Optional file containing a list of gene symbols (one per line). If provided, these genes will be excluded as candidate highly variable genes for integration.",
+                    "exists": true
                 },
                 "scvi_model": {
                     "type": "string",
