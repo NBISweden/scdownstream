@@ -65,8 +65,10 @@ workflow SCDOWNSTREAM {
         //
         QUALITY_CONTROL(
             ch_h5ad,
-            params.ambient_removal,
-            (!params.doublet_detection || params.doublet_detection == 'none') ? [] : params.doublet_detection.split(',').collect { it -> it.trim().toLowerCase() },
+            params.ambient_correction,
+            !params.doublet_detection || params.doublet_detection == 'none' ? [] : params.doublet_detection.split(',').collect { it -> it.trim().toLowerCase() },
+            params.doublet_detection_threshold,
+            params.mito_genes,
         )
         ch_versions = ch_versions.mix(QUALITY_CONTROL.out.versions)
         ch_multiqc_files = ch_multiqc_files.mix(QUALITY_CONTROL.out.multiqc_files)
@@ -75,7 +77,7 @@ workflow SCDOWNSTREAM {
         //
         // Perform automated celltype assignment
         //
-        CELLTYPE_ASSIGNMENT(ch_h5ad)
+        CELLTYPE_ASSIGNMENT(ch_h5ad.map { meta, h5ad -> [meta, h5ad, meta.symbol_col] })
         ch_versions = ch_versions.mix(CELLTYPE_ASSIGNMENT.out.versions)
         ch_obs_per_sample = ch_obs_per_sample.mix(CELLTYPE_ASSIGNMENT.out.obs)
 
@@ -155,7 +157,7 @@ workflow SCDOWNSTREAM {
             params.input ? "label" : params.base_label_col,
             params.clustering_resolutions.split(','),
             "batch",
-            "X_emb"
+            "X_emb",
         )
         ch_versions = ch_versions.mix(CLUSTER.out.versions)
         ch_obs = ch_obs.mix(CLUSTER.out.obs)

@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 
+import os
+
+os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
+
 import scvi
 import anndata as ad
 import pandas as pd
 from scvi.model import SCVI
 import platform
 import torch
-import numpy as np
-import random
 import yaml
 
 torch.set_float32_matmul_precision("medium")
@@ -79,10 +81,7 @@ df.to_pickle("X_${prefix}.pkl")
 
 versions = {
     "${task.process}": {
-        "python": platform.python_version(),
-        "anndata": ad.__version__,
-        "scvi": scvi.__version__,
-        "pandas": pd.__version__,
+        "scvi": scvi.__version__
     }
 }
 

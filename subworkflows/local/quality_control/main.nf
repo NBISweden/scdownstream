@@ -4,7 +4,7 @@ include { ANNDATA_GETSIZE as GET_FILTERED_SIZE                                  
 include { ANNDATA_GETSIZE as GET_THRESHOLDED_SIZE                                    } from '../../../modules/nf-core/anndata/getsize'
 include { ANNDATA_GETSIZE as GET_DEDOUBLETED_SIZE                                    } from '../../../modules/nf-core/anndata/getsize'
 include { SCANPY_PLOTQC as QC_RAW                                                    } from '../../../modules/local/scanpy/plotqc'
-include { AMBIENT_RNA_REMOVAL                                                        } from '../ambient_rna_removal'
+include { AMBIENT_CORRECTION                                                         } from '../ambient_correction'
 include { SCANPY_FILTER                                                              } from '../../../modules/local/scanpy/filter'
 include { DOUBLET_DETECTION                                                          } from '../doublet_detection'
 include { SCANPY_PLOTQC as QC_FILTERED                                               } from '../../../modules/local/scanpy/plotqc'
@@ -12,9 +12,11 @@ include { CUSTOM_COLLECTSIZES as COLLECT_SIZES                                  
 
 workflow QUALITY_CONTROL {
     take:
-    ch_h5ad // channel: [ meta, filtered, unfiltered ]
-    ambient_removal_method // value: string
-    doublet_detection_methods // value: list of strings
+    ch_h5ad                     // channel: [ meta, filtered, unfiltered ]
+    ambient_correction_method   // value: string
+    doublet_detection_methods   // value: list of strings
+    doublet_detection_threshold // value: float
+    mito_genes                  // value: string (path) or null
 
     main:
     ch_versions = Channel.empty()
@@ -62,19 +64,20 @@ workflow QUALITY_CONTROL {
     ch_multiqc_files = ch_multiqc_files.mix(QC_RAW.out.multiqc_files)
     ch_versions = ch_versions.mix(QC_RAW.out.versions)
 
-    AMBIENT_RNA_REMOVAL(ch_complete, ambient_removal_method)
-    ch_h5ad = AMBIENT_RNA_REMOVAL.out.h5ad
-    ch_versions = ch_versions.mix(AMBIENT_RNA_REMOVAL.out.versions)
+    AMBIENT_CORRECTION(ch_complete, ambient_correction_method)
+    ch_h5ad = AMBIENT_CORRECTION.out.h5ad
+    ch_versions = ch_versions.mix(AMBIENT_CORRECTION.out.versions)
 
     ch_filtering = ch_h5ad.multiMap { meta, h5ad ->
         h5ad: [meta, h5ad]
+        symbol_col: meta.symbol_col ?: "index"
         min_genes: meta.min_genes ?: 0
         min_cells: meta.min_cells ?: 0
         min_counts_gene: meta.min_counts_gene ?: 0
         min_counts_cell: meta.min_counts_cell ?: 0
         max_mito_percentage: meta.max_mito_percentage ?: 100
     }
-    SCANPY_FILTER(ch_filtering.h5ad, ch_filtering.min_genes, ch_filtering.min_cells, ch_filtering.min_counts_gene, ch_filtering.min_counts_cell, ch_filtering.max_mito_percentage)
+    SCANPY_FILTER(ch_filtering.h5ad, ch_filtering.symbol_col, ch_filtering.min_genes, ch_filtering.min_cells, ch_filtering.min_counts_gene, ch_filtering.min_counts_cell, ch_filtering.max_mito_percentage, mito_genes ?: [])
     ch_h5ad = SCANPY_FILTER.out.h5ad
     ch_versions = ch_versions.mix(SCANPY_FILTER.out.versions)
 
@@ -84,16 +87,18 @@ workflow QUALITY_CONTROL {
         GET_THRESHOLDED_SIZE.out.size.map { meta, size -> [meta.id, 'thresholded', (size.text ?: "0").toInteger()] }
     )
 
-    DOUBLET_DETECTION(ch_h5ad, doublet_detection_methods, params.doublet_detection_threshold)
+    DOUBLET_DETECTION(ch_h5ad, doublet_detection_methods, doublet_detection_threshold)
     ch_h5ad = DOUBLET_DETECTION.out.h5ad
     ch_multiqc_files = ch_multiqc_files.mix(DOUBLET_DETECTION.out.multiqc_files)
     ch_versions = ch_versions.mix(DOUBLET_DETECTION.out.versions)
 
-    GET_DEDOUBLETED_SIZE(ch_h5ad, "cells")
-    ch_versions = ch_versions.mix(GET_DEDOUBLETED_SIZE.out.versions)
-    ch_sizes = ch_sizes.mix(
-        GET_DEDOUBLETED_SIZE.out.size.map { meta, size -> [meta.id, 'dedoubleted', (size.text ?: "0").toInteger()] }
-    )
+    if (doublet_detection_methods.size() > 0) {
+        GET_DEDOUBLETED_SIZE(ch_h5ad, "cells")
+        ch_versions = ch_versions.mix(GET_DEDOUBLETED_SIZE.out.versions)
+        ch_sizes = ch_sizes.mix(
+            GET_DEDOUBLETED_SIZE.out.size.map { meta, size -> [meta.id, 'dedoubleted', (size.text ?: "0").toInteger()] }
+        )
+    }
 
     QC_FILTERED(ch_h5ad)
     ch_multiqc_files = ch_multiqc_files.mix(QC_FILTERED.out.multiqc_files)

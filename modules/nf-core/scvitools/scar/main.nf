@@ -9,6 +9,8 @@ process SCVITOOLS_SCAR {
 
     input:
     tuple val(meta), path(filtered), path(unfiltered)
+    val(input_layer)
+    val(output_layer)
 
     output:
     tuple val(meta), path("*.h5ad"), emit: h5ad
@@ -19,8 +21,6 @@ process SCVITOOLS_SCAR {
 
     script:
     prefix = task.ext.prefix ?: "${meta.id}"
-    input_layer = task.ext.input_layer ?: "X"
-    output_layer = task.ext.output_layer ?: "scar"
     max_epochs = task.ext.max_epochs ?: ""
     template 'scar.py'
 

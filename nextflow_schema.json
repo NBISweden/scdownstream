@@ -70,6 +70,10 @@
                     "description": "Force keeping certain columns in the merged AnnData object, even if they are not present in all samples",
                     "help_text": "If you want to keep certain columns in the merged AnnData object, even if they are not present in all samples, specify them here. Separate them with a comma.",
                     "pattern": "^([a-zA-Z0-9_]*(,[a-zA-Z0-9_]*)*)?$"
+                },
+                "aggregate_isoforms": {
+                    "type": "boolean",
+                    "description": "Aggregate isoforms of the same gene. If set to true, genes like 'SOD2.1' will be renamed to 'SOD2' before `duplicate_var_resolution` is applied. All numeric suffixes following a dot will be removed."
                 }
             }
         },
@@ -79,11 +83,23 @@
             "fa_icon": "fas fa-check-circle",
             "description": "Options for quality control of the input data.",
             "properties": {
-                "ambient_removal": {
+                "mito_genes": {
+                    "type": "string",
+                    "format": "file-path",
+                    "description": "Optional file containing a list of mitochondrial gene symbols (one per line). If provided, it overrides the default 'mt-' prefix heuristic.",
+                    "exists": true
+                },
+                "ambient_correction": {
                     "type": "string",
                     "default": "decontx",
                     "enum": ["none", "decontx", "cellbender", "soupx", "scar"],
-                    "description": "Specify the tool to use for ambient RNA removal"
+                    "description": "Specify the tool to use for ambient RNA correction. If 'none' is selected, no ambient RNA correction will be performed. If you want to use ambient RNA correction only for a subset of datasets, you can use the 'ambient_correction' column in the sample sheet. By default, the ambient-corrected counts will NOT be used for integration, but only stored as an additional layer in the final AnnData object because of the findings in [this publication](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-023-02978-x). If you want to use the ambient-corrected counts for integration, set `ambient_corrected_integration` to true in the sample sheet."
+                },
+                "ambient_corrected_integration": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Whether to use the ambient-corrected counts for integration. Can be overridden by the `ambient_corrected_integration` in the sample sheet.",
+                    "help_text": "ambient_corrected_integration must be a boolean."
                 },
                 "doublet_detection": {
                     "type": "string",
@@ -210,6 +226,17 @@
                     "description": "Specify the models to use for the celltypist cell type annotation",
                     "help_text": "If you want to use multiple models, separate them with a comma. Available models can be found [here](https://www.celltypist.org/models).",
                     "pattern": "^([a-zA-Z0-9_]*(,[a-zA-Z0-9_]*)*)?$"
+                },
+                "celldex_reference": {
+                    "type": "string",
+                    "format": "file-path",
+                    "exists": true,
+                    "schema": "assets/schema_singler.json",
+                    "mimetype": "text/csv",
+                    "pattern": "^\\S+\\.csv$",
+                    "description": "Path to comma-separated file containing information about the celldex references to use for the singleR cell type annotation.",
+                    "help_text": "You will need to create a design file with information about the celldex references to use for the singleR cell type annotation before running the pipeline. Use this parameter to specify its location. It has to be a comma-separated file with 3 or 4 columns, and a header row. See [usage docs](https://nf-co.re/scdownstream/usage#cell-type-annotation).",
+                    "fa_icon": "fas fa-file-csv"
                 }
             }
         },
@@ -320,7 +347,8 @@
             "properties": {
                 "pseudobulk_groupby_labels": {
                     "type": "string",
-                    "description": "Group by labels for pseudobulking. If you want to use multiple labels, separate them with a comma."
+                    "description": "Group by labels for pseudobulking. If you want to use multiple labels, separate them with a comma.",
+                    "default": "batch"
                 },
                 "pseudobulk_min_num_cells": {
                     "type": "integer",
@@ -489,10 +517,16 @@
             "$ref": "#/$defs/integration_options"
         },
         {
+            "$ref": "#/$defs/extension_options"
+        },
+        {
             "$ref": "#/$defs/clustering_options"
         },
         {
-            "$ref": "#/$defs/extension_options"
+            "$ref": "#/$defs/tool_options"
+        },
+        {
+            "$ref": "#/$defs/resource_options"
         },
         {
             "$ref": "#/$defs/pipeline_options"
@@ -502,12 +536,6 @@
         },
         {
             "$ref": "#/$defs/pseudobulking_options"
-        },
-        {
-            "$ref": "#/$defs/tool_options"
-        },
-        {
-            "$ref": "#/$defs/resource_options"
         },
         {
             "$ref": "#/$defs/institutional_config_options"

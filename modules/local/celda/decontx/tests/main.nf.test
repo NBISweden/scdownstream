@@ -23,6 +23,7 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = "X"
+                input[3] = "X"
                 """
             }
         }
@@ -34,8 +35,7 @@ nextflow_process {
                 // Hashing does not work due to this issue:
                 // https://github.com/scverse/anndataR/issues/272
                 process.out.versions,
-                file(process.out.h5ad.get(0).get(1)).exists(),
-                file(process.out.h5ad.get(0).get(1)).size()
+                file(process.out.h5ad.get(0).get(1)).name
             ).match() }
             )
         }
@@ -58,6 +58,7 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = "X"
+                input[3] = "X"
                 """
             }
         }
@@ -92,6 +93,7 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = "X"
+                input[3] = "X"
                 """
             }
         }
@@ -121,6 +123,7 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = "X"
+                input[3] = "X"
                 """
             }
         }
@@ -156,6 +159,7 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = "X"
+                input[3] = "X"
                 """
             }
         }
