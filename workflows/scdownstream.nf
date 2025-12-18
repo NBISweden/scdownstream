@@ -89,25 +89,6 @@ workflow SCDOWNSTREAM {
         ch_h5ad = FINALIZE_QC_ANNDATAS.out.h5ad
         ch_versions = ch_versions.mix(FINALIZE_QC_ANNDATAS.out.versions)
 
-        //
-        // Render quality control report
-        //
-        qc_report_notebook = file("${projectDir}/bin/qc-report.qmd", checkIfExists: true)
-        extensions = Channel.fromPath("${projectDir}/assets/_extensions").collect()
-        ch_qc_report_input_data = ch_h5ad
-            .map { _meta, h5ad -> h5ad }
-            .collect()
-        qc_report_params = [
-            my_param: "temp"
-        ]
-        QC_REPORT (
-            qc_report_notebook,
-            qc_report_params,
-            ch_qc_report_input_data,
-            extensions
-        )
-        ch_versions = ch_versions.mix(QC_REPORT.out.versions)
-
         if (!params.qc_only) {
             //
             // Unify samples to make them compatible for integration
@@ -131,8 +112,9 @@ workflow SCDOWNSTREAM {
             ch_label_grouping = COMBINE.out.h5ad_inner
             grouping_col = "label"
         }
-    }
-    else {
+
+    } else {
+
         ch_embeddings = Channel.value(params.base_embeddings.split(',').collect { it -> it.trim() })
 
         ADATA_SPLITEMBEDDINGS(ch_base, ch_embeddings)
@@ -186,6 +168,30 @@ workflow SCDOWNSTREAM {
         FINALIZE(ch_finalization_base, ch_obs, ch_var, ch_obsm, ch_obsp, ch_uns, ch_layers)
         ch_versions = ch_versions.mix(FINALIZE.out.versions)
     }
+
+    //
+    // Render quality control report
+    //
+    qc_report_notebook = file("${projectDir}/bin/qc-report.qmd", checkIfExists: true)
+    extensions = Channel.fromPath("${projectDir}/assets/_extensions").collect()
+    if (!params.qc_only) {
+        ch_qc_report_input_base = FINALIZE.out.h5ad
+    } else {
+        ch_qc_report_input_base = ch_h5ad
+    }
+    ch_qc_report_input_data = ch_qc_report_input_base
+        .map { _meta, h5ad -> h5ad }
+        .collect()
+    qc_report_params = [
+        qc_only: params.qc_only
+    ]
+    QC_REPORT (
+        qc_report_notebook,
+        qc_report_params,
+        ch_qc_report_input_data,
+        extensions
+    )
+    ch_versions = ch_versions.mix(QC_REPORT.out.versions)
 
     //
     // Collate and save software versions

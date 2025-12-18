@@ -12,7 +12,7 @@ Write a nice summary here....
 ```{python}
 #| tags: [parameters]
 #| echo: false
-my_param = 'default'
+qc_only = False
 
 # Input: all the sample files with space delim from .collect.
 
@@ -21,8 +21,7 @@ samplesheet = 'samples_mouse.csv'
 
 ```
 
-
-```{python}
+```{python Load libraries}
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -37,16 +36,18 @@ import glob
 #plt.rcParams["figure.figsize"] = (6, 6)
 ```
 
-```{python}
-#input_files = input_h5ad.split(" ")
+```{python Read h5ad}
 input_files = glob.glob("*.h5ad")
-
-alldata = {}
-for file in input_files:
-    alldata[file] = sc.read_h5ad(file)
-    alldata[file].obs['file'] = file
-
-adata = ad.concat(alldata)
+if qc_only:
+    # Input data comes with multiple files, one per sample
+    alldata = {}
+    for file in input_files:
+        alldata[file] = sc.read_h5ad(file)
+        alldata[file].obs['file'] = file
+    adata = ad.concat(alldata)
+else:
+    # Input data is integrated into a single `merged.h5ad` file
+    adata = sc.read_h5ad(input_files[0])
 ```
 
 # Quality controls
@@ -76,7 +77,7 @@ mitochondrial, ribosomal and haemoglobin genes:
 
 ```{python}
 #| layout-nrow: 2
-sc.pl.violin(adata, ['n_genes_by_counts', 'total_counts'], groupby = "file",#groupby = "batch",
-    multi_panel=True, jitter=0.4, rotation= 45)
+sc.pl.violin(adata, ['n_genes_by_counts', 'total_counts'], groupby="sample",
+    multi_panel=True, jitter=0.4, rotation=45)
 
 ```
