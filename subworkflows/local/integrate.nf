@@ -4,7 +4,7 @@ include { ADATA_TORDS        } from '../../modules/local/adata/tords'
 include { SCVITOOLS_SCVI     } from '../../modules/local/scvitools/scvi'
 include { SCVITOOLS_SCANVI   } from '../../modules/local/scvitools/scanvi'
 include { SCANPY_HARMONY     } from '../../modules/local/scanpy/harmony'
-include { INTEGRATION_BBKNN  } from '../../modules/local/integration/bbknn'
+include { SCANPY_BBKNN       } from '../../modules/local/scanpy/bbknn'
 include { SCANPY_COMBAT      } from '../../modules/local/scanpy/combat'
 include { SEURAT_INTEGRATION } from '../../modules/local/seurat/integration'
 include { ADATA_READRDS      } from '../../modules/local/adata/readrds'
@@ -23,11 +23,11 @@ workflow INTEGRATE {
     scimilarity_model           // path
 
     main:
-    ch_versions = Channel.empty()
-    ch_obs = Channel.empty()
-    ch_var = Channel.empty()
-    ch_obsm = Channel.empty()
-    ch_integrations = Channel.empty()
+    ch_versions = channel.empty()
+    ch_obs = channel.empty()
+    ch_var = channel.empty()
+    ch_obsm = channel.empty()
+    ch_integrations = channel.empty()
 
     // If a reference model is provided, only the genes in the reference model are used
     // Otherwise, we would intersect the HVGs, which is not what we want
@@ -58,7 +58,7 @@ workflow INTEGRATE {
         SCVITOOLS_SCVI(
             (scvi_model ? ch_h5ad : ch_h5ad_hvg).map { _meta, h5ad -> [[id: 'scvi'], h5ad] },
             scvi_model
-                ? Channel.value([[id: 'scvi_model'], scvi_model])
+                ? channel.value([[id: 'scvi_model'], scvi_model])
                 : [[], []],
             "batch",
             scvi_categorical_covariates,
@@ -73,7 +73,7 @@ workflow INTEGRATE {
         SCVITOOLS_SCANVI(
             (scvi_model ? ch_h5ad : ch_h5ad_hvg).map { _meta, h5ad -> [[id: 'scanvi'], h5ad] },
             scanvi_model
-                ? Channel.value([[id: 'scanvi_model'], scanvi_model])
+                ? channel.value([[id: 'scanvi_model'], scanvi_model])
                 : methods.contains('scvi')
                     ? SCVITOOLS_SCVI.out.model
                     : [[], []],
@@ -96,9 +96,9 @@ workflow INTEGRATE {
     }
 
     if (methods.contains('bbknn')) {
-        INTEGRATION_BBKNN(ch_h5ad_hvg.map { _meta, h5ad -> [[id: 'bbknn'], h5ad] }, "batch")
-        ch_versions = ch_versions.mix(INTEGRATION_BBKNN.out.versions)
-        ch_integrations = ch_integrations.mix(INTEGRATION_BBKNN.out.h5ad)
+        SCANPY_BBKNN(ch_h5ad_hvg.map { _meta, h5ad -> [[id: 'bbknn'], h5ad] }, "batch")
+        ch_versions = ch_versions.mix(SCANPY_BBKNN.out.versions)
+        ch_integrations = ch_integrations.mix(SCANPY_BBKNN.out.h5ad)
     }
 
     if (methods.contains('combat')) {
