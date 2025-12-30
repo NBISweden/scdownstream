@@ -3,6 +3,7 @@
 import platform
 import os
 import pickle
+import importlib.metadata
 
 import anndata as ad
 import pandas as pd
@@ -59,7 +60,7 @@ adata.obs.to_csv(f"{prefix}_metadata.csv")
 versions = {
     "${task.process}": {
         "python": platform.python_version(),
-        "anndata": ad.__version__,
+        "anndata": importlib.metadata.version("anndata"),
         "pandas": pd.__version__,
         "numpy": np.__version__
     }
