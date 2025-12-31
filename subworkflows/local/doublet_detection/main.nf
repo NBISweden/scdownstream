@@ -19,7 +19,7 @@ workflow DOUBLET_DETECTION {
         log.info("DOUBLET_DETECTION: Not performed since no methods selected.")
     } else {
         ch_batch_col = ch_h5ad.map { meta, _h5ad -> meta.batch_col }
-        
+
         if (methods.contains('scds')) {
             SCDS(ch_h5ad)
             ch_predictions = ch_predictions.mix(SCDS.out.predictions)
