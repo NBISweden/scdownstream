@@ -1,8 +1,8 @@
 nextflow_process {
 
-    name "Test Process INTEGRATION_BBKNN"
-    script "modules/local/integration/bbknn/main.nf"
-    process "INTEGRATION_BBKNN"
+    name "Test Process SCANPY_BBKNN"
+    script "modules/local/scanpy/bbknn/main.nf"
+    process "SCANPY_BBKNN"
 
     tag "modules"
     tag "modules_local"

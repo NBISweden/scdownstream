@@ -10,6 +10,7 @@ import numpy as np
 from scipy.sparse import csr_matrix
 import platform
 import yaml
+import importlib.metadata
 
 # Function borrowed from https://github.com/icbi-lab/luca/blob/5ffb0a4671e9c288b10e73de18d447ee176bef1d/lib/scanpy_helper_submodule/scanpy_helpers/util.py#L122C1-L135C21
 def aggregate_duplicate_var(adata, aggr_fun=np.mean):
@@ -150,7 +151,7 @@ adata.write_h5ad("${prefix}.h5ad")
 versions = {
     "${task.process}": {
         "python": platform.python_version(),
-        "anndata": ad.__version__,
+        "anndata": importlib.metadata.version('anndata'),
         "scipy": scipy.__version__,
         "numpy": np.__version__
     }
