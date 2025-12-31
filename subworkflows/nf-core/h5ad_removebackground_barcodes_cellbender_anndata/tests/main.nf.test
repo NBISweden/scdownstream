@@ -15,7 +15,7 @@ nextflow_workflow {
         when {
             workflow {
                 """
-                input[0] = Channel.of([
+                input[0] = channel.of([
                     [ id:'test' ], // meta map
                     file("https://raw.githubusercontent.com/nf-core/test-datasets/scdownstream/samples/SAMN14430799_raw_matrix_5k.h5ad", checkIfExists: true)
                 ])

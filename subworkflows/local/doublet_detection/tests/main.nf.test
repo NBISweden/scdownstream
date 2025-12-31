@@ -15,7 +15,7 @@ nextflow_workflow {
             }
             workflow {
                 """
-                input[0] = Channel.of([
+                input[0] = channel.of([
                         [ id: 'test', batch_col: 'sample' ],
                         file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_filtered_matrix.h5ad', checkIfExists: true)
                     ]
@@ -43,7 +43,7 @@ nextflow_workflow {
             }
             workflow {
                 """
-                input[0] = Channel.of([
+                input[0] = channel.of([
                         [ id: 'test', batch_col: 'sample' ],
                         file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_filtered_matrix.h5ad', checkIfExists: true)
                     ]
@@ -76,7 +76,7 @@ nextflow_workflow {
             }
             workflow {
                 """
-                input[0] = Channel.of([
+                input[0] = channel.of([
                         [ id: 'test', batch_col: 'sample' ],
                         file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679759_filtered_matrix.h5ad', checkIfExists: true)
                     ]
