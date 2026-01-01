@@ -64,7 +64,10 @@ workflow {
         params.monochrome_logs,
         args,
         params.outdir,
-        params.input
+        params.input,
+        params.help,
+        params.help_full,
+        params.show_hidden
     )
 
     //
@@ -73,8 +76,8 @@ workflow {
     NFCORE_SCDOWNSTREAM (
         PIPELINE_INITIALISATION.out.samplesheet,
         params.base_adata
-            ? Channel.value([[id: "base"], file(params.base_adata, checkIfExists: true)])
-            : Channel.value([[], []])
+            ? channel.value([[id: "base"], file(params.base_adata, checkIfExists: true)])
+            : channel.value([[], []])
     )
 
     //

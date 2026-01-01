@@ -10,10 +10,10 @@ workflow COMBINE {
 
     main:
 
-    ch_versions      = Channel.empty()
-    ch_obs           = Channel.empty()
-    ch_var           = Channel.empty()
-    ch_obsm          = Channel.empty()
+    ch_versions      = channel.empty()
+    ch_obs           = channel.empty()
+    ch_var           = channel.empty()
+    ch_obsm          = channel.empty()
 
     ADATA_MERGE(
         ch_h5ad.map { _meta, h5ad -> [[id: "merged"], h5ad] }.groupTuple(),

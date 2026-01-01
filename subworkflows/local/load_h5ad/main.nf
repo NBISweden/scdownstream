@@ -7,9 +7,9 @@ workflow LOAD_H5AD {
     ch_samples // channel: [ meta, {h5ad/rds}, {h5ad/rds} ]
 
     main:
-    ch_versions = Channel.empty()
-    ch_files = Channel.empty()
-    ch_h5ad = Channel.empty()
+    ch_versions = channel.empty()
+    ch_files = channel.empty()
+    ch_h5ad = channel.empty()
 
     ch_files = ch_files.mix(
         ch_samples.map { meta, filtered, _unfiltered -> [meta + [type: 'filtered'], filtered] }.filter { _meta, filtered -> filtered }

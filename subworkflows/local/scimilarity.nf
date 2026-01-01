@@ -8,12 +8,12 @@ workflow SCIMILARITY {
     scimilarity_model // channel: [ model ]
 
     main:
-    ch_versions = Channel.empty()
-    ch_integrations = Channel.empty()
-    ch_obsm = Channel.empty()
-    ch_obs = Channel.empty()
+    ch_versions = channel.empty()
+    ch_integrations = channel.empty()
+    ch_obsm = channel.empty()
+    ch_obs = channel.empty()
 
-    ch_scimilarity_model = Channel.value(
+    ch_scimilarity_model = channel.value(
         [
             [id: 'scimilarity_model'],
             file(scimilarity_model, checkIfExists: true),

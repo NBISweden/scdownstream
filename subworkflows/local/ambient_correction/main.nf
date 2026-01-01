@@ -24,7 +24,7 @@ workflow AMBIENT_CORRECTION {
     method     // value: string
 
     main:
-    ch_versions = Channel.empty()
+    ch_versions = channel.empty()
 
     ch_do_ambient_correction = ch_pairing.branch { meta, _filtered, _unfiltered ->
         no: meta.ambient_correction == false
@@ -68,7 +68,7 @@ workflow AMBIENT_CORRECTION {
         ch_versions = ch_versions.mix(SOUPX.out.versions)
     }
     else if (method == 'scar') {
-        SCVITOOLS_SCAR(ch_multi.input, ch_multi.input_layer, ch_multi.output_layer)
+        SCVITOOLS_SCAR(ch_multi.input, ch_multi.input_layer, ch_multi.output_layer, params.scvi_max_epochs ?: [], [])
         ch_h5ad = ch_h5ad.mix(SCVITOOLS_SCAR.out.h5ad)
         ch_versions = ch_versions.mix(SCVITOOLS_SCAR.out.versions)
     }

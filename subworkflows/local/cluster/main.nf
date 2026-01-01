@@ -14,11 +14,11 @@ workflow CLUSTER {
     embedding_key  // value: string
 
     main:
-    ch_versions = Channel.empty()
-    ch_obs = Channel.empty()
-    ch_obsm = Channel.empty()
-    ch_multiqc_files = Channel.empty()
-    ch_h5ad = Channel.empty()
+    ch_versions = channel.empty()
+    ch_obs = channel.empty()
+    ch_obsm = channel.empty()
+    ch_multiqc_files = channel.empty()
+    ch_h5ad = channel.empty()
 
     if (global) {
         ch_h5ad = ch_h5ad.mix(ch_input.map { meta, h5ad -> [meta + [subset: "global"], h5ad] })
