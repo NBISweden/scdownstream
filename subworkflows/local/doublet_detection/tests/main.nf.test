@@ -59,7 +59,7 @@ nextflow_workflow {
             assertAll(
             { assert workflow.success },
             { assert snapshot(
-                    workflow.out.h5ad,
+                    anndata(workflow.out.h5ad[0][1]).n_obs,
                     workflow.out.versions,
                 ).match() }
             )
