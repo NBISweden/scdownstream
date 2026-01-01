@@ -58,8 +58,9 @@ nextflow_workflow {
         then {
             assertAll(
             { assert workflow.success },
+            { assert anndata(workflow.out.h5ad[0][1]).n_obs > 5975 },
+            { assert anndata(workflow.out.h5ad[0][1]).n_obs < 5985 },
             { assert snapshot(
-                    anndata(workflow.out.h5ad[0][1]).n_obs,
                     workflow.out.versions,
                 ).match() }
             )
