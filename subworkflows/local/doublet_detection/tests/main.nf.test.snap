@@ -7,7 +7,7 @@
                         "id": "test",
                         "batch_col": "sample"
                     },
-                    "test.h5ad:md5,e75fc5ccfbb087f29e444989deb75d2e"
+                    "test.h5ad:md5,f7c371f5ad6cbb5467769c9a5cb8cd1f"
                 ]
             ],
             [
@@ -19,7 +19,7 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-08-02T14:31:28.397868858"
+        "timestamp": "2026-01-01T10:21:50.946024559"
     },
     "Should run without failures - stub": {
         "content": [

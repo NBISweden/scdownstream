@@ -153,6 +153,7 @@ nextflow_workflow {
         when {
             params {
                 outdir = "$outputDir"
+                scvi_max_epochs = 2
             }
             workflow {
                 """
@@ -276,6 +277,7 @@ nextflow_workflow {
         when {
             params {
                 outdir = "$outputDir"
+                scvi_max_epochs = 2
             }
             workflow {
                 """
