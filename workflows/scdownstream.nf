@@ -6,7 +6,6 @@
 
 include { LOAD_H5AD                            } from '../subworkflows/local/load_h5ad'
 include { QUALITY_CONTROL                      } from '../subworkflows/local/quality_control'
-include { UNIFY                                } from '../subworkflows/local/unify'
 include { CELLTYPE_ASSIGNMENT                  } from '../subworkflows/local/celltype_assignment'
 include { ADATA_EXTEND as FINALIZE_QC_ANNDATAS } from '../modules/local/adata/extend'
 include { COMBINE                              } from '../subworkflows/local/combine'
@@ -65,7 +64,7 @@ workflow SCDOWNSTREAM {
         QUALITY_CONTROL(
             ch_h5ad,
             params.ambient_correction,
-            !params.doublet_detection || params.doublet_detection == 'none' ? [] : params.doublet_detection.split(',').collect { it -> it.trim().toLowerCase() },
+            (!params.doublet_detection || params.doublet_detection == 'none') ? [] : params.doublet_detection.split(',').collect { it -> it.trim().toLowerCase() },
             params.doublet_detection_threshold,
             params.mito_genes,
         )
@@ -89,14 +88,6 @@ workflow SCDOWNSTREAM {
         ch_versions = ch_versions.mix(FINALIZE_QC_ANNDATAS.out.versions)
 
         if (!params.qc_only) {
-            //
-            // Unify samples to make them compatible for integration
-            //
-            UNIFY(ch_h5ad)
-            ch_versions = ch_versions.mix(UNIFY.out.versions)
-            ch_multiqc_files = ch_multiqc_files.mix(UNIFY.out.multiqc_files)
-            ch_h5ad = UNIFY.out.h5ad
-
             //
             // Combine samples and perform integration
             //
