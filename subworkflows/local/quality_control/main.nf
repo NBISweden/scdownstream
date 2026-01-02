@@ -5,6 +5,7 @@ include { ANNDATA_GETSIZE as GET_THRESHOLDED_SIZE                               
 include { ANNDATA_GETSIZE as GET_DEDOUBLETED_SIZE                                    } from '../../../modules/nf-core/anndata/getsize'
 include { SCANPY_PLOTQC as QC_RAW                                                    } from '../../../modules/local/scanpy/plotqc'
 include { AMBIENT_CORRECTION                                                         } from '../ambient_correction'
+include { UNIFY                                                                      } from '../unify'
 include { SCANPY_FILTER                                                              } from '../../../modules/local/scanpy/filter'
 include { DOUBLET_DETECTION                                                          } from '../doublet_detection'
 include { SCANPY_PLOTQC as QC_FILTERED                                               } from '../../../modules/local/scanpy/plotqc'
@@ -68,6 +69,13 @@ workflow QUALITY_CONTROL {
     ch_h5ad = AMBIENT_CORRECTION.out.h5ad
     ch_versions = ch_versions.mix(AMBIENT_CORRECTION.out.versions)
 
+    // Unification needds to happen before filtering to make sure all genes have symbols
+    // Otherwise, mitochondrial gene detection will not work correctly
+    UNIFY(ch_h5ad)
+    ch_versions = ch_versions.mix(UNIFY.out.versions)
+    ch_multiqc_files = ch_multiqc_files.mix(UNIFY.out.multiqc_files)
+    ch_h5ad = UNIFY.out.h5ad
+
     ch_filtering = ch_h5ad.multiMap { meta, h5ad ->
         h5ad: [meta, h5ad]
         symbol_col: meta.symbol_col ?: "index"
@@ -77,6 +85,7 @@ workflow QUALITY_CONTROL {
         min_counts_cell: meta.min_counts_cell ?: 0
         max_mito_percentage: meta.max_mito_percentage ?: 100
     }
+
     SCANPY_FILTER(ch_filtering.h5ad, ch_filtering.symbol_col, ch_filtering.min_genes, ch_filtering.min_cells, ch_filtering.min_counts_gene, ch_filtering.min_counts_cell, ch_filtering.max_mito_percentage, mito_genes ?: [])
     ch_h5ad = SCANPY_FILTER.out.h5ad
     ch_versions = ch_versions.mix(SCANPY_FILTER.out.versions)
