@@ -63,7 +63,16 @@ workflow UNIFY {
         params.duplicate_var_resolution,
         params.aggregate_isoforms
     )
-    ch_h5ad = ADATA_UNIFY.out.h5ad
+    ch_h5ad = ADATA_UNIFY.out.h5ad.map { meta, h5ad -> [
+        meta + [
+            batch_col: 'batch',
+            label_col: 'label',
+            unknown_label: 'unknown',
+            symbol_col: 'index',
+            counts_layer: 'X'
+        ],
+        h5ad]
+    }
     ch_versions = ch_versions.mix(ADATA_UNIFY.out.versions)
 
     UPSET_GENES(ch_h5ad.map { meta, h5ad -> [[id: 'upset'], meta.id, h5ad] }.groupTuple())
