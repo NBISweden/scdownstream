@@ -43,7 +43,13 @@ if (batch_col != "") {
 raw_path <- "${raw}"
 if (file.exists(raw_path)) {
     raw <- read_h5ad(raw_path)
-    params\$background <- raw\$as_SingleCellExperiment()
+    raw_sce <- raw\$as_SingleCellExperiment()
+    params\$background <- raw_sce
+
+    # If a batch column is provided, we also need to add it to the background data
+    if (!is.null(params\$batch)) {
+        params\$bgBatch <- raw\$obs[[batch_col]]
+    }
 }
 
 # Run decontX with parameters
