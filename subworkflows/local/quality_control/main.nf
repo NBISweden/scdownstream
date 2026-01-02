@@ -65,8 +65,6 @@ workflow QUALITY_CONTROL {
     ch_multiqc_files = ch_multiqc_files.mix(QC_RAW.out.multiqc_files)
     ch_versions = ch_versions.mix(QC_RAW.out.versions)
 
-    
-
     AMBIENT_CORRECTION(ch_complete, ambient_correction_method)
     ch_h5ad = AMBIENT_CORRECTION.out.h5ad
     ch_versions = ch_versions.mix(AMBIENT_CORRECTION.out.versions)

@@ -23,9 +23,9 @@ if (batch_col != "") {
         cat("Available columns in obs:", paste(colnames(adata\$obs), collapse=", "), "\\n")
         stop("Batch column '", batch_col, "' does not exist in the AnnData object. Available columns: ", paste(colnames(adata\$obs), collapse=", "))
     }
-    
+
     batch_values <- adata\$obs[[batch_col]]
-    
+
     # Plausibility check 2: Does it contain NA/NaN values?
     na_count <- sum(is.na(batch_values))
     if (na_count > 0) {
@@ -34,7 +34,7 @@ if (batch_col != "") {
         cat("Unique batch values (including NA/NaN):", paste(unique_vals, collapse=", "), "\\n")
         stop("Batch column '", batch_col, "' contains NA/NaN values. All batch values must be non-NA. Unique values: ", paste(unique_vals, collapse=", "))
     }
-    
+
     # Both checks passed - use the batch column
     params\$batch <- batch_values
 }
