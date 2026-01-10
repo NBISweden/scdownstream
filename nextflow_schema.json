@@ -142,7 +142,7 @@
                 "integration_excluded_genes": {
                     "type": "string",
                     "format": "file-path",
-                    "description": "Optional file containing a list of gene symbols (one per line). If provided, these genes will be excluded as candidate highly variable genes for integration.",
+                    "description": "Optional file containing a list of gene symbols (one per line). If provided, these genes will be excluded from highly variable genes selection for integration.",
                     "exists": true
                 },
                 "scvi_model": {
