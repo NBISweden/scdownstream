@@ -1,6 +1,6 @@
-include { UNTAR                } from '../../modules/nf-core/untar'
-include { SCIMILARITY_EMBED    } from '../../modules/local/scimilarity/embed'
-include { SCIMILARITY_ANNOTATE } from '../../modules/local/scimilarity/annotate'
+include { UNTAR                } from '../../../modules/nf-core/untar'
+include { SCIMILARITY_EMBED    } from '../../../modules/local/scimilarity/embed'
+include { SCIMILARITY_ANNOTATE } from '../../../modules/local/scimilarity/annotate'
 
 workflow SCIMILARITY {
     take:
@@ -16,7 +16,7 @@ workflow SCIMILARITY {
     ch_scimilarity_model = channel.value(
         [
             [id: 'scimilarity_model'],
-            file(scimilarity_model, checkIfExists: true),
+            file(scimilarity_model),
         ]
     )
 
