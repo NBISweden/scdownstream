@@ -30,7 +30,11 @@ workflow UNIFY {
             needs_index_updating: true
         }
 
-        SET_INDEX(ch_h5ad.needs_index_updating)
+        ch_setindex = ch_h5ad.needs_index_updating.multiMap { meta, h5ad ->
+            h5ad: [meta, h5ad]
+            column: meta.symbol_col
+        }
+        SET_INDEX(ch_setindex.h5ad, 'var', ch_setindex.column)
         ch_versions = ch_versions.mix(SET_INDEX.out.versions)
         ch_h5ad = ch_h5ad.has_symbols_as_index.mix(
             SET_INDEX.out.h5ad.map { meta, h5ad -> [meta + [symbol_col: 'index'], h5ad] }
