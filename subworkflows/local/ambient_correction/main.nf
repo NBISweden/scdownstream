@@ -33,7 +33,7 @@ workflow AMBIENT_CORRECTION {
 
     ch_multi = ch_do_ambient_correction.yes.multiMap { meta, filtered, unfiltered ->
         input: [meta, filtered, unfiltered]
-        batch_col: meta.batch_col ?: "batch"
+        batch_col: meta.batch_col ?: []
         input_layer: meta.counts_layer ?: "X"
         output_layer: get_output_layer(params.ambient_corrected_integration, meta.ambient_corrected_integration, method)
     }
