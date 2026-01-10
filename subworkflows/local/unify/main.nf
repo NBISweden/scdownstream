@@ -53,6 +53,7 @@ workflow UNIFY {
         h5ad: [meta, h5ad]
         batch_col: meta.batch_col ?: "batch"
         label_col: meta.label_col ?: ""
+        condition_col: meta.condition_col ?: ""
         unknown_label: meta.unknown_label ?: "unknown"
         symbol_col: meta.symbol_col ?: "index"
         counts_layer: meta.counts_layer ?: "X"
@@ -61,6 +62,7 @@ workflow UNIFY {
         ch_adata_unify.h5ad,
         ch_adata_unify.batch_col,
         ch_adata_unify.label_col,
+        ch_adata_unify.condition_col,
         ch_adata_unify.unknown_label,
         ch_adata_unify.symbol_col,
         ch_adata_unify.counts_layer,
@@ -71,6 +73,7 @@ workflow UNIFY {
         meta + [
             batch_col: 'batch',
             label_col: 'label',
+            condition_col: 'condition',
             unknown_label: 'unknown',
             symbol_col: 'index',
             counts_layer: 'X'
