@@ -15,6 +15,7 @@ workflow INTEGRATE {
     ch_h5ad                     // channel: [ merged, h5ad ]
     is_extension                // boolean
     n_hvgs                      // integer
+    excluded_genes              // path
     methods                     // list of string
     scvi_model                  // path
     scanvi_model                // path
@@ -32,7 +33,7 @@ workflow INTEGRATE {
     // If a reference model is provided, only the genes in the reference model are used
     // Otherwise, we would intersect the HVGs, which is not what we want
     if (!is_extension && n_hvgs >= 0) {
-        SCANPY_HVGS(ch_h5ad, n_hvgs)
+        SCANPY_HVGS(ch_h5ad, n_hvgs, excluded_genes)
         ch_versions = ch_versions.mix(SCANPY_HVGS.out.versions)
         ch_h5ad_hvg = SCANPY_HVGS.out.h5ad
 
