@@ -25,4 +25,15 @@ process SCANPY_PAGA {
     obs_key = meta.obs_key ?: "leiden"
     prefix = task.ext.prefix ?: "${meta.id}"
     template 'paga.py'
+
+    stub:
+    prefix = task.ext.prefix ?: "${meta.id}"
+    """
+    touch "${prefix}.h5ad"
+    touch "${prefix}.pkl"
+    touch "${prefix}_connectivities.npy"
+    touch "${prefix}.png"
+    touch "${prefix}_mqc.json"
+    touch "versions.yml"
+    """
 }
