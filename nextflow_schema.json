@@ -189,6 +189,11 @@
                     "default": "label",
                     "description": "The column in the base AnnData object that contains the label (e.g. cell type) information."
                 },
+                "base_condition_col": {
+                    "type": "string",
+                    "default": "condition",
+                    "description": "The column in the base AnnData object that contains the condition (e.g. disease state, treatment) information."
+                },
                 "base_embeddings": {
                     "type": "string",
                     "description": "The keys in the obsm of the base AnnData object that contain the embeddings (without leading `X_`). Required if `input` is not provided - otherwise it is ignored.",
