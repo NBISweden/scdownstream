@@ -14,7 +14,7 @@ params <- list()
 params\$assayName <- "${input_layer == 'X' ? 'counts' : input_layer}"
 
 # Handle batch information if available
-batch_col <- "${batch_col}"
+batch_col <- "${batch_col ?: ''}"
 
 if (batch_col != "") {
     # Plausibility check 1: Does the column exist?

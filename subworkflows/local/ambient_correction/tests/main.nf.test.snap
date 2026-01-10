@@ -86,6 +86,22 @@
         },
         "timestamp": "2026-01-01T10:37:31.070458556"
     },
+    "Should run with 'decontx' ambient correction and no batch column": {
+        "content": [
+            [
+                "versions.yml:md5,0df227098fc7a061a6c8ba36dd3ef859"
+            ],
+            "test_decontx.h5ad",
+            [
+                "ambient_corrected_decontx"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-10T13:56:49.20957065"
+    },
     "Should run with 'decontx' ambient correction": {
         "content": [
             [
