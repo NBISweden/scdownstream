@@ -39,8 +39,8 @@ There are a couple of optional columns that can be used for more advanced featur
 
 ```csv title="samplesheet.csv"
 sample,filtered,unfiltered,batch_col,label_col,condition_col,unknown_label,min_genes,min_cells,min_counts_cell,min_counts_gene,expected_cells,ambient_correction,ambient_corrected_integration
-sample1,/absolute/path/to/sample1_filtered.h5ad,/absolute/path/to/sample1.h5ad,batch,cell_type,disease,unknown,1,2,3,4,5000,true,false
-sample2,relative/path/to/sample2_filtered.rds,relative/path/to/sample2.rds,batch_id,annotation,treatment,unannotated,5,6,7,8,3000,false,
+sample1,/absolute/path/to/sample1_filtered.h5ad,/absolute/path/to/sample1.h5ad,batch,cell_type,condition,unknown,1,2,3,4,5000,true,false
+sample2,relative/path/to/sample2_filtered.rds,relative/path/to/sample2.rds,batch_id,annotation,condition,unannotated,5,6,7,8,3000,false,
 sample3,/absolute/path/to/sample3_filtered.csv,/absolute/path/to/sample3.csv,,,,,9,10,11,12,,true,true
 ```
 
