@@ -1,0 +1,80 @@
+{
+    "Should run without failures - stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        [
+                            "sample1.csv:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "sample2.csv:md5,d41d8cd98f00b204e9800998ecf8427e"
+                        ]
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ],
+                "changes": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        [
+                            "sample1.csv:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "sample2.csv:md5,d41d8cd98f00b204e9800998ecf8427e"
+                        ]
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-10T23:15:16.094519101"
+    },
+    "Should run without failures": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        [
+                            "sample1.csv:md5,616ff99a1ede46e4931fed429e318d7b",
+                            "sample2.csv:md5,15d8b8eba4b3c701b42b27aea037a437"
+                        ]
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,01d208fcd4b4ffa29dfb537002890e57"
+                ],
+                "changes": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        [
+                            "sample1.csv:md5,616ff99a1ede46e4931fed429e318d7b",
+                            "sample2.csv:md5,15d8b8eba4b3c701b42b27aea037a437"
+                        ]
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,01d208fcd4b4ffa29dfb537002890e57"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-10T23:15:04.515470328"
+    }
+}
