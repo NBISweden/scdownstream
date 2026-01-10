@@ -288,6 +288,13 @@
                     "type": "boolean",
                     "description": "Skip the rank_genes_groups step. For large datasets, the pipeline might fail due to high memory usage in this step. Use this option to skip it."
                 },
+                "rankgenesgroups_method": {
+                    "type": "string",
+                    "default": "wilcoxon",
+                    "enum": ["t-test", "t-test_overestim_var", "wilcoxon", "logreg"],
+                    "description": "Statistical method for ranking genes in differential expression analysis.",
+                    "help_text": "Available methods are: 't-test' (default t-test), 't-test_overestim_var' (t-test with overestimated variance), 'wilcoxon' (Wilcoxon rank-sum test, default), 'logreg' (logistic regression)."
+                },
                 "pseudobulk": {
                     "type": "boolean",
                     "description": "Perform pseudobulking"

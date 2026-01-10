@@ -20,9 +20,17 @@ sc.settings.n_jobs = int("${task.cpus}")
 
 adata = sc.read_h5ad("${h5ad}")
 prefix = "${prefix}"
+method = "${method}"
+
+filter_col = "${filter_col ?: ''}"
+filter_val = "${filter_val ?: ''}"
+
+if filter_col and filter_val:
+    adata = adata[adata.obs[filter_col] == filter_val].copy()
 
 kwargs = {
     "groupby": "${obs_key}",
+    "method": method,
     "pts": True
 }
 

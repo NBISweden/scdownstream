@@ -28,7 +28,8 @@ workflow DIFFERENTIAL_EXPRESSION {
         ]
     }
 
-    ch_comparisons = channel.empty() // Structure: [meta, h5ad, filter_col, filter_val, obs_key]
+    // Structure: [meta, h5ad, filter_col, filter_val, obs_key]
+    ch_comparisons = channel.empty()
 
     ch_global_labels = ch_settings
         .map { meta, h5ad, _condition_col, _conditions, obs_key, _labels ->
@@ -48,7 +49,18 @@ workflow DIFFERENTIAL_EXPRESSION {
         }
     ch_comparisons = ch_comparisons.mix(ch_label_conditions)
 
-    SCANPY_RANKGENESGROUPS(ch_h5ad)
+    ch_rankgenesgroups = ch_comparisons.multiMap { meta, h5ad, filter_col, filter_val, obs_key ->
+        h5ad: [meta, h5ad]
+        obs_key: obs_key
+        filter: [filter_col, filter_val]
+    }
+
+    SCANPY_RANKGENESGROUPS(
+        ch_rankgenesgroups.h5ad,
+        ch_rankgenesgroups.obs_key,
+        ch_rankgenesgroups.filter,
+        params.rankgenesgroups_method
+    )
     ch_versions      = ch_versions.mix(SCANPY_RANKGENESGROUPS.out.versions)
     ch_uns           = ch_uns.mix(SCANPY_RANKGENESGROUPS.out.uns)
     ch_multiqc_files = ch_multiqc_files.mix(SCANPY_RANKGENESGROUPS.out.multiqc_files)
