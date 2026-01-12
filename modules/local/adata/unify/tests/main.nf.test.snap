@@ -1,0 +1,893 @@
+{
+    "Should handle label column already named label": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,80211e22d7cfd168422ea6bcddedfb63"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,80211e22d7cfd168422ea6bcddedfb63"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:31:13.827393235"
+    },
+    "Should handle sample column with different value": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,b46a29b69038fcbf066ef60c7657241f"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,b46a29b69038fcbf066ef60c7657241f"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:33:37.839336677"
+    },
+    "Should handle symbols in column": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,190ea84214ddd5c62991902538bea40e"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,190ea84214ddd5c62991902538bea40e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:28:04.331875944"
+    },
+    "Should handle label column with different name": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,3da5b0986d33039f7673f4c6945d4c02"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,3da5b0986d33039f7673f4c6945d4c02"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:30:58.447984401"
+    },
+    "Should handle label column with unknown values": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,d9dbd6151ed1558a250959409290308b"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,d9dbd6151ed1558a250959409290308b"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:31:45.964350708"
+    },
+    "Should handle duplicates with sum aggregation": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,0f69be1d390b39b5ccc6e4c0ac04041c"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,0f69be1d390b39b5ccc6e4c0ac04041c"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:28:26.791101232"
+    },
+    "Should create batch column when missing": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,13b94423eedf29e1e2662eed76df187f"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,13b94423eedf29e1e2662eed76df187f"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T18:21:58.958830958"
+    },
+    "Should run without failures - stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-11T21:38:13.01844773"
+    },
+    "Should handle duplicates with make_unique": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,8ae7b874b20602930822709577b6b6a8"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,8ae7b874b20602930822709577b6b6a8"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:29:26.998640337"
+    },
+    "Should handle duplicates with mean aggregation": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,a608b3891299cd51a294a419f48f957c"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,a608b3891299cd51a294a419f48f957c"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:28:48.629392866"
+    },
+    "Should aggregate isoforms": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,296a5a5ea7e49079f908854c78b18af3"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,296a5a5ea7e49079f908854c78b18af3"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:29:42.655456392"
+    },
+    "Should normalize label column with special characters": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,5f8dcc8345b37a6ae77fd1011ccfa16f"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,5f8dcc8345b37a6ae77fd1011ccfa16f"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:32:17.915537917"
+    },
+    "Should create label column when missing": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,fe9f35e960dddf21a6c560c3718c64bf"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,fe9f35e960dddf21a6c560c3718c64bf"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:31:29.897163869"
+    },
+    "Should handle CSR sparse matrix": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,fe9f35e960dddf21a6c560c3718c64bf"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,fe9f35e960dddf21a6c560c3718c64bf"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:32:48.734709792"
+    },
+    "Should handle CSC sparse matrix": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,fe9f35e960dddf21a6c560c3718c64bf"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,fe9f35e960dddf21a6c560c3718c64bf"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:33:04.467899573"
+    },
+    "Should handle batch column with different name": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,fc1ec15be4c1f429521bd70a80abd3c6"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,fc1ec15be4c1f429521bd70a80abd3c6"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T18:21:28.06592916"
+    },
+    "Should handle label column with NaN values": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,1b33bbcd5d8671909edb0c858ed64e04"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,1b33bbcd5d8671909edb0c858ed64e04"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:32:02.130810213"
+    },
+    "Should remove obsm, varm, uns, and layers": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,fe9f35e960dddf21a6c560c3718c64bf"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,fe9f35e960dddf21a6c560c3718c64bf"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:34:09.989135341"
+    },
+    "Should handle duplicates with max aggregation": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,a608b3891299cd51a294a419f48f957c"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,a608b3891299cd51a294a419f48f957c"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:29:12.179540129"
+    },
+    "Should create sample column when missing": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,b537d2b384674511954aa102aee05b53"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,b537d2b384674511954aa102aee05b53"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:33:53.692372618"
+    },
+    "Should handle batch column already named batch": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,fc1ec15be4c1f429521bd70a80abd3c6"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,fc1ec15be4c1f429521bd70a80abd3c6"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T18:21:43.177546532"
+    },
+    "Should handle complex structure": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,52e31371b07ad76a83f90a3b5db556a8"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,52e31371b07ad76a83f90a3b5db556a8"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-11T22:06:16.06328414"
+    },
+    "Should handle counts in layer": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,296a5a5ea7e49079f908854c78b18af3"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,296a5a5ea7e49079f908854c78b18af3"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:27:34.886926442"
+    },
+    "Should handle counts in X matrix": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,296a5a5ea7e49079f908854c78b18af3"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,296a5a5ea7e49079f908854c78b18af3"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:27:19.222190881"
+    },
+    "Should handle symbols as index": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,7317c10862b438ce6fae817deda61c03"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,7317c10862b438ce6fae817deda61c03"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:27:49.588276048"
+    },
+    "Should handle minimal structure": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,13b94423eedf29e1e2662eed76df187f"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,13b94423eedf29e1e2662eed76df187f"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T18:25:46.676856702"
+    },
+    "Should handle duplicate cell names": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,174909d3c1394cd64052404c6d7bc8b1"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_unified.h5ad:md5,174909d3c1394cd64052404c6d7bc8b1"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-12T19:33:21.238209768"
+    }
+}
