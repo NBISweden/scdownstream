@@ -1,9 +1,9 @@
-include { ADATA_MYGENE as MYGENE              } from '../../modules/local/adata/mygene'
-include { ADATA_SETINDEX as SET_INDEX         } from '../../modules/local/adata/setindex'
-include { ADATA_UPSETGENES as UPSET_GENES_RAW } from '../../modules/local/adata/upsetgenes'
-include { UNIFY_GENES                         } from './unify_genes'
-include { ADATA_UPSETGENES as UPSET_GENES     } from '../../modules/local/adata/upsetgenes'
-include { ADATA_UNIFY                         } from '../../modules/local/adata/unify'
+include { ADATA_MYGENE as MYGENE              } from '../../../modules/local/adata/mygene'
+include { ADATA_SETINDEX as SET_INDEX         } from '../../../modules/local/adata/setindex'
+include { ADATA_UPSETGENES as UPSET_GENES_RAW } from '../../../modules/local/adata/upsetgenes'
+include { UNIFY_GENES                         } from '../unify_genes'
+include { ADATA_UPSETGENES as UPSET_GENES     } from '../../../modules/local/adata/upsetgenes'
+include { ADATA_UNIFY                         } from '../../../modules/local/adata/unify'
 
 workflow UNIFY {
     take:

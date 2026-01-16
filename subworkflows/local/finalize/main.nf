@@ -1,6 +1,6 @@
-include { ADATA_EXTEND        } from '../../modules/local/adata/extend'
-include { ADATA_TORDS         } from '../../modules/local/adata/tords'
-include { ADATA_PREPCELLXGENE } from '../../modules/local/adata/prepcellxgene'
+include { ADATA_EXTEND        } from '../../../modules/local/adata/extend'
+include { ADATA_TORDS         } from '../../../modules/local/adata/tords'
+include { ADATA_PREPCELLXGENE } from '../../../modules/local/adata/prepcellxgene'
 
 workflow FINALIZE {
     take:

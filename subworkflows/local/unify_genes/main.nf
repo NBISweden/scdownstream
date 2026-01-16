@@ -1,5 +1,5 @@
-include { HUGOUNIFIER_GET   } from '../../modules/local/hugounifier/get'
-include { HUGOUNIFIER_APPLY } from '../../modules/local/hugounifier/apply'
+include { HUGOUNIFIER_GET   } from '../../../modules/local/hugounifier/get'
+include { HUGOUNIFIER_APPLY } from '../../../modules/local/hugounifier/apply'
 
 workflow UNIFY_GENES {
     take:
