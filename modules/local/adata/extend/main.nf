@@ -21,4 +21,12 @@ process ADATA_EXTEND {
     script:
     prefix = task.ext.prefix ?: "${meta.id}"
     template('extend.py')
+
+    stub:
+    prefix = task.ext.prefix ?: "${meta.id}"
+    """
+    touch ${prefix}.h5ad
+    touch ${prefix}_metadata.csv
+    touch versions.yml
+    """
 }
