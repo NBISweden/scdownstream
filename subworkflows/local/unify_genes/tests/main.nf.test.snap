@@ -7,24 +7,24 @@
                         {
                             "id": "test"
                         },
-                        "test_hugounifier.h5ad:md5,127625889e700d69f216d5d181143c02"
+                        "test_hugounifier.h5ad:md5,818b464c4fde79847c59a21900f9b425"
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,385efa3d192811af55ddd37fd43495ae",
-                    "versions.yml:md5,9f524adc5bd5a46a7460cc3ce314451c"
+                    "versions.yml:md5,a25a9f067f9ece70fa40d51efbcdbdee",
+                    "versions.yml:md5,ff9e30a2b6a2a38e584c66fc01f53b5e"
                 ],
                 "h5ad": [
                     [
                         {
                             "id": "test"
                         },
-                        "test_hugounifier.h5ad:md5,127625889e700d69f216d5d181143c02"
+                        "test_hugounifier.h5ad:md5,818b464c4fde79847c59a21900f9b425"
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,385efa3d192811af55ddd37fd43495ae",
-                    "versions.yml:md5,9f524adc5bd5a46a7460cc3ce314451c"
+                    "versions.yml:md5,a25a9f067f9ece70fa40d51efbcdbdee",
+                    "versions.yml:md5,ff9e30a2b6a2a38e584c66fc01f53b5e"
                 ]
             }
         ],
@@ -32,7 +32,7 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2026-01-17T08:56:53.278591978"
+        "timestamp": "2026-01-17T12:42:37.005600843"
     },
     "Should run without failures - multiple samples - stub": {
         "content": [
@@ -126,38 +126,38 @@
                         {
                             "id": "test1"
                         },
-                        "test1_hugounifier.h5ad:md5,127625889e700d69f216d5d181143c02"
+                        "test1_hugounifier.h5ad:md5,818b464c4fde79847c59a21900f9b425"
                     ],
                     [
                         {
                             "id": "test2"
                         },
-                        "test2_hugounifier.h5ad:md5,127625889e700d69f216d5d181143c02"
+                        "test2_hugounifier.h5ad:md5,818b464c4fde79847c59a21900f9b425"
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,385efa3d192811af55ddd37fd43495ae",
-                    "versions.yml:md5,9f524adc5bd5a46a7460cc3ce314451c",
-                    "versions.yml:md5,9f524adc5bd5a46a7460cc3ce314451c"
+                    "versions.yml:md5,a25a9f067f9ece70fa40d51efbcdbdee",
+                    "versions.yml:md5,ff9e30a2b6a2a38e584c66fc01f53b5e",
+                    "versions.yml:md5,ff9e30a2b6a2a38e584c66fc01f53b5e"
                 ],
                 "h5ad": [
                     [
                         {
                             "id": "test1"
                         },
-                        "test1_hugounifier.h5ad:md5,127625889e700d69f216d5d181143c02"
+                        "test1_hugounifier.h5ad:md5,818b464c4fde79847c59a21900f9b425"
                     ],
                     [
                         {
                             "id": "test2"
                         },
-                        "test2_hugounifier.h5ad:md5,127625889e700d69f216d5d181143c02"
+                        "test2_hugounifier.h5ad:md5,818b464c4fde79847c59a21900f9b425"
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,385efa3d192811af55ddd37fd43495ae",
-                    "versions.yml:md5,9f524adc5bd5a46a7460cc3ce314451c",
-                    "versions.yml:md5,9f524adc5bd5a46a7460cc3ce314451c"
+                    "versions.yml:md5,a25a9f067f9ece70fa40d51efbcdbdee",
+                    "versions.yml:md5,ff9e30a2b6a2a38e584c66fc01f53b5e",
+                    "versions.yml:md5,ff9e30a2b6a2a38e584c66fc01f53b5e"
                 ]
             }
         ],
@@ -165,6 +165,6 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2026-01-17T08:57:35.535986489"
+        "timestamp": "2026-01-17T12:43:21.70123351"
     }
 }
