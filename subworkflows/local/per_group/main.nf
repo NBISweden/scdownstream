@@ -1,6 +1,6 @@
-include { SCANPY_PAGA            } from '../../modules/local/scanpy/paga'
-include { SCANPY_RANKGENESGROUPS } from '../../modules/local/scanpy/rankgenesgroups'
-include { LIANA_RANKAGGREGATE    } from '../../modules/local/liana/rankaggregate'
+include { SCANPY_PAGA            } from '../../../modules/local/scanpy/paga'
+include { SCANPY_RANKGENESGROUPS } from '../../../modules/local/scanpy/rankgenesgroups'
+include { LIANA_RANKAGGREGATE    } from '../../../modules/local/liana/rankaggregate'
 
 workflow PER_GROUP {
     take:

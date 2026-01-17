@@ -22,4 +22,13 @@ process ADATA_MERGEEMBEDDINGS {
     script:
     prefix = task.ext.prefix ?: "${meta.id}"
     template('merge_embeddings.py')
+
+    stub:
+    prefix = task.ext.prefix ?: "${meta.id}"
+    """
+    touch ${prefix}.h5ad
+    touch ${prefix}.pkl
+    touch X_${prefix}.pkl
+    touch versions.yml
+    """
 }

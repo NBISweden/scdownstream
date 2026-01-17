@@ -1,9 +1,9 @@
-include { ADATA_MYGENE as MYGENE              } from '../../modules/local/adata/mygene'
-include { ADATA_SETINDEX as SET_INDEX         } from '../../modules/local/adata/setindex'
-include { ADATA_UPSETGENES as UPSET_GENES_RAW } from '../../modules/local/adata/upsetgenes'
-include { UNIFY_GENES                         } from './unify_genes'
-include { ADATA_UPSETGENES as UPSET_GENES     } from '../../modules/local/adata/upsetgenes'
-include { ADATA_UNIFY                         } from '../../modules/local/adata/unify'
+include { ADATA_MYGENE as MYGENE              } from '../../../modules/local/adata/mygene'
+include { ADATA_SETINDEX as SET_INDEX         } from '../../../modules/local/adata/setindex'
+include { ADATA_UPSETGENES as UPSET_GENES_RAW } from '../../../modules/local/adata/upsetgenes'
+include { UNIFY_GENES                         } from '../unify_genes'
+include { ADATA_UPSETGENES as UPSET_GENES     } from '../../../modules/local/adata/upsetgenes'
+include { ADATA_UNIFY                         } from '../../../modules/local/adata/unify'
 
 workflow UNIFY {
     take:
@@ -30,7 +30,11 @@ workflow UNIFY {
             needs_index_updating: true
         }
 
-        SET_INDEX(ch_h5ad.needs_index_updating)
+        ch_setindex = ch_h5ad.needs_index_updating.multiMap { meta, h5ad ->
+            h5ad: [meta, h5ad]
+            column: meta.symbol_col
+        }
+        SET_INDEX(ch_setindex.h5ad, 'var', ch_setindex.column)
         ch_versions = ch_versions.mix(SET_INDEX.out.versions)
         ch_h5ad = ch_h5ad.has_symbols_as_index.mix(
             SET_INDEX.out.h5ad.map { meta, h5ad -> [meta + [symbol_col: 'index'], h5ad] }

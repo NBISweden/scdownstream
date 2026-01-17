@@ -1,6 +1,6 @@
-include { INTEGRATE             } from './integrate'
-include { ADATA_MERGEEMBEDDINGS } from '../../modules/local/adata/mergeembeddings'
-include { ADATA_MERGE           } from '../../modules/local/adata/merge'
+include { INTEGRATE             } from '../integrate'
+include { ADATA_MERGEEMBEDDINGS } from '../../../modules/local/adata/mergeembeddings'
+include { ADATA_MERGE           } from '../../../modules/local/adata/merge'
 
 workflow COMBINE {
 

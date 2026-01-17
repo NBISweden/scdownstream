@@ -12,7 +12,7 @@
                             "unknown_label": "unknown",
                             "symbol_col": "index"
                         },
-                        "test_filtered.h5ad:md5,bbfc96e8d3d7e15be83f267ed2b45510"
+                        "test_filtered.h5ad:md5,bc92958cfcdad1dab108613ee4686dbd"
                     ]
                 ],
                 "1": [
@@ -41,7 +41,7 @@
                             "unknown_label": "unknown",
                             "symbol_col": "index"
                         },
-                        "test_filtered.h5ad:md5,bbfc96e8d3d7e15be83f267ed2b45510"
+                        "test_filtered.h5ad:md5,bc92958cfcdad1dab108613ee4686dbd"
                     ]
                 ],
                 "multiqc_files": [
@@ -66,7 +66,7 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2026-01-02T14:55:33.297569952"
+        "timestamp": "2026-01-16T21:34:36.269096805"
     },
     "Should run without ambient RNA removal and doublet detection, but with custom mito genes": {
         "content": [
@@ -81,7 +81,7 @@
                             "unknown_label": "unknown",
                             "symbol_col": "index"
                         },
-                        "test_filtered.h5ad:md5,bbfc96e8d3d7e15be83f267ed2b45510"
+                        "test_filtered.h5ad:md5,bc92958cfcdad1dab108613ee4686dbd"
                     ]
                 ],
                 "1": [
@@ -110,7 +110,7 @@
                             "unknown_label": "unknown",
                             "symbol_col": "index"
                         },
-                        "test_filtered.h5ad:md5,bbfc96e8d3d7e15be83f267ed2b45510"
+                        "test_filtered.h5ad:md5,bc92958cfcdad1dab108613ee4686dbd"
                     ]
                 ],
                 "multiqc_files": [
@@ -135,7 +135,7 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2026-01-02T14:56:12.632382281"
+        "timestamp": "2026-01-16T21:35:19.306327613"
     },
     "Should run with ambient RNA removal and doublet detection - stub": {
         "content": [
