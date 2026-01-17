@@ -1,0 +1,78 @@
+nextflow_workflow {
+
+    name "Test Workflow COMBINE"
+    script "subworkflows/local/combine/main.nf"
+    workflow "COMBINE"
+
+    tag "subworkflows"
+    tag "subworkflows_local"
+
+    test("Should run without failures - without base - stub") {
+
+        options '-stub'
+
+        when {
+            params {
+                outdir = "$outputDir"
+                base_adata = null
+                integration_hvgs = 2000
+                integration_excluded_genes = null
+                integration_methods = "harmony"
+                scvi_model = null
+                scanvi_model = null
+                scvi_categorical_covariates = []
+                scvi_continuous_covariates = []
+                scimilarity_model = null
+            }
+            workflow {
+                """
+                input[0] = channel.of(
+                    [[id: 'test1'], file(params.pipelines_testdata_base_path + '/anndata-variations/batch_correct_name.h5ad', checkIfExists: true)],
+                    [[id: 'test2'], file(params.pipelines_testdata_base_path + '/anndata-variations/batch_correct_name.h5ad', checkIfExists: true)]
+                )
+                input[1] = channel.empty()
+                """
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert snapshot(workflow.out).match()
+        }
+
+    }
+
+    test("Should run without failures - without base") {
+
+        when {
+            params {
+                outdir = "$outputDir"
+                base_adata = null
+                integration_hvgs = 2000
+                integration_excluded_genes = null
+                integration_methods = "harmony"
+                scvi_model = null
+                scanvi_model = null
+                scvi_categorical_covariates = []
+                scvi_continuous_covariates = []
+                scimilarity_model = null
+            }
+            workflow {
+                """
+                input[0] = channel.of(
+                    [[id: 'test1'], file(params.pipelines_testdata_base_path + '/anndata-variations/batch_correct_name.h5ad', checkIfExists: true)],
+                    [[id: 'test2'], file(params.pipelines_testdata_base_path + '/anndata-variations/batch_correct_name.h5ad', checkIfExists: true)]
+                )
+                input[1] = channel.empty()
+                """
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert snapshot(workflow.out).match()
+        }
+
+    }
+
+}
