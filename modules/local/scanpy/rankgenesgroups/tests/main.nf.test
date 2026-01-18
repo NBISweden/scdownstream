@@ -52,6 +52,9 @@ nextflow_process {
             process {
                 """
                 input[0] = SCANPY_LEIDEN.out.h5ad
+                input[1] = "leiden"
+                input[2] = [[], []]
+                input[3] = "wilcoxon"
                 """
             }
         }
@@ -76,6 +79,9 @@ nextflow_process {
             process {
                 """
                 input[0] = SCANPY_LEIDEN.out.h5ad
+                input[1] = "leiden"
+                input[2] = [[], []]
+                input[3] = "wilcoxon"
                 """
             }
         }

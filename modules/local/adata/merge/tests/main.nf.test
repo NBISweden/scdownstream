@@ -22,11 +22,12 @@ nextflow_process {
                 )
                 input[1] = 'sample'
                 input[2] = ''
-                input[3] = 'unknown'
-                input[4] = 'index'
-                input[5] = 'X'
-                input[6] = 'make_unique'
-                input[7] = false
+                input[3] = ''
+                input[4] = 'unknown'
+                input[5] = 'index'
+                input[6] = 'X'
+                input[7] = 'make_unique'
+                input[8] = false
                 """
             }
         }

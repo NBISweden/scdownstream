@@ -9,10 +9,11 @@
                             "batch_col": "batch",
                             "counts_layer": "X",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "symbol_col": "index"
                         },
-                        "test_filtered.h5ad:md5,bc92958cfcdad1dab108613ee4686dbd"
+                        "test_filtered.h5ad:md5,eb84f80053a07b36b9de278c93d0a0bc"
                     ]
                 ],
                 "1": [
@@ -38,10 +39,11 @@
                             "batch_col": "batch",
                             "counts_layer": "X",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "symbol_col": "index"
                         },
-                        "test_filtered.h5ad:md5,bc92958cfcdad1dab108613ee4686dbd"
+                        "test_filtered.h5ad:md5,eb84f80053a07b36b9de278c93d0a0bc"
                     ]
                 ],
                 "multiqc_files": [
@@ -66,7 +68,7 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2026-01-16T21:34:36.269096805"
+        "timestamp": "2026-01-18T17:41:32.479231228"
     },
     "Should run without ambient RNA removal and doublet detection, but with custom mito genes": {
         "content": [
@@ -78,10 +80,11 @@
                             "batch_col": "batch",
                             "counts_layer": "X",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "symbol_col": "index"
                         },
-                        "test_filtered.h5ad:md5,bc92958cfcdad1dab108613ee4686dbd"
+                        "test_filtered.h5ad:md5,eb84f80053a07b36b9de278c93d0a0bc"
                     ]
                 ],
                 "1": [
@@ -107,10 +110,11 @@
                             "batch_col": "batch",
                             "counts_layer": "X",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "symbol_col": "index"
                         },
-                        "test_filtered.h5ad:md5,bc92958cfcdad1dab108613ee4686dbd"
+                        "test_filtered.h5ad:md5,eb84f80053a07b36b9de278c93d0a0bc"
                     ]
                 ],
                 "multiqc_files": [
@@ -135,7 +139,7 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2026-01-16T21:35:19.306327613"
+        "timestamp": "2026-01-18T17:42:15.53151298"
     },
     "Should run with ambient RNA removal and doublet detection - stub": {
         "content": [
@@ -147,6 +151,7 @@
                             "batch_col": "batch",
                             "counts_layer": "X",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "symbol_col": "index"
                         },
@@ -182,6 +187,7 @@
                             "batch_col": "batch",
                             "counts_layer": "X",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "symbol_col": "index"
                         },
@@ -216,7 +222,7 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2026-01-02T14:59:39.572235985"
+        "timestamp": "2026-01-18T17:46:19.643717134"
     },
     "Should run with ambient RNA removal and doublet detection": {
         "content": [
