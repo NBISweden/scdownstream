@@ -1,8 +1,8 @@
 nextflow_workflow {
 
-    name "Test Workflow PER_GROUP"
-    script "subworkflows/local/per_group/main.nf"
-    workflow "PER_GROUP"
+    name "Test Workflow DIFFERENTIAL_EXPRESSION"
+    script "subworkflows/local/differential_expression/main.nf"
+    workflow "DIFFERENTIAL_EXPRESSION"
 
     tag "subworkflows"
     tag "subworkflows_local"
@@ -58,18 +58,15 @@ nextflow_workflow {
         }
     }
 
-    test("Should run without failures - PAGA only") {
+    test("Should run differential expression with leiden clustering") {
 
         when {
             params {
                 outdir = "$outputDir"
-                skip_liana = true
-                skip_rankgenesgroups = true
             }
             workflow {
                 """
                 input[0] = SCANPY_LEIDEN.out.h5ad.map { meta, h5ad -> [meta + [obs_key: 'leiden', condition_col: 'condition'], h5ad] }
-                input[1] = channel.empty()
                 """
             }
         }
@@ -81,18 +78,15 @@ nextflow_workflow {
 
     }
 
-    test("Should run without failures - full run") {
+    test("Should run differential expression with label column") {
 
         when {
             params {
                 outdir = "$outputDir"
-                skip_liana = false
-                skip_rankgenesgroups = false
             }
             workflow {
                 """
-                input[0] = SCANPY_LEIDEN.out.h5ad.map { meta, h5ad -> [meta + [obs_key: 'leiden', condition_col: 'condition'], h5ad] }
-                input[1] = SCANPY_LEIDEN.out.h5ad.map { meta, h5ad -> [meta + [obs_key: 'leiden', condition_col: 'condition'], h5ad] }
+                input[0] = SCANPY_LEIDEN.out.h5ad.map { meta, h5ad -> [meta + [obs_key: 'label', condition_col: 'condition'], h5ad] }
                 """
             }
         }

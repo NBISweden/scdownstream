@@ -158,7 +158,7 @@ if condition_col:
 else:
     if "condition" in adata.obs:
         raise ValueError("The condition column already exists.")
-    adata.obs["condition"] = "unknown"
+    adata.obs["condition"] = "Unknown"
 adata.obs["condition"] = adata.obs["condition"].astype("category")
 
 # Add "sample" column

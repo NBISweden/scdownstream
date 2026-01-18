@@ -770,6 +770,158 @@ nextflow_process {
     }
 
     // ============================================================================
+    // 6b. CONDITION COLUMN VARIATIONS
+    // ============================================================================
+
+    test("Should handle condition column with different name") {
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = channel.of([
+                        [id: 'test'],
+                        file(params.pipelines_testdata_base_path + '/anndata-variations/condition_different_name.h5ad', checkIfExists: true)
+                    ]
+                )
+                input[1] = "sample"
+                input[2] = ""
+                input[3] = "disease_state"
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
+                """
+            }
+        }
+
+        then {
+            def filename = process.out.h5ad[0][1]
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() },
+                {
+                    with(anndata(filename)) {
+                        assert "condition" in obs.colnames
+                        assert !("disease_state" in obs.colnames)
+                        assert obs.get("condition").unique.size() > 0
+                    }
+                }
+            )
+        }
+    }
+
+    test("Should handle condition column already named condition") {
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = channel.of([
+                        [id: 'test'],
+                        file(params.pipelines_testdata_base_path + '/anndata-variations/condition_correct_name.h5ad', checkIfExists: true)
+                    ]
+                )
+                input[1] = "sample"
+                input[2] = ""
+                input[3] = "condition"
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
+                """
+            }
+        }
+
+        then {
+            def filename = process.out.h5ad[0][1]
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() },
+                {
+                    with(anndata(filename)) {
+                        assert "condition" in obs.colnames
+                        assert obs.get("condition").unique.size() > 0
+                    }
+                }
+            )
+        }
+    }
+
+    test("Should create condition column when missing") {
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = channel.of([
+                        [id: 'test'],
+                        file(params.pipelines_testdata_base_path + '/anndata-variations/condition_missing.h5ad', checkIfExists: true)
+                    ]
+                )
+                input[1] = "sample"
+                input[2] = ""
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
+                """
+            }
+        }
+
+        then {
+            def filename = process.out.h5ad[0][1]
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() },
+                {
+                    with(anndata(filename)) {
+                        assert "condition" in obs.colnames
+                        assert obs.get("condition").unique.every { it == "Unknown" }
+                    }
+                }
+            )
+        }
+    }
+
+    test("Should fail on condition column conflict") {
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = channel.of([
+                        [id: 'test'],
+                        file(params.pipelines_testdata_base_path + '/anndata-variations/condition_conflict.h5ad', checkIfExists: true)
+                    ]
+                )
+                input[1] = "sample"
+                input[2] = ""
+                input[3] = "disease_state"
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
+                """
+            }
+        }
+
+        then {
+            assert process.failed
+            assert process.errorReport.contains("The condition column already exists")
+        }
+    }
+
+    // ============================================================================
     // 7. MATRIX FORMAT VARIATIONS
     // ============================================================================
 

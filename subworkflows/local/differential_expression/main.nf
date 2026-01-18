@@ -15,8 +15,8 @@ workflow DIFFERENTIAL_EXPRESSION {
         def condition_col = meta.condition_col
         def ad = anndata(h5ad)
 
-        def conditions = ad.obs[condition_col].unique.toList()
-        def labels = ad.obs[obs_key].unique.toList()
+        def conditions = ad.obs[condition_col].unique().toList()
+        def labels = ad.obs[obs_key].unique().toList()
 
         return [
             meta,
