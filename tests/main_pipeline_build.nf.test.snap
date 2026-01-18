@@ -1,7 +1,7 @@
 {
     "Should process data from scratch": {
         "content": [
-            131,
+            291,
             {
                 "ADATA_EXTEND": {
                     "anndata": "0.12.7",
@@ -356,8 +356,8 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2026-01-02T14:16:08.905395103"
+        "timestamp": "2026-01-18T22:11:07.5306138"
     }
 }
