@@ -18,20 +18,26 @@ workflow PER_GROUP {
     ch_with_neighbors = ch_h5ad_both.mix(ch_h5ad_with_neighbors)
     ch_no_neighbors   = ch_h5ad_both.mix(ch_h5ad_no_neighbors)
 
-    SCANPY_PAGA(ch_with_neighbors)
+    SCANPY_PAGA (
+        ch_with_neighbors
+    )
     ch_versions      = ch_versions.mix(SCANPY_PAGA.out.versions)
     // ch_obsp       = ch_obsp.mix(SCANPY_PAGA.out.obsp)
     ch_uns           = ch_uns.mix(SCANPY_PAGA.out.uns)
     ch_multiqc_files = ch_multiqc_files.mix(SCANPY_PAGA.out.multiqc_files)
 
     if (!skip_liana) {
-        LIANA_RANKAGGREGATE(ch_no_neighbors)
+        LIANA_RANKAGGREGATE (
+            ch_no_neighbors
+        )
         ch_versions      = ch_versions.mix(LIANA_RANKAGGREGATE.out.versions)
         ch_uns           = ch_uns.mix(LIANA_RANKAGGREGATE.out.uns)
     }
 
     if (!skip_rankgenesgroups) {
-        SCANPY_RANKGENESGROUPS(ch_no_neighbors)
+        SCANPY_RANKGENESGROUPS (
+            ch_no_neighbors
+        )
         ch_versions      = ch_versions.mix(SCANPY_RANKGENESGROUPS.out.versions)
         ch_uns           = ch_uns.mix(SCANPY_RANKGENESGROUPS.out.uns)
         ch_multiqc_files = ch_multiqc_files.mix(SCANPY_RANKGENESGROUPS.out.multiqc_files)

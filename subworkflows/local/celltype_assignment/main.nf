@@ -13,9 +13,12 @@ workflow CELLTYPE_ASSIGNMENT {
     ch_obs = channel.empty()
 
     if (celldex_reference ) {
-        SINGLER(
+        SINGLER (
             ch_h5ad,
-            channel.fromList(samplesheetToList(celldex_reference, "${projectDir}/assets/schema_singler.json"))
+            channel.fromList(samplesheetToList(
+                celldex_reference,
+                "${projectDir}/assets/schema_singler.json")
+            )
         )
         ch_obs = ch_obs.mix(SINGLER.out.obs)
         ch_versions = ch_versions.mix(SINGLER.out.versions)
@@ -24,7 +27,10 @@ workflow CELLTYPE_ASSIGNMENT {
     if (celltypist_model) {
         celltypist_models = channel.value(celltypist_model.split(',').collect{ it -> it.trim() })
 
-        CELLTYPES_CELLTYPIST(ch_h5ad, celltypist_models)
+        CELLTYPES_CELLTYPIST (
+            ch_h5ad,
+            celltypist_models
+        )
         ch_obs = ch_obs.mix(CELLTYPES_CELLTYPIST.out.obs)
         ch_versions = ch_versions.mix(CELLTYPES_CELLTYPIST.out.versions)
     }

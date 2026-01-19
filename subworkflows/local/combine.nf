@@ -23,7 +23,9 @@ workflow COMBINE {
     ch_obsm          = channel.empty()
 
     ADATA_MERGE(
-        ch_h5ad.map { _meta, h5ad -> [[id: "merged"], h5ad] }.groupTuple(),
+        ch_h5ad
+            .map { _meta, h5ad -> [[id: "merged"], h5ad] }
+            .groupTuple(),
         ch_base,
     )
     ch_var = ch_var.mix(ADATA_MERGE.out.intersect_genes)
@@ -35,7 +37,9 @@ workflow COMBINE {
         ADATA_MERGE.out.integrate,
         ch_base != null,
         integration_hvgs,
-        integration_methods.split(',').collect { it -> it.trim().toLowerCase() },
+        integration_methods
+            .split(',')
+            .collect { it -> it.trim().toLowerCase() },
         scvi_model,
         scanvi_model,
         scvi_categorical_covariates,

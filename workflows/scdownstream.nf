@@ -89,14 +89,14 @@ workflow SCDOWNSTREAM {
         //
         // Load/Convert input to h5ad
         //
-        LOAD_H5AD(ch_samplesheet)
+        LOAD_H5AD ( ch_samplesheet )
         ch_h5ad = LOAD_H5AD.out.h5ad
         ch_versions = ch_versions.mix(LOAD_H5AD.out.versions)
 
         //
         // Quality control per sample
         //
-        QUALITY_CONTROL(
+        QUALITY_CONTROL (
             ch_h5ad,
             ambient_correction,
             ambient_corrected_integration,
@@ -123,9 +123,18 @@ workflow SCDOWNSTREAM {
         ch_versions = ch_versions.mix(CELLTYPE_ASSIGNMENT.out.versions)
         ch_obs_per_sample = ch_obs_per_sample.mix(CELLTYPE_ASSIGNMENT.out.obs)
 
-        FINALIZE_QC_ANNDATAS(
-            ch_h5ad.join(ch_obs_per_sample.groupTuple(), remainder: true).join(ch_var_per_sample.groupTuple(), remainder: true).join(ch_obsm_per_sample.groupTuple(), remainder: true).join(ch_obsp_per_sample.groupTuple(), remainder: true).join(ch_uns_per_sample.groupTuple(), remainder: true).join(ch_layers_per_sample.groupTuple(), remainder: true).map { meta, h5ad, obs, var, obsm, obsp, uns, layers ->
-                [meta, h5ad, obs ?: [], var ?: [], obsm ?: [], obsp ?: [], uns ?: [], layers ?: []]
+        FINALIZE_QC_ANNDATAS (
+            ch_h5ad
+            .join(ch_obs_per_sample.groupTuple(), remainder: true)
+            .join(ch_var_per_sample.groupTuple(), remainder: true)
+            .join(ch_obsm_per_sample.groupTuple(), remainder: true)
+            .join(ch_obsp_per_sample.groupTuple(), remainder: true)
+            .join(ch_uns_per_sample.groupTuple(), remainder: true)
+            .join(ch_layers_per_sample.groupTuple(), remainder: true)
+            .map {
+                meta, h5ad, obs, var, obsm, obsp, uns, layers ->
+                [meta, h5ad, obs ?: [], var ?: [], obsm ?: [], obsp ?: [],
+                    uns ?: [], layers ?: []]
             }
         )
         ch_h5ad = FINALIZE_QC_ANNDATAS.out.h5ad
@@ -135,7 +144,7 @@ workflow SCDOWNSTREAM {
             //
             // Unify samples to make them compatible for integration
             //
-            UNIFY(
+            UNIFY (
                 ch_h5ad,
                 unify_gene_symbols,
                 duplicate_var_resolution,
@@ -148,7 +157,7 @@ workflow SCDOWNSTREAM {
             //
             // Combine samples and perform integration
             //
-            COMBINE(
+            COMBINE (
                 ch_h5ad,
                 ch_base,
                 integration_hvgs,
@@ -171,12 +180,23 @@ workflow SCDOWNSTREAM {
         }
     }
     else {
-        ch_embeddings = channel.value(base_embeddings.split(',').collect { it -> it.trim() })
+        ch_embeddings = channel
+            .value(base_embeddings.split(',')
+            .collect { it -> it.trim() })
 
-        ADATA_SPLITEMBEDDINGS(ch_base, ch_embeddings)
+        ADATA_SPLITEMBEDDINGS (
+            ch_base,
+            ch_embeddings
+        )
         ch_versions = ch_versions.mix(ADATA_SPLITEMBEDDINGS.out.versions)
         ch_integrations = ch_integrations.mix(
-            ADATA_SPLITEMBEDDINGS.out.h5ad.map { _meta, h5ads -> h5ads }.flatten().map { h5ad -> [[id: h5ad.simpleName, integration: h5ad.simpleName], h5ad] }
+            ADATA_SPLITEMBEDDINGS.out.h5ad
+            .map { _meta, h5ads -> h5ads }
+            .flatten()
+            .map {
+                h5ad ->
+                [[id: h5ad.simpleName, integration: h5ad.simpleName], h5ad]
+            }
         )
 
         ch_finalization_base = ch_base
@@ -188,7 +208,7 @@ workflow SCDOWNSTREAM {
     // Perform clustering and per-cluster analysis
     //
     if (!qc_only) {
-        CLUSTER(
+        CLUSTER (
             ch_integrations,
             cluster_per_label,
             cluster_global,
@@ -203,7 +223,7 @@ workflow SCDOWNSTREAM {
         ch_multiqc_files = ch_multiqc_files.mix(CLUSTER.out.multiqc_files)
 
         if (pseudobulk) {
-            PSEUDOBULKING(
+            PSEUDOBULKING (
                 CLUSTER.out.h5ad_clustering,
                 pseudobulk_groupby_labels.split(','),
                 pseudobulk_min_num_cells,
@@ -212,10 +232,22 @@ workflow SCDOWNSTREAM {
             ch_versions = ch_versions.mix(PSEUDOBULKING.out.versions)
         }
 
-        PER_GROUP(
-            CLUSTER.out.h5ad_clustering.map { meta, h5ad -> [meta + [obs_key: "${meta.id}_leiden"], h5ad] },
-            CLUSTER.out.h5ad_neighbors.map { meta, h5ad -> [meta + [obs_key: grouping_col], h5ad] },
-            ch_label_grouping.map { meta, h5ad -> [meta + [obs_key: grouping_col], h5ad] },
+        PER_GROUP (
+            CLUSTER.out.h5ad_clustering
+                .map {
+                    meta, h5ad ->
+                    [meta + [obs_key: "${meta.id}_leiden"], h5ad]
+                },
+            CLUSTER.out.h5ad_neighbors
+                .map {
+                    meta, h5ad ->
+                    [meta + [obs_key: grouping_col], h5ad]
+                },
+            ch_label_grouping
+                .map {
+                    meta, h5ad ->
+                    [meta + [obs_key: grouping_col], h5ad]
+                },
             skip_liana,
             skip_rankgenesgroups,
         )
@@ -285,7 +317,7 @@ workflow SCDOWNSTREAM {
         )
     )
 
-    MULTIQC(
+    MULTIQC (
         ch_multiqc_files.collect(),
         ch_multiqc_config.toList(),
         ch_multiqc_custom_config.toList(),
@@ -293,8 +325,9 @@ workflow SCDOWNSTREAM {
         [],
         [],
     )
+    ch_multiqc_report = MULTIQC.out.report.toList()
 
     emit:
-    multiqc_report = MULTIQC.out.report.toList() // channel: /path/to/multiqc_report.html
-    versions       = ch_versions // channel: [ path(versions.yml) ]
+    multiqc_report = ch_multiqc_report // channel: [ path(multiqc_report.html) ]
+    versions       = ch_versions       // channel: [ path(versions.yml) ]
 }
