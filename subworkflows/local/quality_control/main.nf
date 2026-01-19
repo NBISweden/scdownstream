@@ -12,11 +12,12 @@ include { CUSTOM_COLLECTSIZES as COLLECT_SIZES                                  
 
 workflow QUALITY_CONTROL {
     take:
-    ch_h5ad                     // channel: [ meta, filtered, unfiltered ]
-    ambient_correction_method   // value: string
-    doublet_detection_methods   // value: list of strings
-    doublet_detection_threshold // value: float
-    mito_genes                  // value: string (path) or null
+    ch_h5ad                       // channel: [ meta, filtered, unfiltered ]
+    ambient_correction_method     //   value: string
+    ambient_corrected_integration //   value: boolean
+    doublet_detection_methods     //   value: list of strings
+    doublet_detection_threshold   //   value: float
+    mito_genes                    //   value: string (path) or null
 
     main:
     ch_versions = channel.empty()

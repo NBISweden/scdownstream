@@ -7,7 +7,10 @@ include { ADATA_UNIFY                         } from '../../modules/local/adata/
 
 workflow UNIFY {
     take:
-    ch_h5ad // channel: [ meta, h5ad ]
+    ch_h5ad                  // channel: [ meta, h5ad ]
+    unify_gene_symbols       //   value: boolean
+    duplicate_var_resolution //   value: string
+    aggregate_isoforms       //   value: boolean
 
     main:
     ch_versions = channel.empty()
@@ -24,7 +27,7 @@ workflow UNIFY {
         MYGENE.out.h5ad.map { meta, h5ad -> [meta + [symbol_col: 'symbols'], h5ad] }
     )
 
-    if (params.unify_gene_symbols) {
+    if (unify_gene_symbols) {
         ch_h5ad = ch_h5ad.branch { meta, _h5ad ->
             has_symbols_as_index: meta.symbol_col == "index"
             needs_index_updating: true
@@ -60,8 +63,8 @@ workflow UNIFY {
         ch_adata_unify.unknown_label,
         ch_adata_unify.symbol_col,
         ch_adata_unify.counts_layer,
-        params.duplicate_var_resolution,
-        params.aggregate_isoforms
+        duplicate_var_resolution,
+        aggregate_isoforms
     )
     ch_h5ad = ADATA_UNIFY.out.h5ad
     ch_versions = ch_versions.mix(ADATA_UNIFY.out.versions)

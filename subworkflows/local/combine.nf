@@ -5,8 +5,15 @@ include { ADATA_MERGE           } from '../../modules/local/adata/merge'
 workflow COMBINE {
 
     take:
-    ch_h5ad  // queue channel: [ val(meta), path(h5ad) ]
-    ch_base  // value channel: [ val(meta), path(h5ad) ]
+    ch_h5ad                     // channel: [ val(meta), path(h5ad) ]
+    ch_base                     // channel: [ val(meta), path(h5ad) ]
+    integration_hvgs            //   value: integer
+    integration_methods         //   value: string
+    scvi_model                  //   value: string
+    scanvi_model                //   value: string
+    scvi_categorical_covariates //   value: string
+    scvi_continuous_covariates  //   value: string
+    scimilarity_model           //   value: string
 
     main:
 
@@ -26,19 +33,19 @@ workflow COMBINE {
 
     INTEGRATE(
         ADATA_MERGE.out.integrate,
-        params.base_adata != null,
-        params.integration_hvgs,
-        params.integration_methods.split(',').collect { it -> it.trim().toLowerCase() },
-        params.scvi_model,
-        params.scanvi_model,
-        params.scvi_categorical_covariates,
-        params.scvi_continuous_covariates,
-        params.scimilarity_model
+        ch_base != null,
+        integration_hvgs,
+        integration_methods.split(',').collect { it -> it.trim().toLowerCase() },
+        scvi_model,
+        scanvi_model,
+        scvi_categorical_covariates,
+        scvi_continuous_covariates,
+        scimilarity_model
     )
     ch_versions      = ch_versions.mix(INTEGRATE.out.versions)
     ch_var           = ch_var.mix(INTEGRATE.out.var)
 
-    if (params.base_adata) {
+    if (ch_base) {
         ADATA_MERGEEMBEDDINGS(
             INTEGRATE.out.integrations
             .combine(

@@ -20,8 +20,9 @@ def get_output_layer(parameter, samplesheet_value, method) {
 
 workflow AMBIENT_CORRECTION {
     take:
-    ch_pairing // channel: [ meta, h5ad, h5ad ]
-    method     // value: string
+    ch_pairing                    // channel: [ meta, h5ad, h5ad ]
+    method                        // value: string
+    ambient_corrected_integration // value: boolean
 
     main:
     ch_versions = channel.empty()
@@ -35,7 +36,7 @@ workflow AMBIENT_CORRECTION {
         input: [meta, filtered, unfiltered]
         batch_col: meta.batch_col ?: "batch"
         input_layer: meta.counts_layer ?: "X"
-        output_layer: get_output_layer(params.ambient_corrected_integration, meta.ambient_corrected_integration, method)
+        output_layer: get_output_layer(ambient_corrected_integration, meta.ambient_corrected_integration, method)
     }
 
     ch_h5ad = ch_do_ambient_correction.no.map { meta, filtered, _unfiltered -> [meta, filtered] }
