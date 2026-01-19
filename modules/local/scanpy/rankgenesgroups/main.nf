@@ -9,7 +9,7 @@ process SCANPY_RANKGENESGROUPS {
 
     input:
     tuple val(meta), path(h5ad)
-    tuple val(obs_key)
+    val(obs_key)
     tuple val(filter_col), val(filter_val)
     val(method)
 
