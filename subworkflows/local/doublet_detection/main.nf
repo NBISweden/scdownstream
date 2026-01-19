@@ -11,9 +11,9 @@ workflow DOUBLET_DETECTION {
     threshold // value: integer
 
     main:
-    ch_versions = Channel.empty()
-    ch_multiqc_files = Channel.empty()
-    ch_predictions = Channel.empty()
+    ch_versions = channel.empty()
+    ch_multiqc_files = channel.empty()
+    ch_predictions = channel.empty()
 
     if (methods.size() == 0) {
         log.info("DOUBLET_DETECTION: Not performed since no methods selected.")

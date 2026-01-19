@@ -19,9 +19,9 @@ workflow QUALITY_CONTROL {
     mito_genes                  // value: string (path) or null
 
     main:
-    ch_versions = Channel.empty()
-    ch_multiqc_files = Channel.empty()
-    ch_sizes = Channel.empty()
+    ch_versions = channel.empty()
+    ch_multiqc_files = channel.empty()
+    ch_sizes = channel.empty()
 
     GET_UNFILTERED_SIZE(
         ch_h5ad.map { meta, filtered, unfiltered -> [meta, unfiltered ?: filtered] },

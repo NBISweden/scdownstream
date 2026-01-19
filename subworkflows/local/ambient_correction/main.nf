@@ -24,7 +24,7 @@ workflow AMBIENT_CORRECTION {
     method     // value: string
 
     main:
-    ch_versions = Channel.empty()
+    ch_versions = channel.empty()
 
     ch_do_ambient_correction = ch_pairing.branch { meta, _filtered, _unfiltered ->
         no: meta.ambient_correction == false

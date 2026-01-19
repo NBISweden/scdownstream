@@ -6,7 +6,7 @@ workflow UNIFY_GENES {
     ch_h5ad // channel: [ meta, h5ad ]
 
     main:
-    ch_versions = Channel.empty()
+    ch_versions = channel.empty()
 
     HUGOUNIFIER_GET(
         ch_h5ad.map { meta, h5ad -> [[id: 'hugo-unifier'], meta.id, h5ad] }.groupTuple()

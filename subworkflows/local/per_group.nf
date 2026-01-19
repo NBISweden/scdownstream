@@ -9,9 +9,9 @@ workflow PER_GROUP {
     ch_h5ad_no_neighbors   // channel: [ merged, h5ad ]
 
     main:
-    ch_versions      = Channel.empty()
-    ch_uns           = Channel.empty()
-    ch_multiqc_files = Channel.empty()
+    ch_versions      = channel.empty()
+    ch_uns           = channel.empty()
+    ch_multiqc_files = channel.empty()
 
     ch_with_neighbors = ch_h5ad_both.mix(ch_h5ad_with_neighbors)
     ch_no_neighbors   = ch_h5ad_both.mix(ch_h5ad_no_neighbors)

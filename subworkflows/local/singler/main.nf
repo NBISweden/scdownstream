@@ -7,8 +7,8 @@ workflow SINGLER {
     ch_reference // channel: [ meta, reference ]
 
     main:
-    ch_versions = Channel.empty()
-    ch_obs = Channel.empty()
+    ch_versions = channel.empty()
+    ch_obs = channel.empty()
 
     ch_reference = ch_reference.branch { _meta, ref ->
         files: file(ref).exists() && file(ref).isFile()

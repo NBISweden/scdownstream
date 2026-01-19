@@ -13,7 +13,7 @@ workflow FINALIZE {
     ch_layers
 
     main:
-    ch_versions = Channel.empty()
+    ch_versions = channel.empty()
 
     ADATA_EXTEND(ch_h5ad
         .combine(ch_obs.flatten().collect().ifEmpty([]).map{ it -> [it] })

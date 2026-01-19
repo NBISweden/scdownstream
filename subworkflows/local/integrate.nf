@@ -23,11 +23,11 @@ workflow INTEGRATE {
     scimilarity_model           // path
 
     main:
-    ch_versions = Channel.empty()
-    ch_obs = Channel.empty()
-    ch_var = Channel.empty()
-    ch_obsm = Channel.empty()
-    ch_integrations = Channel.empty()
+    ch_versions = channel.empty()
+    ch_obs = channel.empty()
+    ch_var = channel.empty()
+    ch_obsm = channel.empty()
+    ch_integrations = channel.empty()
 
     // If a reference model is provided, only the genes in the reference model are used
     // Otherwise, we would intersect the HVGs, which is not what we want
@@ -58,7 +58,7 @@ workflow INTEGRATE {
         SCVITOOLS_SCVI(
             (scvi_model ? ch_h5ad : ch_h5ad_hvg).map { _meta, h5ad -> [[id: 'scvi'], h5ad] },
             scvi_model
-                ? Channel.value([[id: 'scvi_model'], scvi_model])
+                ? channel.value([[id: 'scvi_model'], scvi_model])
                 : [[], []],
             "batch",
             scvi_categorical_covariates,
@@ -73,7 +73,7 @@ workflow INTEGRATE {
         SCVITOOLS_SCANVI(
             (scvi_model ? ch_h5ad : ch_h5ad_hvg).map { _meta, h5ad -> [[id: 'scanvi'], h5ad] },
             scanvi_model
-                ? Channel.value([[id: 'scanvi_model'], scanvi_model])
+                ? channel.value([[id: 'scanvi_model'], scanvi_model])
                 : methods.contains('scvi')
                     ? SCVITOOLS_SCVI.out.model
                     : [[], []],

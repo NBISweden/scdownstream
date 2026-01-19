@@ -10,8 +10,8 @@ workflow UNIFY {
     ch_h5ad // channel: [ meta, h5ad ]
 
     main:
-    ch_versions = Channel.empty()
-    ch_multiqc_files = Channel.empty()
+    ch_versions = channel.empty()
+    ch_multiqc_files = channel.empty()
 
     ch_h5ad = ch_h5ad.branch { meta, _h5ad ->
         has_symbol_col: meta.symbol_col != "none"

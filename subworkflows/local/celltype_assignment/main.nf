@@ -7,20 +7,20 @@ workflow CELLTYPE_ASSIGNMENT {
     ch_h5ad // channel: [ meta, h5ad, symbol_col ]
 
     main:
-    ch_versions = Channel.empty()
-    ch_obs = Channel.empty()
+    ch_versions = channel.empty()
+    ch_obs = channel.empty()
 
     if (params.celldex_reference ) {
         SINGLER(
             ch_h5ad,
-            Channel.fromList(samplesheetToList(params.celldex_reference, "${projectDir}/assets/schema_singler.json"))
+            channel.fromList(samplesheetToList(params.celldex_reference, "${projectDir}/assets/schema_singler.json"))
         )
         ch_obs = ch_obs.mix(SINGLER.out.obs)
         ch_versions = ch_versions.mix(SINGLER.out.versions)
     }
 
     if (params.celltypist_model) {
-        celltypist_models = Channel.value(params.celltypist_model.split(',').collect{ it -> it.trim() })
+        celltypist_models = channel.value(params.celltypist_model.split(',').collect{ it -> it.trim() })
 
         CELLTYPES_CELLTYPIST(ch_h5ad, celltypist_models)
         ch_obs = ch_obs.mix(CELLTYPES_CELLTYPIST.out.obs)
