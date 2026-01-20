@@ -47,6 +47,7 @@ workflow NFCORE_SCDOWNSTREAM {
     aggregate_isoforms            //   value: boolean
     integration_hvgs              //   value: integer
     integration_methods           //   value: string
+    integration_excluded_genes    //   value: string
     scvi_model                    //   value: string
     scanvi_model                  //   value: string
     scvi_categorical_covariates   //   value: string
@@ -91,6 +92,7 @@ workflow NFCORE_SCDOWNSTREAM {
         aggregate_isoforms,
         integration_hvgs,
         integration_methods,
+        integration_excluded_genes,
         scvi_model,
         scanvi_model,
         scvi_categorical_covariates,
@@ -164,6 +166,7 @@ workflow {
         params.aggregate_isoforms,
         params.integration_hvgs,
         params.integration_methods,
+        params.integration_excluded_genes,
         params.scvi_model,
         params.scanvi_model,
         params.scvi_categorical_covariates,

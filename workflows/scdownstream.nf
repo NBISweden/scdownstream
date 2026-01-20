@@ -45,6 +45,7 @@ workflow SCDOWNSTREAM {
     aggregate_isoforms            //   value: boolean
     integration_hvgs              //   value: integer
     integration_methods           //   value: string
+    integration_excluded_genes    //   value: string
     scvi_model                    //   value: string
     scanvi_model                  //   value: string
     scvi_categorical_covariates   //   value: string
@@ -153,6 +154,7 @@ workflow SCDOWNSTREAM {
                 ch_base,
                 integration_hvgs,
                 integration_methods,
+                integration_excluded_genes,
                 scvi_model,
                 scanvi_model,
                 scvi_categorical_covariates,

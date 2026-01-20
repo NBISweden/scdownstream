@@ -9,6 +9,7 @@ workflow COMBINE {
     ch_base                     // channel: [ val(meta), path(h5ad) ]
     integration_hvgs            //   value: integer
     integration_methods         //   value: string
+    integration_excluded_genes  //   value: string
     scvi_model                  //   value: string
     scanvi_model                //   value: string
     scvi_categorical_covariates //   value: string
@@ -35,7 +36,7 @@ workflow COMBINE {
 
     INTEGRATE(
         ADATA_MERGE.out.integrate,
-        base_adata != null,
+        ch_base != null,
         integration_hvgs,
         integration_excluded_genes ? file(integration_excluded_genes) : [],
         integration_methods
