@@ -1,7 +1,7 @@
 {
     "Should perform scvi reference extension": {
         "content": [
-            64,
+            62,
             {
                 "ADATA_EXTEND": {
                     "anndata": "0.12.7",
@@ -228,6 +228,6 @@
             "nf-test": "0.9.2",
             "nextflow": "25.10.2"
         },
-        "timestamp": "2026-01-19T20:46:31.324663403"
+        "timestamp": "2026-01-20T08:15:57.308985473"
     }
 }

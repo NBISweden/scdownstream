@@ -1,7 +1,7 @@
 {
     "Should perform scvi reference mapping": {
         "content": [
-            64,
+            66,
             {
                 "ADATA_EXTEND": {
                     "anndata": "0.12.7",
@@ -228,6 +228,6 @@
             "nf-test": "0.9.2",
             "nextflow": "25.10.2"
         },
-        "timestamp": "2026-01-18T21:53:31.996131"
+        "timestamp": "2026-01-20T08:14:39.54073177"
     }
 }
