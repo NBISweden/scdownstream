@@ -98,12 +98,15 @@ workflow SCDOWNSTREAM {
         QUALITY_CONTROL (
             ch_h5ad,
             ambient_correction,
-            params.ambient_correction,
+            ambient_corrected_integration,
             (!doublet_detection || doublet_detection == 'none')
                 ? []
                 : doublet_detection
                     .split(',')
                     .collect { it -> it.trim().toLowerCase() },
+            unify_gene_symbols,
+            duplicate_var_resolution,
+            aggregate_isoforms,
             doublet_detection_threshold,
             mito_genes,
         )

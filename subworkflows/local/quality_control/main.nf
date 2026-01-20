@@ -14,11 +14,14 @@ include { CUSTOM_COLLECTSIZES as COLLECT_SIZES                                  
 workflow QUALITY_CONTROL {
     take:
     ch_h5ad                       // channel: [ meta, filtered, unfiltered ]
-    ambient_correction_method     // value: string
-    ambient_corrected_integration // value: boolean
-    doublet_detection_methods     // value: list of strings
-    doublet_detection_threshold   // value: float
-    mito_genes                    // value: string (path) or null
+    ambient_correction_method     //   value: string
+    ambient_corrected_integration //   value: boolean
+    unify_gene_symbols            //   value: boolean
+    duplicate_var_resolution      //   value: string
+    aggregate_isoforms            //   value: boolean
+    doublet_detection_methods     //   value: list of strings
+    doublet_detection_threshold   //   value: float
+    mito_genes                    //   value: string (path) or null
 
     main:
     ch_versions = channel.empty()
@@ -107,7 +110,10 @@ workflow QUALITY_CONTROL {
     // Unification needds to happen before filtering to make sure all genes have symbols
     // Otherwise, mitochondrial gene detection will not work correctly
     UNIFY (
-        ch_h5ad
+        ch_h5ad,
+        unify_gene_symbols,
+        duplicate_var_resolution,
+        aggregate_isoforms
     )
     ch_versions = ch_versions.mix(UNIFY.out.versions)
     ch_multiqc_files = ch_multiqc_files.mix(UNIFY.out.multiqc_files)
