@@ -21,6 +21,7 @@ workflow QUALITY_CONTROL {
     aggregate_isoforms            //   value: boolean
     doublet_detection_methods     //   value: list of strings
     doublet_detection_threshold   //   value: float
+    scvi_max_epochs               //   value: integer
     mito_genes                    //   value: string (path) or null
 
     main:
@@ -159,7 +160,8 @@ workflow QUALITY_CONTROL {
     DOUBLET_DETECTION (
         ch_h5ad,
         doublet_detection_methods,
-        doublet_detection_threshold
+        doublet_detection_threshold,
+        scvi_max_epochs
     )
     ch_h5ad = DOUBLET_DETECTION.out.h5ad
     ch_multiqc_files = ch_multiqc_files.mix(DOUBLET_DETECTION.out.multiqc_files)

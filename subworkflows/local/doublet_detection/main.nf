@@ -6,9 +6,10 @@ include { DOUBLET_REMOVAL  } from '../../../modules/local/doublet_detection/doub
 
 workflow DOUBLET_DETECTION {
     take:
-    ch_h5ad   // channel: [ meta, h5ad ]
-    methods   // value: list of strings
-    threshold // value: integer
+    ch_h5ad         // channel: [ meta, h5ad ]
+    methods         //   value: list of strings
+    threshold       //   value: integer
+    scvi_max_epochs //   value: integer
 
     main:
     ch_versions = channel.empty()
@@ -32,7 +33,7 @@ workflow DOUBLET_DETECTION {
             SCVITOOLS_SOLO (
                 ch_h5ad,
                 ch_batch_col,
-                params.scvi_max_epochs ?: []
+                scvi_max_epochs ?: []
             )
             ch_predictions = ch_predictions.mix(SCVITOOLS_SOLO.out.predictions)
             ch_versions = SCVITOOLS_SOLO.out.versions

@@ -37,6 +37,7 @@ workflow NFCORE_SCDOWNSTREAM {
     ambient_corrected_integration //   value: boolean
     doublet_detection             //   value: string
     doublet_detection_threshold   //   value: integer
+    scvi_max_epochs               //   value: integer
     mito_genes                    //   value: string
     qc_only                       //   value: boolean
     celldex_reference             //   value: string
@@ -80,6 +81,7 @@ workflow NFCORE_SCDOWNSTREAM {
         ambient_corrected_integration,
         doublet_detection,
         doublet_detection_threshold,
+        scvi_max_epochs,
         mito_genes,
         qc_only,
         celldex_reference,
@@ -152,6 +154,7 @@ workflow {
         params.ambient_corrected_integration,
         params.doublet_detection,
         params.doublet_detection_threshold,
+        params.scvi_max_epochs,
         params.mito_genes,
         params.qc_only,
         params.celldex_reference,

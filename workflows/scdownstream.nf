@@ -35,6 +35,7 @@ workflow SCDOWNSTREAM {
     ambient_corrected_integration //   value: boolean
     doublet_detection             //   value: string
     doublet_detection_threshold   //   value: integer
+    scvi_max_epochs               //   value: integer
     mito_genes                    //   value: string
     qc_only                       //   value: boolean
     celldex_reference             //   value: string
@@ -108,6 +109,7 @@ workflow SCDOWNSTREAM {
             duplicate_var_resolution,
             aggregate_isoforms,
             doublet_detection_threshold,
+            scvi_max_epochs,
             mito_genes,
         )
         ch_versions = ch_versions.mix(QUALITY_CONTROL.out.versions)
