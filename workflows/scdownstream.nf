@@ -30,6 +30,7 @@ workflow SCDOWNSTREAM {
     take:
     ch_samplesheet                // channel: samplesheet read in from --input
     ch_base                       // channel: [ val(meta), path(h5ad) ]
+    base_adata                    //   value: string
     ch_input                      //    file: samplesheet.csv
     ambient_correction            //   value: string
     ambient_corrected_integration //   value: boolean
@@ -152,6 +153,7 @@ workflow SCDOWNSTREAM {
             COMBINE (
                 ch_h5ad,
                 ch_base,
+                base_adata,
                 integration_hvgs,
                 integration_methods,
                 integration_excluded_genes,
