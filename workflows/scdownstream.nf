@@ -100,14 +100,14 @@ workflow SCDOWNSTREAM {
             ch_h5ad,
             ambient_correction,
             ambient_corrected_integration,
+            unify_gene_symbols,
+            duplicate_var_resolution,
+            aggregate_isoforms,
             (!doublet_detection || doublet_detection == 'none')
                 ? []
                 : doublet_detection
                     .split(',')
                     .collect { it -> it.trim().toLowerCase() },
-            unify_gene_symbols,
-            duplicate_var_resolution,
-            aggregate_isoforms,
             doublet_detection_threshold,
             scvi_max_epochs,
             mito_genes,
