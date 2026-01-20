@@ -321,13 +321,13 @@
         "content": [
             {
                 "0": [
-                    "pca-global-0.5_entropy.pkl:md5,e3ba9d2b4d41a5373bac81cc6ae5141b",
-                    "pca-global-0.5_leiden.pkl:md5,70b0272e988db5304f940cc4b265ac16",
-                    "pca-global-1_entropy.pkl:md5,4150ab3d7e6802d66b6f18973eee8c75",
-                    "pca-global-1_leiden.pkl:md5,92b513cee3fab5a7ab9b617305c23b71"
+                    "pca-global-0.5_entropy.pkl:md5,fb9b6d5568f4f0cf0cd36e66e73d4d86",
+                    "pca-global-0.5_leiden.pkl:md5,1b37eb021ee407366c29bad95ada178c",
+                    "pca-global-1_entropy.pkl:md5,52af4754db4ca7b8b3ae2bb128c71743",
+                    "pca-global-1_leiden.pkl:md5,d3f745a3c3b9805a64b476a9c42e5c0d"
                 ],
                 "1": [
-                    "X_pca-global_umap.pkl:md5,017c6b03c594021ac64c0c627342b3d3"
+                    "X_pca-global_umap.pkl:md5,564227e2c908abc0299d55d9b1e9d68a"
                 ],
                 "2": [
                     [
@@ -336,7 +336,7 @@
                             "integration": "pca",
                             "subset": "global"
                         },
-                        "pca-global_neighbors.h5ad:md5,50aa5bc4ca02da9aa5bc6cae4d25db92"
+                        "pca-global_neighbors.h5ad:md5,44c7710faf2ec2b405608405bb0b6e38"
                     ]
                 ],
                 "3": [
@@ -347,7 +347,7 @@
                             "subset": "global",
                             "resolution": "0.5"
                         },
-                        "pca-global-0.5_leiden.h5ad:md5,929ed6e73c47cba190e707a2784f6c07"
+                        "pca-global-0.5_leiden.h5ad:md5,c2e4acb8b9782b573a464cde24c24b5d"
                     ],
                     [
                         {
@@ -356,14 +356,14 @@
                             "subset": "global",
                             "resolution": "1"
                         },
-                        "pca-global-1_leiden.h5ad:md5,ede0676afe3a9e60187c421f4964d44e"
+                        "pca-global-1_leiden.h5ad:md5,4051485856afa2e074b05206882cc3bf"
                     ]
                 ],
                 "4": [
-                    "pca-global-0.5_entropy_mqc.json:md5,707d5664a8526134a27c658f4ac8bf84",
-                    "pca-global-0.5_leiden_mqc.json:md5,8d0a52bdea58b326c416136fdaea7041",
-                    "pca-global-1_entropy_mqc.json:md5,864fbdf696251ea9a2fe61c0849443d1",
-                    "pca-global-1_leiden_mqc.json:md5,579603342b0087e66d36d7766fada02e"
+                    "pca-global-0.5_entropy_mqc.json:md5,75792a46fdb78ac23c1fda96e947dd89",
+                    "pca-global-0.5_leiden_mqc.json:md5,4f5668a6cb634e49c18b15e2fcb55636",
+                    "pca-global-1_entropy_mqc.json:md5,726d5c10c4212624e5028133109645c0",
+                    "pca-global-1_leiden_mqc.json:md5,bae28b17c8387a001aae5397312440ef"
                 ],
                 "5": [
                     "versions.yml:md5,6a842ca07b6aa3c3d241aeb4f14e78ef",
@@ -381,7 +381,7 @@
                             "subset": "global",
                             "resolution": "0.5"
                         },
-                        "pca-global-0.5_leiden.h5ad:md5,929ed6e73c47cba190e707a2784f6c07"
+                        "pca-global-0.5_leiden.h5ad:md5,c2e4acb8b9782b573a464cde24c24b5d"
                     ],
                     [
                         {
@@ -390,7 +390,7 @@
                             "subset": "global",
                             "resolution": "1"
                         },
-                        "pca-global-1_leiden.h5ad:md5,ede0676afe3a9e60187c421f4964d44e"
+                        "pca-global-1_leiden.h5ad:md5,4051485856afa2e074b05206882cc3bf"
                     ]
                 ],
                 "h5ad_neighbors": [
@@ -400,23 +400,23 @@
                             "integration": "pca",
                             "subset": "global"
                         },
-                        "pca-global_neighbors.h5ad:md5,50aa5bc4ca02da9aa5bc6cae4d25db92"
+                        "pca-global_neighbors.h5ad:md5,44c7710faf2ec2b405608405bb0b6e38"
                     ]
                 ],
                 "multiqc_files": [
-                    "pca-global-0.5_entropy_mqc.json:md5,707d5664a8526134a27c658f4ac8bf84",
-                    "pca-global-0.5_leiden_mqc.json:md5,8d0a52bdea58b326c416136fdaea7041",
-                    "pca-global-1_entropy_mqc.json:md5,864fbdf696251ea9a2fe61c0849443d1",
-                    "pca-global-1_leiden_mqc.json:md5,579603342b0087e66d36d7766fada02e"
+                    "pca-global-0.5_entropy_mqc.json:md5,75792a46fdb78ac23c1fda96e947dd89",
+                    "pca-global-0.5_leiden_mqc.json:md5,4f5668a6cb634e49c18b15e2fcb55636",
+                    "pca-global-1_entropy_mqc.json:md5,726d5c10c4212624e5028133109645c0",
+                    "pca-global-1_leiden_mqc.json:md5,bae28b17c8387a001aae5397312440ef"
                 ],
                 "obs": [
-                    "pca-global-0.5_entropy.pkl:md5,e3ba9d2b4d41a5373bac81cc6ae5141b",
-                    "pca-global-0.5_leiden.pkl:md5,70b0272e988db5304f940cc4b265ac16",
-                    "pca-global-1_entropy.pkl:md5,4150ab3d7e6802d66b6f18973eee8c75",
-                    "pca-global-1_leiden.pkl:md5,92b513cee3fab5a7ab9b617305c23b71"
+                    "pca-global-0.5_entropy.pkl:md5,fb9b6d5568f4f0cf0cd36e66e73d4d86",
+                    "pca-global-0.5_leiden.pkl:md5,1b37eb021ee407366c29bad95ada178c",
+                    "pca-global-1_entropy.pkl:md5,52af4754db4ca7b8b3ae2bb128c71743",
+                    "pca-global-1_leiden.pkl:md5,d3f745a3c3b9805a64b476a9c42e5c0d"
                 ],
                 "obsm": [
-                    "X_pca-global_umap.pkl:md5,017c6b03c594021ac64c0c627342b3d3"
+                    "X_pca-global_umap.pkl:md5,564227e2c908abc0299d55d9b1e9d68a"
                 ],
                 "versions": [
                     "versions.yml:md5,6a842ca07b6aa3c3d241aeb4f14e78ef",
@@ -430,9 +430,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2025-12-31T10:58:30.67226456"
+        "timestamp": "2026-01-20T07:54:45.029903423"
     },
     "Should run without failures - both - stub": {
         "content": [
@@ -721,23 +721,23 @@
         "content": [
             {
                 "0": [
-                    "pca-SRR28679756-0.5_entropy.pkl:md5,05a119748224d95d6c7e53043cb256a7",
-                    "pca-SRR28679756-0.5_leiden.pkl:md5,5379b15fefaf815a88ecef6e40aecfe0",
-                    "pca-SRR28679756-1_entropy.pkl:md5,128288110b053217512209faec8d1a1b",
-                    "pca-SRR28679756-1_leiden.pkl:md5,3ed6c1a1dfca761cbf5e094f73138884",
-                    "pca-SRR28679757-0.5_entropy.pkl:md5,725f93e7c3136ede30371bc2a8e76c52",
-                    "pca-SRR28679757-0.5_leiden.pkl:md5,e82dc7e48694e2926534e97a072e0239",
-                    "pca-SRR28679757-1_entropy.pkl:md5,87e68050843603dcea4cb38f6e60078f",
-                    "pca-SRR28679757-1_leiden.pkl:md5,c604ed2a32cfc3983cc609572ac9179e",
-                    "pca-SRR28679758-0.5_entropy.pkl:md5,1deff5f1d5066735890029e60b6ce5fd",
-                    "pca-SRR28679758-0.5_leiden.pkl:md5,0f10073bf6a96ac225fc061589675e69",
-                    "pca-SRR28679758-1_entropy.pkl:md5,bac08e2f2d324c78719e405e7c727590",
-                    "pca-SRR28679758-1_leiden.pkl:md5,550a7d73abf60f73f79704bc68626fc3"
+                    "pca-SRR28679756-0.5_entropy.pkl:md5,55c6b3186fc00c7a5fd1ced46b838ed0",
+                    "pca-SRR28679756-0.5_leiden.pkl:md5,aaf6664a245daf07940165f9aff03222",
+                    "pca-SRR28679756-1_entropy.pkl:md5,9e244da3a054956b9c233bf5511d8bed",
+                    "pca-SRR28679756-1_leiden.pkl:md5,d197a6e094d36fb2da78b3d208c9e01a",
+                    "pca-SRR28679757-0.5_entropy.pkl:md5,96aef03a506908e8ebfb13f7710c4914",
+                    "pca-SRR28679757-0.5_leiden.pkl:md5,219ee579949d1f7a5a4e5be785da9c8f",
+                    "pca-SRR28679757-1_entropy.pkl:md5,594b0d4dbf8d6d31645867330d5e8836",
+                    "pca-SRR28679757-1_leiden.pkl:md5,313aace6918a88b878d8be9b7bd454f2",
+                    "pca-SRR28679758-0.5_entropy.pkl:md5,6db5031d13e3805376136080fe6ed01f",
+                    "pca-SRR28679758-0.5_leiden.pkl:md5,bd1b75aad9d740155cfe09f12f552c85",
+                    "pca-SRR28679758-1_entropy.pkl:md5,7f51d0b495f0d8f040b50ea6279bb3d2",
+                    "pca-SRR28679758-1_leiden.pkl:md5,85373289794fc6299ecd1f9091f5132d"
                 ],
                 "1": [
-                    "X_pca-SRR28679756_umap.pkl:md5,9d0a3c129bc3e3c53cbf07a7ae8ff980",
-                    "X_pca-SRR28679757_umap.pkl:md5,5f7237f6798e4064708bdd2804020cf7",
-                    "X_pca-SRR28679758_umap.pkl:md5,2a608d5c9d7f6cd0983196bbddb30d7a"
+                    "X_pca-SRR28679756_umap.pkl:md5,3ff08f6078aa27b72773ee0ea6adfe58",
+                    "X_pca-SRR28679757_umap.pkl:md5,4304302519c62048abf537318fb228c8",
+                    "X_pca-SRR28679758_umap.pkl:md5,78f8becd05a22d4be05c066805662ff7"
                 ],
                 "2": [
                     [
@@ -746,7 +746,7 @@
                             "integration": "pca",
                             "subset": "SRR28679756"
                         },
-                        "pca-SRR28679756_neighbors.h5ad:md5,4dc7ec3039f163265dcb756b2b948fe1"
+                        "pca-SRR28679756_neighbors.h5ad:md5,2011e8355ac10da1d91269fba57f9532"
                     ],
                     [
                         {
@@ -754,7 +754,7 @@
                             "integration": "pca",
                             "subset": "SRR28679757"
                         },
-                        "pca-SRR28679757_neighbors.h5ad:md5,9665908669dca5be8e1ee489f7c6fe88"
+                        "pca-SRR28679757_neighbors.h5ad:md5,a0cb86e4c01ed891ed9f04b6f0c63d79"
                     ],
                     [
                         {
@@ -762,7 +762,7 @@
                             "integration": "pca",
                             "subset": "SRR28679758"
                         },
-                        "pca-SRR28679758_neighbors.h5ad:md5,e60895df2df7e4b60da6602df5064673"
+                        "pca-SRR28679758_neighbors.h5ad:md5,ae8ec5b2217a287cd6cfe419281c9cec"
                     ]
                 ],
                 "3": [
@@ -773,7 +773,7 @@
                             "subset": "SRR28679756",
                             "resolution": "0.5"
                         },
-                        "pca-SRR28679756-0.5_leiden.h5ad:md5,bd7947a08924d37971f9058a8c2b98ed"
+                        "pca-SRR28679756-0.5_leiden.h5ad:md5,cb05ce0960d659189bccf3313b3fca81"
                     ],
                     [
                         {
@@ -782,7 +782,7 @@
                             "subset": "SRR28679756",
                             "resolution": "1"
                         },
-                        "pca-SRR28679756-1_leiden.h5ad:md5,b2b976f502df1dd365a58043c5779ea4"
+                        "pca-SRR28679756-1_leiden.h5ad:md5,8692174550aa89a33552eda84718266e"
                     ],
                     [
                         {
@@ -791,7 +791,7 @@
                             "subset": "SRR28679757",
                             "resolution": "0.5"
                         },
-                        "pca-SRR28679757-0.5_leiden.h5ad:md5,6eae3a9f3638952745a4523491c51d8b"
+                        "pca-SRR28679757-0.5_leiden.h5ad:md5,18ebe2922b6f1ddd0e28885c40696def"
                     ],
                     [
                         {
@@ -800,7 +800,7 @@
                             "subset": "SRR28679757",
                             "resolution": "1"
                         },
-                        "pca-SRR28679757-1_leiden.h5ad:md5,bfe2b6c19052c33228a42a26c1850c0c"
+                        "pca-SRR28679757-1_leiden.h5ad:md5,22a37a20595b8521542a5b9dad0a37ad"
                     ],
                     [
                         {
@@ -809,7 +809,7 @@
                             "subset": "SRR28679758",
                             "resolution": "0.5"
                         },
-                        "pca-SRR28679758-0.5_leiden.h5ad:md5,37ea60fdb1daa7db9114b19cb41bcd01"
+                        "pca-SRR28679758-0.5_leiden.h5ad:md5,1e5c3224ef148fb23c41a7acde1e3b41"
                     ],
                     [
                         {
@@ -818,22 +818,22 @@
                             "subset": "SRR28679758",
                             "resolution": "1"
                         },
-                        "pca-SRR28679758-1_leiden.h5ad:md5,63bd339aab011b9b25df402fdbe29147"
+                        "pca-SRR28679758-1_leiden.h5ad:md5,bb17e7c38f3c53ad000dd0aa9aee43d1"
                     ]
                 ],
                 "4": [
                     "pca-SRR28679756-0.5_entropy_mqc.json:md5,cd198e78d2f0680a2858348a2c41dd1e",
-                    "pca-SRR28679756-0.5_leiden_mqc.json:md5,ce16db06ade551eee33683c82083b2d6",
+                    "pca-SRR28679756-0.5_leiden_mqc.json:md5,7e4a7a565dbd8af85dc38fc06531c873",
                     "pca-SRR28679756-1_entropy_mqc.json:md5,f64d55c31d446f08a307746342c50cf5",
-                    "pca-SRR28679756-1_leiden_mqc.json:md5,5273f6a1572eb3e550f97ae5306e9849",
+                    "pca-SRR28679756-1_leiden_mqc.json:md5,6aab65d53acf60c9723ae27ae13a4e52",
                     "pca-SRR28679757-0.5_entropy_mqc.json:md5,7abf6399423e8ec72cefde07d46a3706",
-                    "pca-SRR28679757-0.5_leiden_mqc.json:md5,b1b337e39bc3f44b88d7690951ccfbd6",
+                    "pca-SRR28679757-0.5_leiden_mqc.json:md5,09f417ee64fd117fd3e92ca0b396a66c",
                     "pca-SRR28679757-1_entropy_mqc.json:md5,e8809a8793c1d884985d9ca3b9e7021c",
-                    "pca-SRR28679757-1_leiden_mqc.json:md5,ea4bb012b119eb25d2298d940dad4d42",
+                    "pca-SRR28679757-1_leiden_mqc.json:md5,17cf3b8382fd6d1a1bce192907ed2241",
                     "pca-SRR28679758-0.5_entropy_mqc.json:md5,0e0f53cd2c0e47a3837e32182a846418",
-                    "pca-SRR28679758-0.5_leiden_mqc.json:md5,e770dd5bf0ed7bc8874b93cc2618245b",
+                    "pca-SRR28679758-0.5_leiden_mqc.json:md5,5f736a28ebd29dd73f016f1d22316252",
                     "pca-SRR28679758-1_entropy_mqc.json:md5,e56f429eb4362280f4d1e40f45cc5a65",
-                    "pca-SRR28679758-1_leiden_mqc.json:md5,d56619d638c450290269d898c6b894d1"
+                    "pca-SRR28679758-1_leiden_mqc.json:md5,1459106e37b4bc5f338b63b52ec88882"
                 ],
                 "5": [
                     "versions.yml:md5,6a842ca07b6aa3c3d241aeb4f14e78ef",
@@ -864,7 +864,7 @@
                             "subset": "SRR28679756",
                             "resolution": "0.5"
                         },
-                        "pca-SRR28679756-0.5_leiden.h5ad:md5,bd7947a08924d37971f9058a8c2b98ed"
+                        "pca-SRR28679756-0.5_leiden.h5ad:md5,cb05ce0960d659189bccf3313b3fca81"
                     ],
                     [
                         {
@@ -873,7 +873,7 @@
                             "subset": "SRR28679756",
                             "resolution": "1"
                         },
-                        "pca-SRR28679756-1_leiden.h5ad:md5,b2b976f502df1dd365a58043c5779ea4"
+                        "pca-SRR28679756-1_leiden.h5ad:md5,8692174550aa89a33552eda84718266e"
                     ],
                     [
                         {
@@ -882,7 +882,7 @@
                             "subset": "SRR28679757",
                             "resolution": "0.5"
                         },
-                        "pca-SRR28679757-0.5_leiden.h5ad:md5,6eae3a9f3638952745a4523491c51d8b"
+                        "pca-SRR28679757-0.5_leiden.h5ad:md5,18ebe2922b6f1ddd0e28885c40696def"
                     ],
                     [
                         {
@@ -891,7 +891,7 @@
                             "subset": "SRR28679757",
                             "resolution": "1"
                         },
-                        "pca-SRR28679757-1_leiden.h5ad:md5,bfe2b6c19052c33228a42a26c1850c0c"
+                        "pca-SRR28679757-1_leiden.h5ad:md5,22a37a20595b8521542a5b9dad0a37ad"
                     ],
                     [
                         {
@@ -900,7 +900,7 @@
                             "subset": "SRR28679758",
                             "resolution": "0.5"
                         },
-                        "pca-SRR28679758-0.5_leiden.h5ad:md5,37ea60fdb1daa7db9114b19cb41bcd01"
+                        "pca-SRR28679758-0.5_leiden.h5ad:md5,1e5c3224ef148fb23c41a7acde1e3b41"
                     ],
                     [
                         {
@@ -909,7 +909,7 @@
                             "subset": "SRR28679758",
                             "resolution": "1"
                         },
-                        "pca-SRR28679758-1_leiden.h5ad:md5,63bd339aab011b9b25df402fdbe29147"
+                        "pca-SRR28679758-1_leiden.h5ad:md5,bb17e7c38f3c53ad000dd0aa9aee43d1"
                     ]
                 ],
                 "h5ad_neighbors": [
@@ -919,7 +919,7 @@
                             "integration": "pca",
                             "subset": "SRR28679756"
                         },
-                        "pca-SRR28679756_neighbors.h5ad:md5,4dc7ec3039f163265dcb756b2b948fe1"
+                        "pca-SRR28679756_neighbors.h5ad:md5,2011e8355ac10da1d91269fba57f9532"
                     ],
                     [
                         {
@@ -927,7 +927,7 @@
                             "integration": "pca",
                             "subset": "SRR28679757"
                         },
-                        "pca-SRR28679757_neighbors.h5ad:md5,9665908669dca5be8e1ee489f7c6fe88"
+                        "pca-SRR28679757_neighbors.h5ad:md5,a0cb86e4c01ed891ed9f04b6f0c63d79"
                     ],
                     [
                         {
@@ -935,41 +935,41 @@
                             "integration": "pca",
                             "subset": "SRR28679758"
                         },
-                        "pca-SRR28679758_neighbors.h5ad:md5,e60895df2df7e4b60da6602df5064673"
+                        "pca-SRR28679758_neighbors.h5ad:md5,ae8ec5b2217a287cd6cfe419281c9cec"
                     ]
                 ],
                 "multiqc_files": [
                     "pca-SRR28679756-0.5_entropy_mqc.json:md5,cd198e78d2f0680a2858348a2c41dd1e",
-                    "pca-SRR28679756-0.5_leiden_mqc.json:md5,ce16db06ade551eee33683c82083b2d6",
+                    "pca-SRR28679756-0.5_leiden_mqc.json:md5,7e4a7a565dbd8af85dc38fc06531c873",
                     "pca-SRR28679756-1_entropy_mqc.json:md5,f64d55c31d446f08a307746342c50cf5",
-                    "pca-SRR28679756-1_leiden_mqc.json:md5,5273f6a1572eb3e550f97ae5306e9849",
+                    "pca-SRR28679756-1_leiden_mqc.json:md5,6aab65d53acf60c9723ae27ae13a4e52",
                     "pca-SRR28679757-0.5_entropy_mqc.json:md5,7abf6399423e8ec72cefde07d46a3706",
-                    "pca-SRR28679757-0.5_leiden_mqc.json:md5,b1b337e39bc3f44b88d7690951ccfbd6",
+                    "pca-SRR28679757-0.5_leiden_mqc.json:md5,09f417ee64fd117fd3e92ca0b396a66c",
                     "pca-SRR28679757-1_entropy_mqc.json:md5,e8809a8793c1d884985d9ca3b9e7021c",
-                    "pca-SRR28679757-1_leiden_mqc.json:md5,ea4bb012b119eb25d2298d940dad4d42",
+                    "pca-SRR28679757-1_leiden_mqc.json:md5,17cf3b8382fd6d1a1bce192907ed2241",
                     "pca-SRR28679758-0.5_entropy_mqc.json:md5,0e0f53cd2c0e47a3837e32182a846418",
-                    "pca-SRR28679758-0.5_leiden_mqc.json:md5,e770dd5bf0ed7bc8874b93cc2618245b",
+                    "pca-SRR28679758-0.5_leiden_mqc.json:md5,5f736a28ebd29dd73f016f1d22316252",
                     "pca-SRR28679758-1_entropy_mqc.json:md5,e56f429eb4362280f4d1e40f45cc5a65",
-                    "pca-SRR28679758-1_leiden_mqc.json:md5,d56619d638c450290269d898c6b894d1"
+                    "pca-SRR28679758-1_leiden_mqc.json:md5,1459106e37b4bc5f338b63b52ec88882"
                 ],
                 "obs": [
-                    "pca-SRR28679756-0.5_entropy.pkl:md5,05a119748224d95d6c7e53043cb256a7",
-                    "pca-SRR28679756-0.5_leiden.pkl:md5,5379b15fefaf815a88ecef6e40aecfe0",
-                    "pca-SRR28679756-1_entropy.pkl:md5,128288110b053217512209faec8d1a1b",
-                    "pca-SRR28679756-1_leiden.pkl:md5,3ed6c1a1dfca761cbf5e094f73138884",
-                    "pca-SRR28679757-0.5_entropy.pkl:md5,725f93e7c3136ede30371bc2a8e76c52",
-                    "pca-SRR28679757-0.5_leiden.pkl:md5,e82dc7e48694e2926534e97a072e0239",
-                    "pca-SRR28679757-1_entropy.pkl:md5,87e68050843603dcea4cb38f6e60078f",
-                    "pca-SRR28679757-1_leiden.pkl:md5,c604ed2a32cfc3983cc609572ac9179e",
-                    "pca-SRR28679758-0.5_entropy.pkl:md5,1deff5f1d5066735890029e60b6ce5fd",
-                    "pca-SRR28679758-0.5_leiden.pkl:md5,0f10073bf6a96ac225fc061589675e69",
-                    "pca-SRR28679758-1_entropy.pkl:md5,bac08e2f2d324c78719e405e7c727590",
-                    "pca-SRR28679758-1_leiden.pkl:md5,550a7d73abf60f73f79704bc68626fc3"
+                    "pca-SRR28679756-0.5_entropy.pkl:md5,55c6b3186fc00c7a5fd1ced46b838ed0",
+                    "pca-SRR28679756-0.5_leiden.pkl:md5,aaf6664a245daf07940165f9aff03222",
+                    "pca-SRR28679756-1_entropy.pkl:md5,9e244da3a054956b9c233bf5511d8bed",
+                    "pca-SRR28679756-1_leiden.pkl:md5,d197a6e094d36fb2da78b3d208c9e01a",
+                    "pca-SRR28679757-0.5_entropy.pkl:md5,96aef03a506908e8ebfb13f7710c4914",
+                    "pca-SRR28679757-0.5_leiden.pkl:md5,219ee579949d1f7a5a4e5be785da9c8f",
+                    "pca-SRR28679757-1_entropy.pkl:md5,594b0d4dbf8d6d31645867330d5e8836",
+                    "pca-SRR28679757-1_leiden.pkl:md5,313aace6918a88b878d8be9b7bd454f2",
+                    "pca-SRR28679758-0.5_entropy.pkl:md5,6db5031d13e3805376136080fe6ed01f",
+                    "pca-SRR28679758-0.5_leiden.pkl:md5,bd1b75aad9d740155cfe09f12f552c85",
+                    "pca-SRR28679758-1_entropy.pkl:md5,7f51d0b495f0d8f040b50ea6279bb3d2",
+                    "pca-SRR28679758-1_leiden.pkl:md5,85373289794fc6299ecd1f9091f5132d"
                 ],
                 "obsm": [
-                    "X_pca-SRR28679756_umap.pkl:md5,9d0a3c129bc3e3c53cbf07a7ae8ff980",
-                    "X_pca-SRR28679757_umap.pkl:md5,5f7237f6798e4064708bdd2804020cf7",
-                    "X_pca-SRR28679758_umap.pkl:md5,2a608d5c9d7f6cd0983196bbddb30d7a"
+                    "X_pca-SRR28679756_umap.pkl:md5,3ff08f6078aa27b72773ee0ea6adfe58",
+                    "X_pca-SRR28679757_umap.pkl:md5,4304302519c62048abf537318fb228c8",
+                    "X_pca-SRR28679758_umap.pkl:md5,78f8becd05a22d4be05c066805662ff7"
                 ],
                 "versions": [
                     "versions.yml:md5,6a842ca07b6aa3c3d241aeb4f14e78ef",
@@ -996,36 +996,36 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2025-12-31T11:00:42.567916464"
+        "timestamp": "2026-01-20T07:57:18.270660876"
     },
     "Should run without failures - both": {
         "content": [
             {
                 "0": [
-                    "pca-SRR28679756-0.5_entropy.pkl:md5,05a119748224d95d6c7e53043cb256a7",
-                    "pca-SRR28679756-0.5_leiden.pkl:md5,5379b15fefaf815a88ecef6e40aecfe0",
-                    "pca-SRR28679756-1_entropy.pkl:md5,128288110b053217512209faec8d1a1b",
-                    "pca-SRR28679756-1_leiden.pkl:md5,3ed6c1a1dfca761cbf5e094f73138884",
-                    "pca-SRR28679757-0.5_entropy.pkl:md5,725f93e7c3136ede30371bc2a8e76c52",
-                    "pca-SRR28679757-0.5_leiden.pkl:md5,e82dc7e48694e2926534e97a072e0239",
-                    "pca-SRR28679757-1_entropy.pkl:md5,87e68050843603dcea4cb38f6e60078f",
-                    "pca-SRR28679757-1_leiden.pkl:md5,c604ed2a32cfc3983cc609572ac9179e",
-                    "pca-SRR28679758-0.5_entropy.pkl:md5,1deff5f1d5066735890029e60b6ce5fd",
-                    "pca-SRR28679758-0.5_leiden.pkl:md5,0f10073bf6a96ac225fc061589675e69",
-                    "pca-SRR28679758-1_entropy.pkl:md5,bac08e2f2d324c78719e405e7c727590",
-                    "pca-SRR28679758-1_leiden.pkl:md5,550a7d73abf60f73f79704bc68626fc3",
-                    "pca-global-0.5_entropy.pkl:md5,e3ba9d2b4d41a5373bac81cc6ae5141b",
-                    "pca-global-0.5_leiden.pkl:md5,70b0272e988db5304f940cc4b265ac16",
-                    "pca-global-1_entropy.pkl:md5,4150ab3d7e6802d66b6f18973eee8c75",
-                    "pca-global-1_leiden.pkl:md5,92b513cee3fab5a7ab9b617305c23b71"
+                    "pca-SRR28679756-0.5_entropy.pkl:md5,55c6b3186fc00c7a5fd1ced46b838ed0",
+                    "pca-SRR28679756-0.5_leiden.pkl:md5,aaf6664a245daf07940165f9aff03222",
+                    "pca-SRR28679756-1_entropy.pkl:md5,9e244da3a054956b9c233bf5511d8bed",
+                    "pca-SRR28679756-1_leiden.pkl:md5,d197a6e094d36fb2da78b3d208c9e01a",
+                    "pca-SRR28679757-0.5_entropy.pkl:md5,96aef03a506908e8ebfb13f7710c4914",
+                    "pca-SRR28679757-0.5_leiden.pkl:md5,219ee579949d1f7a5a4e5be785da9c8f",
+                    "pca-SRR28679757-1_entropy.pkl:md5,594b0d4dbf8d6d31645867330d5e8836",
+                    "pca-SRR28679757-1_leiden.pkl:md5,313aace6918a88b878d8be9b7bd454f2",
+                    "pca-SRR28679758-0.5_entropy.pkl:md5,6db5031d13e3805376136080fe6ed01f",
+                    "pca-SRR28679758-0.5_leiden.pkl:md5,bd1b75aad9d740155cfe09f12f552c85",
+                    "pca-SRR28679758-1_entropy.pkl:md5,7f51d0b495f0d8f040b50ea6279bb3d2",
+                    "pca-SRR28679758-1_leiden.pkl:md5,85373289794fc6299ecd1f9091f5132d",
+                    "pca-global-0.5_entropy.pkl:md5,fb9b6d5568f4f0cf0cd36e66e73d4d86",
+                    "pca-global-0.5_leiden.pkl:md5,1b37eb021ee407366c29bad95ada178c",
+                    "pca-global-1_entropy.pkl:md5,52af4754db4ca7b8b3ae2bb128c71743",
+                    "pca-global-1_leiden.pkl:md5,d3f745a3c3b9805a64b476a9c42e5c0d"
                 ],
                 "1": [
-                    "X_pca-SRR28679756_umap.pkl:md5,9d0a3c129bc3e3c53cbf07a7ae8ff980",
-                    "X_pca-SRR28679757_umap.pkl:md5,5f7237f6798e4064708bdd2804020cf7",
-                    "X_pca-SRR28679758_umap.pkl:md5,2a608d5c9d7f6cd0983196bbddb30d7a",
-                    "X_pca-global_umap.pkl:md5,017c6b03c594021ac64c0c627342b3d3"
+                    "X_pca-SRR28679756_umap.pkl:md5,3ff08f6078aa27b72773ee0ea6adfe58",
+                    "X_pca-SRR28679757_umap.pkl:md5,4304302519c62048abf537318fb228c8",
+                    "X_pca-SRR28679758_umap.pkl:md5,78f8becd05a22d4be05c066805662ff7",
+                    "X_pca-global_umap.pkl:md5,564227e2c908abc0299d55d9b1e9d68a"
                 ],
                 "2": [
                     [
@@ -1034,7 +1034,7 @@
                             "integration": "pca",
                             "subset": "SRR28679756"
                         },
-                        "pca-SRR28679756_neighbors.h5ad:md5,4dc7ec3039f163265dcb756b2b948fe1"
+                        "pca-SRR28679756_neighbors.h5ad:md5,2011e8355ac10da1d91269fba57f9532"
                     ],
                     [
                         {
@@ -1042,7 +1042,7 @@
                             "integration": "pca",
                             "subset": "SRR28679757"
                         },
-                        "pca-SRR28679757_neighbors.h5ad:md5,9665908669dca5be8e1ee489f7c6fe88"
+                        "pca-SRR28679757_neighbors.h5ad:md5,a0cb86e4c01ed891ed9f04b6f0c63d79"
                     ],
                     [
                         {
@@ -1050,7 +1050,7 @@
                             "integration": "pca",
                             "subset": "SRR28679758"
                         },
-                        "pca-SRR28679758_neighbors.h5ad:md5,e60895df2df7e4b60da6602df5064673"
+                        "pca-SRR28679758_neighbors.h5ad:md5,ae8ec5b2217a287cd6cfe419281c9cec"
                     ],
                     [
                         {
@@ -1058,7 +1058,7 @@
                             "integration": "pca",
                             "subset": "global"
                         },
-                        "pca-global_neighbors.h5ad:md5,50aa5bc4ca02da9aa5bc6cae4d25db92"
+                        "pca-global_neighbors.h5ad:md5,44c7710faf2ec2b405608405bb0b6e38"
                     ]
                 ],
                 "3": [
@@ -1069,7 +1069,7 @@
                             "subset": "SRR28679756",
                             "resolution": "0.5"
                         },
-                        "pca-SRR28679756-0.5_leiden.h5ad:md5,bd7947a08924d37971f9058a8c2b98ed"
+                        "pca-SRR28679756-0.5_leiden.h5ad:md5,cb05ce0960d659189bccf3313b3fca81"
                     ],
                     [
                         {
@@ -1078,7 +1078,7 @@
                             "subset": "SRR28679756",
                             "resolution": "1"
                         },
-                        "pca-SRR28679756-1_leiden.h5ad:md5,b2b976f502df1dd365a58043c5779ea4"
+                        "pca-SRR28679756-1_leiden.h5ad:md5,8692174550aa89a33552eda84718266e"
                     ],
                     [
                         {
@@ -1087,7 +1087,7 @@
                             "subset": "SRR28679757",
                             "resolution": "0.5"
                         },
-                        "pca-SRR28679757-0.5_leiden.h5ad:md5,6eae3a9f3638952745a4523491c51d8b"
+                        "pca-SRR28679757-0.5_leiden.h5ad:md5,18ebe2922b6f1ddd0e28885c40696def"
                     ],
                     [
                         {
@@ -1096,7 +1096,7 @@
                             "subset": "SRR28679757",
                             "resolution": "1"
                         },
-                        "pca-SRR28679757-1_leiden.h5ad:md5,bfe2b6c19052c33228a42a26c1850c0c"
+                        "pca-SRR28679757-1_leiden.h5ad:md5,22a37a20595b8521542a5b9dad0a37ad"
                     ],
                     [
                         {
@@ -1105,7 +1105,7 @@
                             "subset": "SRR28679758",
                             "resolution": "0.5"
                         },
-                        "pca-SRR28679758-0.5_leiden.h5ad:md5,37ea60fdb1daa7db9114b19cb41bcd01"
+                        "pca-SRR28679758-0.5_leiden.h5ad:md5,1e5c3224ef148fb23c41a7acde1e3b41"
                     ],
                     [
                         {
@@ -1114,7 +1114,7 @@
                             "subset": "SRR28679758",
                             "resolution": "1"
                         },
-                        "pca-SRR28679758-1_leiden.h5ad:md5,63bd339aab011b9b25df402fdbe29147"
+                        "pca-SRR28679758-1_leiden.h5ad:md5,bb17e7c38f3c53ad000dd0aa9aee43d1"
                     ],
                     [
                         {
@@ -1123,7 +1123,7 @@
                             "subset": "global",
                             "resolution": "0.5"
                         },
-                        "pca-global-0.5_leiden.h5ad:md5,929ed6e73c47cba190e707a2784f6c07"
+                        "pca-global-0.5_leiden.h5ad:md5,c2e4acb8b9782b573a464cde24c24b5d"
                     ],
                     [
                         {
@@ -1132,26 +1132,26 @@
                             "subset": "global",
                             "resolution": "1"
                         },
-                        "pca-global-1_leiden.h5ad:md5,ede0676afe3a9e60187c421f4964d44e"
+                        "pca-global-1_leiden.h5ad:md5,4051485856afa2e074b05206882cc3bf"
                     ]
                 ],
                 "4": [
                     "pca-SRR28679756-0.5_entropy_mqc.json:md5,cd198e78d2f0680a2858348a2c41dd1e",
-                    "pca-SRR28679756-0.5_leiden_mqc.json:md5,ce16db06ade551eee33683c82083b2d6",
+                    "pca-SRR28679756-0.5_leiden_mqc.json:md5,7e4a7a565dbd8af85dc38fc06531c873",
                     "pca-SRR28679756-1_entropy_mqc.json:md5,f64d55c31d446f08a307746342c50cf5",
-                    "pca-SRR28679756-1_leiden_mqc.json:md5,5273f6a1572eb3e550f97ae5306e9849",
+                    "pca-SRR28679756-1_leiden_mqc.json:md5,6aab65d53acf60c9723ae27ae13a4e52",
                     "pca-SRR28679757-0.5_entropy_mqc.json:md5,7abf6399423e8ec72cefde07d46a3706",
-                    "pca-SRR28679757-0.5_leiden_mqc.json:md5,b1b337e39bc3f44b88d7690951ccfbd6",
+                    "pca-SRR28679757-0.5_leiden_mqc.json:md5,09f417ee64fd117fd3e92ca0b396a66c",
                     "pca-SRR28679757-1_entropy_mqc.json:md5,e8809a8793c1d884985d9ca3b9e7021c",
-                    "pca-SRR28679757-1_leiden_mqc.json:md5,ea4bb012b119eb25d2298d940dad4d42",
+                    "pca-SRR28679757-1_leiden_mqc.json:md5,17cf3b8382fd6d1a1bce192907ed2241",
                     "pca-SRR28679758-0.5_entropy_mqc.json:md5,0e0f53cd2c0e47a3837e32182a846418",
-                    "pca-SRR28679758-0.5_leiden_mqc.json:md5,e770dd5bf0ed7bc8874b93cc2618245b",
+                    "pca-SRR28679758-0.5_leiden_mqc.json:md5,5f736a28ebd29dd73f016f1d22316252",
                     "pca-SRR28679758-1_entropy_mqc.json:md5,e56f429eb4362280f4d1e40f45cc5a65",
-                    "pca-SRR28679758-1_leiden_mqc.json:md5,d56619d638c450290269d898c6b894d1",
-                    "pca-global-0.5_entropy_mqc.json:md5,707d5664a8526134a27c658f4ac8bf84",
-                    "pca-global-0.5_leiden_mqc.json:md5,8d0a52bdea58b326c416136fdaea7041",
-                    "pca-global-1_entropy_mqc.json:md5,864fbdf696251ea9a2fe61c0849443d1",
-                    "pca-global-1_leiden_mqc.json:md5,579603342b0087e66d36d7766fada02e"
+                    "pca-SRR28679758-1_leiden_mqc.json:md5,1459106e37b4bc5f338b63b52ec88882",
+                    "pca-global-0.5_entropy_mqc.json:md5,75792a46fdb78ac23c1fda96e947dd89",
+                    "pca-global-0.5_leiden_mqc.json:md5,4f5668a6cb634e49c18b15e2fcb55636",
+                    "pca-global-1_entropy_mqc.json:md5,726d5c10c4212624e5028133109645c0",
+                    "pca-global-1_leiden_mqc.json:md5,bae28b17c8387a001aae5397312440ef"
                 ],
                 "5": [
                     "versions.yml:md5,6a842ca07b6aa3c3d241aeb4f14e78ef",
@@ -1188,7 +1188,7 @@
                             "subset": "SRR28679756",
                             "resolution": "0.5"
                         },
-                        "pca-SRR28679756-0.5_leiden.h5ad:md5,bd7947a08924d37971f9058a8c2b98ed"
+                        "pca-SRR28679756-0.5_leiden.h5ad:md5,cb05ce0960d659189bccf3313b3fca81"
                     ],
                     [
                         {
@@ -1197,7 +1197,7 @@
                             "subset": "SRR28679756",
                             "resolution": "1"
                         },
-                        "pca-SRR28679756-1_leiden.h5ad:md5,b2b976f502df1dd365a58043c5779ea4"
+                        "pca-SRR28679756-1_leiden.h5ad:md5,8692174550aa89a33552eda84718266e"
                     ],
                     [
                         {
@@ -1206,7 +1206,7 @@
                             "subset": "SRR28679757",
                             "resolution": "0.5"
                         },
-                        "pca-SRR28679757-0.5_leiden.h5ad:md5,6eae3a9f3638952745a4523491c51d8b"
+                        "pca-SRR28679757-0.5_leiden.h5ad:md5,18ebe2922b6f1ddd0e28885c40696def"
                     ],
                     [
                         {
@@ -1215,7 +1215,7 @@
                             "subset": "SRR28679757",
                             "resolution": "1"
                         },
-                        "pca-SRR28679757-1_leiden.h5ad:md5,bfe2b6c19052c33228a42a26c1850c0c"
+                        "pca-SRR28679757-1_leiden.h5ad:md5,22a37a20595b8521542a5b9dad0a37ad"
                     ],
                     [
                         {
@@ -1224,7 +1224,7 @@
                             "subset": "SRR28679758",
                             "resolution": "0.5"
                         },
-                        "pca-SRR28679758-0.5_leiden.h5ad:md5,37ea60fdb1daa7db9114b19cb41bcd01"
+                        "pca-SRR28679758-0.5_leiden.h5ad:md5,1e5c3224ef148fb23c41a7acde1e3b41"
                     ],
                     [
                         {
@@ -1233,7 +1233,7 @@
                             "subset": "SRR28679758",
                             "resolution": "1"
                         },
-                        "pca-SRR28679758-1_leiden.h5ad:md5,63bd339aab011b9b25df402fdbe29147"
+                        "pca-SRR28679758-1_leiden.h5ad:md5,bb17e7c38f3c53ad000dd0aa9aee43d1"
                     ],
                     [
                         {
@@ -1242,7 +1242,7 @@
                             "subset": "global",
                             "resolution": "0.5"
                         },
-                        "pca-global-0.5_leiden.h5ad:md5,929ed6e73c47cba190e707a2784f6c07"
+                        "pca-global-0.5_leiden.h5ad:md5,c2e4acb8b9782b573a464cde24c24b5d"
                     ],
                     [
                         {
@@ -1251,7 +1251,7 @@
                             "subset": "global",
                             "resolution": "1"
                         },
-                        "pca-global-1_leiden.h5ad:md5,ede0676afe3a9e60187c421f4964d44e"
+                        "pca-global-1_leiden.h5ad:md5,4051485856afa2e074b05206882cc3bf"
                     ]
                 ],
                 "h5ad_neighbors": [
@@ -1261,7 +1261,7 @@
                             "integration": "pca",
                             "subset": "SRR28679756"
                         },
-                        "pca-SRR28679756_neighbors.h5ad:md5,4dc7ec3039f163265dcb756b2b948fe1"
+                        "pca-SRR28679756_neighbors.h5ad:md5,2011e8355ac10da1d91269fba57f9532"
                     ],
                     [
                         {
@@ -1269,7 +1269,7 @@
                             "integration": "pca",
                             "subset": "SRR28679757"
                         },
-                        "pca-SRR28679757_neighbors.h5ad:md5,9665908669dca5be8e1ee489f7c6fe88"
+                        "pca-SRR28679757_neighbors.h5ad:md5,a0cb86e4c01ed891ed9f04b6f0c63d79"
                     ],
                     [
                         {
@@ -1277,7 +1277,7 @@
                             "integration": "pca",
                             "subset": "SRR28679758"
                         },
-                        "pca-SRR28679758_neighbors.h5ad:md5,e60895df2df7e4b60da6602df5064673"
+                        "pca-SRR28679758_neighbors.h5ad:md5,ae8ec5b2217a287cd6cfe419281c9cec"
                     ],
                     [
                         {
@@ -1285,50 +1285,50 @@
                             "integration": "pca",
                             "subset": "global"
                         },
-                        "pca-global_neighbors.h5ad:md5,50aa5bc4ca02da9aa5bc6cae4d25db92"
+                        "pca-global_neighbors.h5ad:md5,44c7710faf2ec2b405608405bb0b6e38"
                     ]
                 ],
                 "multiqc_files": [
                     "pca-SRR28679756-0.5_entropy_mqc.json:md5,cd198e78d2f0680a2858348a2c41dd1e",
-                    "pca-SRR28679756-0.5_leiden_mqc.json:md5,ce16db06ade551eee33683c82083b2d6",
+                    "pca-SRR28679756-0.5_leiden_mqc.json:md5,7e4a7a565dbd8af85dc38fc06531c873",
                     "pca-SRR28679756-1_entropy_mqc.json:md5,f64d55c31d446f08a307746342c50cf5",
-                    "pca-SRR28679756-1_leiden_mqc.json:md5,5273f6a1572eb3e550f97ae5306e9849",
+                    "pca-SRR28679756-1_leiden_mqc.json:md5,6aab65d53acf60c9723ae27ae13a4e52",
                     "pca-SRR28679757-0.5_entropy_mqc.json:md5,7abf6399423e8ec72cefde07d46a3706",
-                    "pca-SRR28679757-0.5_leiden_mqc.json:md5,b1b337e39bc3f44b88d7690951ccfbd6",
+                    "pca-SRR28679757-0.5_leiden_mqc.json:md5,09f417ee64fd117fd3e92ca0b396a66c",
                     "pca-SRR28679757-1_entropy_mqc.json:md5,e8809a8793c1d884985d9ca3b9e7021c",
-                    "pca-SRR28679757-1_leiden_mqc.json:md5,ea4bb012b119eb25d2298d940dad4d42",
+                    "pca-SRR28679757-1_leiden_mqc.json:md5,17cf3b8382fd6d1a1bce192907ed2241",
                     "pca-SRR28679758-0.5_entropy_mqc.json:md5,0e0f53cd2c0e47a3837e32182a846418",
-                    "pca-SRR28679758-0.5_leiden_mqc.json:md5,e770dd5bf0ed7bc8874b93cc2618245b",
+                    "pca-SRR28679758-0.5_leiden_mqc.json:md5,5f736a28ebd29dd73f016f1d22316252",
                     "pca-SRR28679758-1_entropy_mqc.json:md5,e56f429eb4362280f4d1e40f45cc5a65",
-                    "pca-SRR28679758-1_leiden_mqc.json:md5,d56619d638c450290269d898c6b894d1",
-                    "pca-global-0.5_entropy_mqc.json:md5,707d5664a8526134a27c658f4ac8bf84",
-                    "pca-global-0.5_leiden_mqc.json:md5,8d0a52bdea58b326c416136fdaea7041",
-                    "pca-global-1_entropy_mqc.json:md5,864fbdf696251ea9a2fe61c0849443d1",
-                    "pca-global-1_leiden_mqc.json:md5,579603342b0087e66d36d7766fada02e"
+                    "pca-SRR28679758-1_leiden_mqc.json:md5,1459106e37b4bc5f338b63b52ec88882",
+                    "pca-global-0.5_entropy_mqc.json:md5,75792a46fdb78ac23c1fda96e947dd89",
+                    "pca-global-0.5_leiden_mqc.json:md5,4f5668a6cb634e49c18b15e2fcb55636",
+                    "pca-global-1_entropy_mqc.json:md5,726d5c10c4212624e5028133109645c0",
+                    "pca-global-1_leiden_mqc.json:md5,bae28b17c8387a001aae5397312440ef"
                 ],
                 "obs": [
-                    "pca-SRR28679756-0.5_entropy.pkl:md5,05a119748224d95d6c7e53043cb256a7",
-                    "pca-SRR28679756-0.5_leiden.pkl:md5,5379b15fefaf815a88ecef6e40aecfe0",
-                    "pca-SRR28679756-1_entropy.pkl:md5,128288110b053217512209faec8d1a1b",
-                    "pca-SRR28679756-1_leiden.pkl:md5,3ed6c1a1dfca761cbf5e094f73138884",
-                    "pca-SRR28679757-0.5_entropy.pkl:md5,725f93e7c3136ede30371bc2a8e76c52",
-                    "pca-SRR28679757-0.5_leiden.pkl:md5,e82dc7e48694e2926534e97a072e0239",
-                    "pca-SRR28679757-1_entropy.pkl:md5,87e68050843603dcea4cb38f6e60078f",
-                    "pca-SRR28679757-1_leiden.pkl:md5,c604ed2a32cfc3983cc609572ac9179e",
-                    "pca-SRR28679758-0.5_entropy.pkl:md5,1deff5f1d5066735890029e60b6ce5fd",
-                    "pca-SRR28679758-0.5_leiden.pkl:md5,0f10073bf6a96ac225fc061589675e69",
-                    "pca-SRR28679758-1_entropy.pkl:md5,bac08e2f2d324c78719e405e7c727590",
-                    "pca-SRR28679758-1_leiden.pkl:md5,550a7d73abf60f73f79704bc68626fc3",
-                    "pca-global-0.5_entropy.pkl:md5,e3ba9d2b4d41a5373bac81cc6ae5141b",
-                    "pca-global-0.5_leiden.pkl:md5,70b0272e988db5304f940cc4b265ac16",
-                    "pca-global-1_entropy.pkl:md5,4150ab3d7e6802d66b6f18973eee8c75",
-                    "pca-global-1_leiden.pkl:md5,92b513cee3fab5a7ab9b617305c23b71"
+                    "pca-SRR28679756-0.5_entropy.pkl:md5,55c6b3186fc00c7a5fd1ced46b838ed0",
+                    "pca-SRR28679756-0.5_leiden.pkl:md5,aaf6664a245daf07940165f9aff03222",
+                    "pca-SRR28679756-1_entropy.pkl:md5,9e244da3a054956b9c233bf5511d8bed",
+                    "pca-SRR28679756-1_leiden.pkl:md5,d197a6e094d36fb2da78b3d208c9e01a",
+                    "pca-SRR28679757-0.5_entropy.pkl:md5,96aef03a506908e8ebfb13f7710c4914",
+                    "pca-SRR28679757-0.5_leiden.pkl:md5,219ee579949d1f7a5a4e5be785da9c8f",
+                    "pca-SRR28679757-1_entropy.pkl:md5,594b0d4dbf8d6d31645867330d5e8836",
+                    "pca-SRR28679757-1_leiden.pkl:md5,313aace6918a88b878d8be9b7bd454f2",
+                    "pca-SRR28679758-0.5_entropy.pkl:md5,6db5031d13e3805376136080fe6ed01f",
+                    "pca-SRR28679758-0.5_leiden.pkl:md5,bd1b75aad9d740155cfe09f12f552c85",
+                    "pca-SRR28679758-1_entropy.pkl:md5,7f51d0b495f0d8f040b50ea6279bb3d2",
+                    "pca-SRR28679758-1_leiden.pkl:md5,85373289794fc6299ecd1f9091f5132d",
+                    "pca-global-0.5_entropy.pkl:md5,fb9b6d5568f4f0cf0cd36e66e73d4d86",
+                    "pca-global-0.5_leiden.pkl:md5,1b37eb021ee407366c29bad95ada178c",
+                    "pca-global-1_entropy.pkl:md5,52af4754db4ca7b8b3ae2bb128c71743",
+                    "pca-global-1_leiden.pkl:md5,d3f745a3c3b9805a64b476a9c42e5c0d"
                 ],
                 "obsm": [
-                    "X_pca-SRR28679756_umap.pkl:md5,9d0a3c129bc3e3c53cbf07a7ae8ff980",
-                    "X_pca-SRR28679757_umap.pkl:md5,5f7237f6798e4064708bdd2804020cf7",
-                    "X_pca-SRR28679758_umap.pkl:md5,2a608d5c9d7f6cd0983196bbddb30d7a",
-                    "X_pca-global_umap.pkl:md5,017c6b03c594021ac64c0c627342b3d3"
+                    "X_pca-SRR28679756_umap.pkl:md5,3ff08f6078aa27b72773ee0ea6adfe58",
+                    "X_pca-SRR28679757_umap.pkl:md5,4304302519c62048abf537318fb228c8",
+                    "X_pca-SRR28679758_umap.pkl:md5,78f8becd05a22d4be05c066805662ff7",
+                    "X_pca-global_umap.pkl:md5,564227e2c908abc0299d55d9b1e9d68a"
                 ],
                 "versions": [
                     "versions.yml:md5,6a842ca07b6aa3c3d241aeb4f14e78ef",
@@ -1361,8 +1361,8 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2025-12-31T11:03:06.746706362"
+        "timestamp": "2026-01-20T08:03:37.678952593"
     }
 }
