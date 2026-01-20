@@ -1,4 +1,6 @@
 Changes in component 'nf-core/cellbender/merge'
+'modules/nf-core/cellbender/merge/environment.yml' is unchanged
+'modules/nf-core/cellbender/merge/meta.yml' is unchanged
 Changes in 'cellbender/merge/main.nf':
 --- modules/nf-core/cellbender/merge/main.nf
 +++ modules/nf-core/cellbender/merge/main.nf
@@ -19,9 +21,7 @@ Changes in 'cellbender/merge/main.nf':
  
      stub:
 
-'modules/nf-core/cellbender/merge/meta.yml' is unchanged
-'modules/nf-core/cellbender/merge/environment.yml' is unchanged
-'modules/nf-core/cellbender/merge/templates/merge.py' is unchanged
-'modules/nf-core/cellbender/merge/tests/main.nf.test' is unchanged
 'modules/nf-core/cellbender/merge/tests/main.nf.test.snap' is unchanged
+'modules/nf-core/cellbender/merge/tests/main.nf.test' is unchanged
+'modules/nf-core/cellbender/merge/templates/merge.py' is unchanged
 ************************************************************

@@ -38,13 +38,12 @@ workflow AMBIENT_CORRECTION {
         .multiMap {
             meta, filtered, unfiltered ->
             input: [meta, filtered, unfiltered]
-            batch_col: meta.batch_col ?: "batch"
+            batch_col: meta.batch_col ?: []
             input_layer: meta.counts_layer ?: "X"
             output_layer: get_output_layer(
                 ambient_corrected_integration,
                 meta.ambient_corrected_integration,
-                method
-            )
+                method)
         }
 
     ch_h5ad = ch_do_ambient_correction.no
@@ -100,11 +99,15 @@ workflow AMBIENT_CORRECTION {
         ch_versions = ch_versions.mix(SOUPX.out.versions)
     }
     else if (method == 'scar') {
+<<<<<<< HEAD
         SCVITOOLS_SCAR (
             ch_multi.input,
             ch_multi.input_layer,
             ch_multi.output_layer
         )
+=======
+        SCVITOOLS_SCAR(ch_multi.input, ch_multi.input_layer, ch_multi.output_layer, params.scvi_max_epochs ?: [], [])
+>>>>>>> dev
         ch_h5ad = ch_h5ad.mix(SCVITOOLS_SCAR.out.h5ad)
         ch_versions = ch_versions.mix(SCVITOOLS_SCAR.out.versions)
     }

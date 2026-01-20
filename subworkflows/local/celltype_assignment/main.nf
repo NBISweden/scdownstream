@@ -25,7 +25,10 @@ workflow CELLTYPE_ASSIGNMENT {
     }
 
     if (celltypist_model) {
-        celltypist_models = channel.value(celltypist_model.split(',').collect{ it -> it.trim() })
+        celltypist_models = channel.value(celltypist_model
+            .split(',')
+            .collect{ it -> it.trim() }
+        )
 
         CELLTYPES_CELLTYPIST (
             ch_h5ad,

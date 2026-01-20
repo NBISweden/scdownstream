@@ -18,6 +18,8 @@ workflow DOUBLET_DETECTION {
     if (methods.size() == 0) {
         log.info("DOUBLET_DETECTION: Not performed since no methods selected.")
     } else {
+        ch_batch_col = ch_h5ad.map { meta, _h5ad -> meta.batch_col }
+
         if (methods.contains('scds')) {
             SCDS (
                 ch_h5ad
@@ -28,22 +30,18 @@ workflow DOUBLET_DETECTION {
 
         if (methods.contains('solo')) {
             SCVITOOLS_SOLO (
-                ch_h5ad
+                ch_h5ad,
+                ch_batch_col,
+                params.scvi_max_epochs ?: []
             )
             ch_predictions = ch_predictions.mix(SCVITOOLS_SOLO.out.predictions)
             ch_versions = SCVITOOLS_SOLO.out.versions
         }
 
         if (methods.contains('scrublet')) {
-            ch_scrublet = ch_h5ad
-                .multiMap {
-                    meta, h5ad ->
-                    input: [meta, h5ad]
-                    batch_col: meta.batch_col
-                }
             SCANPY_SCRUBLET (
-                ch_scrublet.input,
-                ch_scrublet.batch_col
+                ch_h5ad,
+                ch_batch_col
             )
             ch_predictions = ch_predictions.mix(SCANPY_SCRUBLET.out.predictions)
             ch_versions = SCANPY_SCRUBLET.out.versions

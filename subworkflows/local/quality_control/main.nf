@@ -5,6 +5,7 @@ include { ANNDATA_GETSIZE as GET_THRESHOLDED_SIZE                               
 include { ANNDATA_GETSIZE as GET_DEDOUBLETED_SIZE                                    } from '../../../modules/nf-core/anndata/getsize'
 include { SCANPY_PLOTQC as QC_RAW                                                    } from '../../../modules/local/scanpy/plotqc'
 include { AMBIENT_CORRECTION                                                         } from '../ambient_correction'
+include { UNIFY                                                                      } from '../unify'
 include { SCANPY_FILTER                                                              } from '../../../modules/local/scanpy/filter'
 include { DOUBLET_DETECTION                                                          } from '../doublet_detection'
 include { SCANPY_PLOTQC as QC_FILTERED                                               } from '../../../modules/local/scanpy/plotqc'
@@ -102,6 +103,15 @@ workflow QUALITY_CONTROL {
     )
     ch_h5ad = AMBIENT_CORRECTION.out.h5ad
     ch_versions = ch_versions.mix(AMBIENT_CORRECTION.out.versions)
+
+    // Unification needds to happen before filtering to make sure all genes have symbols
+    // Otherwise, mitochondrial gene detection will not work correctly
+    UNIFY (
+        ch_h5ad
+    )
+    ch_versions = ch_versions.mix(UNIFY.out.versions)
+    ch_multiqc_files = ch_multiqc_files.mix(UNIFY.out.multiqc_files)
+    ch_h5ad = UNIFY.out.h5ad
 
     ch_filtering = ch_h5ad
         .multiMap {

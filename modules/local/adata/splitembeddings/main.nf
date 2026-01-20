@@ -21,4 +21,11 @@ process ADATA_SPLITEMBEDDINGS {
     script:
     prefix = task.ext.prefix ?: "${meta.id}"
     template('split_embeddings.py')
+
+    stub:
+    prefix = task.ext.prefix ?: "${meta.id}"
+    """
+    touch scvi.h5ad
+    touch versions.yml
+    """
 }

@@ -6,7 +6,6 @@
 
 include { LOAD_H5AD                            } from '../subworkflows/local/load_h5ad'
 include { QUALITY_CONTROL                      } from '../subworkflows/local/quality_control'
-include { UNIFY                                } from '../subworkflows/local/unify'
 include { CELLTYPE_ASSIGNMENT                  } from '../subworkflows/local/celltype_assignment'
 include { ADATA_EXTEND as FINALIZE_QC_ANNDATAS } from '../modules/local/adata/extend'
 include { COMBINE                              } from '../subworkflows/local/combine'
@@ -99,8 +98,8 @@ workflow SCDOWNSTREAM {
         QUALITY_CONTROL (
             ch_h5ad,
             ambient_correction,
-            ambient_corrected_integration,
-            !doublet_detection || doublet_detection == 'none'
+            params.ambient_correction,
+            (!doublet_detection || doublet_detection == 'none')
                 ? []
                 : doublet_detection
                     .split(',')
@@ -142,19 +141,6 @@ workflow SCDOWNSTREAM {
 
         if (!qc_only) {
             //
-            // Unify samples to make them compatible for integration
-            //
-            UNIFY (
-                ch_h5ad,
-                unify_gene_symbols,
-                duplicate_var_resolution,
-                aggregate_isoforms
-            )
-            ch_versions = ch_versions.mix(UNIFY.out.versions)
-            ch_multiqc_files = ch_multiqc_files.mix(UNIFY.out.multiqc_files)
-            ch_h5ad = UNIFY.out.h5ad
-
-            //
             // Combine samples and perform integration
             //
             COMBINE (
@@ -180,9 +166,10 @@ workflow SCDOWNSTREAM {
         }
     }
     else {
-        ch_embeddings = channel
-            .value(base_embeddings.split(',')
-            .collect { it -> it.trim() })
+        ch_embeddings = channel.value(
+            base_embeddings.split(',')
+            .collect { it -> it.trim() }
+        )
 
         ADATA_SPLITEMBEDDINGS (
             ch_base,
@@ -271,7 +258,25 @@ workflow SCDOWNSTREAM {
     //
     // Collate and save software versions
     //
-    softwareVersionsToYAML(ch_versions)
+    def topic_versions = channel.topic("versions")
+        .distinct()
+        .branch { entry ->
+            versions_file: entry instanceof Path
+            versions_tuple: true
+        }
+
+    def topic_versions_string = topic_versions.versions_tuple
+        .map { process, tool, version ->
+            [ process[process.lastIndexOf(':')+1..-1], "  ${tool}: ${version}" ]
+        }
+        .groupTuple(by:0)
+        .map { process, tool_versions ->
+            tool_versions.unique().sort()
+            "${process}:\n${tool_versions.join('\n')}"
+        }
+
+    softwareVersionsToYAML(ch_versions.mix(topic_versions.versions_file))
+        .mix(topic_versions_string)
         .collectFile(
             storeDir: "${outdir}/pipeline_info",
             name: 'nf_core_' + 'scdownstream_software_' + 'mqc_' + 'versions.yml',
@@ -294,7 +299,7 @@ workflow SCDOWNSTREAM {
         ? channel.fromPath(multiqc_logo, checkIfExists: true)
         : channel.empty()
 
-    summary_params = paramsSummaryMap(
+    summary_params      = paramsSummaryMap(
         workflow,
         parameters_schema: "nextflow_schema.json"
     )
@@ -303,11 +308,9 @@ workflow SCDOWNSTREAM {
         ch_workflow_summary.collectFile(name: 'workflow_summary_mqc.yaml')
     )
     ch_multiqc_custom_methods_description = multiqc_methods_description
-        ? file(multiqc_methods_description, checkIfExists: true)
-        : file("${projectDir}/assets/methods_description_template.yml", checkIfExists: true)
-    ch_methods_description = channel.value(
-        methodsDescriptionText(ch_multiqc_custom_methods_description)
-    )
+        ? file(multiqc_methods_description, checkIfExists: true) : file("${projectDir}/assets/methods_description_template.yml", checkIfExists: true)
+    ch_methods_description                = channel.value(
+        methodsDescriptionText(ch_multiqc_custom_methods_description))
 
     ch_multiqc_files = ch_multiqc_files.mix(ch_collated_versions)
     ch_multiqc_files = ch_multiqc_files.mix(
