@@ -33,7 +33,7 @@ workflow DIFFERENTIAL_EXPRESSION {
 
     ch_global_labels = ch_settings
         .map { meta, h5ad, _condition_col, _conditions, obs_key, _labels ->
-            [meta, h5ad, [], [], obs_key]
+            [meta + [id: obs_key], h5ad, [], [], obs_key]
         }
     ch_comparisons = ch_comparisons.mix(ch_global_labels)
 
@@ -41,13 +41,16 @@ workflow DIFFERENTIAL_EXPRESSION {
         .map { meta, h5ad, condition_col, condition, obs_key, _labels ->
             [meta, h5ad, condition_col, condition, obs_key]
         }
-    ch_comparisons = ch_comparisons.mix(ch_condition_labels)
 
     ch_label_conditions = ch_settings.transpose(by: 5)
         .map { meta, h5ad, condition_col, _conditions, obs_key, label ->
             [meta, h5ad, obs_key, label, condition_col]
         }
-    ch_comparisons = ch_comparisons.mix(ch_label_conditions)
+    ch_comparisons = ch_comparisons.mix(
+        ch_label_conditions.mix(ch_condition_labels).map { meta, h5ad, filter_col, filter_val, obs_key ->
+            [meta + [id: obs_key + ":" + filter_col + ":" + filter_val], h5ad, filter_col, filter_val, obs_key]
+        }
+    )
 
     ch_rankgenesgroups = ch_comparisons.multiMap { meta, h5ad, filter_col, filter_val, obs_key ->
         h5ad: [meta, h5ad]
