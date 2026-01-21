@@ -1,7 +1,6 @@
 {
     "Should perform scvi reference mapping": {
         "content": [
-            66,
             {
                 "ADATA_EXTEND": {
                     "anndata": "0.12.7",

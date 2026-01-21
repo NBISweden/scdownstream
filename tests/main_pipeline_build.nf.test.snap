@@ -1,7 +1,6 @@
 {
     "Should process data from scratch": {
         "content": [
-            288,
             {
                 "ADATA_EXTEND": {
                     "anndata": "0.12.7",

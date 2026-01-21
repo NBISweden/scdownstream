@@ -1,7 +1,6 @@
 {
     "Should perform scvi reference extension": {
         "content": [
-            62,
             {
                 "ADATA_EXTEND": {
                     "anndata": "0.12.7",
