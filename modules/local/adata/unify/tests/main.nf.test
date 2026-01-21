@@ -25,11 +25,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -66,11 +67,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "counts"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "counts"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -110,11 +112,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -141,11 +144,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "symbols"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "symbols"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -182,11 +186,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "symbols"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "symbols"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -214,11 +219,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "symbols"
-                input[5] = "X"
-                input[6] = "mean"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "symbols"
+                input[6] = "X"
+                input[7] = "mean"
+                input[8] = false
                 """
             }
         }
@@ -246,11 +252,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "symbols"
-                input[5] = "X"
-                input[6] = "max"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "symbols"
+                input[6] = "X"
+                input[7] = "max"
+                input[8] = false
                 """
             }
         }
@@ -278,11 +285,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "symbols"
-                input[5] = "X"
-                input[6] = "make_unique"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "symbols"
+                input[6] = "X"
+                input[7] = "make_unique"
+                input[8] = false
                 """
             }
         }
@@ -314,11 +322,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = true
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = true
                 """
             }
         }
@@ -356,11 +365,12 @@ nextflow_process {
                 )
                 input[1] = "batch_id"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -395,11 +405,12 @@ nextflow_process {
                 )
                 input[1] = "batch"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -433,11 +444,12 @@ nextflow_process {
                 )
                 input[1] = "batch"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -471,11 +483,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -504,11 +517,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = "cell_type"
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -543,11 +557,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = "label"
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -581,11 +596,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -619,11 +635,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = "cell_type"
-                input[3] = "Unassigned"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "Unassigned"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -657,11 +674,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = "cell_type"
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -695,11 +713,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = "cell_type"
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -734,11 +753,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = "cell_type"
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -746,6 +766,158 @@ nextflow_process {
         then {
             assert process.failed
             assert process.errorReport.contains("The label column already exists")
+        }
+    }
+
+    // ============================================================================
+    // 6b. CONDITION COLUMN VARIATIONS
+    // ============================================================================
+
+    test("Should handle condition column with different name") {
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = channel.of([
+                        [id: 'test'],
+                        file(params.pipelines_testdata_base_path + '/anndata-variations/condition_different_name.h5ad', checkIfExists: true)
+                    ]
+                )
+                input[1] = "sample"
+                input[2] = ""
+                input[3] = "disease_state"
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
+                """
+            }
+        }
+
+        then {
+            def filename = process.out.h5ad[0][1]
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() },
+                {
+                    with(anndata(filename)) {
+                        assert "condition" in obs.colnames
+                        assert !("disease_state" in obs.colnames)
+                        assert obs.get("condition").unique.size() > 0
+                    }
+                }
+            )
+        }
+    }
+
+    test("Should handle condition column already named condition") {
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = channel.of([
+                        [id: 'test'],
+                        file(params.pipelines_testdata_base_path + '/anndata-variations/condition_correct_name.h5ad', checkIfExists: true)
+                    ]
+                )
+                input[1] = "sample"
+                input[2] = ""
+                input[3] = "condition"
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
+                """
+            }
+        }
+
+        then {
+            def filename = process.out.h5ad[0][1]
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() },
+                {
+                    with(anndata(filename)) {
+                        assert "condition" in obs.colnames
+                        assert obs.get("condition").unique.size() > 0
+                    }
+                }
+            )
+        }
+    }
+
+    test("Should create condition column when missing") {
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = channel.of([
+                        [id: 'test'],
+                        file(params.pipelines_testdata_base_path + '/anndata-variations/condition_missing.h5ad', checkIfExists: true)
+                    ]
+                )
+                input[1] = "sample"
+                input[2] = ""
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
+                """
+            }
+        }
+
+        then {
+            def filename = process.out.h5ad[0][1]
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() },
+                {
+                    with(anndata(filename)) {
+                        assert "condition" in obs.colnames
+                        assert obs.get("condition").unique.every { it == "Unknown" }
+                    }
+                }
+            )
+        }
+    }
+
+    test("Should fail on condition column conflict") {
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = channel.of([
+                        [id: 'test'],
+                        file(params.pipelines_testdata_base_path + '/anndata-variations/condition_conflict.h5ad', checkIfExists: true)
+                    ]
+                )
+                input[1] = "sample"
+                input[2] = ""
+                input[3] = "disease_state"
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
+                """
+            }
+        }
+
+        then {
+            assert process.failed
+            assert process.errorReport.contains("The condition column already exists")
         }
     }
 
@@ -767,11 +939,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -798,11 +971,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -833,11 +1007,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -871,11 +1046,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -910,11 +1086,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -952,11 +1129,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -996,11 +1174,12 @@ nextflow_process {
                 )
                 input[1] = "batch"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -1039,11 +1218,12 @@ nextflow_process {
                 )
                 input[1] = "batch_id"
                 input[2] = "cell_type"
-                input[3] = "unknown"
-                input[4] = "symbols"
-                input[5] = "counts"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "symbols"
+                input[6] = "counts"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
@@ -1088,11 +1268,12 @@ nextflow_process {
                 )
                 input[1] = "sample"
                 input[2] = ""
-                input[3] = "unknown"
-                input[4] = "index"
-                input[5] = "X"
-                input[6] = "sum"
-                input[7] = false
+                input[3] = ""
+                input[4] = "unknown"
+                input[5] = "index"
+                input[6] = "X"
+                input[7] = "sum"
+                input[8] = false
                 """
             }
         }
