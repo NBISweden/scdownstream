@@ -27,6 +27,7 @@ nextflow_workflow {
                 input[4] = channel.empty()
                 input[5] = channel.of(file(params.pipelines_testdata_base_path + '/intermediates/fragments/scvi-global-1.0_paga.pkl', checkIfExists: true))
                 input[6] = channel.empty()
+                input[7] = false
                 """
             }
         }
@@ -56,6 +57,7 @@ nextflow_workflow {
                 input[4] = channel.empty()
                 input[5] = channel.of(file(params.pipelines_testdata_base_path + '/intermediates/fragments/scvi-global-1.0_paga.pkl', checkIfExists: true))
                 input[6] = channel.empty()
+                input[7] = false
                 """
             }
         }
@@ -87,6 +89,7 @@ nextflow_workflow {
                 input[4] = channel.empty()
                 input[5] = channel.empty()
                 input[6] = channel.empty()
+                input[7] = false
                 """
             }
         }
@@ -116,6 +119,7 @@ nextflow_workflow {
                 input[4] = channel.empty()
                 input[5] = channel.empty()
                 input[6] = channel.empty()
+                input[7] = false
                 """
             }
         }
@@ -149,6 +153,7 @@ nextflow_workflow {
                 input[4] = channel.empty()
                 input[5] = channel.empty()
                 input[6] = channel.empty()
+                input[7] = true
                 """
             }
         }
@@ -182,6 +187,7 @@ nextflow_workflow {
                 input[4] = channel.empty()
                 input[5] = channel.empty()
                 input[6] = channel.empty()
+                input[7] = true
                 """
             }
         }
