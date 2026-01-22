@@ -36,33 +36,23 @@
         "content": [
             {
                 "0": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "scvi.h5ad:md5,553d77d503947ed01b9187e4c90c471b"
-                    ]
+                    
                 ],
                 "1": [
-                    "versions.yml:md5,ce25b7e15c645b6d0626cbf55adda4a6"
+                    
                 ],
                 "h5ad": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "scvi.h5ad:md5,553d77d503947ed01b9187e4c90c471b"
-                    ]
+                    
                 ],
                 "versions": [
-                    "versions.yml:md5,ce25b7e15c645b6d0626cbf55adda4a6"
+                    
                 ]
             }
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nextflow": "25.04.7"
         },
-        "timestamp": "2026-01-11T09:34:51.108840671"
+        "timestamp": "2026-01-21T12:26:19.836680693"
     }
 }
