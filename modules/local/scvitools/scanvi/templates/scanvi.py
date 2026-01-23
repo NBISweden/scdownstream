@@ -25,9 +25,12 @@ adata = ad.read_h5ad("${h5ad}")
 reference_model_path = "reference_model"
 reference_model_type = "${meta2.id}"
 
+plan_kwargs = {}
+
 if reference_model_type == "scanvi":
     SCANVI.prepare_query_anndata(adata, reference_model_path)
     model = SCANVI.load_query_data(adata, reference_model_path)
+    plan_kwargs['weight_decay'] = 0.0
 else:
     unique_labels = set(adata.obs["${label_col}"].unique())
     unique_labels.discard("unknown")
@@ -41,6 +44,7 @@ else:
         model = SCANVI.from_scvi_model(
             scvi_model=model, labels_key="${label_col}", unlabeled_category="unknown"
         )
+        plan_kwargs['weight_decay'] = 0.0
     else:
         categorical_covariates = "${categorical_covariates}"
         continuous_covariates = "${continuous_covariates}"
@@ -63,7 +67,8 @@ if "${task.ext.use_gpu}" == "true":
     model.to_device(0)
 
 model.train(early_stopping=True,
-            max_epochs=int("${max_epochs}") if "${max_epochs?:''}" else None)
+            max_epochs=int("${max_epochs}") if "${max_epochs?:''}" else None,
+            plan_kwargs=plan_kwargs)
 
 # Round to ensure hashes are stable
 adata.obsm["X_emb"] = model.get_latent_representation()
