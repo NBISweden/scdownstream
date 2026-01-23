@@ -189,6 +189,11 @@
                     "default": "label",
                     "description": "The column in the base AnnData object that contains the label (e.g. cell type) information."
                 },
+                "base_condition_col": {
+                    "type": "string",
+                    "default": "condition",
+                    "description": "The column in the base AnnData object that contains the condition (e.g. disease state, treatment) information."
+                },
                 "base_embeddings": {
                     "type": "string",
                     "description": "The keys in the obsm of the base AnnData object that contain the embeddings (without leading `X_`). Required if `input` is not provided - otherwise it is ignored.",
@@ -282,6 +287,13 @@
                 "skip_rankgenesgroups": {
                     "type": "boolean",
                     "description": "Skip the rank_genes_groups step. For large datasets, the pipeline might fail due to high memory usage in this step. Use this option to skip it."
+                },
+                "rankgenesgroups_method": {
+                    "type": "string",
+                    "default": "wilcoxon",
+                    "enum": ["t-test", "t-test_overestim_var", "wilcoxon", "logreg"],
+                    "description": "Statistical method for ranking genes in differential expression analysis.",
+                    "help_text": "Available methods are: 't-test' (default t-test), 't-test_overestim_var' (t-test with overestimated variance), 'wilcoxon' (Wilcoxon rank-sum test, default), 'logreg' (logistic regression)."
                 },
                 "pseudobulk": {
                     "type": "boolean",
@@ -497,7 +509,7 @@
                     "type": "string",
                     "fa_icon": "far fa-check-circle",
                     "description": "Base URL or local path to location of pipeline test dataset files",
-                    "default": "https://raw.githubusercontent.com/nf-core/test-datasets/00be8d6e5fb433e28a373599965433a9529633e9/",
+                    "default": "https://raw.githubusercontent.com/nf-core/test-datasets/3ba0ba7174a5667fc2e005430594ffb063f986c7/",
                     "hidden": true
                 },
                 "trace_report_suffix": {

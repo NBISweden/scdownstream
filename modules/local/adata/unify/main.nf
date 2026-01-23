@@ -11,6 +11,7 @@ process ADATA_UNIFY {
     tuple val(meta), path(h5ad)
     val batch_col
     val label_col
+    val condition_col
     val unknown_label
     val symbol_col
     val counts_layer

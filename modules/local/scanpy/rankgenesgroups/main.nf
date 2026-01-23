@@ -9,6 +9,9 @@ process SCANPY_RANKGENESGROUPS {
 
     input:
     tuple val(meta), path(h5ad)
+    val(obs_key)
+    tuple val(filter_col), val(filter_val)
+    val(method)
 
     output:
     tuple val(meta), path("*.h5ad"), emit: h5ad, optional: true
@@ -21,7 +24,6 @@ process SCANPY_RANKGENESGROUPS {
     task.ext.when == null || task.ext.when
 
     script:
-    obs_key = meta.obs_key ?: "leiden"
     prefix = task.ext.prefix ?: "${meta.id}"
     template('rank_genes_groups.py')
 

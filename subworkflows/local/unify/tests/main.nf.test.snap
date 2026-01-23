@@ -9,6 +9,7 @@
                             "symbol_col": "index",
                             "batch_col": "batch",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "counts_layer": "X"
                         },
@@ -30,6 +31,7 @@
                             "symbol_col": "index",
                             "batch_col": "batch",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "counts_layer": "X"
                         },
@@ -50,7 +52,7 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2026-01-17T08:59:34.597420355"
+        "timestamp": "2026-01-18T17:39:58.741250963"
     },
     "Should run without failures - symbol_col index, unify_gene_symbols false": {
         "content": [
@@ -62,10 +64,11 @@
                             "symbol_col": "index",
                             "batch_col": "batch",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "counts_layer": "X"
                         },
-                        "test_unified.h5ad:md5,ec1a8f35bb7f3dd64fd93ce7f23b608a"
+                        "test_unified.h5ad:md5,634cda43f3cc2ce7ffeddcd8cb0a1e76"
                     ]
                 ],
                 "1": [
@@ -82,10 +85,11 @@
                             "symbol_col": "index",
                             "batch_col": "batch",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "counts_layer": "X"
                         },
-                        "test_unified.h5ad:md5,ec1a8f35bb7f3dd64fd93ce7f23b608a"
+                        "test_unified.h5ad:md5,634cda43f3cc2ce7ffeddcd8cb0a1e76"
                     ]
                 ],
                 "multiqc_files": [
@@ -99,9 +103,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2026-01-17T09:02:55.977615525"
+        "timestamp": "2026-01-18T21:22:29.899026309"
     },
     "Should run without failures - symbol_col index, unify_gene_symbols true": {
         "content": [
@@ -113,10 +117,11 @@
                             "symbol_col": "index",
                             "batch_col": "batch",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "counts_layer": "X"
                         },
-                        "test_unified.h5ad:md5,ae8a857c3f5796af1023f5ee4d13f2de"
+                        "test_unified.h5ad:md5,a6b81077f8445ded50fbc8cc43d14a4b"
                     ]
                 ],
                 "1": [
@@ -136,10 +141,11 @@
                             "symbol_col": "index",
                             "batch_col": "batch",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "counts_layer": "X"
                         },
-                        "test_unified.h5ad:md5,ae8a857c3f5796af1023f5ee4d13f2de"
+                        "test_unified.h5ad:md5,a6b81077f8445ded50fbc8cc43d14a4b"
                     ]
                 ],
                 "multiqc_files": [
@@ -156,9 +162,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2026-01-17T12:45:33.549991156"
+        "timestamp": "2026-01-18T21:24:50.068999158"
     },
     "Should run without failures - symbol_col index, unify_gene_symbols false - stub": {
         "content": [
@@ -170,6 +176,7 @@
                             "symbol_col": "index",
                             "batch_col": "batch",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "counts_layer": "X"
                         },
@@ -190,6 +197,7 @@
                             "symbol_col": "index",
                             "batch_col": "batch",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "counts_layer": "X"
                         },
@@ -209,7 +217,7 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2026-01-17T08:59:03.4765894"
+        "timestamp": "2026-01-18T17:39:11.758025979"
     },
     "Should run without failures - symbol_col index, unify_gene_symbols true - stub": {
         "content": [
@@ -221,6 +229,7 @@
                             "symbol_col": "index",
                             "batch_col": "batch",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "counts_layer": "X"
                         },
@@ -245,6 +254,7 @@
                             "symbol_col": "index",
                             "batch_col": "batch",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "counts_layer": "X"
                         },
@@ -268,7 +278,7 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2026-01-17T09:00:34.265000143"
+        "timestamp": "2026-01-18T17:41:17.198406767"
     },
     "Should run without failures - symbol_col none, unify_gene_symbols false": {
         "content": [
@@ -280,10 +290,11 @@
                             "symbol_col": "index",
                             "batch_col": "batch",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "counts_layer": "X"
                         },
-                        "test_unified.h5ad:md5,4c10b25127c1ddbbed286b5da35857b4"
+                        "test_unified.h5ad:md5,c8f361ead8a279fe83ed22aae65ad769"
                     ]
                 ],
                 "1": [
@@ -301,10 +312,11 @@
                             "symbol_col": "index",
                             "batch_col": "batch",
                             "label_col": "label",
+                            "condition_col": "condition",
                             "unknown_label": "unknown",
                             "counts_layer": "X"
                         },
-                        "test_unified.h5ad:md5,4c10b25127c1ddbbed286b5da35857b4"
+                        "test_unified.h5ad:md5,c8f361ead8a279fe83ed22aae65ad769"
                     ]
                 ],
                 "multiqc_files": [
@@ -319,8 +331,8 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2026-01-17T09:04:06.22272964"
+        "timestamp": "2026-01-18T21:23:44.819165812"
     }
 }

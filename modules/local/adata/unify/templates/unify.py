@@ -137,6 +137,30 @@ else:
     adata.obs["label"] = "Unknown"
 adata.obs["label"] = adata.obs["label"].astype("category")
 
+# Unify conditions
+condition_col = "${condition_col}"
+
+if condition_col:
+    if condition_col not in adata.obs:
+        raise ValueError("The specified condition column does not exist in the dataset. Existing columns: " + ", ".join(adata.obs.columns))
+
+    if condition_col != "condition":
+        if "condition" in adata.obs:
+            raise ValueError("The condition column already exists.")
+        adata.obs["condition"] = adata.obs[condition_col]
+        del adata.obs[condition_col]
+
+    # Replace all NaN values with "unknown"
+    adata.obs["condition"] = adata.obs["condition"].astype(str)
+    adata.obs["condition"] = adata.obs["condition"].fillna("unknown")
+    adata.obs["condition"] = adata.obs["condition"].map(to_Florent_case)
+    adata.obs["condition"] = adata.obs["condition"].astype("category")
+else:
+    if "condition" in adata.obs:
+        raise ValueError("The condition column already exists.")
+    adata.obs["condition"] = "Unknown"
+adata.obs["condition"] = adata.obs["condition"].astype("category")
+
 # Add "sample" column
 if "sample" in adata.obs and not adata.obs["sample"].equals("${meta.id}"):
     adata.obs["sample_original"] = adata.obs["sample"]
