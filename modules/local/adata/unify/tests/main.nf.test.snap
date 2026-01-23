@@ -700,7 +700,7 @@
                         {
                             "id": "test"
                         },
-                        "test_unified.h5ad:md5,52e31371b07ad76a83f90a3b5db556a8"
+                        "test_unified.h5ad:md5,cd62cc1d9bd842ef1d438877f9d1caea"
                     ]
                 ],
                 "1": [
@@ -711,7 +711,7 @@
                         {
                             "id": "test"
                         },
-                        "test_unified.h5ad:md5,52e31371b07ad76a83f90a3b5db556a8"
+                        "test_unified.h5ad:md5,cd62cc1d9bd842ef1d438877f9d1caea"
                     ]
                 ],
                 "versions": [
@@ -721,9 +721,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nextflow": "25.04.7"
         },
-        "timestamp": "2026-01-11T22:06:16.06328414"
+        "timestamp": "2026-01-21T12:32:13.581528247"
     },
     "Should handle counts in layer": {
         "content": [
@@ -865,7 +865,7 @@
                         {
                             "id": "test"
                         },
-                        "test_unified.h5ad:md5,174909d3c1394cd64052404c6d7bc8b1"
+                        "test_unified.h5ad:md5,c68c2105ecffca52b692cac459e00880"
                     ]
                 ],
                 "1": [
@@ -876,7 +876,7 @@
                         {
                             "id": "test"
                         },
-                        "test_unified.h5ad:md5,174909d3c1394cd64052404c6d7bc8b1"
+                        "test_unified.h5ad:md5,c68c2105ecffca52b692cac459e00880"
                     ]
                 ],
                 "versions": [
@@ -886,8 +886,8 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nextflow": "25.04.7"
         },
-        "timestamp": "2026-01-12T19:33:21.238209768"
+        "timestamp": "2026-01-21T12:31:20.864235203"
     }
 }

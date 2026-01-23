@@ -28,8 +28,45 @@ include { methodsDescriptionText               } from '../subworkflows/local/uti
 
 workflow SCDOWNSTREAM {
     take:
-    ch_samplesheet // channel: samplesheet read in from --input
-    ch_base        // channel: [ val(meta), path(h5ad) ]
+    ch_samplesheet                // channel: samplesheet read in from --input
+    ch_base                       // channel: [ val(meta), path(h5ad) ]
+    base_adata                    //   value: string
+    ch_input                      //    file: samplesheet.csv
+    ambient_correction            //   value: string
+    ambient_corrected_integration //   value: boolean
+    doublet_detection             //   value: string
+    doublet_detection_threshold   //   value: integer
+    scvi_max_epochs               //   value: integer
+    mito_genes                    //   value: string
+    qc_only                       //   value: boolean
+    celldex_reference             //   value: string
+    celltypist_model              //   value: string
+    unify_gene_symbols            //   value: boolean
+    duplicate_var_resolution      //   value: string
+    aggregate_isoforms            //   value: boolean
+    integration_hvgs              //   value: integer
+    integration_methods           //   value: string
+    integration_excluded_genes    //   value: string
+    scvi_model                    //   value: string
+    scanvi_model                  //   value: string
+    scvi_categorical_covariates   //   value: string
+    scvi_continuous_covariates    //   value: string
+    scimilarity_model             //   value: string
+    skip_liana                    //   value: boolean
+    skip_rankgenesgroups          //   value: boolean
+    base_embeddings               //   value: string
+    base_label_col                //   value: string
+    cluster_per_label             //   value: boolean
+    cluster_global                //   value: boolean
+    clustering_resolutions        //   value: string
+    pseudobulk                    //   value: boolean
+    pseudobulk_groupby_labels     //   value: string
+    pseudobulk_min_num_cells      //   value: integer
+    prep_cellxgene                //   value: boolean
+    outdir                        //   value: string
+    multiqc_config                //   value: string
+    multiqc_logo                  //   value: string
+    multiqc_methods_description   //   value: string
 
     main:
 
@@ -43,7 +80,7 @@ workflow SCDOWNSTREAM {
     ch_layers = channel.empty()
     ch_multiqc_files = channel.empty()
 
-    if (params.input) {
+    if (ch_input) {
         ch_obs_per_sample = channel.empty()
         ch_var_per_sample = channel.empty()
         ch_obsm_per_sample = channel.empty()
@@ -54,19 +91,28 @@ workflow SCDOWNSTREAM {
         //
         // Load/Convert input to h5ad
         //
-        LOAD_H5AD(ch_samplesheet)
+        LOAD_H5AD ( ch_samplesheet )
         ch_h5ad = LOAD_H5AD.out.h5ad
         ch_versions = ch_versions.mix(LOAD_H5AD.out.versions)
 
         //
         // Quality control per sample
         //
-        QUALITY_CONTROL(
+        QUALITY_CONTROL (
             ch_h5ad,
-            params.ambient_correction,
-            (!params.doublet_detection || params.doublet_detection == 'none') ? [] : params.doublet_detection.split(',').collect { it -> it.trim().toLowerCase() },
-            params.doublet_detection_threshold,
-            params.mito_genes,
+            ambient_correction,
+            ambient_corrected_integration,
+            unify_gene_symbols,
+            duplicate_var_resolution,
+            aggregate_isoforms,
+            (!doublet_detection || doublet_detection == 'none')
+                ? []
+                : doublet_detection
+                    .split(',')
+                    .collect { it -> it.trim().toLowerCase() },
+            doublet_detection_threshold,
+            scvi_max_epochs,
+            mito_genes,
         )
         ch_versions = ch_versions.mix(QUALITY_CONTROL.out.versions)
         ch_multiqc_files = ch_multiqc_files.mix(QUALITY_CONTROL.out.multiqc_files)
@@ -75,23 +121,48 @@ workflow SCDOWNSTREAM {
         //
         // Perform automated celltype assignment
         //
-        CELLTYPE_ASSIGNMENT(ch_h5ad.map { meta, h5ad -> [meta, h5ad, meta.symbol_col] })
+        CELLTYPE_ASSIGNMENT (
+            ch_h5ad.map { meta, h5ad -> [meta, h5ad, meta.symbol_col] },
+            celldex_reference,
+            celltypist_model
+        )
         ch_versions = ch_versions.mix(CELLTYPE_ASSIGNMENT.out.versions)
         ch_obs_per_sample = ch_obs_per_sample.mix(CELLTYPE_ASSIGNMENT.out.obs)
 
-        FINALIZE_QC_ANNDATAS(
-            ch_h5ad.join(ch_obs_per_sample.groupTuple(), remainder: true).join(ch_var_per_sample.groupTuple(), remainder: true).join(ch_obsm_per_sample.groupTuple(), remainder: true).join(ch_obsp_per_sample.groupTuple(), remainder: true).join(ch_uns_per_sample.groupTuple(), remainder: true).join(ch_layers_per_sample.groupTuple(), remainder: true).map { meta, h5ad, obs, var, obsm, obsp, uns, layers ->
-                [meta, h5ad, obs ?: [], var ?: [], obsm ?: [], obsp ?: [], uns ?: [], layers ?: []]
+        FINALIZE_QC_ANNDATAS (
+            ch_h5ad
+            .join(ch_obs_per_sample.groupTuple(), remainder: true)
+            .join(ch_var_per_sample.groupTuple(), remainder: true)
+            .join(ch_obsm_per_sample.groupTuple(), remainder: true)
+            .join(ch_obsp_per_sample.groupTuple(), remainder: true)
+            .join(ch_uns_per_sample.groupTuple(), remainder: true)
+            .join(ch_layers_per_sample.groupTuple(), remainder: true)
+            .map {
+                meta, h5ad, obs, var, obsm, obsp, uns, layers ->
+                [meta, h5ad, obs ?: [], var ?: [], obsm ?: [], obsp ?: [],
+                    uns ?: [], layers ?: []]
             }
         )
         ch_h5ad = FINALIZE_QC_ANNDATAS.out.h5ad
         ch_versions = ch_versions.mix(FINALIZE_QC_ANNDATAS.out.versions)
 
-        if (!params.qc_only) {
+        if (!qc_only) {
             //
             // Combine samples and perform integration
             //
-            COMBINE(ch_h5ad, ch_base)
+            COMBINE (
+                ch_h5ad,
+                ch_base,
+                base_adata,
+                integration_hvgs,
+                integration_methods,
+                integration_excluded_genes,
+                scvi_model,
+                scanvi_model,
+                scvi_categorical_covariates,
+                scvi_continuous_covariates,
+                scimilarity_model,
+            )
             ch_versions = ch_versions.mix(COMBINE.out.versions)
             ch_obs = ch_obs.mix(COMBINE.out.obs)
             ch_var = ch_var.mix(COMBINE.out.var)
@@ -104,29 +175,41 @@ workflow SCDOWNSTREAM {
         }
     }
     else {
-        ch_embeddings = channel.value(params.base_embeddings.split(',').collect { it -> it.trim() })
+        ch_embeddings = channel.value(
+            base_embeddings.split(',')
+            .collect { it -> it.trim() }
+        )
 
-        ADATA_SPLITEMBEDDINGS(ch_base, ch_embeddings)
+        ADATA_SPLITEMBEDDINGS (
+            ch_base,
+            ch_embeddings
+        )
         ch_versions = ch_versions.mix(ADATA_SPLITEMBEDDINGS.out.versions)
         ch_integrations = ch_integrations.mix(
-            ADATA_SPLITEMBEDDINGS.out.h5ad.map { _meta, h5ads -> h5ads }.flatten().map { h5ad -> [[id: h5ad.simpleName, integration: h5ad.simpleName], h5ad] }
+            ADATA_SPLITEMBEDDINGS.out.h5ad
+            .map { _meta, h5ads -> h5ads }
+            .flatten()
+            .map {
+                h5ad ->
+                [[id: h5ad.simpleName, integration: h5ad.simpleName], h5ad]
+            }
         )
 
         ch_finalization_base = ch_base
         ch_label_grouping = ch_base
-        grouping_col = params.base_label_col
+        grouping_col = base_label_col
     }
 
     //
     // Perform clustering and per-cluster analysis
     //
-    if (!params.qc_only) {
-        CLUSTER(
+    if (!qc_only) {
+        CLUSTER (
             ch_integrations,
-            params.cluster_per_label,
-            params.cluster_global,
-            params.input ? "label" : params.base_label_col,
-            params.clustering_resolutions.split(','),
+            cluster_per_label,
+            cluster_global,
+            ch_input ? "label" : base_label_col,
+            clustering_resolutions.split(','),
             "batch",
             "X_emb",
         )
@@ -135,26 +218,49 @@ workflow SCDOWNSTREAM {
         ch_obsm = ch_obsm.mix(CLUSTER.out.obsm)
         ch_multiqc_files = ch_multiqc_files.mix(CLUSTER.out.multiqc_files)
 
-        if (params.pseudobulk) {
-            PSEUDOBULKING(
+        if (pseudobulk) {
+            PSEUDOBULKING (
                 CLUSTER.out.h5ad_clustering,
-                params.pseudobulk_groupby_labels.split(','),
-                params.pseudobulk_min_num_cells,
+                pseudobulk_groupby_labels.split(','),
+                pseudobulk_min_num_cells,
                 "X",
             )
             ch_versions = ch_versions.mix(PSEUDOBULKING.out.versions)
         }
 
-        PER_GROUP(
-            CLUSTER.out.h5ad_clustering.map { meta, h5ad -> [meta + [obs_key: "${meta.id}_leiden"], h5ad] },
-            CLUSTER.out.h5ad_neighbors.map { meta, h5ad -> [meta + [obs_key: grouping_col], h5ad] },
-            ch_label_grouping.map { meta, h5ad -> [meta + [obs_key: grouping_col], h5ad] },
+        PER_GROUP (
+            CLUSTER.out.h5ad_clustering
+                .map {
+                    meta, h5ad ->
+                    [meta + [obs_key: "${meta.id}_leiden"], h5ad]
+                },
+            CLUSTER.out.h5ad_neighbors
+                .map {
+                    meta, h5ad ->
+                    [meta + [obs_key: grouping_col], h5ad]
+                },
+            ch_label_grouping
+                .map {
+                    meta, h5ad ->
+                    [meta + [obs_key: grouping_col], h5ad]
+                },
+            skip_liana,
+            skip_rankgenesgroups,
         )
         ch_versions = ch_versions.mix(PER_GROUP.out.versions)
         ch_uns = ch_uns.mix(PER_GROUP.out.uns)
         ch_multiqc_files = ch_multiqc_files.mix(PER_GROUP.out.multiqc_files)
 
-        FINALIZE(ch_finalization_base, ch_obs, ch_var, ch_obsm, ch_obsp, ch_uns, ch_layers)
+        FINALIZE (
+            ch_finalization_base,
+            ch_obs,
+            ch_var,
+            ch_obsm,
+            ch_obsp,
+            ch_uns,
+            ch_layers,
+            prep_cellxgene
+        )
         ch_versions = ch_versions.mix(FINALIZE.out.versions)
     }
 
@@ -181,7 +287,7 @@ workflow SCDOWNSTREAM {
     softwareVersionsToYAML(ch_versions.mix(topic_versions.versions_file))
         .mix(topic_versions_string)
         .collectFile(
-            storeDir: "${params.outdir}/pipeline_info",
+            storeDir: "${outdir}/pipeline_info",
             name: 'nf_core_' + 'scdownstream_software_' + 'mqc_' + 'versions.yml',
             sort: true,
             newLine: true,
@@ -191,23 +297,27 @@ workflow SCDOWNSTREAM {
     //
     // MODULE: MultiQC
     //
-    ch_multiqc_config        = channel.fromPath(
-        "$projectDir/assets/multiqc_config.yml", checkIfExists: true)
-    ch_multiqc_custom_config = params.multiqc_config ?
-        channel.fromPath(params.multiqc_config, checkIfExists: true) :
-        channel.empty()
-    ch_multiqc_logo          = params.multiqc_logo ?
-        channel.fromPath(params.multiqc_logo, checkIfExists: true) :
-        channel.empty()
+    ch_multiqc_config = channel.fromPath(
+        "${projectDir}/assets/multiqc_config.yml",
+        checkIfExists: true
+    )
+    ch_multiqc_custom_config = multiqc_config
+        ? channel.fromPath(multiqc_config, checkIfExists: true)
+        : channel.empty()
+    ch_multiqc_logo = multiqc_logo
+        ? channel.fromPath(multiqc_logo, checkIfExists: true)
+        : channel.empty()
 
     summary_params      = paramsSummaryMap(
-        workflow, parameters_schema: "nextflow_schema.json")
+        workflow,
+        parameters_schema: "nextflow_schema.json"
+    )
     ch_workflow_summary = channel.value(paramsSummaryMultiqc(summary_params))
     ch_multiqc_files = ch_multiqc_files.mix(
-        ch_workflow_summary.collectFile(name: 'workflow_summary_mqc.yaml'))
-    ch_multiqc_custom_methods_description = params.multiqc_methods_description ?
-        file(params.multiqc_methods_description, checkIfExists: true) :
-        file("$projectDir/assets/methods_description_template.yml", checkIfExists: true)
+        ch_workflow_summary.collectFile(name: 'workflow_summary_mqc.yaml')
+    )
+    ch_multiqc_custom_methods_description = multiqc_methods_description
+        ? file(multiqc_methods_description, checkIfExists: true) : file("${projectDir}/assets/methods_description_template.yml", checkIfExists: true)
     ch_methods_description                = channel.value(
         methodsDescriptionText(ch_multiqc_custom_methods_description))
 
@@ -219,7 +329,7 @@ workflow SCDOWNSTREAM {
         )
     )
 
-    MULTIQC(
+    MULTIQC (
         ch_multiqc_files.collect(),
         ch_multiqc_config.toList(),
         ch_multiqc_custom_config.toList(),
@@ -227,8 +337,9 @@ workflow SCDOWNSTREAM {
         [],
         [],
     )
+    ch_multiqc_report = MULTIQC.out.report.toList()
 
     emit:
-    multiqc_report = MULTIQC.out.report.toList() // channel: /path/to/multiqc_report.html
-    versions       = ch_versions // channel: [ path(versions.yml) ]
+    multiqc_report = ch_multiqc_report // channel: [ path(multiqc_report.html) ]
+    versions       = ch_versions       // channel: [ path(versions.yml) ]
 }

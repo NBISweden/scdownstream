@@ -26,11 +26,20 @@ nextflow_workflow {
             }
             workflow {
                 """
-                input[0] = channel.of(
+                input[0]  = channel.of(
                     [[id: 'test1'], file(params.pipelines_testdata_base_path + '/anndata-variations/batch_correct_name.h5ad', checkIfExists: true)],
                     [[id: 'test2'], file(params.pipelines_testdata_base_path + '/anndata-variations/batch_correct_name.h5ad', checkIfExists: true)]
                 )
-                input[1] = channel.empty()
+                input[1]  = channel.empty()
+                input[2]  = null
+                input[3]  = 0
+                input[4]  = 'scvi'
+                input[5]  = null
+                input[6]  = null
+                input[7]  = null
+                input[8]  = ''
+                input[9]  = ''
+                input[10] = 'https://zenodo.org/records/10685499/files/model_v1.1.tar.gz'
                 """
             }
         }
@@ -63,7 +72,16 @@ nextflow_workflow {
                     [[id: 'test1'], file(params.pipelines_testdata_base_path + '/anndata-variations/batch_correct_name.h5ad', checkIfExists: true)],
                     [[id: 'test2'], file(params.pipelines_testdata_base_path + '/anndata-variations/batch_correct_name.h5ad', checkIfExists: true)]
                 )
-                input[1] = channel.empty()
+                input[1]  = channel.empty()
+                input[2]  = null
+                input[3]  = 0
+                input[4]  = 'scvi'
+                input[5]  = null
+                input[6]  = null
+                input[7]  = null
+                input[8]  = ''
+                input[9]  = ''
+                input[10] = 'https://zenodo.org/records/10685499/files/model_v1.1.tar.gz'
                 """
             }
         }

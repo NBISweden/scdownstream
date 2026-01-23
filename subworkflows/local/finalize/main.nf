@@ -4,13 +4,14 @@ include { ADATA_PREPCELLXGENE } from '../../../modules/local/adata/prepcellxgene
 
 workflow FINALIZE {
     take:
-    ch_h5ad   // channel: [ merged, h5ad ]
-    ch_obs    // channel: [ pkl ]
-    ch_var    // channel: [ pkl ]
-    ch_obsm   // channel: [ pkl ]
+    ch_h5ad        // channel: [ merged, h5ad ]
+    ch_obs         // channel: [ pkl ]
+    ch_var         // channel: [ pkl ]
+    ch_obsm        // channel: [ pkl ]
     ch_obsp
-    ch_uns    // channel: [ pkl ]
+    ch_uns         // channel: [ pkl ]
     ch_layers
+    prep_cellxgene //   value: boolean
 
     main:
     ch_versions = channel.empty()
@@ -25,11 +26,15 @@ workflow FINALIZE {
     )
     ch_versions = ch_versions.mix(ADATA_EXTEND.out.versions)
 
-    ADATA_TORDS(ADATA_EXTEND.out.h5ad)
+    ADATA_TORDS (
+        ADATA_EXTEND.out.h5ad
+    )
     ch_versions = ch_versions.mix(ADATA_TORDS.out.versions)
 
-    if (params.prep_cellxgene) {
-        ADATA_PREPCELLXGENE(ADATA_EXTEND.out.h5ad)
+    if (prep_cellxgene) {
+        ADATA_PREPCELLXGENE (
+            ADATA_EXTEND.out.h5ad
+        )
         ch_versions = ch_versions.mix(ADATA_PREPCELLXGENE.out.versions)
     }
 
