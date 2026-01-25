@@ -70,6 +70,8 @@ nextflow_workflow {
                 """
                 input[0] = SCANPY_LEIDEN.out.h5ad.map { meta, h5ad -> [meta + [obs_key: 'leiden', condition_col: 'condition'], h5ad] }
                 input[1] = channel.empty()
+                input[2] = true
+                input[3] = true
                 """
             }
         }
