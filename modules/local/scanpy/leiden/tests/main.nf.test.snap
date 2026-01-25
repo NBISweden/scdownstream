@@ -58,11 +58,11 @@
                         {
                             "id": "test"
                         },
-                        "test_leiden.h5ad:md5,1d6ff56d64ab9a23f4f9cbccd6bd844e"
+                        "test_leiden.h5ad:md5,e43bff67601224ced26f293e95adecea"
                     ]
                 ],
                 "1": [
-                    "test_leiden.pkl:md5,67d1ac852f9022c1d3af3c361b57f11f"
+                    "test_leiden.pkl:md5,4bae38751fb04b86d6c0d6fd2c0d9fc7"
                 ],
                 "2": [
                     
@@ -78,14 +78,14 @@
                         {
                             "id": "test"
                         },
-                        "test_leiden.h5ad:md5,1d6ff56d64ab9a23f4f9cbccd6bd844e"
+                        "test_leiden.h5ad:md5,e43bff67601224ced26f293e95adecea"
                     ]
                 ],
                 "multiqc_files": [
                     
                 ],
                 "obs": [
-                    "test_leiden.pkl:md5,67d1ac852f9022c1d3af3c361b57f11f"
+                    "test_leiden.pkl:md5,4bae38751fb04b86d6c0d6fd2c0d9fc7"
                 ],
                 "plots": [
                     
@@ -97,8 +97,8 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.7"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2026-01-21T14:40:37.023349042"
+        "timestamp": "2026-01-25T17:14:25.399193291"
     }
 }
