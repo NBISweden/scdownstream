@@ -15,7 +15,7 @@ nextflow_process {
             }
             process {
                 """
-                input[0] = Channel.of('state\\tsample\\tsize\\nunfiltered\\tsample1\\t1000\\nfiltered\\tsample1\\t800\\nthresholded\\tsample1\\t750\\ndedoubleted\\tsample1\\t700')
+                input[0] = channel.of('state\\tsample\\tsize\\nunfiltered\\tsample1\\t1000\\nfiltered\\tsample1\\t800\\nthresholded\\tsample1\\t750\\ndedoubleted\\tsample1\\t700')
                     .collectFile(name: 'sizes.tsv')
                     .map { file -> [[ id: 'test' ], file] }
                 """
@@ -41,7 +41,7 @@ nextflow_process {
             }
             process {
                 """
-                input[0] = Channel.of('state\\tsample\\tsize\\nunfiltered\\tsample1\\t1000')
+                input[0] = channel.of('state\\tsample\\tsize\\nunfiltered\\tsample1\\t1000')
                     .collectFile(name: 'sizes.tsv')
                     .map { file -> [[ id: 'test' ], file] }
                 """
