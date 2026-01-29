@@ -10,7 +10,7 @@ process SEURAT_INTEGRATION {
 
     output:
     tuple val(meta), path("${prefix}.h5ad"), emit: h5ad
-    path "versions.yml", emit: versions
+    path "versions.yml"                    , emit: versions, topic: versions
 
     script:
     prefix = task.ext.prefix ?: "${meta.id}"

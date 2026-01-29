@@ -12,8 +12,8 @@ process SCANPY_PLOTQC {
 
     output:
     tuple val(meta), path("*.png"), emit: plots
-    path ("*_mqc.json"), emit: multiqc_files
-    path "versions.yml", emit: versions
+    path ("*_mqc.json")           , emit: multiqc_files
+    path "versions.yml"           , emit: versions, topic: versions
 
     when:
     task.ext.when == null || task.ext.when

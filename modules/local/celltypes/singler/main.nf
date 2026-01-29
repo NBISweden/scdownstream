@@ -14,7 +14,7 @@ process CELLTYPES_SINGLER {
     tuple val(meta), path("*.csv")             , emit: obs
     tuple val(meta), path("*_distribution.pdf"), emit: distribution
     tuple val(meta), path("*_heatmap.pdf")     , emit: heatmap
-    path "versions.yml"                        , emit: versions
+    path "versions.yml"                        , emit: versions, topic: versions
 
     when:
     task.ext.when == null || task.ext.when

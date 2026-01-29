@@ -14,8 +14,8 @@ process SCANPY_HARMONY {
 
     output:
     tuple val(meta), path("${prefix}.h5ad"), emit: h5ad
-    path "X_${prefix}.pkl", emit: obsm
-    path "versions.yml", emit: versions
+    path "X_${prefix}.pkl"                 , emit: obsm
+    path "versions.yml"                    , emit: versions, topic: versions
 
     script:
     prefix = task.ext.prefix ?: "${meta.id}"

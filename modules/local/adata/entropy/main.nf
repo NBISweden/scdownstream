@@ -17,7 +17,7 @@ process ADATA_ENTROPY {
     path "${prefix}.pkl"                   , emit: obs
     path "${prefix}.png"                   , emit: plots, optional: true
     path "${prefix}_mqc.json"              , emit: multiqc_files, optional: true
-    path "versions.yml"                    , emit: versions
+    path "versions.yml"                    , emit: versions, topic: versions
 
     script:
     prefix = task.ext.prefix ?: "${meta.id}_entropy"

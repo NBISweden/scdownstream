@@ -18,10 +18,10 @@ process SCVITOOLS_SCVI {
     val continuous_covariates
 
     output:
-    tuple val(meta), path("${prefix}.h5ad"), emit: h5ad
+    tuple val(meta), path("${prefix}.h5ad")          , emit: h5ad
     tuple val(meta), path("${prefix}_model/model.pt"), emit: model
-    path "X_${prefix}.pkl", emit: obsm
-    path "versions.yml", emit: versions
+    path "X_${prefix}.pkl"                           , emit: obsm
+    path "versions.yml"                              , emit: versions, topic: versions
 
     when:
     task.ext.when == null || task.ext.when

@@ -15,10 +15,10 @@ process SCANPY_LEIDEN {
 
     output:
     tuple val(meta), path("${prefix}.h5ad"), emit: h5ad
-    path "${prefix}.pkl", emit: obs
-    path "${prefix}.png", emit: plots, optional: true
-    path "${prefix}_mqc.json", emit: multiqc_files, optional: true
-    path "versions.yml", emit: versions
+    path "${prefix}.pkl"                   , emit: obs
+    path "${prefix}.png"                   , emit: plots, optional: true
+    path "${prefix}_mqc.json"              , emit: multiqc_files, optional: true
+    path "versions.yml"                    , emit: versions, topic: versions
 
     when:
     task.ext.when == null || task.ext.when

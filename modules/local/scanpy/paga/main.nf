@@ -16,7 +16,7 @@ process SCANPY_PAGA {
     path("*.npy")                  , emit: obsp, optional: true
     path("*.png")                  , emit: plot, optional: true
     path("*_mqc.json")             , emit: multiqc_files, optional: true
-    path "versions.yml"            , emit: versions
+    path "versions.yml"            , emit: versions, topic: versions
 
     when:
     task.ext.when == null || task.ext.when

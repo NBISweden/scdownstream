@@ -17,7 +17,7 @@ process ADATA_MERGE {
     tuple val(meta), path("*_inner.h5ad")    , emit: inner
     tuple val(meta), path("*_integrate.h5ad"), emit: integrate
     path "gene_intersection.pkl"             , emit: intersect_genes
-    path "versions.yml"                      , emit: versions
+    path "versions.yml"                      , emit: versions, topic: versions
 
     when:
     task.ext.when == null || task.ext.when
