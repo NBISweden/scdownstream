@@ -160,9 +160,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2026-01-16T22:44:08.927102588"
+        "timestamp": "2026-01-25T17:09:14.675731494"
     },
     "Should run without failures - extension mode - stub": {
         "content": [
@@ -321,9 +321,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2026-01-16T22:41:31.203520432"
+        "timestamp": "2026-01-25T17:06:30.833696459"
     },
     "Should run without failures - bbknn": {
         "content": [
@@ -376,8 +376,8 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2026-01-16T22:42:48.735482768"
+        "timestamp": "2026-01-25T17:07:47.855483349"
     }
 }

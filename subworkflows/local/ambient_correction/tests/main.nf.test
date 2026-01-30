@@ -22,6 +22,7 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'none'
+                input[2] = false
                 """
             }
         }
@@ -48,6 +49,7 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'test'
+                input[2] = false
                 """
             }
         }
@@ -73,6 +75,7 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'decontx'
+                input[2] = false
                 """
             }
         }
@@ -99,6 +102,7 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'decontx'
+                input[2] = false
                 """
             }
         }
@@ -131,6 +135,7 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'decontx'
+                input[2] = false
                 """
             }
         }
@@ -163,6 +168,7 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'soupx'
+                input[2] = false
                 """
             }
         }
@@ -196,6 +202,7 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'scar'
+                input[2] = false
                 """
             }
         }
@@ -226,6 +233,7 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'cellbender'
+                input[2] = false
                 """
             }
         }
@@ -255,6 +263,7 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'decontx'
+                input[2] = false
                 """
             }
         }
@@ -287,6 +296,7 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'soupx'
+                input[2] = false
                 """
             }
         }
@@ -320,6 +330,7 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'scar'
+                input[2] = false
                 """
             }
         }
@@ -350,6 +361,7 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'cellbender'
+                input[2] = false
                 """
             }
         }

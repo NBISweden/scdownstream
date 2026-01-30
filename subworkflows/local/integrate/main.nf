@@ -33,7 +33,11 @@ workflow INTEGRATE {
     // If a reference model is provided, only the genes in the reference model are used
     // Otherwise, we would intersect the HVGs, which is not what we want
     if (!is_extension && n_hvgs >= 0) {
-        SCANPY_HVGS(ch_h5ad, n_hvgs, excluded_genes)
+        SCANPY_HVGS (
+            ch_h5ad,
+            n_hvgs,
+            excluded_genes
+        )
         ch_versions = ch_versions.mix(SCANPY_HVGS.out.versions)
         ch_h5ad_hvg = SCANPY_HVGS.out.h5ad
 
@@ -41,7 +45,16 @@ workflow INTEGRATE {
         // ch_var = ch_var.mix(SCANPY_HVGS.out.var)
 
         // Filter out empty cells from the AnnData object
-        SCANPY_FILTER(ch_h5ad_hvg, "index", 1, 0, 0, 0, 100, [])
+        SCANPY_FILTER (
+            ch_h5ad_hvg,
+            "index",
+            1,
+            0,
+            0,
+            0,
+            100,
+            []
+        )
         ch_h5ad_hvg = SCANPY_FILTER.out.h5ad
         ch_versions = ch_versions.mix(SCANPY_FILTER.out.versions)
     }
@@ -50,14 +63,17 @@ workflow INTEGRATE {
     }
 
     if (methods.contains('seurat')) {
-        SEURAT_INTEGRATION(ch_h5ad_hvg.map { _meta, h5ad -> [[id: 'seurat'], h5ad] }, "batch")
+        SEURAT_INTEGRATION (
+            ch_h5ad_hvg.map { _meta, h5ad -> [[id: 'seurat'], h5ad] }, "batch"
+        )
         ch_versions = ch_versions.mix(SEURAT_INTEGRATION.out.versions)
         ch_integrations = ch_integrations.mix(SEURAT_INTEGRATION.out.h5ad)
     }
 
     if (methods.contains('scvi')) {
-        SCVITOOLS_SCVI(
-            (scvi_model ? ch_h5ad : ch_h5ad_hvg).map { _meta, h5ad -> [[id: 'scvi'], h5ad] },
+        SCVITOOLS_SCVI (
+            (scvi_model ? ch_h5ad : ch_h5ad_hvg)
+                .map { _meta, h5ad -> [[id: 'scvi'], h5ad] },
             scvi_model
                 ? channel.value([[id: 'scvi_model'], scvi_model])
                 : [[], []],
@@ -71,8 +87,9 @@ workflow INTEGRATE {
     }
 
     if (methods.contains('scanvi')) {
-        SCVITOOLS_SCANVI(
-            (scvi_model ? ch_h5ad : ch_h5ad_hvg).map { _meta, h5ad -> [[id: 'scanvi'], h5ad] },
+        SCVITOOLS_SCANVI (
+            (scvi_model ? ch_h5ad : ch_h5ad_hvg)
+                .map { _meta, h5ad -> [[id: 'scanvi'], h5ad] },
             scanvi_model
                 ? channel.value([[id: 'scanvi_model'], scanvi_model])
                 : methods.contains('scvi')
@@ -90,27 +107,37 @@ workflow INTEGRATE {
     }
 
     if (methods.contains('harmony')) {
-        SCANPY_HARMONY(ch_h5ad_hvg.map { _meta, h5ad -> [[id: 'harmony'], h5ad] }, "batch", "X")
+        SCANPY_HARMONY (
+            ch_h5ad_hvg.map { _meta, h5ad -> [[id: 'harmony'], h5ad] },
+            "batch",
+            "X"
+        )
         ch_versions = ch_versions.mix(SCANPY_HARMONY.out.versions)
         ch_integrations = ch_integrations.mix(SCANPY_HARMONY.out.h5ad)
         ch_obsm = ch_obsm.mix(SCANPY_HARMONY.out.obsm)
     }
 
     if (methods.contains('bbknn')) {
-        SCANPY_BBKNN(ch_h5ad_hvg.map { _meta, h5ad -> [[id: 'bbknn'], h5ad] }, "batch")
+        SCANPY_BBKNN (
+            ch_h5ad_hvg.map { _meta, h5ad -> [[id: 'bbknn'], h5ad] },
+            "batch"
+        )
         ch_versions = ch_versions.mix(SCANPY_BBKNN.out.versions)
         ch_integrations = ch_integrations.mix(SCANPY_BBKNN.out.h5ad)
     }
 
     if (methods.contains('combat')) {
-        SCANPY_COMBAT(ch_h5ad_hvg.map { _meta, h5ad -> [[id: 'combat'], h5ad] }, "batch")
+        SCANPY_COMBAT (
+            ch_h5ad_hvg.map { _meta, h5ad -> [[id: 'combat'], h5ad] },
+            "batch"
+        )
         ch_versions = ch_versions.mix(SCANPY_COMBAT.out.versions)
         ch_integrations = ch_integrations.mix(SCANPY_COMBAT.out.h5ad)
         ch_obsm = ch_obsm.mix(SCANPY_COMBAT.out.obsm)
     }
 
     if (methods.contains('scimilarity')) {
-        SCIMILARITY(
+        SCIMILARITY (
             ch_h5ad.map { _meta, h5ad -> [[id: 'scimilarity'], h5ad] },
             scimilarity_model,
         )
