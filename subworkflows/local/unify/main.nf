@@ -46,7 +46,6 @@ workflow UNIFY {
 
         UNIFY_GENES(ch_h5ad)
         ch_h5ad = UNIFY_GENES.out.h5ad
-        ch_versions = ch_versions.mix(UNIFY_GENES.out.versions)
     }
 
     ch_adata_unify = ch_h5ad.multiMap { meta, h5ad ->
