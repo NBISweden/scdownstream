@@ -8,7 +8,6 @@ import scvi
 import anndata as ad
 import pandas as pd
 from scvi.model import SCVI
-import platform
 import torch
 import yaml
 
@@ -23,16 +22,19 @@ scvi.settings.seed = 0
 
 adata = ad.read_h5ad("${h5ad}")
 reference_model_path = "reference_model"
-reference_model_type = "${meta2.id}"
+reference_model_type = "${meta2.id ?: ''}"
 
 plan_kwargs = {}
 
-if reference_model_type == "scanvi":
-    raise ValueError("scVI does not support scANVI models.")
-elif reference_model_type == "scvi":
-    SCVI.prepare_query_anndata(adata, reference_model_path)
-    model = SCVI.load_query_data(adata, reference_model_path)
-    plan_kwargs['weight_decay'] = 0.0
+if reference_model_type:
+    if reference_model_type == "scanvi":
+        raise ValueError("scVI does not support scANVI models.")
+    elif reference_model_type == "scvi":
+        SCVI.prepare_query_anndata(adata, reference_model_path)
+        model = SCVI.load_query_data(adata, reference_model_path)
+        plan_kwargs['weight_decay'] = 0.0
+    else:
+        raise ValueError(f"Invalid reference model type: {reference_model_type}")
 else:
     categorical_covariates = "${categorical_covariates}"
     continuous_covariates = "${continuous_covariates}"

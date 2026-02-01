@@ -8,7 +8,6 @@ import scvi
 import anndata as ad
 import pandas as pd
 from scvi.model import SCVI, SCANVI
-import platform
 import torch
 import yaml
 
@@ -23,9 +22,12 @@ scvi.settings.seed = 0
 
 adata = ad.read_h5ad("${h5ad}")
 reference_model_path = "reference_model"
-reference_model_type = "${meta2.id}"
+reference_model_type = "${meta2.id ?: ''}"
 
 plan_kwargs = {}
+
+if reference_model_type and reference_model_type not in ["scvi", "scanvi"]:
+    raise ValueError(f"Invalid reference model type: {reference_model_type}")
 
 if reference_model_type == "scanvi":
     SCANVI.prepare_query_anndata(adata, reference_model_path)
