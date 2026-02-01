@@ -37,7 +37,20 @@ kwargs = {
     "pts": True
 }
 
-if adata.obs["${obs_key}"].value_counts().size > 1:
+# Check value counts for each group
+value_counts = adata.obs[obs_key].value_counts()
+# Filter out groups with less than 2 samples (scanpy requirement)
+valid_groups = value_counts[value_counts >= 2].index.tolist()
+invalid_groups = value_counts[value_counts < 2].index.tolist()
+
+if len(invalid_groups) > 0:
+    print(f"Warning: Excluding groups with < 2 samples: {', '.join(map(str, invalid_groups))}")
+
+# Only proceed if we have at least 2 groups with >= 2 samples each
+if len(valid_groups) >= 2:
+    # Filter adata to only include valid groups
+    adata = adata[adata.obs[obs_key].isin(valid_groups)].copy()
+    
     sc.pp.log1p(adata)
     sc.tl.rank_genes_groups(adata, **kwargs)
 
@@ -78,7 +91,12 @@ if adata.obs["${obs_key}"].value_counts().size > 1:
 
         json.dump(custom_json, f_json)
 else:
-    print("Skipping rank_genes_groups computation as the group has less than 2 unique values.")
+    if len(valid_groups) == 0:
+        print("Skipping rank_genes_groups computation: no groups have >= 2 samples.")
+    elif len(valid_groups) == 1:
+        print(f"Skipping rank_genes_groups computation: only one group has >= 2 samples (group: {valid_groups[0]}).")
+    else:
+        print(f"Skipping rank_genes_groups computation: less than 2 valid groups remaining after filtering.")
 
 # Versions
 
