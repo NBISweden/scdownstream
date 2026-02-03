@@ -9,8 +9,8 @@ process ADATA_EXTEND {
 
     input:
     tuple (
-        val(meta), 
-        path(base), 
+        val(meta),
+        path(base),
         path(obs, stageAs: 'obs/'),
         path(var, stageAs: 'var/'),
         path(obsm, stageAs: 'obsm/'),
