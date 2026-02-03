@@ -12,10 +12,10 @@ process ADATA_EXTEND {
         val(meta), 
         path(base), 
         path(obs, stageAs: 'obs/'),
-        path(var, stageAs: 'var/'), 
-        path(obsm, stageAs: 'obsm/'), 
-        path(obsp, stageAs: 'obsp/'), 
-        path(uns, stageAs: 'uns/'), 
+        path(var, stageAs: 'var/'),
+        path(obsm, stageAs: 'obsm/'),
+        path(obsp, stageAs: 'obsp/'),
+        path(uns, stageAs: 'uns/'),
         path(layers, stageAs: 'layers/')
     )
 

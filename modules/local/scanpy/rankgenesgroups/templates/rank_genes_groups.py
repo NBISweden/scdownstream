@@ -50,7 +50,7 @@ if len(invalid_groups) > 0:
 if len(valid_groups) >= 2:
     # Filter adata to only include valid groups
     adata = adata[adata.obs[obs_key].isin(valid_groups)].copy()
-    
+
     sc.pp.log1p(adata)
     sc.tl.rank_genes_groups(adata, **kwargs)
 
