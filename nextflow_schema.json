@@ -139,6 +139,12 @@
                     "description": "Number of highly variable genes to use for integration. If set to 0, the number of highly variable genes will be automatically determined. If set to a negative number, all genes will be used.",
                     "help_text": "If a reference model is provided, this does not have any effect. This is because the reference model defines the set of genes that will be used for integration."
                 },
+                "integration_excluded_genes": {
+                    "type": "string",
+                    "format": "file-path",
+                    "description": "Optional file containing a list of gene symbols (one per line). If provided, these genes will be excluded from highly variable genes selection for integration.",
+                    "exists": true
+                },
                 "scvi_model": {
                     "type": "string",
                     "format": "file-path",
@@ -182,6 +188,11 @@
                     "type": "string",
                     "default": "label",
                     "description": "The column in the base AnnData object that contains the label (e.g. cell type) information."
+                },
+                "base_condition_col": {
+                    "type": "string",
+                    "default": "condition",
+                    "description": "The column in the base AnnData object that contains the condition (e.g. disease state, treatment) information."
                 },
                 "base_embeddings": {
                     "type": "string",
@@ -276,6 +287,13 @@
                 "skip_rankgenesgroups": {
                     "type": "boolean",
                     "description": "Skip the rank_genes_groups step. For large datasets, the pipeline might fail due to high memory usage in this step. Use this option to skip it."
+                },
+                "rankgenesgroups_method": {
+                    "type": "string",
+                    "default": "wilcoxon",
+                    "enum": ["t-test", "t-test_overestim_var", "wilcoxon", "logreg"],
+                    "description": "Statistical method for ranking genes in differential expression analysis.",
+                    "help_text": "Available methods are: 't-test' (default t-test), 't-test_overestim_var' (t-test with overestimated variance), 'wilcoxon' (Wilcoxon rank-sum test, default), 'logreg' (logistic regression)."
                 },
                 "pseudobulk": {
                     "type": "boolean",
@@ -491,7 +509,7 @@
                     "type": "string",
                     "fa_icon": "far fa-check-circle",
                     "description": "Base URL or local path to location of pipeline test dataset files",
-                    "default": "https://raw.githubusercontent.com/nf-core/test-datasets/be82517a080e70628dce694c61eb91821850aea9/",
+                    "default": "https://raw.githubusercontent.com/nf-core/test-datasets/3ba0ba7174a5667fc2e005430594ffb063f986c7/",
                     "hidden": true
                 },
                 "trace_report_suffix": {
@@ -499,6 +517,18 @@
                     "fa_icon": "far calendar",
                     "description": "Suffix to add to the trace report filename. Default is the date and time in the format yyyy-MM-dd_HH-mm-ss.",
                     "hidden": true
+                },
+                "help": {
+                    "type": ["boolean", "string"],
+                    "description": "Display the help message."
+                },
+                "help_full": {
+                    "type": "boolean",
+                    "description": "Display the full detailed help message."
+                },
+                "show_hidden": {
+                    "type": "boolean",
+                    "description": "Display hidden parameters in the help message (only works when --help or --help_full are provided)."
                 }
             }
         }

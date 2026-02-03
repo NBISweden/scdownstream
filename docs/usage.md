@@ -38,13 +38,13 @@ sample3,/absolute/path/to/sample3.csv
 There are a couple of optional columns that can be used for more advanced features:
 
 ```csv title="samplesheet.csv"
-sample,filtered,unfiltered,batch_col,label_col,unknown_label,min_genes,min_cells,min_counts_cell,min_counts_gene,expected_cells,ambient_correction,ambient_corrected_integration
-sample1,/absolute/path/to/sample1_filtered.h5ad,/absolute/path/to/sample1.h5ad,batch,cell_type,unknown,1,2,3,4,5000,true,false
-sample2,relative/path/to/sample2_filtered.rds,relative/path/to/sample2.rds,batch_id,annotation,unannotated,5,6,7,8,3000,false,
-sample3,/absolute/path/to/sample3_filtered.csv,/absolute/path/to/sample3.csv,,,,9,10,11,12,,true,true
+sample,filtered,unfiltered,batch_col,label_col,condition_col,unknown_label,min_genes,min_cells,min_counts_cell,min_counts_gene,expected_cells,ambient_correction,ambient_corrected_integration
+sample1,/absolute/path/to/sample1_filtered.h5ad,/absolute/path/to/sample1.h5ad,batch,cell_type,condition,unknown,1,2,3,4,5000,true,false
+sample2,relative/path/to/sample2_filtered.rds,relative/path/to/sample2.rds,batch_id,annotation,condition,unannotated,5,6,7,8,3000,false,
+sample3,/absolute/path/to/sample3_filtered.csv,/absolute/path/to/sample3.csv,,,,,9,10,11,12,,true,true
 ```
 
-For CSV input files, specifying the `batch_col`, `label_col`, and `unknown_label` columns will not have any effect, as no additional metadata is available in the CSV file.
+For CSV input files, specifying the `batch_col`, `label_col`, `condition_col`, and `unknown_label` columns will not have any effect, as no additional metadata is available in the CSV file.
 
 | Column                          | Description                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -55,6 +55,7 @@ For CSV input files, specifying the `batch_col`, `label_col`, and `unknown_label
 | `symbol_col`                    | Column in the input file containing gene symbol information. Defaults to `index`. There are two special values that can be used: `index` and `none`. `index` will use the row names of the matrix as gene symbols. `none` will trigger the pipeline to perform gene symbol conversion using MyGene.info based on the `geneid_col`. The values from `symbol_col` will be set as the index during pipeline execution. |
 | `geneid_col`                    | Column in the input file containing gene identifier information. Defaults to `index`. Only used if `symbol_col` is set to `none`.                                                                                                                                                                                                                                                                                   |
 | `label_col`                     | Column in the input file containing cell type information. Defaults to `label`. If the column does not exist in the input object, the pipeline will create a new column and put `unknown` in it. If the `label_col` is something else than `label`, it will be renamed to `label` during pipeline execution.                                                                                                        |
+| `condition_col`                 | Column in the input file containing condition information (e.g. disease state, treatment). If the column does not exist in the input object, the pipeline will create a new column and put `unknown` in it. If the `condition_col` is something else than `condition`, it will be renamed to `condition` during pipeline execution.                                                                                 |
 | `unknown_label`                 | Value in the `label_col` column that should be considered as unknown. Defaults to `unknown`. If the `unknown_label` is something else than `unknown`, it will be renamed to `unknown` during pipeline execution. If trying to perform integration with scANVI, more than one unique label other than `unknown` must exist in the input data.                                                                        |
 | `counts_layer`                  | Layer in the input file containing the raw counts matrix. Defaults to `X`.                                                                                                                                                                                                                                                                                                                                          |
 | `min_genes`                     | Minimum number of genes required for a cell to be considered. Defaults to `1`.                                                                                                                                                                                                                                                                                                                                      |
@@ -159,7 +160,7 @@ The pipeline will perform the preprocessing steps on the new samples as usual. D
 This can be useful if you have assigned cell type annotations to the integrated object and want to perform further analysis based on these annotations.
 :::
 
-If you want to run tasks after the integration step without performing integration, you can provide a previous result of the pipeline as the `base_adata` parameter. You do not need to provide a samplesheet via the `input` parameter in this case. In order to let the pipeline know which integration embeddings should be used, you need to provide the `base_embeddings` parameter. If you stored the labels (e.g. cell type annotations) in a column other than `label`, you can provide the column name via the `base_label_col` parameter.
+If you want to run tasks after the integration step without performing integration, you can provide a previous result of the pipeline as the `base_adata` parameter. You do not need to provide a samplesheet via the `input` parameter in this case. In order to let the pipeline know which integration embeddings should be used, you need to provide the `base_embeddings` parameter. If you stored the labels (e.g. cell type annotations) in a column other than `label`, you can provide the column name via the `base_label_col` parameter. Similarly, if you stored the condition information in a column other than `condition`, you can provide the column name via the `base_condition_col` parameter.
 
 The pipeline will then re-execute the tasks after the integration step without performing integration again. Most interestingly, the pipeline will generate cell type specific UMAPs, clusterings, and PAGA graphs, if the `clustering_per_label` parameter is set to `true`.
 
@@ -308,7 +309,7 @@ If `-profile` is not specified, the pipeline will run locally and expect all sof
 - `shifter`
   - A generic configuration profile to be used with [Shifter](https://nersc.gitlab.io/development/shifter/how-to-use/)
 - `charliecloud`
-  - A generic configuration profile to be used with [Charliecloud](https://hpc.github.io/charliecloud/)
+  - A generic configuration profile to be used with [Charliecloud](https://charliecloud.io/)
 - `apptainer`
   - A generic configuration profile to be used with [Apptainer](https://apptainer.org/)
 - `wave`
