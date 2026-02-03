@@ -75,7 +75,7 @@ workflow INTEGRATE {
             (scvi_model ? ch_h5ad : ch_h5ad_hvg)
                 .map { _meta, h5ad -> [[id: 'scvi'], h5ad] },
             scvi_model
-                ? channel.value([[id: 'scvi_model'], scvi_model])
+                ? channel.value([[id: 'scvi'], scvi_model])
                 : [[], []],
             "batch",
             scvi_categorical_covariates,
@@ -91,7 +91,7 @@ workflow INTEGRATE {
             (scvi_model ? ch_h5ad : ch_h5ad_hvg)
                 .map { _meta, h5ad -> [[id: 'scanvi'], h5ad] },
             scanvi_model
-                ? channel.value([[id: 'scanvi_model'], scanvi_model])
+                ? channel.value([[id: 'scanvi'], scanvi_model])
                 : methods.contains('scvi')
                     ? SCVITOOLS_SCVI.out.model
                     : [[], []],
