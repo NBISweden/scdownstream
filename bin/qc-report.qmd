@@ -30,8 +30,8 @@ import scanpy as sc
 import seaborn as sns
 import anndata as ad
 import glob
+from IPython.display import display, Markdown
 
-#from IPython.display import display, Markdown
 #from textwrap import dedent
 #plt.rcParams["figure.figsize"] = (6, 6)
 ```
@@ -58,16 +58,11 @@ scRNA-seq data. Common metrics include the number of genes with a least 1 count
 percentage of counts from mitochondrial, ribosomal and haemoglobin genes
 (`pct_counts_[mt/ribo/hb]`).
 
-
 ## Available metadata
 
 ```{python}
-
 adata.obs
-
 ```
-
-
 
 ## Violin plots
 
@@ -75,9 +70,45 @@ The following violin plots show the distribution of the number of genes per
 counts and counts per spot, as well as the percentage of counts from
 mitochondrial, ribosomal and haemoglobin genes:
 
-```{python}
-#| layout-nrow: 2
-sc.pl.violin(adata, ['n_genes_by_counts', 'total_counts'], groupby="sample",
-    multi_panel=True, jitter=0.4, rotation=45)
+```{python Violin plot prep}
+violin_tabsets = ["sample", "batch", "label"]
+violin_stats = ['n_genes_by_counts', 'total_counts', 'pct_counts_mt']
 
+def plot_qc_violin(adata, group):
+    fig, axs = plt.subplots(1, 3, figsize=(7.25, 2.5), constrained_layout=True)
+    for stat, ax in zip(violin_stats, axs.flatten()):
+        sc.pl.violin(adata, keys=stat, groupby = group, jitter=0.4, size=0.1,
+            ax=ax, show=False)
+        ax.tick_params(axis="x", labelrotation=45, labelsize=8)
+        for lab in ax.get_xticklabels():
+            lab.set_ha("right")
+        ax.title.set_text(stat)
+        ax.set_xlabel("")
+```
+
+::: {.panel-tabset}
+```{python}
+#| output: asis
+#| echo: false
+for tabset in violin_tabsets:
+    display(Markdown(f"#### {tabset}"))
+    plot_qc_violin(adata, tabset)
+    display(plt.gcf())
+    plt.close()
+    display(Markdown(f" "))
+```
+:::
+
+## Scatter plots
+
+```{python}
+#| label: qc-scatter
+fig, axs = plt.subplots(1, 2, figsize=(7.5, 2.25), constrained_layout=True)
+sc.pl.scatter(adata, x='total_counts', y='pct_counts_mt', color='sample',
+    ax=axs[0], show=False)
+axs[0].set_xscale("log")
+sc.pl.scatter(adata, x='total_counts', y='n_genes_by_counts', color='sample',
+    ax=axs[1], show=False)
+axs[1].set_xscale("log")
+axs[1].set_yscale("log")
 ```
