@@ -252,3 +252,19 @@ for name, fig in filtered_plots:
     display(Markdown(f" "))
 ```
 :::
+
+```{python filtering-percentage}
+# Perform filtering; calculate number of cells before and after filtering
+before = adata.obs['sample'].value_counts()
+adata = adata[~adata.obs_names.isin(filtered_cells), :]
+after = adata.obs['sample'].value_counts()
+
+# Calculate per-sample percentages of cells removed after final filtering
+# Replace NaN (i.e. samples where all cells were removed) with zeroes
+stats = pd.concat([before, after], axis=1).fillna(0).astype(int)
+stats.columns = ['Before','After']
+stats['Percentage'] = (
+    ((stats.Before - stats.After) / stats.Before * 100).round(1)
+)
+stats
+```
