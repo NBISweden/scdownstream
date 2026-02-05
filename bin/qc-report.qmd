@@ -214,12 +214,12 @@ for name, kind, value, direction in filtering_settings:
     if direction == 'below':
         for sample in samples:
             filtered[sample] = (
-                (adata.obs[name] <= cutoffs[sample])[adata.obs['sample'] == sample]
+                (adata.obs[name] < cutoffs[sample])[adata.obs['sample'] == sample]
             )
     elif direction == 'above':
         for sample in samples:
             filtered[sample] = (
-                (adata.obs[name] >= cutoffs[sample])[adata.obs['sample'] == sample]
+                (adata.obs[name] > cutoffs[sample])[adata.obs['sample'] == sample]
             )
 
     # Compute per-sample percentage of filtered cells
