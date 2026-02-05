@@ -13,12 +13,9 @@ Write a nice summary here....
 #| tags: [parameters]
 #| echo: false
 qc_only = False
-
-# Input: all the sample files with space delim from .collect.
-
-# for now, skip all parts with filtering cutofss.
-samplesheet = 'samples_mouse.csv'
-
+filtering_batch = 'sample'
+filtering_genes = "n_genes_by_counts,adaptive,3,above"
+filtering_mt = "pct_counts_mt,adaptive,2,above"
 ```
 
 ```{python Load libraries}
@@ -31,9 +28,6 @@ import seaborn as sns
 import anndata as ad
 import glob
 from IPython.display import display, Markdown
-
-#from textwrap import dedent
-#plt.rcParams["figure.figsize"] = (6, 6)
 ```
 
 ```{python Read h5ad}
@@ -89,7 +83,6 @@ def plot_qc_violin(adata, group):
 ::: {.panel-tabset}
 ```{python}
 #| output: asis
-#| echo: false
 for tabset in violin_tabsets:
     display(Markdown(f"#### {tabset}"))
     plot_qc_violin(adata, tabset)
@@ -112,3 +105,150 @@ sc.pl.scatter(adata, x='total_counts', y='n_genes_by_counts', color='sample',
 axs[1].set_xscale("log")
 axs[1].set_yscale("log")
 ```
+
+# Filtering
+
+```{python filtering-functions}
+def define_filtering_cutoffs(samples, name, kind, value, direction):
+    cutoffs = {}
+    if kind == 'fixed':
+        for sample in samples:
+            cutoffs[sample] = value
+    elif kind == 'adaptive':
+        if direction == 'below':
+            for sample in samples:
+                cutoffs[sample] = (
+                    medians.loc[sample, name]
+                    - mads.loc[sample, name]
+                    * value
+                )
+        elif direction == 'above':
+            for sample in samples:
+                cutoffs[sample] = (
+                    medians.loc[sample, name]
+                    + mads.loc[sample, name]
+                    * value
+                )
+    return cutoffs
+
+
+def plot_filtered_violin(ax, adata, name, medians, mads, cutoffs):
+    sc.pl.violin(adata, name, groupby="sample", jitter=0.4, rotation=45,
+        size=0.1, show=False, ax=ax)
+    for idx, sample in enumerate(adata.obs["sample"].cat.categories):
+        median_val = medians.loc[sample, name]
+        mad_val = mads.loc[sample, name]
+
+        # Lines start/end
+        x0, x1 = idx - 0.5, idx + 0.5
+
+        # Median line
+        ax.hlines(median_val, x0, x1, linewidth=2, color="black")
+
+        # ±k * MAD lines
+        for k in [1, 2, 3]:
+            ax.hlines(
+                [median_val + k * mad_val, median_val - k * mad_val], x0, x1,
+                linewidth=2, linestyles="dotted", color="black"
+            )
+
+        # Cut-off line
+        ax.hlines(cutoffs[sample], x0, x1, linewidth=4, color="red")
+
+    ax.tick_params(axis="x", labelrotation=45, labelsize=8)
+    for lab in ax.get_xticklabels():
+        lab.set_ha("right")
+    ax.title.set_text(name)
+
+
+def plot_filtered_bar(ax, filtered_stats):
+    filtered_stats.plot.bar(ax=ax)
+    ax.set_title("Percent filtered cells")
+    ax.tick_params(axis="x", labelrotation=45, labelsize=8)
+    for lab in ax.get_xticklabels():
+        lab.set_ha("right")
+```
+
+```{python filtering}
+#| output: false
+# This chunk creates several plots, but won't show them (see chunk options
+# above) in favour of storing them in a list and showing them in a tabset
+filtered_plots = []
+
+# Parse filtering settings from input parameters
+filtering_settings = [
+    [x.strip() for x in filtering_genes.split(',')],
+    [x.strip() for x in filtering_mt.split(',')]
+]
+
+# Group the settings by selected batch and QC metrics
+qc_cols = [x[0] for x in filtering_settings]
+qc_cols.append(filtering_batch)
+sample_stats = adata.obs.loc[:, qc_cols].groupby(filtering_batch)
+
+# calculate mean/median per sample
+medians = sample_stats.median()
+# The `.mad()` method was removed in later versions of pandas, so a robust
+# version is used here. TODO: should median MAD be used instead?
+mads = sample_stats.agg(lambda x: np.mean(np.abs(x - x.mean())))
+
+# List all samples
+samples = adata.obs['sample'].cat.categories.to_list()
+
+# Loop over each filtering setting and filter accordingly
+filtered = {}
+filtered_cells = []
+for name, kind, value, direction in filtering_settings:
+    value = int(value)
+
+    # Check for valid values of `kind` and `direction`
+    if kind not in ('fixed', 'adaptive'):
+        continue
+    if direction not in ('below', 'above'):
+        continue
+
+    # Define the cut-offs based on filtering settings
+    cutoffs = define_filtering_cutoffs(samples, name, kind, value, direction)
+
+    # Add to per-sample dictionary of whether cells pass filtering or not
+    if direction == 'below':
+        for sample in samples:
+            filtered[sample] = (
+                (adata.obs[name] <= cutoffs[sample])[adata.obs['sample'] == sample]
+            )
+    elif direction == 'above':
+        for sample in samples:
+            filtered[sample] = (
+                (adata.obs[name] >= cutoffs[sample])[adata.obs['sample'] == sample]
+            )
+
+    # Compute per-sample percentage of filtered cells
+    filtered_stats = pd.Series(
+        [
+            filtered[sample].sum() / filtered[sample].shape[0] * 100
+            for sample in adata.obs["sample"].cat.categories
+        ],
+        index=adata.obs["sample"].cat.categories,
+    )
+
+    # Add to the list of all cells to be filtered out across samples
+    for sample in samples:
+        filtered_cells.extend(list(filtered[sample].index[filtered[sample]]))
+
+    # Plot filtered violins and bars and append to plot list for
+    fig, axs = plt.subplots(1, 2, figsize=(7.25, 4), constrained_layout=True)
+    plot_filtered_violin(axs[0], adata, name, medians, mads, cutoffs)
+    plot_filtered_bar(axs[1], filtered_stats)
+    filtered_plots.append((name, fig))
+```
+
+::: {.panel-tabset}
+```{python filtering-tabsets}
+#| output: asis
+for name, fig in filtered_plots:
+    display(Markdown(f"#### {name}"))
+    display(fig)
+    plt.close()
+    display(Markdown(f" "))
+```
+:::
