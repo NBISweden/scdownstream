@@ -181,6 +181,11 @@ def plot_filtered_bar(ax, filtered_stats):
     ax.tick_params(axis="x", labelrotation=45, labelsize=8)
     for lab in ax.get_xticklabels():
         lab.set_ha("right")
+    ax.yaxis.grid(True, alpha=0.25)
+    ax.set_axisbelow(True)
+    for container in ax.containers:
+        ax.bar_label(container, fmt="%.1f %%", label_type="edge", padding=2,
+            fontsize=8)
 ```
 
 ```{python filtering}
