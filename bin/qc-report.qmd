@@ -132,6 +132,18 @@ def define_filtering_cutoffs(samples, name, kind, value, direction):
     return cutoffs
 
 
+def gradient_hline(ax, y, x0, x1, color='black', linewidth=1, max_alpha=1):
+    n = 50
+    xs = np.linspace(x0, x1, n+1)
+    mid = n // 4
+    alphas_left = np.linspace(0, max_alpha, mid, endpoint=False)
+    alphas_middle = [max_alpha] * mid
+    alphas_right = np.linspace(max_alpha, 0, n - mid)
+    alphas = np.concatenate([alphas_left, alphas_middle, alphas_right])
+    for i in range(n):
+        ax.plot(xs[i:i+2], [y, y], color=color, alpha=alphas[i],
+            linewidth=linewidth, solid_capstyle='butt')
+
 def plot_filtered_violin(ax, adata, name, medians, mads, cutoffs):
     sc.pl.violin(adata, name, groupby="sample", jitter=0.4, rotation=45,
         size=0.1, show=False, ax=ax)
@@ -143,17 +155,19 @@ def plot_filtered_violin(ax, adata, name, medians, mads, cutoffs):
         x0, x1 = idx - 0.5, idx + 0.5
 
         # Median line
-        ax.hlines(median_val, x0, x1, linewidth=2, color="black")
+        gradient_hline(ax, median_val, x0, x1, linewidth=2)
 
         # ±k * MAD lines
         for k in [1, 2, 3]:
-            ax.hlines(
+            # ax.hlines(
+            gradient_hline(ax,
                 [median_val + k * mad_val, median_val - k * mad_val], x0, x1,
-                linewidth=2, linestyles="dotted", color="black"
+                linewidth=1.5, color="black", max_alpha=0.25
             )
 
         # Cut-off line
-        ax.hlines(cutoffs[sample], x0, x1, linewidth=4, color="red")
+        gradient_hline(ax, cutoffs[sample], x0, x1, color="#d62728",
+            linewidth=2)
 
     ax.tick_params(axis="x", labelrotation=45, labelsize=8)
     for lab in ax.get_xticklabels():
