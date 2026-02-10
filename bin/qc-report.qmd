@@ -287,3 +287,27 @@ stats['Percentage'] = (
 )
 stats
 ```
+
+# Top expressed genes
+
+```{python}
+#| output: false
+top_genes_plots = []
+for sample in samples:
+    fig, ax = plt.subplots(figsize=(7, 5), constrained_layout=True)
+    sc.pl.highest_expr_genes(adata[adata.obs['sample'] == sample, :], n_top=20,
+        ax=ax, show=False)
+    ax.title.set_text(sample)
+    top_genes_plots.append((sample, fig))
+```
+
+::: {.panel-tabset}
+```{python top-genes-tabsets}
+#| output: asis
+for sample, fig in top_genes_plots:
+    display(Markdown(f"#### {sample}"))
+    display(fig)
+    plt.close()
+    display(Markdown(f" "))
+```
+:::
