@@ -30,6 +30,21 @@ import glob
 from IPython.display import display, Markdown
 ```
 
+```{python Tabset function}
+def create_tabset(content):
+    """
+    Programmatically create tabsets with headers and plots.
+
+    Arguments:
+        content -- a (name, figure) tuple, where `name` is e.g. sample names
+    """
+    for name, fig in content:
+        display(Markdown(f"#### {name}"))
+        display(fig)
+        plt.close()
+        display(Markdown(f" "))
+```
+
 ```{python Read h5ad}
 input_files = glob.glob("*.h5ad")
 if qc_only:
@@ -65,10 +80,12 @@ counts and counts per spot, as well as the percentage of counts from
 mitochondrial, ribosomal and haemoglobin genes:
 
 ```{python Violin plot prep}
-violin_tabsets = ["sample", "batch", "label"]
+#| output: false
+violin_groups = ["sample", "batch", "label"]
 violin_stats = ['n_genes_by_counts', 'total_counts', 'pct_counts_mt']
 
 def plot_qc_violin(adata, group):
+    """Function to create QC violin plots for a given grouping variable."""
     fig, axs = plt.subplots(1, 3, figsize=(7.25, 2.5), constrained_layout=True)
     for stat, ax in zip(violin_stats, axs.flatten()):
         sc.pl.violin(adata, keys=stat, groupby = group, jitter=0.4, size=0.1,
@@ -78,17 +95,19 @@ def plot_qc_violin(adata, group):
             lab.set_ha("right")
         ax.title.set_text(stat)
         ax.set_xlabel("")
+    return fig
+
+# Store plots in list for plotting inside a tabset
+violin_plots = []
+for group in violin_groups:
+    fig = plot_qc_violin(adata, group)
+    violin_plots.append((group, fig))
 ```
 
 ::: {.panel-tabset}
 ```{python}
 #| output: asis
-for tabset in violin_tabsets:
-    display(Markdown(f"#### {tabset}"))
-    plot_qc_violin(adata, tabset)
-    display(plt.gcf())
-    plt.close()
-    display(Markdown(f" "))
+create_tabset(violin_plots)
 ```
 :::
 
@@ -190,10 +209,6 @@ def plot_filtered_bar(ax, filtered_stats):
 
 ```{python filtering}
 #| output: false
-# This chunk creates several plots, but won't show them (see chunk options
-# above) in favour of storing them in a list and showing them in a tabset
-filtered_plots = []
-
 # Parse filtering settings from input parameters
 filtering_settings = [
     [x.strip() for x in filtering_genes.split(',')],
@@ -217,6 +232,7 @@ samples = adata.obs['sample'].cat.categories.to_list()
 # Loop over each filtering setting and filter accordingly
 filtered = {}
 filtered_cells = []
+filtered_plots = []
 for name, kind, value, direction in filtering_settings:
     value = int(value)
 
@@ -264,11 +280,7 @@ for name, kind, value, direction in filtering_settings:
 ::: {.panel-tabset}
 ```{python filtering-tabsets}
 #| output: asis
-for name, fig in filtered_plots:
-    display(Markdown(f"#### {name}"))
-    display(fig)
-    plt.close()
-    display(Markdown(f" "))
+create_tabset(filtered_plots)
 ```
 :::
 
@@ -304,10 +316,6 @@ for sample in samples:
 ::: {.panel-tabset}
 ```{python top-genes-tabsets}
 #| output: asis
-for sample, fig in top_genes_plots:
-    display(Markdown(f"#### {sample}"))
-    display(fig)
-    plt.close()
-    display(Markdown(f" "))
+create_tabset(top_genes_plots)
 ```
 :::
