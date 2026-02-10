@@ -57,6 +57,7 @@ workflow SCDOWNSTREAM {
     skip_rankgenesgroups          //   value: boolean
     base_embeddings               //   value: string
     base_label_col                //   value: string
+    base_condition_col            //   value: string
     cluster_per_label             //   value: boolean
     cluster_global                //   value: boolean
     clustering_resolutions        //   value: string
@@ -199,8 +200,8 @@ workflow SCDOWNSTREAM {
 
         ch_finalization_base = ch_base
         ch_label_grouping = ch_base
-        grouping_col = params.base_label_col
-        condition_col = params.base_condition_col
+        grouping_col = base_label_col
+        condition_col = base_condition_col
     }
 
     //
@@ -291,7 +292,7 @@ workflow SCDOWNSTREAM {
         .map { _meta, h5ad -> h5ad }
         .collect()
     qc_report_params = [
-        qc_only: params.qc_only
+        qc_only: qc_only
     ]
     QC_REPORT (
         qc_report_notebook,
