@@ -5,10 +5,6 @@ format:
 jupyter: python3
 ---
 
-# Introduction
-
-Write a nice summary here....
-
 ```{python}
 #| tags: [parameters]
 #| echo: false
@@ -16,7 +12,12 @@ qc_only = False
 filtering_batch = 'sample'
 filtering_genes = "n_genes_by_counts,adaptive,3,above"
 filtering_mt = "pct_counts_mt,adaptive,2,above"
+filtering_specific_genes = "Malat1"
 ```
+
+# Introduction
+
+Write a nice summary here....
 
 ```{python Load libraries}
 import pandas as pd
@@ -125,7 +126,7 @@ axs[1].set_xscale("log")
 axs[1].set_yscale("log")
 ```
 
-# Filtering
+# QC filtering
 
 ```{python filtering-functions}
 def define_filtering_cutoffs(samples, name, kind, value, direction):
@@ -300,9 +301,11 @@ stats['Percentage'] = (
 stats
 ```
 
-# Top expressed genes
+# Gene filtering
 
-```{python}
+## Top expressed genes
+
+```{python top-genes-plots}
 #| output: false
 top_genes_plots = []
 for sample in samples:
@@ -319,3 +322,19 @@ for sample in samples:
 create_tabset(top_genes_plots)
 ```
 :::
+
+## Filter top genes
+
+```{python filter-top-genes}
+# Initialise boolean mask with all gene names
+genes_to_remove = np.zeros(adata.var_names.shape, dtype=bool)
+for gene in filtering_specific_genes.split(','):
+    # Create boolean mask for current gene to be removed
+    current_gene = adata.var_names.str.startswith(gene)
+    # Add current gene to final mask
+    genes_to_remove |= current_gene
+
+# Remove genes
+keep = ~genes_to_remove
+adata = adata[:, keep]
+```
