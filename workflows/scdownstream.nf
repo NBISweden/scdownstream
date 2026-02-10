@@ -282,8 +282,8 @@ workflow SCDOWNSTREAM {
     // Render quality control report
     //
     qc_report_notebook = file("${projectDir}/bin/qc-report.qmd", checkIfExists: true)
-    extensions = Channel.fromPath("${projectDir}/assets/_extensions").collect()
-    if (!params.qc_only) {
+    extensions = channel.fromPath("${projectDir}/assets/_extensions").collect()
+    if (!qc_only) {
         ch_qc_report_input_base = FINALIZE.out.h5ad
     } else {
         ch_qc_report_input_base = ch_h5ad
