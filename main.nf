@@ -66,6 +66,10 @@ workflow NFCORE_SCDOWNSTREAM {
     pseudobulk_groupby_labels     //   value: string
     pseudobulk_min_num_cells      //   value: integer
     prep_cellxgene                //   value: boolean
+    filtering_batch               //   value: string
+    filtering_genes               //   value: string
+    filtering_mt                  //   value: string
+    filtering_specific_genes      //   value: string
     outdir                        //   value: string
     multiqc_config                //   value: string
     multiqc_logo                  //   value: string
@@ -113,6 +117,10 @@ workflow NFCORE_SCDOWNSTREAM {
         pseudobulk_groupby_labels,
         pseudobulk_min_num_cells,
         prep_cellxgene,
+        filtering_batch,
+        filtering_genes,
+        filtering_mt,
+        filtering_specific_genes,
         outdir,
         multiqc_config,
         multiqc_logo,
@@ -187,6 +195,10 @@ workflow {
         params.pseudobulk_groupby_labels,
         params.pseudobulk_min_num_cells,
         params.prep_cellxgene,
+        params.filtering_batch,
+        params.filtering_genes,
+        params.filtering_mt,
+        params.filtering_specific_genes,
         params.outdir,
         params.multiqc_config,
         params.multiqc_logo,
