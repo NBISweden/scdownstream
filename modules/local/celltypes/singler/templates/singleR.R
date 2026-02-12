@@ -102,7 +102,7 @@ for (ref_idx in seq_along(references)) {
   )
 
   colnames(predictions) <- paste0(
-    colnames(predictions), "_", prefix, "_", ref_name
+    colnames(predictions), "_", ref_name
   )
   prediction_results[[ref]] <- predictions
 }
