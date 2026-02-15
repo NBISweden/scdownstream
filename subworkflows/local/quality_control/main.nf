@@ -152,8 +152,8 @@ workflow QUALITY_CONTROL {
     if (sample_n || sample_fraction) {
         SCANPY_SAMPLE (
             ch_h5ad,
-            sample_n,
-            sample_fraction
+            sample_n ?: [],
+            sample_fraction ?: []
         )
         ch_h5ad = SCANPY_SAMPLE.out.h5ad
         ch_versions = ch_versions.mix(SCANPY_SAMPLE.out.versions)
