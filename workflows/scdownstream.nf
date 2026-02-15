@@ -38,6 +38,8 @@ workflow SCDOWNSTREAM {
     doublet_detection_threshold   //   value: integer
     scvi_max_epochs               //   value: integer
     mito_genes                    //   value: string
+    sample_n                      //   value: string
+    sample_fraction               //   value: string
     qc_only                       //   value: boolean
     celldex_reference             //   value: string
     celltypist_model              //   value: string
@@ -113,6 +115,8 @@ workflow SCDOWNSTREAM {
             doublet_detection_threshold,
             scvi_max_epochs,
             mito_genes,
+            sample_n,
+            sample_fraction,
         )
         ch_versions = ch_versions.mix(QUALITY_CONTROL.out.versions)
         ch_multiqc_files = ch_multiqc_files.mix(QUALITY_CONTROL.out.multiqc_files)

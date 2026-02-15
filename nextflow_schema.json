@@ -306,6 +306,24 @@
                 }
             }
         },
+        "sampling_options": {
+            "title": "Sampling options",
+            "type": "object",
+            "fa_icon": "fas fa-filter",
+            "description": "Options for subsampling cells for faster testing or smaller output.",
+            "properties": {
+                "sample_n": {
+                    "type": "string",
+                    "default": null,
+                    "description": "Subsample to a constant number of cells. Use an integer larger than 1 (e.g., '1000' for 1000 cells). Cannot be used together with sample_fraction."
+                },
+                "sample_fraction": {
+                    "type": "string",
+                    "default": null,
+                    "description": "Subsample to a fraction of cells. Use a float between 0 and 1 (e.g., '0.5' for 50% of cells). Cannot be used together with sample_n."
+                }
+            }
+        },
         "scVI_options": {
             "title": "scVI/scANVI options",
             "type": "object",
@@ -560,6 +578,9 @@
         },
         {
             "$ref": "#/$defs/pipeline_options"
+        },
+        {
+            "$ref": "#/$defs/sampling_options"
         },
         {
             "$ref": "#/$defs/scVI_options"

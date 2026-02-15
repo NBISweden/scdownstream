@@ -40,6 +40,8 @@ workflow NFCORE_SCDOWNSTREAM {
     doublet_detection_threshold   //   value: integer
     scvi_max_epochs               //   value: integer
     mito_genes                    //   value: string
+    sample_n                      //   value: string
+    sample_fraction               //   value: string
     qc_only                       //   value: boolean
     celldex_reference             //   value: string
     celltypist_model              //   value: string
@@ -86,6 +88,8 @@ workflow NFCORE_SCDOWNSTREAM {
         doublet_detection_threshold,
         scvi_max_epochs,
         mito_genes,
+        sample_n,
+        sample_fraction,
         qc_only,
         celldex_reference,
         celltypist_model,
@@ -159,6 +163,8 @@ workflow {
         params.doublet_detection_threshold,
         params.scvi_max_epochs,
         params.mito_genes,
+        params.sample_n,
+        params.sample_fraction,
         params.qc_only,
         params.celldex_reference,
         params.celltypist_model,
