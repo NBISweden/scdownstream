@@ -30,7 +30,10 @@ elif fraction:
 else:
     raise ValueError("Either n or fraction must be set")
 
-sc.pp.sample(adata, **kwargs)
+if "n" in kwargs and kwargs["n"] >= adata.n_obs:
+    print(f"Warning: n is greater than the number of cells in the dataset ({adata.n_obs}). Using the entire dataset.")
+else:
+    sc.pp.sample(adata, **kwargs)
 
 adata.write_h5ad(f"{prefix}.h5ad")
 
