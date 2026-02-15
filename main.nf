@@ -32,7 +32,7 @@ workflow NFCORE_SCDOWNSTREAM {
     take:
     samplesheet                   // channel: samplesheet read in from --input
     ch_base                       // channel: [ val(meta), path(h5ad) ]
-    base_adata                    //   value: string
+    is_extension                  //   value: boolean
     ch_input                      //    file: samplesheet.csv
     ambient_correction            //   value: string
     ambient_corrected_integration //   value: boolean
@@ -80,7 +80,7 @@ workflow NFCORE_SCDOWNSTREAM {
     SCDOWNSTREAM (
         samplesheet,
         ch_base,
-        base_adata,
+        is_extension,
         ch_input,
         ambient_correction,
         ambient_corrected_integration,
@@ -155,7 +155,7 @@ workflow {
     NFCORE_SCDOWNSTREAM (
         PIPELINE_INITIALISATION.out.samplesheet,
         ch_base_adata,
-        params.base_adata,
+        params.base_adata != null,
         params.input,
         params.ambient_correction,
         params.ambient_corrected_integration,
