@@ -54,6 +54,9 @@ if qc_only:
 else:
     # Input data is integrated into a single `merged.h5ad` file
     adata = sc.read_h5ad(input_files[0])
+
+# Get all samples
+samples = adata.obs['sample'].cat.categories.to_list()
 ```
 
 # Quality controls
@@ -110,16 +113,22 @@ create_tabset(violin_plots)
 
 ## Scatter plots
 
-```{python}
-#| label: qc-scatter
-fig, axs = plt.subplots(1, 2, figsize=(7.5, 2.25), constrained_layout=True)
-sc.pl.scatter(adata, x='total_counts', y='pct_counts_mt', color='sample',
-    ax=axs[0], show=False)
-axs[0].set_xscale("log")
-sc.pl.scatter(adata, x='total_counts', y='n_genes_by_counts', color='sample',
-    ax=axs[1], show=False)
-axs[1].set_xscale("log")
-axs[1].set_yscale("log")
+```{python qc-scatter-plots}
+#| output: false
+def plot_qc_scatter(adata):
+    fig, ax = plt.subplots(figsize=(7, 5), constrained_layout=True)
+    sc.pl.scatter(adata, x='total_counts', y='n_genes_by_counts', ax=ax,
+        show=False)
+    ax.set_xscale("log")
+    ax.set_yscale("log")
+    return fig
+
+# Store plots in a list for plotting inside a tabset
+scatter_plots = []
+for sample in samples:
+    adata_sample = adata[adata.obs['sample'] == sample]
+    fig = plot_qc_scatter(adata_sample)
+    scatter_plots.append((sample, fig))
 ```
 
 ::: {.panel-tabset}
