@@ -32,7 +32,7 @@ workflow INTEGRATE {
 
     // If a reference model is provided, only the genes in the reference model are used
     // Otherwise, we would intersect the HVGs, which is not what we want
-    if (!is_extension && n_hvgs >= 0) {
+    if (!is_extension) {
         SCANPY_HVGS (
             ch_h5ad,
             n_hvgs,

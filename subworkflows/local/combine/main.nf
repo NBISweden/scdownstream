@@ -7,7 +7,7 @@ workflow COMBINE {
     take:
     ch_h5ad                     // channel: [ val(meta), path(h5ad) ]
     ch_base                     // channel: [ val(meta), path(h5ad) ]
-    base_adata                  //   value: string
+    is_extension                //   value: boolean
     integration_hvgs            //   value: integer
     integration_methods         //   value: string
     integration_excluded_genes  //   value: string
@@ -37,7 +37,7 @@ workflow COMBINE {
 
     INTEGRATE(
         ADATA_MERGE.out.integrate,
-        ch_base != null,
+        is_extension,
         integration_hvgs,
         integration_excluded_genes ? file(integration_excluded_genes) : [],
         integration_methods
@@ -52,7 +52,7 @@ workflow COMBINE {
     ch_versions      = ch_versions.mix(INTEGRATE.out.versions)
     ch_var           = ch_var.mix(INTEGRATE.out.var)
 
-    if (base_adata) {
+    if (is_extension) {
         ADATA_MERGEEMBEDDINGS(
             INTEGRATE.out.integrations
             .combine(

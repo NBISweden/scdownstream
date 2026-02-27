@@ -3,10 +3,12 @@ include { ANNDATA_GETSIZE as GET_UNFILTERED_SIZE                                
 include { ANNDATA_GETSIZE as GET_FILTERED_SIZE                                       } from '../../../modules/nf-core/anndata/getsize'
 include { ANNDATA_GETSIZE as GET_THRESHOLDED_SIZE                                    } from '../../../modules/nf-core/anndata/getsize'
 include { ANNDATA_GETSIZE as GET_DEDOUBLETED_SIZE                                    } from '../../../modules/nf-core/anndata/getsize'
+include { ANNDATA_GETSIZE as GET_SAMPLED_SIZE                                        } from '../../../modules/nf-core/anndata/getsize'
 include { SCANPY_PLOTQC as QC_RAW                                                    } from '../../../modules/local/scanpy/plotqc'
 include { AMBIENT_CORRECTION                                                         } from '../ambient_correction'
 include { UNIFY                                                                      } from '../unify'
 include { SCANPY_FILTER                                                              } from '../../../modules/local/scanpy/filter'
+include { SCANPY_SAMPLE                                                              } from '../../../modules/local/scanpy/sample'
 include { DOUBLET_DETECTION                                                          } from '../doublet_detection'
 include { SCANPY_PLOTQC as QC_FILTERED                                               } from '../../../modules/local/scanpy/plotqc'
 include { CUSTOM_COLLECTSIZES as COLLECT_SIZES                                       } from '../../../modules/local/custom/collectsizes'
@@ -23,6 +25,8 @@ workflow QUALITY_CONTROL {
     doublet_detection_threshold   //   value: float
     scvi_max_epochs               //   value: integer
     mito_genes                    //   value: string (path) or null
+    sample_n                      //   value: string (integer > 1 or null)
+    sample_fraction               //   value: string (float between 0-1 or null)
 
     main:
     ch_versions = channel.empty()
@@ -143,6 +147,30 @@ workflow QUALITY_CONTROL {
     )
     ch_h5ad = SCANPY_FILTER.out.h5ad
     ch_versions = ch_versions.mix(SCANPY_FILTER.out.versions)
+
+    // Only run SCANPY_SAMPLE if sample_n or sample_fraction is set
+    if (sample_n || sample_fraction) {
+        SCANPY_SAMPLE (
+            ch_h5ad,
+            sample_n ?: [],
+            sample_fraction ?: []
+        )
+        ch_h5ad = SCANPY_SAMPLE.out.h5ad
+        ch_versions = ch_versions.mix(SCANPY_SAMPLE.out.versions)
+
+        GET_SAMPLED_SIZE (
+            ch_h5ad,
+            "cells"
+        )
+        ch_versions = ch_versions.mix(GET_SAMPLED_SIZE.out.versions)
+        ch_sizes = ch_sizes.mix(
+            GET_SAMPLED_SIZE.out.size
+            .map {
+                meta, size ->
+                [meta.id, 'sampled', (size.text ?: "0").toInteger()]
+            }
+        )
+    }
 
     GET_THRESHOLDED_SIZE (
         ch_h5ad,

@@ -183,6 +183,11 @@ def validateInputParameters() {
     if (params.base_adata && 'scimilarity' in integration_methods && !params.scimilarity_model) {
         throw new Exception("If base_adata is provided and scimilarity is used as integration method, scimilarity_model must be provided.")
     }
+
+    // Validate sample_n and sample_fraction parameters
+    if (params.sample_n && params.sample_fraction) {
+        throw new Exception("Both sample_n and sample_fraction are set. Please use only one of them.")
+    }
 }
 
 //
