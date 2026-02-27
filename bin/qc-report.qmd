@@ -217,3 +217,38 @@ for ct_col in ct_columns:
 create_tabset(ct_plots)
 ```
 :::
+
+# UMAPs and clusters
+
+```{python}
+#| output: false
+# Link existing UMAP data
+adata.obsm['X_umap'] = adata.obsm['X_harmony-global_umap']
+
+# Find all performed clustering groups
+clustering_groups = [col for col in adata.obs.columns if 'global' in col]
+
+# Define grouping parameters
+groups = ['sample', 'batch']
+groups += ct_columns
+groups += clustering_groups
+
+# UMAP plotting function
+def plot_qc_umap(adata, group):
+    fig, ax = plt.subplots(figsize=(7, 5), constrained_layout=True)
+    sc.pl.umap(adata, color=group, ax=ax, show=False)
+    return fig
+
+# Store plots in a list for plotting inside a tabset
+umap_plots = []
+for group in groups:
+    fig = plot_qc_umap(adata, group)
+    umap_plots.append((group, fig))
+```
+
+::: {.panel-tabset}
+```{python qc-umap-plots-tabset}
+#| output: asis
+create_tabset(umap_plots)
+```
+:::
