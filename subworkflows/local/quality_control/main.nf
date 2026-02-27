@@ -204,6 +204,7 @@ workflow QUALITY_CONTROL {
 
     emit:
     h5ad          = ch_h5ad          // channel: [ meta, h5ad ]
+    sizes         = ch_sizes         // channel: [ tsv ]
     multiqc_files = ch_multiqc_files // channel: [ json ]
     versions      = ch_versions      // channel: [ versions.yml ]
 }

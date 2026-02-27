@@ -290,6 +290,7 @@ workflow SCDOWNSTREAM {
     }
     ch_qc_report_input_data = ch_qc_report_input_base
         .map { _meta, h5ad -> h5ad }
+        .mix ( QUALITY_CONTROL.out.sizes.map { _meta, tsv -> tsv } )
         .collect()
     qc_report_params = [
         qc_only: qc_only,

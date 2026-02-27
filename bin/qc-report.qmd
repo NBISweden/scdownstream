@@ -24,7 +24,7 @@ import scanpy as sc
 import seaborn as sns
 import anndata as ad
 import glob
-from IPython.display import display, Markdown
+from IPython.display import display, Markdown, HTML
 ```
 
 ```{python Tabset function}
@@ -66,6 +66,20 @@ scRNA-seq data. Common metrics include the number of genes with a least 1 count
 (`n_genes_by_counts`), counts per spot (`total_counts`) as well as the
 percentage of counts from mitochondrial, ribosomal and haemoglobin genes
 (`pct_counts_[mt/ribo/hb]`).
+
+## Filtering results
+
+```{python}
+sizes = pd.read_csv("size_list.tsv", sep="\t")
+sizes_wide = (
+    sizes
+    .pivot(index="sample", columns="state", values="size")
+    .rename_axis(columns=None)
+    .reset_index()
+    [ ["sample", "unfiltered", "thresholded", "filtered", "dedoubleted"] ]
+)
+HTML(sizes_wide.to_html(index=False))
+```
 
 ## Available metadata
 
@@ -157,36 +171,6 @@ for sample in samples:
 create_tabset(top_genes_plots)
 ```
 :::
-
-# Cell types
-
-```{python}
-# Get cell type label column name
-label = 'hpca_celldex.tar.pruned.labels_hpca_celldex'
-
-# Collect cell type statistics into per-sample dictionary
-ct_stats = {}
-for sample in samples:
-    adata_sample = adata[adata.obs["sample"] == sample]
-    ct_stats[sample] = adata_sample.obs[label].value_counts(normalize=True)
-
-# Convert to data frame and order by mean
-ct_stats = pd.concat(ct_stats.values(), axis=1)
-ct_stats.columns = samples
-ct_stats['mean'] = ct_stats.mean(axis=1)
-ct_stats = ct_stats.sort_values(by="mean", ascending=False)
-
-# Plot top 10 cell types
-ct_stats_top = ct_stats.head(10).T * 100
-fig, ax = plt.subplots(figsize=(7, 5), constrained_layout=True)
-ct_stats_top.plot.bar(stacked=True, ax=ax)
-ax.legend(loc='center left', bbox_to_anchor=(1.0, 0.5))
-ax.tick_params(axis="x", labelrotation=45, labelsize=8)
-for lab in ax.get_xticklabels():
-    lab.set_ha("right")
-ax.set_ylabel("Percentage (%)")
-plt.show()
-```
 
 # Cell types
 
