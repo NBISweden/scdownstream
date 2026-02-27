@@ -9,10 +9,6 @@ jupyter: python3
 #| tags: [parameters]
 #| echo: false
 qc_only = False
-filtering_batch = 'sample'
-filtering_genes = "n_genes_by_counts,adaptive,3,above"
-filtering_mt = "pct_counts_mt,adaptive,2,above"
-filtering_specific_genes = "Malat1"
 ```
 
 # Introduction
@@ -126,184 +122,14 @@ axs[1].set_xscale("log")
 axs[1].set_yscale("log")
 ```
 
-# QC filtering
-
-```{python filtering-functions}
-def define_filtering_cutoffs(samples, name, kind, value, direction):
-    cutoffs = {}
-    if kind == 'fixed':
-        for sample in samples:
-            cutoffs[sample] = value
-    elif kind == 'adaptive':
-        if direction == 'below':
-            for sample in samples:
-                cutoffs[sample] = (
-                    medians.loc[sample, name]
-                    - mads.loc[sample, name]
-                    * value
-                )
-        elif direction == 'above':
-            for sample in samples:
-                cutoffs[sample] = (
-                    medians.loc[sample, name]
-                    + mads.loc[sample, name]
-                    * value
-                )
-    return cutoffs
-
-
-def gradient_hline(ax, y, x0, x1, color='black', linewidth=1, max_alpha=1):
-    n = 50
-    xs = np.linspace(x0, x1, n+1)
-    mid = n // 4
-    alphas_left = np.linspace(0, max_alpha, mid, endpoint=False)
-    alphas_middle = [max_alpha] * mid
-    alphas_right = np.linspace(max_alpha, 0, n - mid)
-    alphas = np.concatenate([alphas_left, alphas_middle, alphas_right])
-    for i in range(n):
-        ax.plot(xs[i:i+2], [y, y], color=color, alpha=alphas[i],
-            linewidth=linewidth, solid_capstyle='butt')
-
-def plot_filtered_violin(ax, adata, name, medians, mads, cutoffs):
-    sc.pl.violin(adata, name, groupby="sample", jitter=0.4, rotation=45,
-        size=0.1, show=False, ax=ax)
-    for idx, sample in enumerate(adata.obs["sample"].cat.categories):
-        median_val = medians.loc[sample, name]
-        mad_val = mads.loc[sample, name]
-
-        # Lines start/end
-        x0, x1 = idx - 0.5, idx + 0.5
-
-        # Median line
-        gradient_hline(ax, median_val, x0, x1, linewidth=2)
-
-        # ±k * MAD lines
-        for k in [1, 2, 3]:
-            # ax.hlines(
-            gradient_hline(ax,
-                [median_val + k * mad_val, median_val - k * mad_val], x0, x1,
-                linewidth=1.5, color="black", max_alpha=0.25
-            )
-
-        # Cut-off line
-        gradient_hline(ax, cutoffs[sample], x0, x1, color="#d62728",
-            linewidth=2)
-
-    ax.tick_params(axis="x", labelrotation=45, labelsize=8)
-    for lab in ax.get_xticklabels():
-        lab.set_ha("right")
-    ax.title.set_text(name)
-
-
-def plot_filtered_bar(ax, filtered_stats):
-    filtered_stats.plot.bar(ax=ax)
-    ax.set_title("Percent filtered cells")
-    ax.tick_params(axis="x", labelrotation=45, labelsize=8)
-    for lab in ax.get_xticklabels():
-        lab.set_ha("right")
-    ax.yaxis.grid(True, alpha=0.25)
-    ax.set_axisbelow(True)
-    for container in ax.containers:
-        ax.bar_label(container, fmt="%.1f %%", label_type="edge", padding=2,
-            fontsize=8)
-```
-
-```{python filtering}
-#| output: false
-# Parse filtering settings from input parameters
-filtering_settings = [
-    [x.strip() for x in filtering_genes.split(',')],
-    [x.strip() for x in filtering_mt.split(',')]
-]
-
-# Group the settings by selected batch and QC metrics
-qc_cols = [x[0] for x in filtering_settings]
-qc_cols.append(filtering_batch)
-sample_stats = adata.obs.loc[:, qc_cols].groupby(filtering_batch)
-
-# calculate mean/median per sample
-medians = sample_stats.median()
-# The `.mad()` method was removed in later versions of pandas, so a robust
-# version is used here. TODO: should median MAD be used instead?
-mads = sample_stats.agg(lambda x: np.mean(np.abs(x - x.mean())))
-
-# List all samples
-samples = adata.obs['sample'].cat.categories.to_list()
-
-# Loop over each filtering setting and filter accordingly
-filtered = {}
-filtered_cells = []
-filtered_plots = []
-for name, kind, value, direction in filtering_settings:
-    value = int(value)
-
-    # Check for valid values of `kind` and `direction`
-    if kind not in ('fixed', 'adaptive'):
-        continue
-    if direction not in ('below', 'above'):
-        continue
-
-    # Define the cut-offs based on filtering settings
-    cutoffs = define_filtering_cutoffs(samples, name, kind, value, direction)
-
-    # Add to per-sample dictionary of whether cells pass filtering or not
-    if direction == 'below':
-        for sample in samples:
-            filtered[sample] = (
-                (adata.obs[name] < cutoffs[sample])[adata.obs['sample'] == sample]
-            )
-    elif direction == 'above':
-        for sample in samples:
-            filtered[sample] = (
-                (adata.obs[name] > cutoffs[sample])[adata.obs['sample'] == sample]
-            )
-
-    # Compute per-sample percentage of filtered cells
-    filtered_stats = pd.Series(
-        [
-            filtered[sample].sum() / filtered[sample].shape[0] * 100
-            for sample in adata.obs["sample"].cat.categories
-        ],
-        index=adata.obs["sample"].cat.categories,
-    )
-
-    # Add to the list of all cells to be filtered out across samples
-    for sample in samples:
-        filtered_cells.extend(list(filtered[sample].index[filtered[sample]]))
-
-    # Plot filtered violins and bars and append to plot list for
-    fig, axs = plt.subplots(1, 2, figsize=(7.25, 4), constrained_layout=True)
-    plot_filtered_violin(axs[0], adata, name, medians, mads, cutoffs)
-    plot_filtered_bar(axs[1], filtered_stats)
-    filtered_plots.append((name, fig))
-```
-
 ::: {.panel-tabset}
-```{python filtering-tabsets}
+```{python qc-scatter-plots-tabset}
 #| output: asis
-create_tabset(filtered_plots)
+create_tabset(scatter_plots)
 ```
 :::
 
-```{python filtering-percentage}
-# Perform filtering; calculate number of cells before and after filtering
-before = adata.obs['sample'].value_counts()
-adata = adata[~adata.obs_names.isin(filtered_cells), :]
-after = adata.obs['sample'].value_counts()
-
-# Calculate per-sample percentages of cells removed after final filtering
-# Replace NaN (i.e. samples where all cells were removed) with zeroes
-stats = pd.concat([before, after], axis=1).fillna(0).astype(int)
-stats.columns = ['Before','After']
-stats['Percentage'] = (
-    ((stats.Before - stats.After) / stats.Before * 100).round(1)
-)
-stats
-```
-
-# Gene filtering
-
-## Top expressed genes
+# Top expressed genes
 
 ```{python top-genes-plots}
 #| output: false
@@ -323,18 +149,32 @@ create_tabset(top_genes_plots)
 ```
 :::
 
-## Filter top genes
+# Cell types
 
-```{python filter-top-genes}
-# Initialise boolean mask with all gene names
-genes_to_remove = np.zeros(adata.var_names.shape, dtype=bool)
-for gene in filtering_specific_genes.split(','):
-    # Create boolean mask for current gene to be removed
-    current_gene = adata.var_names.str.startswith(gene)
-    # Add current gene to final mask
-    genes_to_remove |= current_gene
+```{python}
+# Get cell type label column name
+label = 'hpca_celldex.tar.pruned.labels_hpca_celldex'
 
-# Remove genes
-keep = ~genes_to_remove
-adata = adata[:, keep]
+# Collect cell type statistics into per-sample dictionary
+ct_stats = {}
+for sample in samples:
+    adata_sample = adata[adata.obs["sample"] == sample]
+    ct_stats[sample] = adata_sample.obs[label].value_counts(normalize=True)
+
+# Convert to data frame and order by mean
+ct_stats = pd.concat(ct_stats.values(), axis=1)
+ct_stats.columns = samples
+ct_stats['mean'] = ct_stats.mean(axis=1)
+ct_stats = ct_stats.sort_values(by="mean", ascending=False)
+
+# Plot top 10 cell types
+ct_stats_top = ct_stats.head(10).T * 100
+fig, ax = plt.subplots(figsize=(7, 5), constrained_layout=True)
+ct_stats_top.plot.bar(stacked=True, ax=ax)
+ax.legend(loc='center left', bbox_to_anchor=(1.0, 0.5))
+ax.tick_params(axis="x", labelrotation=45, labelsize=8)
+for lab in ax.get_xticklabels():
+    lab.set_ha("right")
+ax.set_ylabel("Percentage (%)")
+plt.show()
 ```

@@ -65,10 +65,6 @@ workflow SCDOWNSTREAM {
     pseudobulk_groupby_labels     //   value: string
     pseudobulk_min_num_cells      //   value: integer
     prep_cellxgene                //   value: boolean
-    filtering_batch               //   value: string
-    filtering_genes               //   value: string
-    filtering_mt                  //   value: string
-    filtering_specific_genes      //   value: string
     outdir                        //   value: string
     multiqc_config                //   value: string
     multiqc_logo                  //   value: string
@@ -297,10 +293,6 @@ workflow SCDOWNSTREAM {
         .collect()
     qc_report_params = [
         qc_only: qc_only,
-        filtering_batch: filtering_batch,
-        filtering_genes: filtering_genes,
-        filtering_mt: filtering_mt,
-        filtering_specific_genes: filtering_specific_genes
     ]
     QC_REPORT (
         qc_report_notebook,

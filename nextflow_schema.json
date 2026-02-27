@@ -375,38 +375,6 @@
                 }
             }
         },
-        "reporting_options": {
-            "title": "Reporting options",
-            "type": "object",
-            "fa_icon": "fas fa-file-lines",
-            "description": "Options for the final HTML report.",
-            "properties": {
-                "filtering_batch": {
-                    "type": "string",
-                    "default": "sample",
-                    "description": "Description",
-                    "help_text": "Help text"
-                },
-                "filtering_genes": {
-                    "type": "string",
-                    "default": "n_genes_by_counts,adaptive,3,above",
-                    "description": "Description",
-                    "help_text": "Help text"
-                },
-                "filtering_mt": {
-                    "type": "string",
-                    "default": "pct_counts_mt,adaptive,2,above",
-                    "description": "Description",
-                    "help_text": "Help text"
-                },
-                "filtering_specific_genes": {
-                    "type": "string",
-                    "default": "Malat1",
-                    "description": "Description",
-                    "help_text": "Help text"
-                }
-            }
-        },
         "institutional_config_options": {
             "title": "Institutional config options",
             "type": "object",
