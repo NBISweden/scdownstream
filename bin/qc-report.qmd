@@ -222,33 +222,106 @@ create_tabset(ct_plots)
 
 ```{python}
 #| output: false
-# Link existing UMAP data
-adata.obsm['X_umap'] = adata.obsm['X_harmony-global_umap']
-
-# Find all performed clustering groups
-clustering_groups = [col for col in adata.obs.columns if 'global' in col]
-
-# Define grouping parameters
-groups = ['sample', 'batch']
-groups += ct_columns
-groups += clustering_groups
-
-# UMAP plotting function
-def plot_qc_umap(adata, group):
+def plot_qc_umap(adata, basis, group):
     fig, ax = plt.subplots(figsize=(7, 5), constrained_layout=True)
-    sc.pl.umap(adata, color=group, ax=ax, show=False)
+    sc.pl.embedding(adata, basis=basis, color=group, ax=ax, show=False)
     return fig
 
-# Store plots in a list for plotting inside a tabset
-umap_plots = []
-for group in groups:
-    fig = plot_qc_umap(adata, group)
-    umap_plots.append((group, fig))
+# Loop over existing UMAPs
+umaps = [obsm for obsm in adata.obsm if 'umap' in obsm]
+umap_dict = {}
+for umap in umaps:
+
+    # Find all performed clusterings
+    umap_pattern = umap.split('_')[1]
+    umap_name = umap_pattern.split('-')[0]
+    clusterings = [col for col in adata.obs.columns if umap_pattern in col]
+
+    # Define grouping parameters
+    groups = ['sample', 'batch'] + ct_columns + clusterings
+
+    # Store plots in a list
+    umap_plots = []
+    for group in groups:
+        fig = plot_qc_umap(adata, umap, group)
+        umap_plots.append((group, fig))
+
+    # Store plot list inside dictionary for programmatic header/tabset creation
+    umap_dict[umap_name] = umap_plots
 ```
 
-::: {.panel-tabset}
-```{python qc-umap-plots-tabset}
-#| output: asis
-create_tabset(umap_plots)
+```{python}
+#| echo: false
+# Check for presence of the different integration methods to be able to create
+# sub-headers with tabsets per method. Quarto doesn't have an equivalent of R's
+# `cat()` for programmatically printing headers and tabsets with Python, so we
+# have to use repeated inline code with conditionals instead; the actual tabset
+# content still has to be inside a real code chunk.
+integration_methods = umap_dict.keys()
+bbknn_present = "bbknn" in integration_methods
+combat_present = "combat" in integration_methods
+harmony_present = "harmony" in integration_methods
+scanvi_present = "scanvi" in integration_methods
+scvi_present = "scvi" in integration_methods
+seurat_present = "seurat" in integration_methods
 ```
-:::
+
+`{python} Markdown("## bbknn") if bbknn_present else Markdown(" ")`
+`{python} Markdown("::: {.panel-tabset}") if bbknn_present else Markdown(" ")`
+```{python umap-tabset-bbknn}
+#| echo: false
+#| output: asis
+if bbknn_present:
+    create_tabset(umap_dict['bbknn'])
+```
+`{python} Markdown(":::") if bbknn_present else Markdown(" ")`
+
+`{python} Markdown("## Combat") if combat_present else Markdown(" ")`
+`{python} Markdown("::: {.panel-tabset}") if combat_present else Markdown(" ")`
+```{python umap-tabset-combat}
+#| echo: false
+#| output: asis
+if combat_present:
+    create_tabset(umap_dict['combat'])
+```
+`{python} Markdown(":::") if combat_present else Markdown(" ")`
+
+`{python} Markdown("## Harmony") if harmony_present else Markdown(" ")`
+`{python} Markdown("::: {.panel-tabset}") if harmony_present else Markdown(" ")`
+```{python umap-tabset-harmony}
+#| echo: false
+#| output: asis
+if harmony_present:
+    create_tabset(umap_dict['harmony'])
+```
+`{python} Markdown(":::") if harmony_present else Markdown(" ")`
+
+`{python} Markdown("## scanvi") if scanvi_present else Markdown(" ")`
+`{python} Markdown("::: {.panel-tabset}") if scanvi_present else Markdown(" ")`
+```{python umap-tabset-scanvi}
+#| echo: false
+#| output: asis
+if scanvi_present:
+    create_tabset(umap_dict['scanvi'])
+```
+`{python} Markdown(":::") if scanvi_present else Markdown(" ")`
+
+`{python} Markdown("## scvi") if scvi_present else Markdown(" ")`
+`{python} Markdown("::: {.panel-tabset}") if scvi_present else Markdown(" ")`
+```{python umap-tabset-scvi}
+#| echo: false
+#| output: asis
+if scvi_present:
+    create_tabset(umap_dict['scvi'])
+```
+`{python} Markdown(":::") if scvi_present else Markdown(" ")`
+
+`{python} Markdown("## Seurat") if seurat_present else Markdown(" ")`
+`{python} Markdown("::: {.panel-tabset}") if seurat_present else Markdown(" ")`
+```{python umap-tabset-seurat}
+#| echo: false
+#| output: asis
+if seurat_present:
+    create_tabset(umap_dict['seurat'])
+```
+`{python} Markdown(":::") if seurat_present else Markdown(" ")`
