@@ -1,5 +1,6 @@
 ---
 title: "Pre-processing and quality control"
+date: today
 format:
     nf-core-html: default
 jupyter: python3
@@ -46,11 +47,11 @@ def create_tabset(content):
 input_files = glob.glob("*.h5ad")
 if qc_only:
     # Input data comes with multiple files, one per sample
-    alldata = {}
+    adata_all = {}
     for file in input_files:
-        alldata[file] = sc.read_h5ad(file)
-        alldata[file].obs['file'] = file
-    adata = ad.concat(alldata)
+        adata_all[file] = sc.read_h5ad(file)
+        adata_all[file].obs['file'] = file
+    adata = ad.concat(adata_all)
 else:
     # Input data is integrated into a single `merged.h5ad` file
     adata = sc.read_h5ad(input_files[0])
