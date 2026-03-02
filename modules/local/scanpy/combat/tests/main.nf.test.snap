@@ -52,14 +52,14 @@
                         {
                             "id": "test"
                         },
-                        "test.h5ad:md5,ff8f8271da3d713fbd0977132c1a4805"
+                        "test.h5ad:md5,6d32da20d4f5b6c9d8b21f90670fc303"
                     ]
                 ],
                 "1": [
-                    "X_test.pkl:md5,7234c439af3502c337b358726e2c7612"
+                    "X_test.pkl:md5,effb900ef5f8b143c64df7fd7672a7c6"
                 ],
                 "2": [
-                    "test.npy:md5,9db3ab44bc60f68d28a35505394864a2"
+                    "test.npy:md5,598770b7e0cef54ea728fecfb0b76e48"
                 ],
                 "3": [
                     "versions.yml:md5,0491c44b3314ea1fab189270db6dfd8d"
@@ -69,14 +69,14 @@
                         {
                             "id": "test"
                         },
-                        "test.h5ad:md5,ff8f8271da3d713fbd0977132c1a4805"
+                        "test.h5ad:md5,6d32da20d4f5b6c9d8b21f90670fc303"
                     ]
                 ],
                 "layers": [
-                    "test.npy:md5,9db3ab44bc60f68d28a35505394864a2"
+                    "test.npy:md5,598770b7e0cef54ea728fecfb0b76e48"
                 ],
                 "obsm": [
-                    "X_test.pkl:md5,7234c439af3502c337b358726e2c7612"
+                    "X_test.pkl:md5,effb900ef5f8b143c64df7fd7672a7c6"
                 ],
                 "versions": [
                     "versions.yml:md5,0491c44b3314ea1fab189270db6dfd8d"
@@ -85,8 +85,8 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.10.2"
+            "nextflow": "25.10.4"
         },
-        "timestamp": "2026-01-25T17:15:50.561076769"
+        "timestamp": "2026-03-02T11:39:52.973686421"
     }
 }

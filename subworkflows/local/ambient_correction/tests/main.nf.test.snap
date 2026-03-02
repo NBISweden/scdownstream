@@ -56,7 +56,7 @@
                         {
                             "id": "test"
                         },
-                        "test.h5ad:md5,4d8d0d4474873c89db514aabe8628d56"
+                        "test.h5ad:md5,b47a8750aa1cf976c22d38338b2942d0"
                     ]
                 ],
                 "1": [
@@ -68,7 +68,7 @@
                         {
                             "id": "test"
                         },
-                        "test.h5ad:md5,4d8d0d4474873c89db514aabe8628d56"
+                        "test.h5ad:md5,b47a8750aa1cf976c22d38338b2942d0"
                     ]
                 ],
                 "versions": [
@@ -82,9 +82,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nextflow": "25.10.4"
         },
-        "timestamp": "2026-01-01T10:37:31.070458556"
+        "timestamp": "2026-03-02T13:44:51.438424734"
     },
     "Should run with 'decontx' ambient correction and no batch column": {
         "content": [
@@ -197,7 +197,7 @@
                         {
                             "id": "test"
                         },
-                        "test.h5ad:md5,4d8d0d4474873c89db514aabe8628d56"
+                        "test.h5ad:md5,b47a8750aa1cf976c22d38338b2942d0"
                     ]
                 ],
                 "1": [
@@ -209,7 +209,7 @@
                         {
                             "id": "test"
                         },
-                        "test.h5ad:md5,4d8d0d4474873c89db514aabe8628d56"
+                        "test.h5ad:md5,b47a8750aa1cf976c22d38338b2942d0"
                     ]
                 ],
                 "versions": [
@@ -223,9 +223,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nextflow": "25.10.4"
         },
-        "timestamp": "2026-01-01T10:32:08.996381393"
+        "timestamp": "2026-03-02T13:40:47.925626472"
     },
     "Should run with 'soupx' ambient correction": {
         "content": [
