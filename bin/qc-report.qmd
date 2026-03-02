@@ -58,6 +58,10 @@ else:
 
 # Get all samples
 samples = adata.obs['sample'].cat.categories.to_list()
+
+# Define QC groups and metrics
+qc_groups = ["sample", "batch", "label"]
+qc_metrics = ['n_genes_by_counts', 'total_counts', 'pct_counts_mt']
 ```
 
 # Quality controls
@@ -96,13 +100,10 @@ mitochondrial, ribosomal and haemoglobin genes:
 
 ```{python Violin plot prep}
 #| output: false
-violin_groups = ["sample", "batch", "label"]
-violin_stats = ['n_genes_by_counts', 'total_counts', 'pct_counts_mt']
-
 def plot_qc_violin(adata, group):
     """Function to create QC violin plots for a given grouping variable."""
     fig, axs = plt.subplots(1, 3, figsize=(7.25, 2.5), constrained_layout=True)
-    for stat, ax in zip(violin_stats, axs.flatten()):
+    for stat, ax in zip(qc_metrics, axs.flatten()):
         sc.pl.violin(adata, keys=stat, groupby = group, jitter=0.4, size=0.1,
             ax=ax, show=False)
         ax.tick_params(axis="x", labelrotation=45, labelsize=8)
@@ -114,7 +115,7 @@ def plot_qc_violin(adata, group):
 
 # Store plots in list for plotting inside a tabset
 violin_plots = []
-for group in violin_groups:
+for group in qc_groups:
     fig = plot_qc_violin(adata, group)
     violin_plots.append((group, fig))
 ```
@@ -219,7 +220,7 @@ create_tabset(ct_plots)
 ```
 :::
 
-# UMAPs and clusters
+# UMAPs
 
 ```{python}
 #| output: false
@@ -239,7 +240,7 @@ for umap in umaps:
     clusterings = [col for col in adata.obs.columns if umap_pattern in col]
 
     # Define grouping parameters
-    groups = ['sample', 'batch'] + ct_columns + clusterings
+    groups = qc_groups + qc_metrics + ct_columns + clusterings
 
     # Store plots in a list
     umap_plots = []
