@@ -121,7 +121,7 @@
                             "unknown_label": "unknown",
                             "counts_layer": "X"
                         },
-                        "test_unified.h5ad:md5,720e333a51809a0ee9c03a9d1450d2ad"
+                        "test_unified.h5ad:md5,a9ac476adb2844de8640bf5fcaa0e0b9"
                     ]
                 ],
                 "1": [
@@ -145,7 +145,7 @@
                             "unknown_label": "unknown",
                             "counts_layer": "X"
                         },
-                        "test_unified.h5ad:md5,720e333a51809a0ee9c03a9d1450d2ad"
+                        "test_unified.h5ad:md5,a9ac476adb2844de8640bf5fcaa0e0b9"
                     ]
                 ],
                 "multiqc_files": [
@@ -162,9 +162,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.10.2"
+            "nextflow": "25.10.4"
         },
-        "timestamp": "2026-02-15T18:59:00.665039292"
+        "timestamp": "2026-03-02T14:10:06.836979414"
     },
     "Should run without failures - symbol_col index, unify_gene_symbols false - stub": {
         "content": [
