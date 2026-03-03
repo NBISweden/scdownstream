@@ -193,6 +193,7 @@ ct_columns = [col for col in adata.obs.columns if '.pruned.labels' in col]
 
 # Loop over cell type columns
 ct_plots = []
+ct_names = []
 for ct_col in ct_columns:
 
     # Collect cell type statistics into per-sample dictionary
@@ -207,16 +208,29 @@ for ct_col in ct_columns:
     ct_stats['mean'] = ct_stats.mean(axis=1)
     ct_stats = ct_stats.sort_values(by="mean", ascending=False)
 
+    # Truncate column name
+    ct_name = ct_col.split('__')[0].split('.')[0]
+    ct_names.append((ct_name, ct_col))
+
     # Plot top 10 cell types
     ct_stats_top = ct_stats.head(10).T * 100
     fig = plot_qc_celltype(ct_stats_top)
-    ct_plots.append((ct_col, fig))
+    ct_plots.append((ct_name, fig))
 ```
 
 ::: {.panel-tabset}
 ```{python cell-types-tabset}
 #| output: asis
 create_tabset(ct_plots)
+```
+:::
+
+::: {.callout-tip collapse="true" title="Expand to see full reference names"}
+```{python cell-types-table}
+# Show cell type column names conversion in a table
+ct_names = pd.DataFrame(ct_names)
+ct_names.columns = ['Truncated name', 'Full name']
+HTML(pd.DataFrame(ct_names).to_html(index=False))
 ```
 :::
 
@@ -245,8 +259,13 @@ for umap in umaps:
     # Store plots in a list
     umap_plots = []
     for group in groups:
+        # Truncate long cell type column names
+        if '.pruned.labels' in group:
+            group_name = group.split('__')[0].split('.')[0]
+        else:
+            group_name = group
         fig = plot_qc_umap(adata, umap, group)
-        umap_plots.append((group, fig))
+        umap_plots.append((group_name, fig))
 
     # Store plot list inside dictionary for programmatic header/tabset creation
     umap_dict[umap_name] = umap_plots
