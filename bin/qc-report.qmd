@@ -201,6 +201,7 @@ def plot_qc_celltype(stats):
     for lab in ax.get_xticklabels():
         lab.set_ha("right")
     ax.set_ylabel("Percentage (%)")
+    ax.set_xlabel("")
     return fig
 
 # Get column names
