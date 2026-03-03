@@ -8,7 +8,9 @@ workflow UNIFY_GENES {
     main:
 
     HUGOUNIFIER_GET(
-        ch_h5ad.map { meta, h5ad -> [[id: 'hugo-unifier'], meta.id, h5ad] }.groupTuple()
+        ch_h5ad
+            .map { meta, h5ad -> [[id: 'hugo-unifier'], meta.id, h5ad] }
+            .groupTuple()
     )
 
     ch_changes = HUGOUNIFIER_GET.out.changes
@@ -25,7 +27,9 @@ workflow UNIFY_GENES {
             [meta, h5ad, changes]
         }
 
-    HUGOUNIFIER_APPLY(ch_changes)
+    HUGOUNIFIER_APPLY (
+        ch_changes
+    )
     ch_h5ad = HUGOUNIFIER_APPLY.out.h5ad
 
     emit:

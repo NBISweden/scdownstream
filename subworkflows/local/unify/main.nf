@@ -7,7 +7,10 @@ include { ADATA_UNIFY                         } from '../../../modules/local/ada
 
 workflow UNIFY {
     take:
-    ch_h5ad // channel: [ meta, h5ad ]
+    ch_h5ad                  // channel: [ meta, h5ad ]
+    unify_gene_symbols       //   value: boolean
+    duplicate_var_resolution //   value: string
+    aggregate_isoforms       //   value: boolean
 
     main:
     ch_versions = channel.empty()
@@ -18,33 +21,48 @@ workflow UNIFY {
         needs_symbol_conversion: true
     }
 
-    MYGENE(ch_h5ad.needs_symbol_conversion)
+    MYGENE (
+        ch_h5ad.needs_symbol_conversion
+    )
     ch_versions = ch_versions.mix(MYGENE.out.versions)
     ch_h5ad = ch_h5ad.has_symbol_col.mix(
         MYGENE.out.h5ad.map { meta, h5ad -> [meta + [symbol_col: 'symbols'], h5ad] }
     )
 
-    if (params.unify_gene_symbols) {
+    if (unify_gene_symbols) {
         ch_h5ad = ch_h5ad.branch { meta, _h5ad ->
             has_symbols_as_index: meta.symbol_col == "index"
             needs_index_updating: true
         }
 
-        ch_setindex = ch_h5ad.needs_index_updating.multiMap { meta, h5ad ->
-            h5ad: [meta, h5ad]
-            column: meta.symbol_col
-        }
-        SET_INDEX(ch_setindex.h5ad, 'var', ch_setindex.column)
+        ch_setindex = ch_h5ad.needs_index_updating
+            .multiMap {
+                meta, h5ad ->
+                h5ad: [meta, h5ad]
+                column: meta.symbol_col
+            }
+        SET_INDEX (
+            ch_setindex.h5ad,
+            'var',
+            ch_setindex.column
+        )
         ch_versions = ch_versions.mix(SET_INDEX.out.versions)
         ch_h5ad = ch_h5ad.has_symbols_as_index.mix(
-            SET_INDEX.out.h5ad.map { meta, h5ad -> [meta + [symbol_col: 'index'], h5ad] }
+            SET_INDEX.out.h5ad
+                .map { meta, h5ad -> [meta + [symbol_col: 'index'], h5ad] }
         )
 
-        UPSET_GENES_RAW(ch_h5ad.map { meta, h5ad -> [[id: 'upset_raw'], meta.id, h5ad] }.groupTuple())
+        UPSET_GENES_RAW (
+            ch_h5ad
+                .map { meta, h5ad -> [[id: 'upset_raw'], meta.id, h5ad] }
+                .groupTuple()
+        )
         ch_versions = ch_versions.mix(UPSET_GENES_RAW.out.versions)
         ch_multiqc_files = ch_multiqc_files.mix(UPSET_GENES_RAW.out.multiqc_files)
 
-        UNIFY_GENES(ch_h5ad)
+        UNIFY_GENES (
+            ch_h5ad
+        )
         ch_h5ad = UNIFY_GENES.out.h5ad
     }
 
@@ -65,8 +83,8 @@ workflow UNIFY {
         ch_adata_unify.unknown_label,
         ch_adata_unify.symbol_col,
         ch_adata_unify.counts_layer,
-        params.duplicate_var_resolution,
-        params.aggregate_isoforms
+        duplicate_var_resolution,
+        aggregate_isoforms
     )
     ch_h5ad = ADATA_UNIFY.out.h5ad.map { meta, h5ad -> [
         meta + [
@@ -81,7 +99,11 @@ workflow UNIFY {
     }
     ch_versions = ch_versions.mix(ADATA_UNIFY.out.versions)
 
-    UPSET_GENES(ch_h5ad.map { meta, h5ad -> [[id: 'upset'], meta.id, h5ad] }.groupTuple())
+    UPSET_GENES (
+        ch_h5ad
+            .map { meta, h5ad -> [[id: 'upset'], meta.id, h5ad] }
+            .groupTuple()
+    )
     ch_versions = ch_versions.mix(UPSET_GENES.out.versions)
     ch_multiqc_files = ch_multiqc_files.mix(UPSET_GENES.out.multiqc_files)
 

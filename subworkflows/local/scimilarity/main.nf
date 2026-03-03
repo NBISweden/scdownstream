@@ -25,12 +25,14 @@ workflow SCIMILARITY {
     }
 
     if (scimilarity_model.endsWith('.tar.gz')) {
-        UNTAR(ch_scimilarity_model)
+        UNTAR (
+            ch_scimilarity_model
+        )
         ch_versions = ch_versions.mix(UNTAR.out.versions)
         ch_scimilarity_model = UNTAR.out.untar
     }
 
-    SCIMILARITY_EMBED(
+    SCIMILARITY_EMBED (
         ch_h5ad,
         ch_scimilarity_model,
     )
@@ -38,7 +40,7 @@ workflow SCIMILARITY {
     ch_integrations = ch_integrations.mix(SCIMILARITY_EMBED.out.h5ad)
     ch_obsm = ch_obsm.mix(SCIMILARITY_EMBED.out.obsm)
 
-    SCIMILARITY_ANNOTATE(
+    SCIMILARITY_ANNOTATE (
         SCIMILARITY_EMBED.out.h5ad,
         ch_scimilarity_model,
     )

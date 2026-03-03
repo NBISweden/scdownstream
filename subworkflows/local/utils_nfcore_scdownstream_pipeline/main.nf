@@ -28,10 +28,8 @@ workflow PIPELINE_INITIALISATION {
     take:
     version           // boolean: Display version and exit
     validate_params   // boolean: Boolean whether to validate parameters against the schema at runtime
-    monochrome_logs   // boolean: Do not use coloured log outputs
     nextflow_cli_args //   array: List of positional nextflow CLI args
     outdir            //  string: The output directory where the results will be saved
-    input             //  string: Path to input samplesheet
     help              // boolean: Display help message and exit
     help_full         // boolean: Show the full help message
     show_hidden       // boolean: Show hidden parameters in the help message
@@ -169,7 +167,7 @@ def validateInputParameters() {
         throw new Exception("If qc_only is set to true, an input samplesheet must be provided")
     }
 
-    def integration_methods = params.integration_methods.split(',').collect { it.trim().toLowerCase() }
+    def integration_methods = params.integration_methods.split(',').collect { it -> it.trim().toLowerCase() }
     if (params.input && params.base_adata && (integration_methods - ['scvi', 'scanvi', 'scimilarity']).size() > 0) {
         throw new Exception("Only scvi, scanvi and scimilarity integration methods are supported if base_adata is provided")
     }
@@ -184,6 +182,11 @@ def validateInputParameters() {
 
     if (params.base_adata && 'scimilarity' in integration_methods && !params.scimilarity_model) {
         throw new Exception("If base_adata is provided and scimilarity is used as integration method, scimilarity_model must be provided.")
+    }
+
+    // Validate sample_n and sample_fraction parameters
+    if (params.sample_n && params.sample_fraction) {
+        throw new Exception("Both sample_n and sample_fraction are set. Please use only one of them.")
     }
 }
 

@@ -5,8 +5,17 @@ include { ADATA_MERGE           } from '../../../modules/local/adata/merge'
 workflow COMBINE {
 
     take:
-    ch_h5ad  // queue channel: [ val(meta), path(h5ad) ]
-    ch_base  // value channel: [ val(meta), path(h5ad) ]
+    ch_h5ad                     // channel: [ val(meta), path(h5ad) ]
+    ch_base                     // channel: [ val(meta), path(h5ad) ]
+    is_extension                //   value: boolean
+    integration_hvgs            //   value: integer
+    integration_methods         //   value: string
+    integration_excluded_genes  //   value: string
+    scvi_model                  //   value: string
+    scanvi_model                //   value: string
+    scvi_categorical_covariates //   value: string
+    scvi_continuous_covariates  //   value: string
+    scimilarity_model           //   value: string
 
     main:
 
@@ -16,7 +25,9 @@ workflow COMBINE {
     ch_obsm          = channel.empty()
 
     ADATA_MERGE(
-        ch_h5ad.map { _meta, h5ad -> [[id: "merged"], h5ad] }.groupTuple(),
+        ch_h5ad
+            .map { _meta, h5ad -> [[id: "merged"], h5ad] }
+            .groupTuple(),
         ch_base,
     )
     ch_var = ch_var.mix(ADATA_MERGE.out.intersect_genes)
@@ -26,20 +37,22 @@ workflow COMBINE {
 
     INTEGRATE(
         ADATA_MERGE.out.integrate,
-        params.base_adata != null,
-        params.integration_hvgs,
-        params.integration_excluded_genes ? file(params.integration_excluded_genes) : [],
-        params.integration_methods.split(',').collect { it -> it.trim().toLowerCase() },
-        params.scvi_model,
-        params.scanvi_model,
-        params.scvi_categorical_covariates,
-        params.scvi_continuous_covariates,
-        params.scimilarity_model
+        is_extension,
+        integration_hvgs,
+        integration_excluded_genes ? file(integration_excluded_genes) : [],
+        integration_methods
+            .split(',')
+            .collect { it -> it.trim().toLowerCase() },
+        scvi_model,
+        scanvi_model,
+        scvi_categorical_covariates,
+        scvi_continuous_covariates,
+        scimilarity_model
     )
     ch_versions      = ch_versions.mix(INTEGRATE.out.versions)
     ch_var           = ch_var.mix(INTEGRATE.out.var)
 
-    if (params.base_adata) {
+    if (is_extension) {
         ADATA_MERGEEMBEDDINGS(
             INTEGRATE.out.integrations
             .combine(

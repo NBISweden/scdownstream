@@ -22,6 +22,9 @@ nextflow_workflow {
                     [id: 'test', symbol_col: 'index', batch_col: 'batch', label_col: ''],
                     file(params.pipelines_testdata_base_path + '/anndata-variations/symbols_as_index.h5ad', checkIfExists: true)
                 ])
+                input[1] = false
+                input[2] = 'sum'
+                input[3] = false
                 """
             }
         }
@@ -46,6 +49,9 @@ nextflow_workflow {
                     [id: 'test', symbol_col: 'index', batch_col: 'batch', label_col: ''],
                     file(params.pipelines_testdata_base_path + '/anndata-variations/symbols_as_index.h5ad', checkIfExists: true)
                 ])
+                input[1] = false
+                input[2] = 'sum'
+                input[3] = false
                 """
             }
         }
@@ -72,6 +78,9 @@ nextflow_workflow {
                     [id: 'test', symbol_col: 'none', batch_col: 'batch', label_col: ''],
                     file(params.pipelines_testdata_base_path + '/anndata-variations/minimal_structure.h5ad', checkIfExists: true)
                 ])
+                input[1] = false
+                input[2] = 'sum'
+                input[3] = false
                 """
             }
         }
@@ -96,6 +105,9 @@ nextflow_workflow {
                     [id: 'test', symbol_col: 'none', batch_col: 'batch', label_col: ''],
                     file(params.pipelines_testdata_base_path + '/anndata-variations/minimal_structure.h5ad', checkIfExists: true)
                 ])
+                input[1] = false
+                input[2] = 'sum'
+                input[3] = false
                 """
             }
         }
@@ -122,6 +134,9 @@ nextflow_workflow {
                     [id: 'test', symbol_col: 'index', batch_col: 'batch', label_col: ''],
                     file(params.pipelines_testdata_base_path + '/anndata-variations/symbols_as_index.h5ad', checkIfExists: true)
                 ])
+                input[1] = true
+                input[2] = 'sum'
+                input[3] = false
                 """
             }
         }
@@ -146,6 +161,9 @@ nextflow_workflow {
                     [id: 'test', symbol_col: 'index', batch_col: 'batch', label_col: ''],
                     file(params.pipelines_testdata_base_path + '/anndata-variations/symbols_as_index.h5ad', checkIfExists: true)
                 ])
+                input[1] = true
+                input[2] = 'sum'
+                input[3] = false
                 """
             }
         }

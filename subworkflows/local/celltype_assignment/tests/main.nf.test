@@ -12,8 +12,6 @@ nextflow_workflow {
         when {
             params {
                 outdir = "$outputDir"
-                celltypist_model = "Adult_COVID19_PBMC"
-                celldex_reference = "https://raw.githubusercontent.com/nf-core/test-datasets/scdownstream/singleR/references.csv"
             }
             workflow {
                 """
@@ -23,6 +21,8 @@ nextflow_workflow {
                         "index"
                     ]
                 )
+                input[1] = "https://raw.githubusercontent.com/nf-core/test-datasets/scdownstream/singleR/references.csv"
+                input[2] = "Adult_COVID19_PBMC"
                 """
             }
         }
@@ -44,8 +44,6 @@ nextflow_workflow {
         when {
             params {
                 outdir = "$outputDir"
-                celltypist_model = "Adult_COVID19_PBMC"
-                celldex_reference = "https://raw.githubusercontent.com/nf-core/test-datasets/scdownstream/singleR/references.csv"
             }
             workflow {
                 """
@@ -55,6 +53,8 @@ nextflow_workflow {
                         "index"
                     ]
                 )
+                input[1] = "https://raw.githubusercontent.com/nf-core/test-datasets/scdownstream/singleR/references.csv"
+                input[2] = "Adult_COVID19_PBMC"
                 """
             }
         }
