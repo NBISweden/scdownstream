@@ -178,6 +178,20 @@ create_tabset(top_genes_plots)
 
 ```{python cell-types}
 #| output: false
+def calculate_ct_stats(adata, ct_col, sample_col="sample"):
+    """
+    Calculate per-sample cell type proportions, sorted by mean.
+    """
+    ct_stats = (
+        adata.obs
+        .groupby(sample_col)[ct_col]
+        .value_counts(normalize=True)
+        .unstack(level=0, fill_value=0)
+    )
+    ct_stats['mean'] = ct_stats.mean(axis=1)
+    ct_stats = ct_stats.sort_values(by="mean", ascending=False)
+    return ct_stats
+
 def plot_qc_celltype(stats):
     fig, ax = plt.subplots(figsize=(7, 5), constrained_layout=True)
     stats.plot.bar(stacked=True, ax=ax)
@@ -196,21 +210,8 @@ ct_plots = []
 ct_names = []
 for ct_col in ct_columns:
 
-    # Truncate column name and store for conversion table
-    ct_name = ct_col.split('__')[0].split('.')[0]
-    ct_names.append((ct_name, ct_col))
-
-    # Collect cell type statistics into per-sample dictionary
-    ct_stats = {}
-    for sample in samples:
-        adata_sample = adata[adata.obs["sample"] == sample]
-        ct_stats[sample] = adata_sample.obs[ct_col].value_counts(normalize=True)
-
     # Convert to data frame and order by mean
-    ct_stats = pd.concat(ct_stats.values(), axis=1)
-    ct_stats.columns = samples
-    ct_stats['mean'] = ct_stats.mean(axis=1)
-    ct_stats = ct_stats.sort_values(by="mean", ascending=False)
+    ct_stats = calculate_ct_stats(adata, ct_col)
 
     # Create obs column with only top cell types for UMAPs
     top_celltypes = ct_stats.head(10).index.to_list()
@@ -218,6 +219,10 @@ for ct_col in ct_columns:
         adata.obs[ct_col].isin(top_celltypes), other='Other')
     adata.obs[f'{ct_col}_top10'] = pd.Categorical(
         adata.obs[f'{ct_col}_top10'], categories=top_celltypes + ['Other'])
+
+    # Truncate column name and store for conversion table
+    ct_name = ct_col.split('__')[0].split('.')[0]
+    ct_names.append((ct_name, ct_col))
 
     # Plot top 10 cell types
     ct_stats_top = ct_stats.head(10).T * 100
