@@ -258,9 +258,10 @@ HTML(pd.DataFrame(ct_names).to_html(index=False))
 ```{python umaps}
 #| output: false
 def plot_qc_umap(adata, basis, group):
+    palette = list(sc.pl.palettes.default_20[: 10]) + ['lightgray']
     fig, ax = plt.subplots(figsize=(7, 5), constrained_layout=True)
     sc.pl.embedding(adata, basis=basis, color=group, ax=ax, show=False,
-        title="")
+        title="", palette=palette)
     return fig
 
 # Loop over existing UMAPs
