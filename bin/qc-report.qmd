@@ -194,7 +194,8 @@ def calculate_ct_stats(adata, ct_col, sample_col="sample"):
 
 def plot_qc_celltype(stats):
     fig, ax = plt.subplots(figsize=(7, 5), constrained_layout=True)
-    stats.plot.bar(stacked=True, ax=ax)
+    palette = list(sc.pl.palettes.default_20[: 10]) + ['lightgray']
+    stats.plot.bar(stacked=True, ax=ax, color=palette)
     ax.legend(loc='center left', bbox_to_anchor=(1.0, 0.5))
     ax.tick_params(axis="x", labelrotation=45, labelsize=8)
     for lab in ax.get_xticklabels():
@@ -224,8 +225,14 @@ for ct_col in ct_columns:
     ct_name = ct_col.split('__')[0].split('.')[0]
     ct_names.append((ct_name, ct_col))
 
-    # Plot top 10 cell types
-    ct_stats_top = ct_stats.head(10).T * 100
+    # Calculate proportion of non-top cell types
+    ct_stats_top = ct_stats.head(10)
+    other = 1 - ct_stats_top.sum(axis=0)
+    other.name = 'Other'
+    ct_stats_top = pd.concat([ct_stats_top, other.to_frame().T]) * 100
+    ct_stats_top = ct_stats_top.T
+
+    # Plot top cell types
     fig = plot_qc_celltype(ct_stats_top)
     ct_plots.append((ct_name, fig))
 ```
