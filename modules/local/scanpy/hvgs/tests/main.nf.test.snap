@@ -7,7 +7,7 @@
                         {
                             "id": "test"
                         },
-                        "test_hvg.h5ad:md5,b87529ef7c8990e93daf8b2e4781a845"
+                        "test_hvg.h5ad:md5,f1cfc42d33cf47fb46652e2f12d06da1"
                     ]
                 ],
                 "1": [
@@ -21,7 +21,7 @@
                         {
                             "id": "test"
                         },
-                        "test_hvg.h5ad:md5,b87529ef7c8990e93daf8b2e4781a845"
+                        "test_hvg.h5ad:md5,f1cfc42d33cf47fb46652e2f12d06da1"
                     ]
                 ],
                 "var": [
@@ -34,9 +34,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2026-03-02T11:41:36.23636757"
+        "timestamp": "2026-01-25T17:10:44.214447815"
     },
     "Should run without a specified number of HVGs": {
         "content": [
@@ -46,7 +46,7 @@
                         {
                             "id": "test"
                         },
-                        "test_hvg.h5ad:md5,c8bba9250a396c5f851539f069b286f5"
+                        "test_hvg.h5ad:md5,a8c70cd2c88e801de037f181e6830997"
                     ]
                 ],
                 "1": [
@@ -60,7 +60,7 @@
                         {
                             "id": "test"
                         },
-                        "test_hvg.h5ad:md5,c8bba9250a396c5f851539f069b286f5"
+                        "test_hvg.h5ad:md5,a8c70cd2c88e801de037f181e6830997"
                     ]
                 ],
                 "var": [
@@ -73,9 +73,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2026-03-02T11:41:23.59120983"
+        "timestamp": "2026-01-25T17:10:20.753868268"
     },
     "Should run without failures - stub": {
         "content": [
@@ -124,7 +124,7 @@
                         {
                             "id": "test"
                         },
-                        "test_hvg.h5ad:md5,8dbc3d35e675694bb3ec5c741260865d"
+                        "test_hvg.h5ad:md5,4d3f42a1201d720b01d15133df67727d"
                     ]
                 ],
                 "1": [
@@ -138,7 +138,7 @@
                         {
                             "id": "test"
                         },
-                        "test_hvg.h5ad:md5,8dbc3d35e675694bb3ec5c741260865d"
+                        "test_hvg.h5ad:md5,4d3f42a1201d720b01d15133df67727d"
                     ]
                 ],
                 "var": [
@@ -151,8 +151,8 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2026-03-02T11:41:48.879101714"
+        "timestamp": "2026-01-25T17:11:07.249667722"
     }
 }

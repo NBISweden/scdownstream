@@ -6,7 +6,7 @@
                     {
                         "id": "test"
                     },
-                    "test_singler_predictions.csv:md5,b696e09b649235ac083de0d51a5f05fc"
+                    "test_singler_predictions.csv:md5,1c31f07b4bff6980036f444039468fa5"
                 ]
             ],
             "test_singler_hpca_distribution.pdf",
@@ -17,9 +17,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.10.4"
+            "nextflow": "25.04.6"
         },
-        "timestamp": "2026-03-02T12:40:44.219989979"
+        "timestamp": "2025-08-02T10:33:18.632445193"
     },
     "Should run after celldex reference is fetched": {
         "content": [
@@ -28,7 +28,7 @@
                     {
                         "id": "test"
                     },
-                    "test_singler_predictions.csv:md5,2b189f92b19bdd77f7fa202573a74b35"
+                    "test_singler_predictions.csv:md5,d90a4649a5d44b49f08568e58388f958"
                 ]
             ],
             "test_singler_test_distribution.pdf",
@@ -39,9 +39,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.10.4"
+            "nextflow": "25.04.6"
         },
-        "timestamp": "2026-03-02T12:30:49.111144264"
+        "timestamp": "2025-08-02T10:21:19.878724413"
     },
     "Should run with a single reference": {
         "content": [
@@ -50,7 +50,7 @@
                     {
                         "id": "test"
                     },
-                    "test_singler_predictions.csv:md5,b696e09b649235ac083de0d51a5f05fc"
+                    "test_singler_predictions.csv:md5,1c31f07b4bff6980036f444039468fa5"
                 ]
             ],
             "test_singler_hpca_distribution.pdf",
@@ -61,9 +61,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.10.4"
+            "nextflow": "25.04.6"
         },
-        "timestamp": "2026-03-02T12:35:59.023966868"
+        "timestamp": "2025-08-02T10:27:18.432918231"
     },
     "Should run with a single reference - stub": {
         "content": [
@@ -137,7 +137,7 @@
                     {
                         "id": "test"
                     },
-                    "test_singler_predictions.csv:md5,11a52bcaca3f7e8ad88a9fe7d26b49c5"
+                    "test_singler_predictions.csv:md5,67d0aa7d4534ec4d87ea7b28557e0441"
                 ]
             ],
             [
@@ -146,8 +146,8 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.10.4"
+            "nextflow": "25.04.6"
         },
-        "timestamp": "2026-03-02T12:46:16.086816085"
+        "timestamp": "2025-08-02T11:14:03.77950593"
     }
 }
