@@ -14,7 +14,11 @@ qc_only = False
 
 # Introduction
 
-Write a nice summary here....
+This report summarises and visualises the results of the `nf-core/scdownstream`
+pipeline, including both assessments of data quality metrics, filtering
+outcomes, cell type annotations, dimensionality reductions and integrations. You
+can navigate to the report's different sections using the sidebar to the left;
+you can show code chunks you want to inspect by clicking the relevant `► Code`.
 
 ```{python Load libraries}
 import pandas as pd
@@ -28,7 +32,7 @@ import glob
 from IPython.display import display, Markdown, HTML
 ```
 
-```{python Tabset function}
+```{python Common functions}
 def create_tabset(content):
     """
     Programmatically create tabsets with headers and plots.
@@ -43,7 +47,7 @@ def create_tabset(content):
         display(Markdown(f" "))
 ```
 
-```{python Read h5ad}
+```{python Read data}
 input_files = glob.glob("*.h5ad")
 if qc_only:
     # Input data comes with multiple files, one per sample
@@ -66,13 +70,24 @@ qc_metrics = ['n_genes_by_counts', 'total_counts', 'pct_counts_mt']
 
 # Quality controls
 
+Quality control is a critical step in scRNA-seq analysis to identify and remove
+low-quality cells that may arise from dying cells, empty droplets, or doublets.
+Poor-quality cells can introduce noise and confound biological interpretations.
 There are several different quality metrics that are normally computed for
-scRNA-seq data. Common metrics include the number of genes with a least 1 count
-(`n_genes_by_counts`), counts per spot (`total_counts`) as well as the
-percentage of counts from mitochondrial, ribosomal and haemoglobin genes
-(`pct_counts_[mt/ribo/hb]`).
+scRNA-seq data. Common metrics include the number of genes with a least 1 count,
+counts per spot  as well as the percentage of counts from mitochondrial genes;
+the following sections include tables and plots related to these QC metrics.
 
 ## Filtering results
+
+This table summarizes the number of cells retained at each filtering step of the
+pipeline:
+
+ - **Unfiltered:** Total number of cells detected before any filtering
+ - **Filtered:** Cells remaining after removing empty cells
+ - **Thresholded:** Cells remaining after applying QC thresholds (_e.g._,
+   minimum number of genes, maximum mitochondrial percentage, _etc._)
+ - **De-doubled:** Final cell count after doublet removal
 
 ```{python filtering-table}
 sizes = pd.read_csv("size_list.tsv", sep="\t")
@@ -81,12 +96,19 @@ sizes_wide = (
     .pivot(index="sample", columns="state", values="size")
     .rename_axis(columns=None)
     .reset_index()
-    [ ["sample", "unfiltered", "thresholded", "filtered", "dedoubleted"] ]
+    [ ["sample", "unfiltered", "filtered", "thresholded", "dedoubleted"] ]
 )
+sizes_wide.columns = [
+    'Sample', 'Unfiltered', 'Filtered', 'Thresholded', 'De-doubled'
+]
 HTML(sizes_wide.to_html(index=False))
 ```
 
-## Available metadata
+## Data overview
+
+The following is an overview of the final AnnData object and its cell-level
+metadata; depending on how you have run the pipeline there are likely more
+columns than is able to be shown directly.
 
 ```{python available-metadata}
 adata.obs
@@ -96,7 +118,8 @@ adata.obs
 
 The following violin plots show the distribution of the number of genes per
 counts and counts per spot, as well as the percentage of counts from
-mitochondrial, ribosomal and haemoglobin genes:
+mitochondrial genes, grouped across different metadata categories; click the
+different metadata categories to show their respective plots.
 
 ```{python violin-plots}
 #| output: false
@@ -129,6 +152,10 @@ create_tabset(violin_plots)
 
 ## Scatter plots
 
+The following scatter plots show the relationship between total counts and the
+number of detected genes for each cell, displayed per sample; click on the
+different sample names to show their respective plot.
+
 ```{python scatter-plots}
 #| output: false
 def plot_qc_scatter(adata):
@@ -156,6 +183,10 @@ create_tabset(scatter_plots)
 
 # Top expressed genes
 
+The following plots displays the most highly expressed genes per sample, ranked
+by the fraction of total counts they represent; click on each sample name to
+show their respective plots.
+
 ```{python top-genes}
 #| output: false
 top_genes_plots = []
@@ -175,6 +206,12 @@ create_tabset(top_genes_plots)
 :::
 
 # Cell types
+
+This section presents automated cell type annotations generated using
+reference-based methods. Bar plots show the proportion of each cell type across
+samples, with the most abundant cell types highlighted and remaining types
+grouped as `Other`; click each reference name to show the cell type distribution
+for that reference.
 
 ```{python cell-types}
 #| output: false
@@ -255,6 +292,17 @@ HTML(pd.DataFrame(ct_names).to_html(index=False))
 :::
 
 # UMAPs
+
+_Uniform Manifold Approximation and Projection_ (UMAP) provides a
+two-dimensional visualization of the high-dimensional single-cell data, allowing
+visual assessment of cell populations and batch effects. Each integration method
+run by the pipeline has its own section with its own UMAP, where the UMAP is
+coloured by the following:
+
+ - **Sample, batch, and label:** To assess batch effects and sample mixing
+ - **QC metrics:** To identify technical artefacts in the embedding
+ - **Cell type annotations:** To visualize the distribution of annotated populations
+ - **Cluster assignments:** To examine unsupervised clustering results
 
 ```{python umaps}
 #| output: false
