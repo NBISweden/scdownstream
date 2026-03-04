@@ -40,7 +40,7 @@
                         {
                             "id": "test"
                         },
-                        "test_pseudobulk.h5ad:md5,429025f67cc64c9302ce4fc74fe7f98e"
+                        "test_pseudobulk.h5ad:md5,1ab6f3860585ce8dd52c343f880ceaaf"
                     ]
                 ],
                 "1": [
@@ -51,7 +51,7 @@
                         {
                             "id": "test"
                         },
-                        "test_pseudobulk.h5ad:md5,429025f67cc64c9302ce4fc74fe7f98e"
+                        "test_pseudobulk.h5ad:md5,1ab6f3860585ce8dd52c343f880ceaaf"
                     ]
                 ],
                 "versions": [
@@ -61,9 +61,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.10.3"
+            "nextflow": "25.10.4"
         },
-        "timestamp": "2026-03-03T09:43:47.010893"
+        "timestamp": "2026-03-02T13:11:56.645861035"
     },
     "Should run without failures - stub": {
         "content": [
