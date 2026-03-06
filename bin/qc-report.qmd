@@ -92,16 +92,34 @@ pipeline:
 
 ```{python filtering-table}
 sizes = pd.read_csv("size_list.tsv", sep="\t")
+
+# Set order of final data frame with prettified names
+sizes_order = {
+    "sample": "Sample",
+    "unfiltered": "Unfiltered",
+    "filtered": "Filtered",
+    "thresholded": "Thresholded",
+    "dedoubleted": "De-doubled"
+}
+
+# Convert sizes to wide format with final column names
 sizes_wide = (
     sizes
     .pivot(index="sample", columns="state", values="size")
     .rename_axis(columns=None)
     .reset_index()
-    [ ["sample", "unfiltered", "filtered", "thresholded", "dedoubleted"] ]
+)
+sizes_wide = (
+    sizes_wide
+    [ [col for col in sizes_order.keys() if col in sizes_wide.columns] ]
 )
 sizes_wide.columns = [
-    'Sample', 'Unfiltered', 'Filtered', 'Thresholded', 'De-doubled'
+    [sizes_order[col] for col in sizes_order.keys() if col in sizes_wide.columns]
 ]
+```
+
+```{python}
+#| echo: false
 HTML(sizes_wide.to_html(index=False))
 ```
 
