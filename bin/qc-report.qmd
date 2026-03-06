@@ -23,10 +23,7 @@ you can show code chunks you want to inspect by clicking the relevant `► Code`
 ```{python Load libraries}
 import pandas as pd
 import matplotlib.pyplot as plt
-# import numpy as np
-# import os
 import scanpy as sc
-# import seaborn as sns
 import anndata as ad
 import glob
 from IPython.display import display, Markdown, HTML
