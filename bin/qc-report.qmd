@@ -90,11 +90,6 @@ pipeline:
    minimum number of genes, maximum mitochondrial percentage, _etc._)
  - **De-doubled:** Final cell count after doublet removal
 
-::: {.callout-warning}
-Please note that the current numbers reported by the pipeline doesn't seem to be
-related to number of cells.
-:::
-
 ```{python filtering-table}
 sizes = pd.read_csv("size_list.tsv", sep="\t")
 
