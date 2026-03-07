@@ -304,9 +304,9 @@ if ct_plots:
 ```{python cell-types-table}
 # Show cell type column names conversion in a table
 if ct_names:
-    ct_names = pd.DataFrame(ct_names)
-    ct_names.columns = ['Truncated name', 'Full name']
-    HTML(pd.DataFrame(ct_names).to_html(index=False))
+    ct_names_df = pd.DataFrame(ct_names)
+    ct_names_df.columns = ['Truncated name', 'Full name']
+    HTML(pd.DataFrame(ct_names_df).to_html(index=False))
 ```
 `{python} Markdown(":::") if ct_names else Markdown(" ")`
 
