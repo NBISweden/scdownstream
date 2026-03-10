@@ -302,6 +302,7 @@ if ct_plots:
 
 `{python} Markdown("::: {.callout-tip collapse='true' title='Expand to see full reference names'}") if ct_names else Markdown(" ")`
 ```{python cell-types-table}
+#| echo: false
 # Show cell type column names conversion in a table
 if ct_names:
     ct_names_df = pd.DataFrame(ct_names)
