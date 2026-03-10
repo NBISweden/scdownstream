@@ -8,7 +8,16 @@ process ADATA_EXTEND {
         : 'community.wave.seqera.io/library/anndata_pyyaml:82c6914e861435f7'}"
 
     input:
-    tuple val(meta), path(base), path(obs), path(var), path(obsm), path(obsp), path(uns), path(layers)
+    tuple (
+        val(meta),
+        path(base),
+        path(obs, stageAs: 'obs/'),
+        path(var, stageAs: 'var/'),
+        path(obsm, stageAs: 'obsm/'),
+        path(obsp, stageAs: 'obsp/'),
+        path(uns, stageAs: 'uns/'),
+        path(layers, stageAs: 'layers/')
+    )
 
     output:
     tuple val(meta), path("*.h5ad"), emit: h5ad

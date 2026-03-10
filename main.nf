@@ -32,7 +32,7 @@ workflow NFCORE_SCDOWNSTREAM {
     take:
     samplesheet                   // channel: samplesheet read in from --input
     ch_base                       // channel: [ val(meta), path(h5ad) ]
-    base_adata                    //   value: string
+    is_extension                  //   value: boolean
     ch_input                      //    file: samplesheet.csv
     ambient_correction            //   value: string
     ambient_corrected_integration //   value: boolean
@@ -40,6 +40,8 @@ workflow NFCORE_SCDOWNSTREAM {
     doublet_detection_threshold   //   value: integer
     scvi_max_epochs               //   value: integer
     mito_genes                    //   value: string
+    sample_n                      //   value: string
+    sample_fraction               //   value: string
     qc_only                       //   value: boolean
     celldex_reference             //   value: string
     celltypist_model              //   value: string
@@ -79,7 +81,7 @@ workflow NFCORE_SCDOWNSTREAM {
     SCDOWNSTREAM (
         samplesheet,
         ch_base,
-        base_adata,
+        is_extension,
         ch_input,
         ambient_correction,
         ambient_corrected_integration,
@@ -87,6 +89,8 @@ workflow NFCORE_SCDOWNSTREAM {
         doublet_detection_threshold,
         scvi_max_epochs,
         mito_genes,
+        sample_n,
+        sample_fraction,
         qc_only,
         celldex_reference,
         celltypist_model,
@@ -153,7 +157,7 @@ workflow {
     NFCORE_SCDOWNSTREAM (
         PIPELINE_INITIALISATION.out.samplesheet,
         ch_base_adata,
-        params.base_adata,
+        params.base_adata != null,
         params.input,
         params.ambient_correction,
         params.ambient_corrected_integration,
@@ -161,6 +165,8 @@ workflow {
         params.doublet_detection_threshold,
         params.scvi_max_epochs,
         params.mito_genes,
+        params.sample_n,
+        params.sample_fraction,
         params.qc_only,
         params.celldex_reference,
         params.celltypist_model,

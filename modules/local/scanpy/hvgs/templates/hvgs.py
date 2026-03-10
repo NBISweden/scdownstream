@@ -25,7 +25,7 @@ if "${excluded_genes}":
     mask = ~adata.var_names.isin(excluded_genes)
     adata = adata[:, mask].copy()
 
-if adata.n_vars > n_hvgs and n_hvgs >= 0:
+if adata.n_vars > n_hvgs:
     kwargs = {}
 
     if batch_key:

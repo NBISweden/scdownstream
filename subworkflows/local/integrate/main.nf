@@ -32,7 +32,7 @@ workflow INTEGRATE {
 
     // If a reference model is provided, only the genes in the reference model are used
     // Otherwise, we would intersect the HVGs, which is not what we want
-    if (!is_extension && n_hvgs >= 0) {
+    if (!is_extension) {
         SCANPY_HVGS (
             ch_h5ad,
             n_hvgs,
@@ -75,7 +75,7 @@ workflow INTEGRATE {
             (scvi_model ? ch_h5ad : ch_h5ad_hvg)
                 .map { _meta, h5ad -> [[id: 'scvi'], h5ad] },
             scvi_model
-                ? channel.value([[id: 'scvi_model'], scvi_model])
+                ? channel.value([[id: 'scvi'], scvi_model])
                 : [[], []],
             "batch",
             scvi_categorical_covariates,
@@ -91,7 +91,7 @@ workflow INTEGRATE {
             (scvi_model ? ch_h5ad : ch_h5ad_hvg)
                 .map { _meta, h5ad -> [[id: 'scanvi'], h5ad] },
             scanvi_model
-                ? channel.value([[id: 'scanvi_model'], scanvi_model])
+                ? channel.value([[id: 'scanvi'], scanvi_model])
                 : methods.contains('scvi')
                     ? SCVITOOLS_SCVI.out.model
                     : [[], []],

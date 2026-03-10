@@ -48,11 +48,11 @@
                 ]
             }
         ],
+        "timestamp": "2026-01-18T17:39:58.741250963",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T17:39:58.741250963"
+        }
     },
     "Should run without failures - symbol_col index, unify_gene_symbols false": {
         "content": [
@@ -101,11 +101,11 @@
                 ]
             }
         ],
+        "timestamp": "2026-01-18T21:22:29.899026309",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.10.2"
-        },
-        "timestamp": "2026-01-18T21:22:29.899026309"
+        }
     },
     "Should run without failures - symbol_col index, unify_gene_symbols true": {
         "content": [
@@ -121,7 +121,7 @@
                             "unknown_label": "unknown",
                             "counts_layer": "X"
                         },
-                        "test_unified.h5ad:md5,a6b81077f8445ded50fbc8cc43d14a4b"
+                        "test_unified.h5ad:md5,a9ac476adb2844de8640bf5fcaa0e0b9"
                     ]
                 ],
                 "1": [
@@ -145,7 +145,7 @@
                             "unknown_label": "unknown",
                             "counts_layer": "X"
                         },
-                        "test_unified.h5ad:md5,a6b81077f8445ded50fbc8cc43d14a4b"
+                        "test_unified.h5ad:md5,a9ac476adb2844de8640bf5fcaa0e0b9"
                     ]
                 ],
                 "multiqc_files": [
@@ -160,11 +160,11 @@
                 ]
             }
         ],
+        "timestamp": "2026-03-10T09:06:13.565614981",
         "meta": {
-            "nf-test": "0.9.2",
+            "nf-test": "0.9.4",
             "nextflow": "25.10.2"
-        },
-        "timestamp": "2026-01-18T21:24:50.068999158"
+        }
     },
     "Should run without failures - symbol_col index, unify_gene_symbols false - stub": {
         "content": [
@@ -213,11 +213,11 @@
                 ]
             }
         ],
+        "timestamp": "2026-01-18T17:39:11.758025979",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T17:39:11.758025979"
+        }
     },
     "Should run without failures - symbol_col index, unify_gene_symbols true - stub": {
         "content": [
@@ -274,11 +274,11 @@
                 ]
             }
         ],
+        "timestamp": "2026-01-18T17:41:17.198406767",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T17:41:17.198406767"
+        }
     },
     "Should run without failures - symbol_col none, unify_gene_symbols false": {
         "content": [
@@ -329,10 +329,10 @@
                 ]
             }
         ],
+        "timestamp": "2026-01-18T21:23:44.819165812",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.10.2"
-        },
-        "timestamp": "2026-01-18T21:23:44.819165812"
+        }
     }
 }
