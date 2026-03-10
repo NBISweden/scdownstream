@@ -26,11 +26,11 @@
                 ]
             }
         ],
+        "timestamp": "2026-01-10T23:17:20.422385507",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-10T23:17:20.422385507"
+        }
     },
     "Should run without failures": {
         "content": [
@@ -40,7 +40,7 @@
                         {
                             "id": "test"
                         },
-                        "test_hugounifier.h5ad:md5,6a2e97a4b371b8774d6b8c22634eaa4b"
+                        "test_hugounifier.h5ad:md5,c7cdbd7262128dcbd7b90f845188e34f"
                     ]
                 ],
                 "1": [
@@ -51,7 +51,7 @@
                         {
                             "id": "test"
                         },
-                        "test_hugounifier.h5ad:md5,6a2e97a4b371b8774d6b8c22634eaa4b"
+                        "test_hugounifier.h5ad:md5,c7cdbd7262128dcbd7b90f845188e34f"
                     ]
                 ],
                 "versions": [
@@ -59,10 +59,10 @@
                 ]
             }
         ],
+        "timestamp": "2026-03-10T07:58:54.198227455",
         "meta": {
-            "nf-test": "0.9.2",
+            "nf-test": "0.9.4",
             "nextflow": "25.10.2"
-        },
-        "timestamp": "2026-02-15T18:59:48.493913413"
+        }
     }
 }
