@@ -1,6 +1,4 @@
 include { CELDA_DECONTX               } from '../../../modules/local/celda/decontx'
-include { CELLBENDER_REMOVEBACKGROUND } from '../../../modules/nf-core/cellbender/removebackground'
-include { CELLBENDER_MERGE            } from '../../../modules/nf-core/cellbender/merge'
 include { SOUPX                       } from '../../../modules/local/soupx'
 include { SCVITOOLS_SCAR              } from '../../../modules/nf-core/scvitools/scar'
 
@@ -64,29 +62,6 @@ workflow AMBIENT_CORRECTION {
         )
         ch_h5ad = ch_h5ad.mix(CELDA_DECONTX.out.h5ad)
         ch_versions = ch_versions.mix(CELDA_DECONTX.out.versions)
-    }
-    else if (method == 'cellbender') {
-        CELLBENDER_REMOVEBACKGROUND (
-            ch_multi.input
-                .map { meta, _filtered, unfiltered -> [meta, unfiltered] })
-        ch_versions = ch_versions.mix(CELLBENDER_REMOVEBACKGROUND.out.versions)
-
-        CELLBENDER_MERGE (
-            ch_multi.input
-                .map { meta, filtered, raw -> [meta.id, meta, filtered, raw] }
-                .join(CELLBENDER_REMOVEBACKGROUND.out.h5
-                    .map {
-                        meta, h5 ->
-                        [meta.id, h5]
-                    }, by: 0, failOnMismatch: true)
-                .map {
-                    _id, meta, filtered, raw, h5 ->
-                    [meta, filtered, raw, h5]
-                },
-            ch_multi.output_layer
-        )
-        ch_h5ad = ch_h5ad.mix(CELLBENDER_MERGE.out.h5ad)
-        ch_versions = ch_versions.mix(CELLBENDER_MERGE.out.versions)
     }
     else if (method == 'soupx') {
         SOUPX (
