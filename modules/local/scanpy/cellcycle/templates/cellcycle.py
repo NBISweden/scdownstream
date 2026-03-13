@@ -49,6 +49,7 @@ if original_index is not None:
     adata.var_names = original_index
 
 adata.obs[["S_score", "G2M_score", "phase"]].to_pickle(f"{prefix}.pkl")
+adata.write_h5ad(f"{prefix}.h5ad")
 
 # Versions
 

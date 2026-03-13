@@ -11,7 +11,23 @@
                     ]
                 ],
                 "1": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_cellcycle.h5ad:md5,c943457fc049844796a4b91581678a2e"
+                    ]
+                ],
+                "2": [
                     "versions.yml:md5,4425f4c95b2ea84225533e0266f83f6a"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_cellcycle.h5ad:md5,c943457fc049844796a4b91581678a2e"
+                    ]
                 ],
                 "obs": [
                     [
@@ -26,7 +42,7 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-13T17:15:39.17053",
+        "timestamp": "2026-03-13T18:34:31.617196",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -44,7 +60,23 @@
                     ]
                 ],
                 "1": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_cellcycle.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "2": [
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_cellcycle.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
                 ],
                 "obs": [
                     [
@@ -59,7 +91,7 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-13T17:15:47.016944",
+        "timestamp": "2026-03-13T18:34:41.797161",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
