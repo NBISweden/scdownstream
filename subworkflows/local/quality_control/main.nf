@@ -36,6 +36,7 @@ workflow QUALITY_CONTROL {
     ch_versions = channel.empty()
     ch_multiqc_files = channel.empty()
     ch_sizes = channel.empty()
+    ch_obs_per_sample = channel.empty()
 
     GET_UNFILTERED_SIZE (
         ch_h5ad
@@ -232,7 +233,7 @@ workflow QUALITY_CONTROL {
             g2m_genes,
             ch_cellcycle.symbol_col
         )
-        ch_h5ad = SCANPY_CELLCYCLE.out.h5ad
+        ch_obs_per_sample = ch_obs_per_sample.mix(SCANPY_CELLCYCLE.out.obs)
         ch_versions = ch_versions.mix(SCANPY_CELLCYCLE.out.versions)
     }
 
@@ -252,6 +253,7 @@ workflow QUALITY_CONTROL {
 
     emit:
     h5ad          = ch_h5ad          // channel: [ meta, h5ad ]
+    obs           = ch_obs_per_sample // channel: [ meta, pkl ]
     multiqc_files = ch_multiqc_files // channel: [ json ]
     versions      = ch_versions      // channel: [ versions.yml ]
 }
