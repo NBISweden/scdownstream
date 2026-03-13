@@ -48,7 +48,7 @@ sc.tl.score_genes_cell_cycle(adata, s_genes=s_genes, g2m_genes=g2m_genes)
 if original_index is not None:
     adata.var_names = original_index
 
-adata.write_h5ad(f"{prefix}.h5ad")
+adata.obs[["S_score", "G2M_score", "phase"]].to_pickle(f"{prefix}.pkl")
 
 # Versions
 

@@ -14,8 +14,8 @@ process SCANPY_CELLCYCLE {
     val symbol_col
 
     output:
-    tuple val(meta), path("${prefix}.h5ad"), emit: h5ad
-    path "versions.yml",                     emit: versions
+    tuple val(meta), path("${prefix}.pkl"), emit: obs
+    path "versions.yml",                    emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -30,7 +30,7 @@ process SCANPY_CELLCYCLE {
     stub:
     prefix = task.ext.prefix ?: "${meta.id}"
     """
-    touch ${prefix}.h5ad
+    touch ${prefix}.pkl
     touch versions.yml
     """
 }

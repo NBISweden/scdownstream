@@ -127,6 +127,7 @@ workflow SCDOWNSTREAM {
         ch_versions = ch_versions.mix(QUALITY_CONTROL.out.versions)
         ch_multiqc_files = ch_multiqc_files.mix(QUALITY_CONTROL.out.multiqc_files)
         ch_h5ad = QUALITY_CONTROL.out.h5ad
+        ch_obs_per_sample = ch_obs_per_sample.mix(QUALITY_CONTROL.out.obs)
 
         //
         // Perform automated celltype assignment
