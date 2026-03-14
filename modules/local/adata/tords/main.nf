@@ -4,8 +4,8 @@ process ADATA_TORDS {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'oras://community.wave.seqera.io/library/anndata2ri_bioconductor-singlecellexperiment_anndata_r-seurat:c4b75a61a89ec006':
-        'community.wave.seqera.io/library/anndata2ri_bioconductor-singlecellexperiment_anndata_r-seurat:5fae42aabf7a1c5f' }"
+        'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/9e/9e2d0625efb46bae98303a0e685efa0ee259b939a6490eef13218c16c601bc9b/data':
+        'community.wave.seqera.io/library/bioconductor-anndatar_bioconductor-rhdf5_bioconductor-singlecellexperiment:b7b9571d025f377e' }"
 
     input:
     tuple val(meta), path(h5ad)
@@ -20,7 +20,7 @@ process ADATA_TORDS {
     script:
     counts_layer = task.ext.counts_layer ?: 'X'
     prefix = task.ext.prefix ?: "${meta.id}"
-    template 'tords.py'
+    template 'tords.R'
 
     stub:
     prefix = task.ext.prefix ?: "${meta.id}"
