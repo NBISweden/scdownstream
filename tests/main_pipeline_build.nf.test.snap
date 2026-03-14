@@ -21,6 +21,9 @@
                     "pandas": "2.2.3",
                     "seurat": "5.1.0"
                 },
+                "ADATA_TORDS": {
+                    "anndataR": "1.0.2"
+                },
                 "ADATA_UNIFY": {
                     "anndata": "0.12.7",
                     "numpy": "2.4.0",
@@ -259,6 +262,7 @@
                 "combine/merge/upset_genes.png",
                 "finalized",
                 "finalized/merged.h5ad",
+                "finalized/merged.rds",
                 "finalized/merged_metadata.csv",
                 "multiqc",
                 "multiqc/multiqc_data",
@@ -297,10 +301,10 @@
                 "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f"
             ]
         ],
-        "timestamp": "2026-03-14T19:09:42.838981",
+        "timestamp": "2026-03-14T22:00:59.334514797",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
+            "nextflow": "25.10.4"
         }
     }
 }

@@ -14,6 +14,9 @@
                     "scanpy": "1.11.5",
                     "scipy": "1.16.3"
                 },
+                "ADATA_TORDS": {
+                    "anndataR": "1.0.2"
+                },
                 "ADATA_UNIFY": {
                     "anndata": "0.12.7",
                     "numpy": "2.4.0",
@@ -179,6 +182,7 @@
                 "combine/merge",
                 "finalized",
                 "finalized/merged.h5ad",
+                "finalized/merged.rds",
                 "finalized/merged_metadata.csv",
                 "multiqc",
                 "multiqc/multiqc_data",
@@ -213,10 +217,10 @@
                 "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f"
             ]
         ],
-        "timestamp": "2026-03-14T14:53:34.369624",
+        "timestamp": "2026-03-14T21:40:38.750227073",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
+            "nextflow": "25.10.4"
         }
     }
 }
