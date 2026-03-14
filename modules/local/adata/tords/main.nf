@@ -9,6 +9,7 @@ process ADATA_TORDS {
 
     input:
     tuple val(meta), path(h5ad)
+    val counts_layer
 
     output:
     tuple val(meta), path("*.rds"), emit: rds
@@ -18,7 +19,7 @@ process ADATA_TORDS {
     task.ext.when == null || task.ext.when
 
     script:
-    counts_layer = task.ext.counts_layer ?: 'X'
+    counts_layer = counts_layer ?: 'X'
     prefix = task.ext.prefix ?: "${meta.id}"
     template 'tords.R'
 
