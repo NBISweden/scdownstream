@@ -44,11 +44,13 @@ def create_tabset(content):
     Arguments:
         content (list): A list of (str, Figure) tuples
     """
+    display(Markdown('::: {.panel-tabset}'))
     for name, fig in content:
         display(Markdown(f"#### {name}"))
         display(fig)
         plt.close()
         display(Markdown(f" "))
+    display(Markdown(':::'))
 
 
 def display_table(table, hide_index=True, format_dict=None):
@@ -189,12 +191,10 @@ for group in qc_groups:
     violin_plots.append((group, fig))
 ```
 
-::: {.panel-tabset}
 ```{python violin-plots-tabset}
 #| output: asis
 create_tabset(violin_plots)
 ```
-:::
 
 ## Scatter plots
 
@@ -220,12 +220,10 @@ for sample in samples:
     scatter_plots.append((sample, fig))
 ```
 
-::: {.panel-tabset}
 ```{python scatter-plots-tabset}
 #| output: asis
 create_tabset(scatter_plots)
 ```
-:::
 
 ## Top expressed genes
 
@@ -244,12 +242,10 @@ for sample in samples:
     top_genes_plots.append((sample, fig))
 ```
 
-::: {.panel-tabset}
 ```{python top-genes-tabsets}
 #| output: asis
 create_tabset(top_genes_plots)
 ```
-:::
 
 ## Cell cycle scores
 
@@ -279,12 +275,10 @@ ax.title.set_text('')
 cell_cycle_plots.append(('Phase', fig))
 ```
 
-::: {.panel-tabset}
 ```{python cell-cycle-tabset}
 #| output: asis
 create_tabset(cell_cycle_plots)
 ```
-:::
 
 # Cell types
 
@@ -354,20 +348,18 @@ for ct_col in ct_columns:
     ct_plots.append((ct_name, fig))
 ```
 
-`{python} Markdown("::: {.panel-tabset}") if ct_plots else Markdown(" ")`
 ```{python cell-types-tabset}
 #| output: asis
 if ct_plots:
     create_tabset(ct_plots)
 ```
-`{python} Markdown(":::") if ct_plots else Markdown(" ")`
 
 `{python} Markdown("::: {.callout-tip collapse='true' title='Expand to see full reference names'}") if ct_names else Markdown(" ")`
 ```{python cell-types-table}
 if ct_names:
-    ct_names_df = pd.DataFrame(ct_names)
-    ct_names_df.columns = ['Truncated name', 'Full name']
-    display_table(pd.DataFrame(ct_names_df))
+    display_table(
+        pd.DataFrame(ct_names, columns=['Truncated name', 'Full name'])
+    )
 ```
 `{python} Markdown(":::") if ct_names else Markdown(" ")`
 
@@ -437,71 +429,9 @@ for umap in umaps:
     umap_dict[umap_name] = umap_plots
 ```
 
-```{python umaps-integration-methods}
-# Check for presence of the different integration methods to be able to create
-# sub-headers with tabsets per method. Quarto doesn't have an equivalent of R's
-# `cat()` for programmatically printing headers and tabsets with Python, so we
-# have to use repeated inline code with conditionals instead; the actual tabset
-# content still has to be inside a real code chunk.
-integration_methods = umap_dict.keys()
-bbknn_present = "bbknn" in integration_methods
-combat_present = "combat" in integration_methods
-harmony_present = "harmony" in integration_methods
-scanvi_present = "scanvi" in integration_methods
-scvi_present = "scvi" in integration_methods
-seurat_present = "seurat" in integration_methods
-```
-
-`{python} Markdown("## bbknn") if bbknn_present else Markdown(" ")`
-`{python} Markdown("::: {.panel-tabset}") if bbknn_present else Markdown(" ")`
-```{python umaps-bbknn-tabset}
+```{python umaps-integration-tabset}
 #| output: asis
-if bbknn_present:
-    create_tabset(umap_dict['bbknn'])
+for integration_method in umap_dict.keys():
+    display(Markdown(f"## {integration_method}"))
+    create_tabset(umap_dict[integration_method])
 ```
-`{python} Markdown(":::") if bbknn_present else Markdown(" ")`
-
-`{python} Markdown("## Combat") if combat_present else Markdown(" ")`
-`{python} Markdown("::: {.panel-tabset}") if combat_present else Markdown(" ")`
-```{python umaps-combat-tabset}
-#| output: asis
-if combat_present:
-    create_tabset(umap_dict['combat'])
-```
-`{python} Markdown(":::") if combat_present else Markdown(" ")`
-
-`{python} Markdown("## Harmony") if harmony_present else Markdown(" ")`
-`{python} Markdown("::: {.panel-tabset}") if harmony_present else Markdown(" ")`
-```{python umaps-harmony-tabset}
-#| output: asis
-if harmony_present:
-    create_tabset(umap_dict['harmony'])
-```
-`{python} Markdown(":::") if harmony_present else Markdown(" ")`
-
-`{python} Markdown("## scanvi") if scanvi_present else Markdown(" ")`
-`{python} Markdown("::: {.panel-tabset}") if scanvi_present else Markdown(" ")`
-```{python umaps-scanvi-tabset}
-#| output: asis
-if scanvi_present:
-    create_tabset(umap_dict['scanvi'])
-```
-`{python} Markdown(":::") if scanvi_present else Markdown(" ")`
-
-`{python} Markdown("## scvi") if scvi_present else Markdown(" ")`
-`{python} Markdown("::: {.panel-tabset}") if scvi_present else Markdown(" ")`
-```{python umaps-scvi-tabset}
-#| output: asis
-if scvi_present:
-    create_tabset(umap_dict['scvi'])
-```
-`{python} Markdown(":::") if scvi_present else Markdown(" ")`
-
-`{python} Markdown("## Seurat") if seurat_present else Markdown(" ")`
-`{python} Markdown("::: {.panel-tabset}") if seurat_present else Markdown(" ")`
-```{python umaps-seurat-tabset}
-#| output: asis
-if seurat_present:
-    create_tabset(umap_dict['seurat'])
-```
-`{python} Markdown(":::") if seurat_present else Markdown(" ")`
