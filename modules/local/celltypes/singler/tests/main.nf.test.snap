@@ -12,13 +12,13 @@
             "test_singler_hpca_distribution.pdf",
             "test_singler_hpca_heatmap.pdf",
             [
-                "versions.yml:md5,448f2705ce813b3f6e93bb74b092a60c"
+                "versions.yml:md5,70b80d9d31fab709351b4448a54a0528"
             ]
         ],
-        "timestamp": "2026-03-10T08:15:16.297363043",
+        "timestamp": "2026-03-16T12:37:54.417981638",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
+            "nextflow": "25.10.4"
         }
     },
     "Should run after celldex reference is fetched": {
@@ -34,13 +34,13 @@
             "test_singler_test_distribution.pdf",
             "test_singler_test_heatmap.pdf",
             [
-                "versions.yml:md5,448f2705ce813b3f6e93bb74b092a60c"
+                "versions.yml:md5,70b80d9d31fab709351b4448a54a0528"
             ]
         ],
-        "timestamp": "2026-03-10T08:04:11.282862159",
+        "timestamp": "2026-03-16T11:40:03.222322422",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
+            "nextflow": "25.10.4"
         }
     },
     "Should run with a single reference": {
@@ -56,13 +56,13 @@
             "test_singler_hpca_distribution.pdf",
             "test_singler_hpca_heatmap.pdf",
             [
-                "versions.yml:md5,448f2705ce813b3f6e93bb74b092a60c"
+                "versions.yml:md5,70b80d9d31fab709351b4448a54a0528"
             ]
         ],
-        "timestamp": "2026-03-10T08:09:37.481752479",
+        "timestamp": "2026-03-16T12:35:27.022696083",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
+            "nextflow": "25.10.4"
         }
     },
     "Should run with a single reference - stub": {
@@ -141,13 +141,13 @@
                 ]
             ],
             [
-                "versions.yml:md5,448f2705ce813b3f6e93bb74b092a60c"
+                "versions.yml:md5,70b80d9d31fab709351b4448a54a0528"
             ]
         ],
-        "timestamp": "2026-03-10T08:21:48.883699278",
+        "timestamp": "2026-03-16T12:40:51.446458814",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
+            "nextflow": "25.10.4"
         }
     }
 }
