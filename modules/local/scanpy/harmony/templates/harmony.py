@@ -7,9 +7,9 @@ import yaml
 os.environ["MPLCONFIGDIR"] = "./tmp/mpl"
 os.environ["NUMBA_CACHE_DIR"] = "./tmp/numba"
 
+import harmonypy
 import scanpy as sc
 import pandas as pd
-import scanpy.external as sce
 
 from threadpoolctl import threadpool_limits
 threadpool_limits(int("${task.cpus}"))
@@ -23,7 +23,26 @@ if "${counts_layer}" != "X":
 
 sc.pp.log1p(adata_processing)
 sc.pp.pca(adata_processing)
-sce.pp.harmony_integrate(adata_processing, "${batch_col}", adjusted_basis="X_emb")
+
+harmony_out = harmonypy.run_harmony(
+    adata_processing.obsm["X_pca"].astype("float64"),
+    adata_processing.obs,
+    "${batch_col}",
+)
+
+emb = harmony_out.Z_corr
+
+# harmonypy 0.2.0 changed Z_corr orientation; accept either layout.
+# See https://github.com/potulabe/symphonypy/issues/8
+if emb.shape == adata_processing.obsm["X_pca"].shape:
+    adata_processing.obsm["X_emb"] = emb
+elif emb.T.shape == adata_processing.obsm["X_pca"].shape:
+    adata_processing.obsm["X_emb"] = emb.T
+else:
+    raise ValueError(
+        f"Unexpected Harmony embedding shape {emb.shape}; "
+        f"expected {adata_processing.obsm['X_pca'].shape} or its transpose."
+    )
 
 # Round to avoid floating point precision issues
 # This ensures hashes are consistent
@@ -41,6 +60,7 @@ versions = {
     "${task.process}": {
         "python": platform.python_version(),
         "scanpy": sc.__version__,
+        "harmonypy": harmonypy.__version__,
         "pandas": pd.__version__
     }
 }
