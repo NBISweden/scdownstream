@@ -9,7 +9,9 @@ Initial release of nf-core/scdownstream, created with the [nf-core](https://nf-c
 
 ### `Added`
 
-- Added `singleR` module for automated cell type annotation.
+- Add reporting using Quarto [[#258](https://github.com/nf-core/scdownstream/pull/258)]
+- Convert to Nextflow strict mode [[#244](https://github.com/nf-core/scdownstream/pull/244)]
+- Add `singleR` module for automated cell type annotation [[#200](https://github.com/nf-core/scdownstream/pull/200)]
 
 ### `Fixed`
 
