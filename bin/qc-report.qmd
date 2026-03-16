@@ -29,6 +29,19 @@ from IPython.display import display, Markdown
 ```
 
 ```{python Common functions}
+def rotate_x_labels(ax, label_size=8):
+    """
+    Rotate the x axis labels of a figure.
+
+    Arguments:
+        ax (Axes): The figure axes to change
+        label_size (int): The desired label size
+    """
+    ax.tick_params(axis='x', labelrotation=45, labelsize=label_size)
+    for lab in ax.get_xticklabels():
+        lab.set_ha("right")
+
+
 def create_tabset(content):
     """
     Programmatically create tabsets with headers and plots.
@@ -41,6 +54,7 @@ def create_tabset(content):
         display(fig)
         plt.close()
         display(Markdown(f" "))
+
 
 def display_table(table, hide_index=True, format_dict=None):
     """
@@ -159,9 +173,7 @@ def plot_qc_violin(adata, group):
     for stat, ax in zip(qc_metrics, axs.flatten()):
         sc.pl.violin(adata, keys=stat, groupby = group, jitter=0.4, size=0.1,
             ax=ax, show=False)
-        ax.tick_params(axis="x", labelrotation=45, labelsize=8)
-        for lab in ax.get_xticklabels():
-            lab.set_ha("right")
+        rotate_x_labels(ax)
         ax.title.set_text(stat)
         ax.set_xlabel("")
     return fig
@@ -250,9 +262,7 @@ for score in ['S_score', 'G2M_score']:
     fig, ax = plt.subplots(figsize=(7, 5), constrained_layout=True)
     sc.pl.violin(adata, score, groupby='sample', jitter=0.4, size=1, ax=ax,
         show=False)
-    ax.tick_params(axis='x', labelrotation=45, labelsize=8)
-    for lab in ax.get_xticklabels():
-        lab.set_ha("right")
+    rotate_x_labels(ax)
     ax.title.set_text('')
     ax.set_xlabel('')
     cell_cycle_plots.append((score, fig))
@@ -301,9 +311,7 @@ def plot_qc_celltype(stats):
     palette = list(sc.pl.palettes.default_20[: 10]) + ['#c0c0c0']
     stats.plot.bar(stacked=True, ax=ax, color=palette)
     ax.legend(loc='center left', bbox_to_anchor=(1.0, 0.5))
-    ax.tick_params(axis="x", labelrotation=45, labelsize=8)
-    for lab in ax.get_xticklabels():
-        lab.set_ha("right")
+    rotate_x_labels(ax)
     ax.set_ylabel("Percentage (%)")
     ax.set_xlabel("")
     return fig
