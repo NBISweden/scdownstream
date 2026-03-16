@@ -211,7 +211,7 @@ create_tabset(scatter_plots)
 ```
 :::
 
-# Top expressed genes
+## Top expressed genes
 
 The following plots displays the most highly expressed genes per sample, ranked
 by the fraction of total counts they represent; click on each sample name to
@@ -232,6 +232,43 @@ for sample in samples:
 ```{python top-genes-tabsets}
 #| output: asis
 create_tabset(top_genes_plots)
+```
+:::
+
+## Cell cycle scores
+
+The following plots show the cell cycle scores for each sample as well as the
+predicted cell cycle phase for each cell; click the different tabs to see their
+respective plot.
+
+```{python cell-cycle}
+#| output: false
+cell_cycle_plots = []
+
+# Cell cycle score violin plots
+for score in ['S_score', 'G2M_score']:
+    fig, ax = plt.subplots(figsize=(7, 5), constrained_layout=True)
+    sc.pl.violin(adata, score, groupby='sample', jitter=0.4, size=1, ax=ax,
+        show=False)
+    ax.tick_params(axis='x', labelrotation=45, labelsize=8)
+    for lab in ax.get_xticklabels():
+        lab.set_ha("right")
+    ax.title.set_text('')
+    ax.set_xlabel('')
+    cell_cycle_plots.append((score, fig))
+
+# Cell cycle phase scatterplot
+fig, ax = plt.subplots(figsize=(7, 5), constrained_layout=True)
+sc.pl.scatter(adata, x='S_score', y='G2M_score', color='phase', ax=ax,
+    show=False)
+ax.title.set_text('')
+cell_cycle_plots.append(('Phase', fig))
+```
+
+::: {.panel-tabset}
+```{python cell-cycle-tabset}
+#| output: asis
+create_tabset(cell_cycle_plots)
 ```
 :::
 
