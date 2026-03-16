@@ -2,10 +2,8 @@ process CELLTYPES_SINGLER {
     tag "$meta.id"
     label 'process_medium'
 
-    conda "${moduleDir}/environment.yml"
-    container "${workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
-        ? 'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/e6/e6357085b1229ae89d526d930b7e4b68e968c85a42a912435f87ed1725e21184/data'
-        : 'community.wave.seqera.io/library/bioconductor-anndatar_bioconductor-hdf5array_bioconductor-singlecellexperiment_bioconductor-singler_r-ggplot2:bef482138e855d36'}"
+    container 'docker.io/saditya88/singler:0.0.1'
+
 
     input:
     tuple val(meta), path(h5ad), val(symbol_col)
