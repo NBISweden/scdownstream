@@ -4,8 +4,8 @@ process SCANPY_BBKNN {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/2f/2f35ab9db51e0deb8916780a6a4e5311c369fc353720961e4983afe9499378d5/data':
-        'community.wave.seqera.io/library/bbknn_harmonypy_anndata_leidenalg_pruned:1ae8c1d074aa3184' }"
+        'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/f0/f065d8b046c4b750e1d302d6d68c181bb779e8bc700ae21f87911565f14178e7/data':
+        'community.wave.seqera.io/library/bbknn_pyyaml_scanpy:4cf2984722da607f' }"
 
     input:
     tuple val(meta), path(h5ad)
