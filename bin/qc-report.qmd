@@ -4,6 +4,7 @@ date: today
 format:
     nf-core-html: default
 echo: false
+lightbox: true
 jupyter: python3
 ---
 
