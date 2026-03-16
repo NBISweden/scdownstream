@@ -32,11 +32,11 @@
                 ]
             }
         ],
+        "timestamp": "2025-06-03T07:49:23.776105374",
         "meta": {
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
-        },
-        "timestamp": "2025-06-03T07:49:23.776105374"
+        }
     },
     "Should run without failures": {
         "content": [
@@ -46,35 +46,35 @@
                         {
                             "id": "test"
                         },
-                        "test.h5ad:md5,780ab7556accaa48e75182f56418e81a"
+                        "test.h5ad:md5,132036745dce31bf101a040c6c4fb32a"
                     ]
                 ],
                 "1": [
-                    "X_test.pkl:md5,3f64c65066424b7c5ee59f82895fec20"
+                    "X_test.pkl:md5,723b7490fa2f7bb7d6052efbb0de98cc"
                 ],
                 "2": [
-                    "versions.yml:md5,f9629abdd83d1c7869eb31af21abd1bb"
+                    "versions.yml:md5,215a816af7a4cacc8aa720128fa77ce8"
                 ],
                 "h5ad": [
                     [
                         {
                             "id": "test"
                         },
-                        "test.h5ad:md5,780ab7556accaa48e75182f56418e81a"
+                        "test.h5ad:md5,132036745dce31bf101a040c6c4fb32a"
                     ]
                 ],
                 "obsm": [
-                    "X_test.pkl:md5,3f64c65066424b7c5ee59f82895fec20"
+                    "X_test.pkl:md5,723b7490fa2f7bb7d6052efbb0de98cc"
                 ],
                 "versions": [
-                    "versions.yml:md5,f9629abdd83d1c7869eb31af21abd1bb"
+                    "versions.yml:md5,215a816af7a4cacc8aa720128fa77ce8"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T17:05:57.761797793",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.10.2"
-        },
-        "timestamp": "2026-01-25T17:08:24.47595882"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     }
 }
