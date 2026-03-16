@@ -7,28 +7,23 @@ echo: false
 jupyter: python3
 ---
 
-```{python}
+```{python parameters}
 #| tags: [parameters]
 qc_only = False
 ```
 
-# Introduction
-
-This report summarises and visualises the results of the `nf-core/scdownstream`
-pipeline, including both assessments of data quality metrics, filtering
-outcomes, cell type annotations, dimensionality reductions and integrations. You
-can navigate to the report's different sections using the sidebar to the left.
-
-```{python Load libraries}
+```{python load-libraries}
 import pandas as pd
 import matplotlib.pyplot as plt
 import scanpy as sc
 import anndata as ad
 import glob
+import sys
+from textwrap import dedent
 from IPython.display import display, Markdown
 ```
 
-```{python Common functions}
+```{python common-functions}
 def rotate_x_labels(ax, label_size=8):
     """
     Rotate the x axis labels of a figure.
@@ -89,7 +84,14 @@ def display_table(table, hide_index=True, format_dict=None):
     display(styled)
 ```
 
-```{python Read data}
+# Introduction
+
+This report summarises and visualises the results of the `nf-core/scdownstream`
+pipeline, including both assessments of data quality metrics, filtering
+outcomes, cell type annotations, dimensionality reductions and integrations. You
+can navigate to the report's different sections using the sidebar to the left.
+
+```{python read-data}
 input_files = glob.glob("*.h5ad")
 if qc_only:
     # Input data comes with multiple files, one per sample
@@ -98,6 +100,8 @@ if qc_only:
         adata_all[file] = sc.read_h5ad(file)
         adata_all[file].obs['file'] = file
     adata = ad.concat(adata_all)
+    # Save to artefacts directory so that the user may further analyse the data
+    adata.write_h5ad('artifacts/concatenated.h5ad')
 else:
     # Input data is integrated into a single `merged.h5ad` file
     adata = sc.read_h5ad(input_files[0])
@@ -379,6 +383,21 @@ coloured by the following:
  - **QC metrics:** To identify technical artefacts in the embedding
  - **Cell type annotations:** To visualize the distribution of annotated populations
  - **Cluster assignments:** To examine unsupervised clustering results
+
+```{python qc-only-callout}
+if qc_only:
+    display(Markdown(dedent(
+        """
+        ::: {.callout-tip title='Missing UMAPs'}
+        The pipeline was run with the `--qc_only` parameter, which does not run any
+        integration, dimensionality reduction or clustering on the data. Thus, only
+        the QC-related plots above are shown, as there are no UMAPs available; you
+        will find the final `concatenated.h5ad` file in the `reports/artifacts/`
+        directory.
+        :::
+        """
+    )))
+```
 
 ```{python umaps}
 #| output: false
