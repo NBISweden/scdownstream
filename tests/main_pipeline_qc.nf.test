@@ -33,8 +33,7 @@ nextflow_pipeline {
                     // All files with stable contents
                     stable_path
                 ).match() },
-                { assert
-                file("$outputDir/reports/qc-report.html").text.contains("Thus, only the QC-related plots above are shown") }
+                { assert file("$outputDir/reports/qc-report.html").text.contains("Thus, only the QC-related plots above are shown") }
             )
         }
     }
