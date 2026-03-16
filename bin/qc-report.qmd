@@ -3,12 +3,12 @@ title: "Pre-processing and quality control"
 date: today
 format:
     nf-core-html: default
+echo: false
 jupyter: python3
 ---
 
 ```{python}
 #| tags: [parameters]
-#| echo: false
 qc_only = False
 ```
 
@@ -17,8 +17,7 @@ qc_only = False
 This report summarises and visualises the results of the `nf-core/scdownstream`
 pipeline, including both assessments of data quality metrics, filtering
 outcomes, cell type annotations, dimensionality reductions and integrations. You
-can navigate to the report's different sections using the sidebar to the left;
-you can show code chunks you want to inspect by clicking the relevant `► Code`.
+can navigate to the report's different sections using the sidebar to the left.
 
 ```{python Load libraries}
 import pandas as pd
@@ -30,7 +29,6 @@ from IPython.display import display, Markdown, HTML
 ```
 
 ```{python Common functions}
-#| echo: false
 def create_tabset(content):
     """
     Programmatically create tabsets with headers and plots.
@@ -116,7 +114,6 @@ sizes_wide.columns = [
 ```
 
 ```{python}
-#| echo: false
 HTML(sizes_wide.to_html(index=False))
 ```
 
@@ -294,7 +291,6 @@ for ct_col in ct_columns:
 `{python} Markdown("::: {.panel-tabset}") if ct_plots else Markdown(" ")`
 ```{python cell-types-tabset}
 #| output: asis
-#| echo: false
 if ct_plots:
     create_tabset(ct_plots)
 ```
@@ -302,7 +298,6 @@ if ct_plots:
 
 `{python} Markdown("::: {.callout-tip collapse='true' title='Expand to see full reference names'}") if ct_names else Markdown(" ")`
 ```{python cell-types-table}
-#| echo: false
 # Show cell type column names conversion in a table
 if ct_names:
     ct_names_df = pd.DataFrame(ct_names)
@@ -363,7 +358,6 @@ for umap in umaps:
 ```
 
 ```{python umaps-integration-methods}
-#| echo: false
 # Check for presence of the different integration methods to be able to create
 # sub-headers with tabsets per method. Quarto doesn't have an equivalent of R's
 # `cat()` for programmatically printing headers and tabsets with Python, so we
@@ -381,7 +375,6 @@ seurat_present = "seurat" in integration_methods
 `{python} Markdown("## bbknn") if bbknn_present else Markdown(" ")`
 `{python} Markdown("::: {.panel-tabset}") if bbknn_present else Markdown(" ")`
 ```{python umaps-bbknn-tabset}
-#| echo: false
 #| output: asis
 if bbknn_present:
     create_tabset(umap_dict['bbknn'])
@@ -391,7 +384,6 @@ if bbknn_present:
 `{python} Markdown("## Combat") if combat_present else Markdown(" ")`
 `{python} Markdown("::: {.panel-tabset}") if combat_present else Markdown(" ")`
 ```{python umaps-combat-tabset}
-#| echo: false
 #| output: asis
 if combat_present:
     create_tabset(umap_dict['combat'])
@@ -401,7 +393,6 @@ if combat_present:
 `{python} Markdown("## Harmony") if harmony_present else Markdown(" ")`
 `{python} Markdown("::: {.panel-tabset}") if harmony_present else Markdown(" ")`
 ```{python umaps-harmony-tabset}
-#| echo: false
 #| output: asis
 if harmony_present:
     create_tabset(umap_dict['harmony'])
@@ -411,7 +402,6 @@ if harmony_present:
 `{python} Markdown("## scanvi") if scanvi_present else Markdown(" ")`
 `{python} Markdown("::: {.panel-tabset}") if scanvi_present else Markdown(" ")`
 ```{python umaps-scanvi-tabset}
-#| echo: false
 #| output: asis
 if scanvi_present:
     create_tabset(umap_dict['scanvi'])
@@ -421,7 +411,6 @@ if scanvi_present:
 `{python} Markdown("## scvi") if scvi_present else Markdown(" ")`
 `{python} Markdown("::: {.panel-tabset}") if scvi_present else Markdown(" ")`
 ```{python umaps-scvi-tabset}
-#| echo: false
 #| output: asis
 if scvi_present:
     create_tabset(umap_dict['scvi'])
@@ -431,7 +420,6 @@ if scvi_present:
 `{python} Markdown("## Seurat") if seurat_present else Markdown(" ")`
 `{python} Markdown("::: {.panel-tabset}") if seurat_present else Markdown(" ")`
 ```{python umaps-seurat-tabset}
-#| echo: false
 #| output: asis
 if seurat_present:
     create_tabset(umap_dict['seurat'])
