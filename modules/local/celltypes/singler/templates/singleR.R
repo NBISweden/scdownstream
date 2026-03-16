@@ -1,9 +1,6 @@
 #!/usr/bin/env Rscript
 
 library(SingleR)
-library(celldex)
-library(yaml)
-library(Seurat)
 library(ggplot2)
 library(anndataR)
 library(HDF5Array)
@@ -133,10 +130,8 @@ versions <- list(
   "${task.process}" = list(
     R = R.version.string,
     SingleR = as.character(packageVersion("SingleR")),
-    celldex = as.character(packageVersion("celldex")),
     anndataR = as.character(packageVersion("anndataR")),
-    yaml = as.character(packageVersion("yaml")),
-    Seurat = as.character(packageVersion("Seurat")),
+    HDF5Array = as.character(packageVersion("HDF5Array")),
     ggplot2 = as.character(packageVersion("ggplot2"))
   )
 )
