@@ -144,16 +144,6 @@ sizes_wide = (
 display_table(sizes_wide)
 ```
 
-## Data overview
-
-The following is an overview of the final AnnData object and its cell-level
-metadata; depending on how you have run the pipeline there are likely more
-columns than is able to be shown directly.
-
-```{python available-metadata}
-adata.obs
-```
-
 ## Violin plots
 
 The following violin plots show the distribution of the number of genes per
