@@ -5,6 +5,10 @@ import json
 import platform
 import base64
 import pickle
+import argparse
+import shlex
+
+import numpy as np
 
 os.environ["NUMBA_CACHE_DIR"] = "./tmp/numba"
 os.environ["MPLCONFIGDIR"] = "./tmp/matplotlib"
@@ -21,6 +25,10 @@ sc.settings.n_jobs = int("${task.cpus}")
 adata = sc.read_h5ad("${h5ad}")
 prefix = "${prefix}"
 method = "${method}"
+args = "${args}"
+parser = argparse.ArgumentParser()
+parser.add_argument("--decimals", type=int, default=None)
+params = parser.parse_args(shlex.split(args))
 
 filter_col = "${filter_col ?: ''}"
 filter_val = "${filter_val ?: ''}"
@@ -55,6 +63,11 @@ if len(valid_groups) >= 2:
     sc.tl.rank_genes_groups(adata, **kwargs)
 
     rgg_dict = adata.uns["rank_genes_groups"]
+
+    if params.decimals is not None:
+        for key, arr in rgg_dict.items():
+            if hasattr(arr, 'dtype') and np.issubdtype(arr.dtype, np.floating):
+                rgg_dict[key] = arr.round(params.decimals)
 
     pickle.dump(rgg_dict, open(f"{prefix}.pkl", "wb"))
     adata.write_h5ad(f"{prefix}.h5ad")

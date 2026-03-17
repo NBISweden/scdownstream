@@ -3,6 +3,8 @@
 import os
 import platform
 import yaml
+import argparse
+import shlex
 
 os.environ["MPLCONFIGDIR"] = "./tmp/mpl"
 os.environ["NUMBA_CACHE_DIR"] = "./tmp/numba"
@@ -15,6 +17,10 @@ from threadpoolctl import threadpool_limits
 threadpool_limits(int("${task.cpus}"))
 
 adata = sc.read_h5ad("${h5ad}")
+args = "${args}"
+parser = argparse.ArgumentParser()
+parser.add_argument("--decimals", type=int, default=None)
+params = parser.parse_args(shlex.split(args))
 
 adata_processing = adata.copy()
 
@@ -44,14 +50,14 @@ else:
         f"expected {adata_processing.obsm['X_pca'].shape} or its transpose."
     )
 
-# Round to avoid floating point precision issues
-# This ensures hashes are consistent
-emb = adata_processing.obsm["X_emb"].round(6)
-adata.obsm["X_emb"] = emb
+# Round to avoid floating point precision issues across platforms
+if params.decimals is not None:
+    adata_processing.obsm["X_emb"] = adata_processing.obsm["X_emb"].round(params.decimals)
+adata.obsm["X_emb"] = adata_processing.obsm["X_emb"]
 
 adata.write_h5ad("${prefix}.h5ad")
 
-df = pd.DataFrame(emb, index=adata.obs_names)
+df = pd.DataFrame(adata.obsm["X_emb"], index=adata.obs_names)
 df.to_pickle("X_${prefix}.pkl")
 
 # Versions
