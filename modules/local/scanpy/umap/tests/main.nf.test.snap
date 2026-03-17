@@ -46,11 +46,11 @@
                         {
                             "id": "test"
                         },
-                        "test.h5ad:md5,875c3cec7f4a3e3195b40aa57dfb7292"
+                        "test.h5ad:md5,96f5b14f183cfc68a63d54e7a3646da0"
                     ]
                 ],
                 "1": [
-                    "X_test.pkl:md5,edec44f873811d1b7e8d2f9ae837abe5"
+                    "X_test.pkl:md5,efe43b460f23a575c205437ddc81cda1"
                 ],
                 "2": [
                     "versions.yml:md5,f7e77a6f6fe060c4158eb2a86e7c0754"
@@ -60,18 +60,18 @@
                         {
                             "id": "test"
                         },
-                        "test.h5ad:md5,875c3cec7f4a3e3195b40aa57dfb7292"
+                        "test.h5ad:md5,96f5b14f183cfc68a63d54e7a3646da0"
                     ]
                 ],
                 "obsm": [
-                    "X_test.pkl:md5,edec44f873811d1b7e8d2f9ae837abe5"
+                    "X_test.pkl:md5,efe43b460f23a575c205437ddc81cda1"
                 ],
                 "versions": [
                     "versions.yml:md5,f7e77a6f6fe060c4158eb2a86e7c0754"
                 ]
             }
         ],
-        "timestamp": "2026-03-17T23:25:54.550633754",
+        "timestamp": "2026-03-18T00:13:31.728690332",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.4"

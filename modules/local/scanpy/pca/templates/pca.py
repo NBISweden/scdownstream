@@ -29,7 +29,7 @@ params = parser.parse_args(shlex.split(args))
 sc.pp.pca(adata, random_state=0, key_added=key_added)
 
 if params.decimals is not None:
-    adata.obsm[key_added] = np.round(adata.obsm[key_added], params.decimals)
+    adata.obsm[key_added] = np.round(adata.obsm[key_added].astype(np.float64), params.decimals)
 
 adata.write_h5ad(f"{prefix}.h5ad")
 df = pd.DataFrame(adata.obsm[key_added], index=adata.obs_names)

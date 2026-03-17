@@ -66,8 +66,18 @@ if len(valid_groups) >= 2:
 
     if params.decimals is not None:
         for key, arr in rgg_dict.items():
-            if hasattr(arr, 'dtype') and np.issubdtype(arr.dtype, np.floating):
+            if not hasattr(arr, 'dtype'):
+                continue
+            if np.issubdtype(arr.dtype, np.floating):
                 rgg_dict[key] = arr.round(params.decimals)
+            elif arr.dtype.names:
+                rounded = np.empty_like(arr)
+                for field in arr.dtype.names:
+                    if np.issubdtype(arr.dtype[field], np.floating):
+                        rounded[field] = np.round(arr[field], params.decimals)
+                    else:
+                        rounded[field] = arr[field]
+                rgg_dict[key] = rounded
 
     pickle.dump(rgg_dict, open(f"{prefix}.pkl", "wb"))
     adata.write_h5ad(f"{prefix}.h5ad")

@@ -33,7 +33,7 @@ sc.pp.neighbors(adata, **kwargs)
 if params.decimals is not None:
     for key in adata.obsp:
         if hasattr(adata.obsp[key], 'data'):
-            adata.obsp[key].data = np.round(adata.obsp[key].data, params.decimals)
+            adata.obsp[key].data = np.round(adata.obsp[key].data.astype(np.float64), params.decimals)
 
 adata.write_h5ad(f"{prefix}.h5ad")
 

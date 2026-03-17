@@ -27,7 +27,7 @@ params = parser.parse_args(shlex.split(args))
 sc.tl.umap(adata, random_state=0)
 
 if params.decimals is not None:
-    adata.obsm["X_umap"] = np.round(adata.obsm["X_umap"], params.decimals)
+    adata.obsm["X_umap"] = np.round(adata.obsm["X_umap"].astype(np.float64), params.decimals)
 
 adata.write_h5ad(f"{prefix}.h5ad")
 df = pd.DataFrame(adata.obsm["X_umap"], index=adata.obs_names)
