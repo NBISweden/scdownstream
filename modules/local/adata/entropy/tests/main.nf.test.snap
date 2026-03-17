@@ -58,11 +58,11 @@
                         {
                             "id": "test"
                         },
-                        "test_entropy.h5ad:md5,9aaa7e9953bb672e024d357de6c95358"
+                        "test_entropy.h5ad:md5,279b8d40df9749d19d76ef93ec0fc194"
                     ]
                 ],
                 "1": [
-                    "test_entropy.pkl:md5,857d1302628e7d461fbaa862cdd4df14"
+                    "test_entropy.pkl:md5,e80ed6c47e0e59c16cf92d66e5449bbb"
                 ],
                 "2": [
                     
@@ -78,14 +78,14 @@
                         {
                             "id": "test"
                         },
-                        "test_entropy.h5ad:md5,9aaa7e9953bb672e024d357de6c95358"
+                        "test_entropy.h5ad:md5,279b8d40df9749d19d76ef93ec0fc194"
                     ]
                 ],
                 "multiqc_files": [
                     
                 ],
                 "obs": [
-                    "test_entropy.pkl:md5,857d1302628e7d461fbaa862cdd4df14"
+                    "test_entropy.pkl:md5,e80ed6c47e0e59c16cf92d66e5449bbb"
                 ],
                 "plots": [
                     
@@ -95,7 +95,7 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-17T22:17:34.475250188",
+        "timestamp": "2026-03-17T23:02:25.693711543",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
