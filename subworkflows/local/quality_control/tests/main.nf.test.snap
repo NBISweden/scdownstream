@@ -6,13 +6,21 @@
                     
                 ],
                 "1": [
-                    
+                    [
+                        {
+                            "id": "sizes"
+                        },
+                        "size_list.tsv:md5,d8f2df1b626d81ef3433aa703b6ce988"
+                    ]
                 ],
                 "2": [
+                    
+                ],
+                "3": [
                     "sizes_mqc.json:md5,756ad6aae0f322aadfac95c2b38fcef2",
                     "test_raw_mqc.json:md5,55fb1251be8f5e17f0ff337d94f7f3f8"
                 ],
-                "3": [
+                "4": [
                     "versions.yml:md5,0382a117d804c2d9a33fbfafadc0e848",
                     "versions.yml:md5,42c1abd6c5e1c373ee37d53bcdcedd13",
                     "versions.yml:md5,53938cd26fe63616cc4524da4b6062c5",
@@ -32,6 +40,14 @@
                 "obs": [
                     
                 ],
+                "sizes": [
+                    [
+                        {
+                            "id": "sizes"
+                        },
+                        "size_list.tsv:md5,d8f2df1b626d81ef3433aa703b6ce988"
+                    ]
+                ],
                 "versions": [
                     "versions.yml:md5,0382a117d804c2d9a33fbfafadc0e848",
                     "versions.yml:md5,42c1abd6c5e1c373ee37d53bcdcedd13",
@@ -44,11 +60,11 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-13T17:19:20.399806",
         "meta": {
-            "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
-        }
+            "nf-test": "0.9.2",
+            "nextflow": "25.10.4"
+        },
+        "timestamp": "2026-03-16T21:07:17.036351997"
     },
     "Should run without ambient RNA removal and doublet detection, but with custom mito genes": {
         "content": [
@@ -57,13 +73,21 @@
                     
                 ],
                 "1": [
-                    
+                    [
+                        {
+                            "id": "sizes"
+                        },
+                        "size_list.tsv:md5,d8f2df1b626d81ef3433aa703b6ce988"
+                    ]
                 ],
                 "2": [
+                    
+                ],
+                "3": [
                     "sizes_mqc.json:md5,756ad6aae0f322aadfac95c2b38fcef2",
                     "test_raw_mqc.json:md5,55fb1251be8f5e17f0ff337d94f7f3f8"
                 ],
-                "3": [
+                "4": [
                     "versions.yml:md5,0382a117d804c2d9a33fbfafadc0e848",
                     "versions.yml:md5,42c1abd6c5e1c373ee37d53bcdcedd13",
                     "versions.yml:md5,53938cd26fe63616cc4524da4b6062c5",
@@ -83,6 +107,14 @@
                 "obs": [
                     
                 ],
+                "sizes": [
+                    [
+                        {
+                            "id": "sizes"
+                        },
+                        "size_list.tsv:md5,d8f2df1b626d81ef3433aa703b6ce988"
+                    ]
+                ],
                 "versions": [
                     "versions.yml:md5,0382a117d804c2d9a33fbfafadc0e848",
                     "versions.yml:md5,42c1abd6c5e1c373ee37d53bcdcedd13",
@@ -95,11 +127,11 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-13T17:19:47.095611",
         "meta": {
-            "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
-        }
+            "nf-test": "0.9.2",
+            "nextflow": "25.10.4"
+        },
+        "timestamp": "2026-03-16T21:07:47.009492206"
     },
     "Should run with ambient RNA removal and doublet detection - stub": {
         "content": [
@@ -119,16 +151,24 @@
                     ]
                 ],
                 "1": [
-                    
+                    [
+                        {
+                            "id": "sizes"
+                        },
+                        "size_list.tsv:md5,92a87eabbcb39809ebd3c0e1a06851bd"
+                    ]
                 ],
                 "2": [
+                    
+                ],
+                "3": [
                     "sizes_mqc.json:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "test_mqc.json:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "test_preprocessed_mqc.json:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "test_raw_mqc.json:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "upset_mqc.json:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
-                "3": [
+                "4": [
                     "versions.yml:md5,3c7417bff601859a86cdcb86fa6bfcb3",
                     "versions.yml:md5,53938cd26fe63616cc4524da4b6062c5",
                     "versions.yml:md5,77789821b488f540f44bd4802394a948",
@@ -167,6 +207,14 @@
                 "obs": [
                     
                 ],
+                "sizes": [
+                    [
+                        {
+                            "id": "sizes"
+                        },
+                        "size_list.tsv:md5,92a87eabbcb39809ebd3c0e1a06851bd"
+                    ]
+                ],
                 "versions": [
                     "versions.yml:md5,3c7417bff601859a86cdcb86fa6bfcb3",
                     "versions.yml:md5,53938cd26fe63616cc4524da4b6062c5",
@@ -184,11 +232,11 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-13T17:31:11.866715",
         "meta": {
-            "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
-        }
+            "nf-test": "0.9.2",
+            "nextflow": "25.10.4"
+        },
+        "timestamp": "2026-03-16T21:10:36.748857192"
     },
     "Should run with ambient RNA removal and doublet detection": {
         "content": [
@@ -215,11 +263,11 @@
             12939,
             9887
         ],
-        "timestamp": "2026-03-13T17:30:48.205648",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
-        }
+        },
+        "timestamp": "2026-03-13T17:30:48.205648"
     },
     "Should run with cell cycle scoring": {
         "content": [
@@ -228,13 +276,21 @@
                     
                 ],
                 "1": [
-                    
+                    [
+                        {
+                            "id": "sizes"
+                        },
+                        "size_list.tsv:md5,d8f2df1b626d81ef3433aa703b6ce988"
+                    ]
                 ],
                 "2": [
+                    
+                ],
+                "3": [
                     "sizes_mqc.json:md5,756ad6aae0f322aadfac95c2b38fcef2",
                     "test_raw_mqc.json:md5,55fb1251be8f5e17f0ff337d94f7f3f8"
                 ],
-                "3": [
+                "4": [
                     "versions.yml:md5,0382a117d804c2d9a33fbfafadc0e848",
                     "versions.yml:md5,42c1abd6c5e1c373ee37d53bcdcedd13",
                     "versions.yml:md5,53938cd26fe63616cc4524da4b6062c5",
@@ -254,6 +310,14 @@
                 "obs": [
                     
                 ],
+                "sizes": [
+                    [
+                        {
+                            "id": "sizes"
+                        },
+                        "size_list.tsv:md5,d8f2df1b626d81ef3433aa703b6ce988"
+                    ]
+                ],
                 "versions": [
                     "versions.yml:md5,0382a117d804c2d9a33fbfafadc0e848",
                     "versions.yml:md5,42c1abd6c5e1c373ee37d53bcdcedd13",
@@ -266,10 +330,10 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-13T17:31:35.797427",
         "meta": {
-            "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
-        }
+            "nf-test": "0.9.2",
+            "nextflow": "25.10.4"
+        },
+        "timestamp": "2026-03-16T21:11:02.006125926"
     }
 }
