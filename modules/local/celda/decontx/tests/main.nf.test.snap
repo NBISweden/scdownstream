@@ -1,12 +1,32 @@
 {
     "Should run without failures without batch column": {
         "content": [
-            [
-                "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
-            ],
-            "test_decontx.h5ad"
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_decontx.h5ad:md5,1eb88b5ef4b605b4f62030c2a607e28a"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_decontx.h5ad:md5,1eb88b5ef4b605b4f62030c2a607e28a"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
+                ]
+            }
         ],
-        "timestamp": "2026-03-15T21:30:50.325798583",
+        "timestamp": "2026-03-17T09:34:58.951790521",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.4"
@@ -14,12 +34,32 @@
     },
     "Should run without failures without raw - single batch": {
         "content": [
-            [
-                "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
-            ],
-            "test_decontx.h5ad"
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_decontx.h5ad:md5,1eb88b5ef4b605b4f62030c2a607e28a"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_decontx.h5ad:md5,1eb88b5ef4b605b4f62030c2a607e28a"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
+                ]
+            }
         ],
-        "timestamp": "2026-03-15T21:31:54.44450985",
+        "timestamp": "2026-03-17T09:36:18.348394268",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.4"

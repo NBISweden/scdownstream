@@ -199,6 +199,7 @@
             ],
             [
                 "versions.yml:md5,0382a117d804c2d9a33fbfafadc0e848",
+                "versions.yml:md5,2a595c6f30f1d3a0217f04cc2ffdf4de",
                 "versions.yml:md5,3c7417bff601859a86cdcb86fa6bfcb3",
                 "versions.yml:md5,42c1abd6c5e1c373ee37d53bcdcedd13",
                 "versions.yml:md5,53938cd26fe63616cc4524da4b6062c5",
@@ -208,17 +209,16 @@
                 "versions.yml:md5,8d42b8eebbd3b215d93707b3e14dba8d",
                 "versions.yml:md5,c4bcd7799f794fb7a2ab6b9a32d346f9",
                 "versions.yml:md5,cd352ddaeb3e286706b51d74fe15d655",
-                "versions.yml:md5,e61165f42026015d85d0eb1c40ba58ca",
                 "versions.yml:md5,e62a158b9954a569d2a6c7e931d8c641",
                 "versions.yml:md5,ee155a7aaf701755e53d5e752bc95f8e"
             ],
             12939,
             9887
         ],
-        "timestamp": "2026-03-13T17:30:48.205648",
+        "timestamp": "2026-03-16T17:40:46.121084363",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
+            "nextflow": "25.10.4"
         }
     },
     "Should run with cell cycle scoring": {

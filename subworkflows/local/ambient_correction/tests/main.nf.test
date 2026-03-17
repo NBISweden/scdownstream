@@ -109,13 +109,7 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(
-                // Hashing does not work due to this issue:
-                // https://github.com/scverse/anndataR/issues/272
-                workflow.out.versions,
-                file(workflow.out.h5ad.get(0).get(1)).name,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            assert snapshot(workflow.out).match()
         }
 
     }
@@ -142,13 +136,7 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(
-                // Hashing does not work due to this issue:
-                // https://github.com/scverse/anndataR/issues/272
-                workflow.out.versions,
-                file(workflow.out.h5ad.get(0).get(1)).name,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            assert snapshot(workflow.out).match()
         }
 
     }
@@ -175,13 +163,7 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(
-                // Hashing does not work due to this issue:
-                // https://github.com/scverse/anndataR/issues/272
-                workflow.out.versions,
-                file(workflow.out.h5ad.get(0).get(1)).name,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            assert snapshot(workflow.out).match()
         }
 
     }
@@ -209,11 +191,7 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(
-                workflow.out.versions,
-                file(workflow.out.h5ad.get(0).get(1)).name,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            assert snapshot(workflow.out).match()
         }
 
     }
@@ -240,10 +218,7 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(
-                workflow.out,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            assert snapshot(workflow.out).match()
         }
 
     }
@@ -270,13 +245,7 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(
-                // Hashing does not work due to this issue:
-                // https://github.com/scverse/anndataR/issues/272
-                workflow.out.versions,
-                file(workflow.out.h5ad.get(0).get(1)).name,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            assert snapshot(workflow.out).match()
         }
 
     }
@@ -303,13 +272,7 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(
-                // Hashing does not work due to this issue:
-                // https://github.com/scverse/anndataR/issues/272
-                workflow.out.versions,
-                file(workflow.out.h5ad.get(0).get(1)).name,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            assert snapshot(workflow.out).match()
         }
 
     }
@@ -337,11 +300,7 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(
-                workflow.out.versions,
-                file(workflow.out.h5ad.get(0).get(1)).name,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            assert snapshot(workflow.out).match()
         }
 
     }
@@ -368,10 +327,7 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(
-                workflow.out,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            assert snapshot(workflow.out).match()
         }
 
     }
