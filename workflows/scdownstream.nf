@@ -299,12 +299,18 @@ workflow SCDOWNSTREAM {
     } else {
         ch_qc_report_input_base = ch_h5ad
     }
+    if (ch_input) {
+        ch_sizes = QUALITY_CONTROL.out.sizes.map { _meta, tsv -> tsv }
+    } else {
+        ch_sizes = channel.empty()
+    }
     ch_qc_report_input_data = ch_qc_report_input_base
         .map { _meta, h5ad -> h5ad }
-        .mix ( QUALITY_CONTROL.out.sizes.map { _meta, tsv -> tsv } )
+        .mix ( ch_sizes )
         .collect()
     qc_report_params = [
         qc_only: qc_only,
+        has_input: ch_input != null
     ]
     QC_REPORT (
         qc_report_notebook,

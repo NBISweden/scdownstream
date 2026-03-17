@@ -11,6 +11,7 @@ jupyter: python3
 ```{python parameters}
 #| tags: [parameters]
 qc_only = False
+has_input = ''
 ```
 
 ```{python load-libraries}
@@ -139,30 +140,31 @@ pipeline:
  - **De-doubled:** Final cell count after doublet removal
 
 ```{python filtering-table}
-sizes = pd.read_csv("size_list.tsv", sep="\t")
+if has_input:
+    sizes = pd.read_csv("size_list.tsv", sep="\t")
 
-# Set order of final data frame with prettified names
-sizes_order = {
-    "sample": "Sample",
-    "unfiltered": "Unfiltered",
-    "filtered": "Filtered",
-    "thresholded": "Thresholded",
-    "dedoubleted": "De-doubled"
-}
+    # Set order of final data frame with prettified names
+    sizes_order = {
+        "sample": "Sample",
+        "unfiltered": "Unfiltered",
+        "filtered": "Filtered",
+        "thresholded": "Thresholded",
+        "dedoubleted": "De-doubled"
+    }
 
-# Convert sizes to wide format with final column names
-sizes_wide = (
-    sizes
-    .pivot(index="sample", columns="state", values="size")
-    .rename_axis(columns=None)
-    .reset_index()
-)
-sizes_wide = (
-    sizes_wide
-    [[col for col in sizes_order.keys() if col in sizes_wide.columns]]
-    .rename(columns=sizes_order)
-)
-display_table(sizes_wide)
+    # Convert sizes to wide format with final column names
+    sizes_wide = (
+        sizes
+        .pivot(index="sample", columns="state", values="size")
+        .rename_axis(columns=None)
+        .reset_index()
+    )
+    sizes_wide = (
+        sizes_wide
+        [[col for col in sizes_order.keys() if col in sizes_wide.columns]]
+        .rename(columns=sizes_order)
+    )
+    display_table(sizes_wide)
 ```
 
 ## Violin plots
@@ -257,28 +259,32 @@ respective plot.
 ```{python cell-cycle}
 #| output: false
 cell_cycle_plots = []
+if 'S_score' and 'G2M_score' in adata.obs:
 
-# Cell cycle score violin plots
-for score in ['S_score', 'G2M_score']:
+    # Cell cycle score violin plots
+    for score in ['S_score', 'G2M_score']:
+        fig, ax = plt.subplots(figsize=(7, 5), constrained_layout=True)
+        sc.pl.violin(adata, score, groupby='sample', jitter=0.4, size=1, ax=ax,
+            show=False)
+        rotate_x_labels(ax)
+        ax.title.set_text('')
+        ax.set_xlabel('')
+        cell_cycle_plots.append((score, fig))
+
+    # Cell cycle phase scatterplot
     fig, ax = plt.subplots(figsize=(7, 5), constrained_layout=True)
-    sc.pl.violin(adata, score, groupby='sample', jitter=0.4, size=1, ax=ax,
+    sc.pl.scatter(adata, x='S_score', y='G2M_score', color='phase', ax=ax,
         show=False)
-    rotate_x_labels(ax)
     ax.title.set_text('')
-    ax.set_xlabel('')
-    cell_cycle_plots.append((score, fig))
-
-# Cell cycle phase scatterplot
-fig, ax = plt.subplots(figsize=(7, 5), constrained_layout=True)
-sc.pl.scatter(adata, x='S_score', y='G2M_score', color='phase', ax=ax,
-    show=False)
-ax.title.set_text('')
-cell_cycle_plots.append(('Phase', fig))
+    cell_cycle_plots.append(('Phase', fig))
+else:
+    display(Markdown('Cell cycle scores not present in data.'))
 ```
 
 ```{python cell-cycle-tabset}
 #| output: asis
-create_tabset(cell_cycle_plots)
+if cell_cycle_plots:
+    create_tabset(cell_cycle_plots)
 ```
 
 # Cell types
