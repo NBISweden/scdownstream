@@ -62,9 +62,9 @@
     },
     "Should run without failures": {
         "content": [
-            28864394,
+            28863370,
             "test_scanvi.h5ad",
-            1378327,
+            1373143,
             "model.pt",
             6118418,
             "X_test_scanvi.pkl",
@@ -72,10 +72,10 @@
                 "versions.yml:md5,3d5ccecd49a7565e7f6c86996381d8d4"
             ]
         ],
-        "timestamp": "2026-03-16T20:37:39.206556475",
+        "timestamp": "2026-03-17T22:26:39.201796701",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     }
 }

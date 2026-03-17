@@ -40,7 +40,7 @@
                         {
                             "id": "test"
                         },
-                        "test_neighbors.h5ad:md5,eb546ff996e2c8730f33caee9f05a80e"
+                        "test_neighbors.h5ad:md5,a69934be3533e0bb4732817f7e0fc8ed"
                     ]
                 ],
                 "1": [
@@ -51,7 +51,7 @@
                         {
                             "id": "test"
                         },
-                        "test_neighbors.h5ad:md5,eb546ff996e2c8730f33caee9f05a80e"
+                        "test_neighbors.h5ad:md5,a69934be3533e0bb4732817f7e0fc8ed"
                     ]
                 ],
                 "versions": [
@@ -59,10 +59,10 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-16T15:33:26.620062553",
+        "timestamp": "2026-03-17T22:22:53.792244078",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     }
 }

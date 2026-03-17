@@ -117,7 +117,7 @@
                         {
                             "id": "combat"
                         },
-                        "combat.h5ad:md5,21745fe0f183651e37ef96c507f2df77"
+                        "combat.h5ad:md5,e9e8fbf9be8157a85a059caaf9caaef8"
                     ]
                 ],
                 "1": [
@@ -127,7 +127,7 @@
                     
                 ],
                 "3": [
-                    "X_combat.pkl:md5,d15c9d0182543adffb808b2f5aab2fac"
+                    "X_combat.pkl:md5,2486f2127344720211ca422a4f739e5e"
                 ],
                 "4": [
                     "versions.yml:md5,20020d8c9cf585aaa75dd5a14aa5d3ae",
@@ -139,14 +139,14 @@
                         {
                             "id": "combat"
                         },
-                        "combat.h5ad:md5,21745fe0f183651e37ef96c507f2df77"
+                        "combat.h5ad:md5,e9e8fbf9be8157a85a059caaf9caaef8"
                     ]
                 ],
                 "obs": [
                     
                 ],
                 "obsm": [
-                    "X_combat.pkl:md5,d15c9d0182543adffb808b2f5aab2fac"
+                    "X_combat.pkl:md5,2486f2127344720211ca422a4f739e5e"
                 ],
                 "var": [
                     
@@ -158,10 +158,10 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-16T16:16:04.735730246",
+        "timestamp": "2026-03-17T22:23:51.342969063",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run without failures - extension mode - stub": {
@@ -278,7 +278,7 @@
                         {
                             "id": "harmony"
                         },
-                        "harmony.h5ad:md5,b0a1da30f727318db9715da1d7b55d47"
+                        "harmony.h5ad:md5,65d2b91a155e7ef4237269e4c0276424"
                     ]
                 ],
                 "1": [
@@ -288,7 +288,7 @@
                     
                 ],
                 "3": [
-                    "X_harmony.pkl:md5,03dab07c5a3cb7a70b1c644bdb32f0dc"
+                    "X_harmony.pkl:md5,adb0fb9abdfc64a6a52293d987b44bfd"
                 ],
                 "4": [
                     "versions.yml:md5,20020d8c9cf585aaa75dd5a14aa5d3ae",
@@ -300,14 +300,14 @@
                         {
                             "id": "harmony"
                         },
-                        "harmony.h5ad:md5,b0a1da30f727318db9715da1d7b55d47"
+                        "harmony.h5ad:md5,65d2b91a155e7ef4237269e4c0276424"
                     ]
                 ],
                 "obs": [
                     
                 ],
                 "obsm": [
-                    "X_harmony.pkl:md5,03dab07c5a3cb7a70b1c644bdb32f0dc"
+                    "X_harmony.pkl:md5,adb0fb9abdfc64a6a52293d987b44bfd"
                 ],
                 "var": [
                     
@@ -319,10 +319,10 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-16T20:38:27.974642056",
+        "timestamp": "2026-03-17T22:20:54.130445253",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run without failures - bbknn": {
@@ -333,7 +333,7 @@
                         {
                             "id": "bbknn"
                         },
-                        "bbknn.h5ad:md5,958e04da2b9c808cc67257fab4e9efb1"
+                        "bbknn.h5ad:md5,ed856f9046e0bc4e313697ca4aabcf04"
                     ]
                 ],
                 "1": [
@@ -355,7 +355,7 @@
                         {
                             "id": "bbknn"
                         },
-                        "bbknn.h5ad:md5,958e04da2b9c808cc67257fab4e9efb1"
+                        "bbknn.h5ad:md5,ed856f9046e0bc4e313697ca4aabcf04"
                     ]
                 ],
                 "obs": [
@@ -374,10 +374,10 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-16T16:15:12.887796664",
+        "timestamp": "2026-03-17T22:22:18.579980166",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     }
 }

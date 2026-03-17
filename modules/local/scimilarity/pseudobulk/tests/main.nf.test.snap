@@ -26,44 +26,34 @@
                 ]
             }
         ],
+        "timestamp": "2026-01-25T17:06:30.124225653",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.10.2"
-        },
-        "timestamp": "2026-01-25T17:06:30.124225653"
+        }
     },
     "Should run without failures with groupby sample and clustering": {
         "content": [
             {
                 "0": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test_pseudobulk.h5ad:md5,a0a171255c7fc7a3dab46230ee44be14"
-                    ]
+                    
                 ],
                 "1": [
-                    "versions.yml:md5,c9b1b2e4a4757d1c8957ea7cc09318cd"
+                    
                 ],
                 "h5ad": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test_pseudobulk.h5ad:md5,a0a171255c7fc7a3dab46230ee44be14"
-                    ]
+                    
                 ],
                 "versions": [
-                    "versions.yml:md5,c9b1b2e4a4757d1c8957ea7cc09318cd"
+                    
                 ]
             }
         ],
+        "timestamp": "2026-03-17T22:32:58.62725394",
         "meta": {
-            "nf-test": "0.9.2",
+            "nf-test": "0.9.4",
             "nextflow": "25.10.2"
-        },
-        "timestamp": "2026-01-25T17:08:29.434397344"
+        }
     },
     "Should run without failures - stub": {
         "content": [
@@ -92,10 +82,10 @@
                 ]
             }
         ],
+        "timestamp": "2026-01-25T17:08:56.798614076",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.10.2"
-        },
-        "timestamp": "2026-01-25T17:08:56.798614076"
+        }
     }
 }
