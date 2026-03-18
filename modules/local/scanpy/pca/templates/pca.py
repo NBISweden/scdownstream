@@ -7,6 +7,9 @@ import shlex
 
 os.environ["NUMBA_CACHE_DIR"] = "./tmp/numba"
 os.environ["MPLCONFIGDIR"] = "./tmp/matplotlib"
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["OPENBLAS_NUM_THREADS"] = "1"
+os.environ["MKL_NUM_THREADS"] = "1"
 
 import scanpy as sc
 import numpy as np
