@@ -33,6 +33,9 @@ sc.pp.pca(adata, random_state=0, key_added=key_added)
 
 if params.decimals is not None:
     adata.obsm[key_added] = np.round(adata.obsm[key_added].astype(np.float64), params.decimals)
+    adata.uns[key_added]["variance_ratio"] = np.round(
+        adata.uns[key_added]["variance_ratio"].astype(np.float64), params.decimals
+    )
 
 adata.write_h5ad(f"{prefix}.h5ad")
 df = pd.DataFrame(adata.obsm[key_added], index=adata.obs_names)
