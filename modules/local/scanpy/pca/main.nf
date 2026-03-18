@@ -13,8 +13,9 @@ process SCANPY_PCA {
 
     output:
     tuple val(meta), path("${prefix}.h5ad"), emit: h5ad
-    path "X_${prefix}.pkl", emit: obsm
-    path "versions.yml", emit: versions
+    path "X_${prefix}.pkl",                 emit: obsm
+    path "variance_ratio_${prefix}.yml",    emit: variance_ratio
+    path "versions.yml",                    emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -35,6 +36,7 @@ process SCANPY_PCA {
 
     touch ${prefix}.h5ad
     touch X_${prefix}.pkl
+    touch variance_ratio_${prefix}.yml
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
