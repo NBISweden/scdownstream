@@ -64,20 +64,20 @@
                         {
                             "id": "test"
                         },
-                        "test_paga.h5ad:md5,bf7aa77bedab47bce37f3a9f11af5f3d"
+                        "test_paga.h5ad:md5,d2cc04fe0a1bef41f0636805821e15e1"
                     ]
                 ],
                 "1": [
-                    "test_paga.pkl:md5,96eeccf2034e83d8d13de8a0d067ab90"
+                    "test_paga.pkl:md5,449e038c39360a9593500bfab9c93db5"
                 ],
                 "2": [
-                    "test_paga_connectivities.npy:md5,d4829063a13ba45f50fe67ba7a86d779"
+                    "test_paga_connectivities.npy:md5,c6b4163e2b3b64bfef60442951d3d536"
                 ],
                 "3": [
-                    "test_paga.png:md5,43fca448163f9e49bd4738877d12dc6f"
+                    "test_paga.png:md5,9851016754ef3fbdfa4e40a2ed14538a"
                 ],
                 "4": [
-                    "test_paga_mqc.json:md5,1b049d73abbd18d35eede2e7cd7211fd"
+                    "test_paga_mqc.json:md5,ae76072f320805d4d65b8687288df5ee"
                 ],
                 "5": [
                     "versions.yml:md5,a87c0e3b4494aaca112a02c554da3084"
@@ -87,27 +87,27 @@
                         {
                             "id": "test"
                         },
-                        "test_paga.h5ad:md5,bf7aa77bedab47bce37f3a9f11af5f3d"
+                        "test_paga.h5ad:md5,d2cc04fe0a1bef41f0636805821e15e1"
                     ]
                 ],
                 "multiqc_files": [
-                    "test_paga_mqc.json:md5,1b049d73abbd18d35eede2e7cd7211fd"
+                    "test_paga_mqc.json:md5,ae76072f320805d4d65b8687288df5ee"
                 ],
                 "obsp": [
-                    "test_paga_connectivities.npy:md5,d4829063a13ba45f50fe67ba7a86d779"
+                    "test_paga_connectivities.npy:md5,c6b4163e2b3b64bfef60442951d3d536"
                 ],
                 "plot": [
-                    "test_paga.png:md5,43fca448163f9e49bd4738877d12dc6f"
+                    "test_paga.png:md5,9851016754ef3fbdfa4e40a2ed14538a"
                 ],
                 "uns": [
-                    "test_paga.pkl:md5,96eeccf2034e83d8d13de8a0d067ab90"
+                    "test_paga.pkl:md5,449e038c39360a9593500bfab9c93db5"
                 ],
                 "versions": [
                     "versions.yml:md5,a87c0e3b4494aaca112a02c554da3084"
                 ]
             }
         ],
-        "timestamp": "2026-03-17T22:25:11.816070136",
+        "timestamp": "2026-03-19T23:41:54.050622931",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
