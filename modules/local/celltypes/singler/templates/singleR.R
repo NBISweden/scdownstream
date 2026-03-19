@@ -1,7 +1,6 @@
 #!/usr/bin/env Rscript
 
 library(SingleR)
-library(celldex)
 library(yaml)
 library(Seurat)
 library(ggplot2)
@@ -63,7 +62,7 @@ for (ref_idx in seq_along(references)) {
     reflabel %in% colnames(colData(reference))
   )
   predictions <- SingleR(
-    test = assay(sce, 'counts'),
+    test = assay(sce, 1),
     ref = reference,
     labels = colData(reference)[[reflabel]],
     num.threads = num_threads
@@ -133,7 +132,6 @@ versions <- list(
   "${task.process}" = list(
     R = R.version.string,
     SingleR = as.character(packageVersion("SingleR")),
-    celldex = as.character(packageVersion("celldex")),
     anndataR = as.character(packageVersion("anndataR")),
     yaml = as.character(packageVersion("yaml")),
     Seurat = as.character(packageVersion("Seurat")),

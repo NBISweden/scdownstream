@@ -2,7 +2,7 @@ process CELLTYPES_SINGLER {
     tag "$meta.id"
     label 'process_medium'
 
-    container 'docker.io/saditya88/singler:0.0.1'
+    container 'docker.io/saditya88/singler:0.0.2'
 
 
     input:
