@@ -384,7 +384,7 @@ nextflow_process {
                     with(anndata(filename)) {
                         assert "batch" in obs.colnames
                         assert !("batch_id" in obs.colnames)
-                        assert obs.get("batch").unique.every { it.contains("_test") }
+                        assert obs.get("batch").unique().every { it.contains("_test") }
                     }
                 }
             )
@@ -423,7 +423,7 @@ nextflow_process {
                 {
                     with(anndata(filename)) {
                         assert "batch" in obs.colnames
-                        assert obs.get("batch").unique.every { it.contains("_test") }
+                        assert obs.get("batch").unique().every { it.contains("_test") }
                     }
                 }
             )
@@ -462,7 +462,7 @@ nextflow_process {
                 {
                     with(anndata(filename)) {
                         assert "batch" in obs.colnames
-                        assert obs.get("batch").unique.every { it == "test_test" }
+                        assert obs.get("batch").unique().every { it == "test_test" }
                     }
                 }
             )
@@ -536,7 +536,7 @@ nextflow_process {
                     with(anndata(filename)) {
                         assert "label" in obs.colnames
                         assert !("cell_type" in obs.colnames)
-                        assert obs.get("label").unique.size() > 0
+                        assert obs.get("label").unique().size() > 0
                     }
                 }
             )
@@ -575,7 +575,7 @@ nextflow_process {
                 {
                     with(anndata(filename)) {
                         assert "label" in obs.colnames
-                        assert obs.get("label").unique.size() > 0
+                        assert obs.get("label").unique().size() > 0
                     }
                 }
             )
@@ -614,7 +614,7 @@ nextflow_process {
                 {
                     with(anndata(filename)) {
                         assert "label" in obs.colnames
-                        assert obs.get("label").unique.every { it == "Unknown" }
+                        assert obs.get("label").unique().every { it == "Unknown" }
                     }
                 }
             )
@@ -732,7 +732,7 @@ nextflow_process {
                     with(anndata(filename)) {
                         assert "label" in obs.colnames
                         // Labels should be normalized (no spaces, dashes, special chars)
-                        assert obs.get("label").unique.every { !it.contains(" ") && !it.contains("-") && !it.contains("+") }
+                        assert obs.get("label").unique().every { !it.contains(" ") && !it.contains("-") && !it.contains("+") }
                     }
                 }
             )
@@ -806,7 +806,7 @@ nextflow_process {
                     with(anndata(filename)) {
                         assert "condition" in obs.colnames
                         assert !("disease_state" in obs.colnames)
-                        assert obs.get("condition").unique.size() > 0
+                        assert obs.get("condition").unique().size() > 0
                     }
                 }
             )
@@ -845,7 +845,7 @@ nextflow_process {
                 {
                     with(anndata(filename)) {
                         assert "condition" in obs.colnames
-                        assert obs.get("condition").unique.size() > 0
+                        assert obs.get("condition").unique().size() > 0
                     }
                 }
             )
@@ -884,7 +884,7 @@ nextflow_process {
                 {
                     with(anndata(filename)) {
                         assert "condition" in obs.colnames
-                        assert obs.get("condition").unique.every { it == "Unknown" }
+                        assert obs.get("condition").unique().every { it == "Unknown" }
                     }
                 }
             )
@@ -1065,7 +1065,7 @@ nextflow_process {
                     with(anndata(filename)) {
                         assert "sample" in obs.colnames
                         assert "sample_original" in obs.colnames
-                        assert obs.get("sample").unique.every { it == "test" }
+                        assert obs.get("sample").unique().every { it == "test" }
                     }
                 }
             )
@@ -1104,7 +1104,7 @@ nextflow_process {
                 {
                     with(anndata(filename)) {
                         assert "sample" in obs.colnames
-                        assert obs.get("sample").unique.every { it == "test" }
+                        assert obs.get("sample").unique().every { it == "test" }
                     }
                 }
             )
