@@ -653,7 +653,7 @@ nextflow_process {
                 {
                     with(anndata(filename)) {
                         assert "label" in obs.colnames
-                        assert "Unknown" in obs.get("label").unique
+                        assert "Unknown" in obs.get("label").unique()
                     }
                 }
             )
@@ -692,7 +692,7 @@ nextflow_process {
                 {
                     with(anndata(filename)) {
                         assert "label" in obs.colnames
-                        assert "Unknown" in obs.get("label").unique
+                        assert "Unknown" in obs.get("label").unique()
                     }
                 }
             )
