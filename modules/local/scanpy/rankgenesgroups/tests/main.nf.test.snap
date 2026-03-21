@@ -99,17 +99,17 @@
                         {
                             "id": "test"
                         },
-                        "test_characteristic_genes.h5ad:md5,b2954a226646325fe6b3a5a484f4f8e3"
+                        "test_characteristic_genes.h5ad:md5,b0736b6d7d58b879e9a8a0335cd531f7"
                     ]
                 ],
                 "1": [
-                    "test_characteristic_genes.pkl:md5,f9275b2c2b9ef36cac0e56849632bdfd"
+                    "test_characteristic_genes.pkl:md5,e3fb114c01eeaa3013367847be6927e5"
                 ],
                 "2": [
-                    "test_characteristic_genes.png:md5,25e0736ff2a919ff79fd23bd686b5237"
+                    "test_characteristic_genes.png:md5,edccaadef5847fa421c7eb26c67f8fb0"
                 ],
                 "3": [
-                    "test_characteristic_genes_mqc.json:md5,b460d2d23c68916a48c3e1a5aabe763e"
+                    "test_characteristic_genes_mqc.json:md5,6caa6c21a621356c885d4c389476ce9d"
                 ],
                 "4": [
                     "versions.yml:md5,a279f17d763d69028f9d84346e55dec8"
@@ -119,24 +119,24 @@
                         {
                             "id": "test"
                         },
-                        "test_characteristic_genes.h5ad:md5,b2954a226646325fe6b3a5a484f4f8e3"
+                        "test_characteristic_genes.h5ad:md5,b0736b6d7d58b879e9a8a0335cd531f7"
                     ]
                 ],
                 "multiqc_files": [
-                    "test_characteristic_genes_mqc.json:md5,b460d2d23c68916a48c3e1a5aabe763e"
+                    "test_characteristic_genes_mqc.json:md5,6caa6c21a621356c885d4c389476ce9d"
                 ],
                 "plots": [
-                    "test_characteristic_genes.png:md5,25e0736ff2a919ff79fd23bd686b5237"
+                    "test_characteristic_genes.png:md5,edccaadef5847fa421c7eb26c67f8fb0"
                 ],
                 "uns": [
-                    "test_characteristic_genes.pkl:md5,f9275b2c2b9ef36cac0e56849632bdfd"
+                    "test_characteristic_genes.pkl:md5,e3fb114c01eeaa3013367847be6927e5"
                 ],
                 "versions": [
                     "versions.yml:md5,a279f17d763d69028f9d84346e55dec8"
                 ]
             }
         ],
-        "timestamp": "2026-03-19T23:22:52.469232169",
+        "timestamp": "2026-03-20T23:43:57.532719528",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -150,17 +150,17 @@
                         {
                             "id": "test"
                         },
-                        "test_characteristic_genes.h5ad:md5,330f8e011941d9770911e5fb6d7c35a2"
+                        "test_characteristic_genes.h5ad:md5,ca707b2197ca13757432b8f1234ad332"
                     ]
                 ],
                 "1": [
-                    "test_characteristic_genes.pkl:md5,5c5d0bb69f67663b55b4a15c4eaf2b21"
+                    "test_characteristic_genes.pkl:md5,dfab9e35b306e64bbe7ec14c688ec8e6"
                 ],
                 "2": [
-                    "test_characteristic_genes.png:md5,64e402d7b4b8d0f9d32490795488a3f2"
+                    "test_characteristic_genes.png:md5,ba6459af5dbabd8ddfd195b8a770fbf8"
                 ],
                 "3": [
-                    "test_characteristic_genes_mqc.json:md5,da14e9657406d6a1ee34b68192fe9f9e"
+                    "test_characteristic_genes_mqc.json:md5,41ff42abf9a4989d506a6d4b5d048fdf"
                 ],
                 "4": [
                     "versions.yml:md5,a279f17d763d69028f9d84346e55dec8"
@@ -170,24 +170,24 @@
                         {
                             "id": "test"
                         },
-                        "test_characteristic_genes.h5ad:md5,330f8e011941d9770911e5fb6d7c35a2"
+                        "test_characteristic_genes.h5ad:md5,ca707b2197ca13757432b8f1234ad332"
                     ]
                 ],
                 "multiqc_files": [
-                    "test_characteristic_genes_mqc.json:md5,da14e9657406d6a1ee34b68192fe9f9e"
+                    "test_characteristic_genes_mqc.json:md5,41ff42abf9a4989d506a6d4b5d048fdf"
                 ],
                 "plots": [
-                    "test_characteristic_genes.png:md5,64e402d7b4b8d0f9d32490795488a3f2"
+                    "test_characteristic_genes.png:md5,ba6459af5dbabd8ddfd195b8a770fbf8"
                 ],
                 "uns": [
-                    "test_characteristic_genes.pkl:md5,5c5d0bb69f67663b55b4a15c4eaf2b21"
+                    "test_characteristic_genes.pkl:md5,dfab9e35b306e64bbe7ec14c688ec8e6"
                 ],
                 "versions": [
                     "versions.yml:md5,a279f17d763d69028f9d84346e55dec8"
                 ]
             }
         ],
-        "timestamp": "2026-03-19T23:31:46.678860345",
+        "timestamp": "2026-03-20T23:46:12.473649744",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

@@ -79,6 +79,23 @@ if len(valid_groups) >= 2:
                         rounded[field] = arr[field]
                 rgg_dict[key] = rounded
 
+        # Re-sort deterministically: score desc, gene name asc to break ties
+        groups = rgg_dict['names'].dtype.names
+        sort_indices = {
+            g: np.lexsort((
+                np.array(rgg_dict['names'][g], dtype=str),
+                -rgg_dict['scores'][g].astype(float)
+            ))
+            for g in groups
+        }
+        for key, arr in rgg_dict.items():
+            if not hasattr(arr, 'dtype') or not arr.dtype.names:
+                continue
+            reordered = np.empty_like(arr)
+            for g in arr.dtype.names:
+                reordered[g] = arr[g][sort_indices[g]]
+            rgg_dict[key] = reordered
+
     pickle.dump(rgg_dict, open(f"{prefix}.pkl", "wb"))
     adata.write_h5ad(f"{prefix}.h5ad")
 
