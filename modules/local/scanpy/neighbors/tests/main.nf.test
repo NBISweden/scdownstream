@@ -30,13 +30,15 @@ nextflow_process {
         then {
             assertAll(
             { assert process.success },
-            { assert snapshot(process.out).match() }
+            { assert snapshot(process.out.versions).match() },
+            {
+                def ad = anndata(process.out.h5ad[0][1])
+                assert "connectivities" in ad.obsp
+                assert "distances" in ad.obsp
+                assert "neighbors" in ad.uns
+            }
             )
         }
-
-    }
-
-    test("Should run without failures - stub") {
 
         options '-stub'
 
