@@ -35,6 +35,10 @@ if args.decimals is not None:
     adata.X.eliminate_zeros()
 
 sc.pp.pca(adata)
+
+if args.decimals is not None:
+    adata.obsm["X_pca"] = np.round(adata.obsm["X_pca"].astype(np.float64), args.decimals)
+
 adata.obsm["X_emb"] = adata.obsm["X_pca"]
 
 adata.write_h5ad(f"{prefix}.h5ad")
