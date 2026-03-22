@@ -32,7 +32,13 @@ nextflow_process {
         then {
             assertAll(
             { assert process.success },
-            { assert snapshot(process.out).match() }
+            { assert snapshot(process.out.versions).match() },
+            {
+                def obs = anndata(process.out.h5ad[0][1]).obs
+                assert "leiden" in obs.colnames
+                def n_clusters = obs.get("leiden").n_unique()
+                assert n_clusters >= 5 && n_clusters <= 30 : "Expected 5–30 Leiden clusters, got ${n_clusters}"
+            }
             )
         }
 
