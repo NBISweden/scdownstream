@@ -6,24 +6,6 @@ nextflow_process {
     tag "modules"
     tag "modules_local"
 
-        setup {
-        run("SCANPY_LEIDEN") {
-            script "modules/local/scanpy/leiden/main.nf"
-            process {
-                """
-                input[0] = channel.of([
-                        [ id: 'test' ],
-                        file(params.pipelines_testdata_base_path + '/pbmc/combined_filtered_pca.h5ad', checkIfExists: true)
-                    ]
-                )
-                input[1] = 1.0
-                input[2] = "leiden"
-                input[3] = false
-                """
-            }
-        }
-    }
-
     test("Should run without failures") {
 
         config './nextflow.config'
@@ -34,7 +16,11 @@ nextflow_process {
             }
             process {
                 """
-                input[0] = SCANPY_LEIDEN.out.h5ad
+                input[0] = channel.of([
+                        [ id: 'test' ],
+                        file(params.pipelines_testdata_base_path + '/pbmc/combined_filtered_pca.h5ad', checkIfExists: true)
+                    ]
+                )
                 input[1] = 'leiden'
                 input[2] = 'sample'
                 """
@@ -60,7 +46,11 @@ nextflow_process {
             }
             process {
                 """
-                input[0] = SCANPY_LEIDEN.out.h5ad
+                input[0] = channel.of([
+                        [ id: 'test' ],
+                        file(params.pipelines_testdata_base_path + '/pbmc/combined_filtered_pca.h5ad', checkIfExists: true)
+                    ]
+                )
                 input[1] = 'leiden'
                 input[2] = 'sample'
                 """

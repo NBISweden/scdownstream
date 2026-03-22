@@ -58,7 +58,7 @@
                         {
                             "id": "test"
                         },
-                        "test_entropy.h5ad:md5,34b4a3f1fc353ae0525a4a45db783505"
+                        "test_entropy.h5ad:md5,f874063c56014bfe710f56e18e52b74f"
                     ]
                 ],
                 "1": [
@@ -78,7 +78,7 @@
                         {
                             "id": "test"
                         },
-                        "test_entropy.h5ad:md5,34b4a3f1fc353ae0525a4a45db783505"
+                        "test_entropy.h5ad:md5,f874063c56014bfe710f56e18e52b74f"
                     ]
                 ],
                 "multiqc_files": [
@@ -95,7 +95,7 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-21T08:49:14.200111576",
+        "timestamp": "2026-03-22T09:52:42.901052235",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

@@ -8,8 +8,8 @@ nextflow_process {
     tag "modules_local"
 
     setup {
-        run("SCANPY_LEIDEN") {
-            script "modules/local/scanpy/leiden/main.nf"
+        run("SCANPY_HVGS") {
+            script "modules/local/scanpy/hvgs/main.nf"
             process {
                 """
                 input[0] = channel.of([
@@ -17,17 +17,6 @@ nextflow_process {
                         file(params.pipelines_testdata_base_path + '/pbmc/combined_filtered_pca.h5ad', checkIfExists: true)
                     ]
                 )
-                input[1] = 1.0
-                input[2] = "leiden"
-                input[3] = false
-                """
-            }
-        }
-        run("SCANPY_HVGS") {
-            script "modules/local/scanpy/hvgs/main.nf"
-            process {
-                """
-                input[0] = SCANPY_LEIDEN.out.h5ad
                 input[1] = 100
                 input[2] = []
                 """

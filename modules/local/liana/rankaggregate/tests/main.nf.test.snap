@@ -46,7 +46,7 @@
                         {
                             "id": "test"
                         },
-                        "test_liana.h5ad:md5,9c8ceb607ccaf4a343989fd8e289e348"
+                        "test_liana.h5ad:md5,c227d198aa472576b58ffe61ff37027b"
                     ]
                 ],
                 "1": [
@@ -60,7 +60,7 @@
                         {
                             "id": "test"
                         },
-                        "test_liana.h5ad:md5,9c8ceb607ccaf4a343989fd8e289e348"
+                        "test_liana.h5ad:md5,c227d198aa472576b58ffe61ff37027b"
                     ]
                 ],
                 "uns": [
@@ -71,7 +71,7 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-21T08:49:59.26401781",
+        "timestamp": "2026-03-22T09:53:42.436168666",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

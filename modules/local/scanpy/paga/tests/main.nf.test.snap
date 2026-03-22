@@ -64,7 +64,7 @@
                         {
                             "id": "test"
                         },
-                        "test_paga.h5ad:md5,6e42b00f612f130bfaef11630a4b1f58"
+                        "test_paga.h5ad:md5,7a142fee9bf3547a5116b86d5b2ea0bf"
                     ]
                 ],
                 "1": [
@@ -87,7 +87,7 @@
                         {
                             "id": "test"
                         },
-                        "test_paga.h5ad:md5,6e42b00f612f130bfaef11630a4b1f58"
+                        "test_paga.h5ad:md5,7a142fee9bf3547a5116b86d5b2ea0bf"
                     ]
                 ],
                 "multiqc_files": [
@@ -107,7 +107,7 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-21T08:49:01.14560091",
+        "timestamp": "2026-03-22T09:51:51.950233221",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
