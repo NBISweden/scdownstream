@@ -111,54 +111,13 @@
     },
     "Should run without failures - combat": {
         "content": [
-            {
-                "0": [
-                    [
-                        {
-                            "id": "combat"
-                        },
-                        "combat.h5ad:md5,e9e8fbf9be8157a85a059caaf9caaef8"
-                    ]
-                ],
-                "1": [
-                    
-                ],
-                "2": [
-                    
-                ],
-                "3": [
-                    "X_combat.pkl:md5,2486f2127344720211ca422a4f739e5e"
-                ],
-                "4": [
-                    "versions.yml:md5,20020d8c9cf585aaa75dd5a14aa5d3ae",
-                    "versions.yml:md5,a6c1e0a77e0d31423a9d77edba85127d",
-                    "versions.yml:md5,d28b65c4c18c54e1abc34040b584b823"
-                ],
-                "integrations": [
-                    [
-                        {
-                            "id": "combat"
-                        },
-                        "combat.h5ad:md5,e9e8fbf9be8157a85a059caaf9caaef8"
-                    ]
-                ],
-                "obs": [
-                    
-                ],
-                "obsm": [
-                    "X_combat.pkl:md5,2486f2127344720211ca422a4f739e5e"
-                ],
-                "var": [
-                    
-                ],
-                "versions": [
-                    "versions.yml:md5,20020d8c9cf585aaa75dd5a14aa5d3ae",
-                    "versions.yml:md5,a6c1e0a77e0d31423a9d77edba85127d",
-                    "versions.yml:md5,d28b65c4c18c54e1abc34040b584b823"
-                ]
-            }
+            [
+                "versions.yml:md5,20020d8c9cf585aaa75dd5a14aa5d3ae",
+                "versions.yml:md5,a6c1e0a77e0d31423a9d77edba85127d",
+                "versions.yml:md5,d28b65c4c18c54e1abc34040b584b823"
+            ]
         ],
-        "timestamp": "2026-03-17T22:23:51.342969063",
+        "timestamp": "2026-03-22T14:55:07.151113899",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

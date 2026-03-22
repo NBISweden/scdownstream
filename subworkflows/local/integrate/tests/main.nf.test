@@ -203,7 +203,10 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(workflow.out).match()
+            assert snapshot(
+                workflow.out.versions
+            ).match()
+            assert "X_emb" in anndata(workflow.out.integrations[0][1]).obsm
         }
 
     }
