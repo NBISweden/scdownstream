@@ -1,51 +1,51 @@
 {
     "Should be able to perform subclustering": {
         "content": [
-            290,
+            291,
             {
                 "ADATA_EXTEND": {
-                    "anndata": "0.12.7",
-                    "numpy": "2.4.0",
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
                     "pandas": "2.3.3",
-                    "python": "3.13.11"
+                    "python": "3.13.12"
                 },
                 "ADATA_SPLITEMBEDDINGS": {
-                    "anndata": "0.12.7",
-                    "python": "3.13.11"
+                    "anndata": "0.12.10",
+                    "python": "3.13.12"
                 },
                 "ADATA_TORDS": {
                     "anndataR": "1.0.2"
                 },
                 "ENTROPY": {
-                    "python": "3.13.11",
-                    "scanpy": "1.11.5",
-                    "scipy": "1.16.3"
+                    "python": "3.13.12",
+                    "scanpy": "1.12",
+                    "scipy": "1.17.1"
                 },
                 "LEIDEN": {
-                    "python": "3.14.2",
-                    "scanpy": "1.11.5"
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
                 },
                 "NEIGHBORS": {
-                    "python": "3.14.2",
-                    "scanpy": "1.11.5"
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
                 },
                 "SCANPY_PAGA": {
-                    "python": "3.14.2",
-                    "scanpy": "1.11.5"
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
                 },
                 "SCANPY_RANKGENESGROUPS": {
                     "pandas": "2.3.3",
-                    "python": "3.13.11",
-                    "scanpy": "1.11.5"
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
                 },
                 "SPLITCOL": {
-                    "anndata": "0.12.7",
-                    "python": "3.13.11"
+                    "anndata": "0.12.10",
+                    "python": "3.13.12"
                 },
                 "UMAP": {
                     "pandas": "2.3.3",
-                    "python": "3.13.11",
-                    "scanpy": "1.11.5"
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
                 },
                 "Workflow": {
                     "nf-core/scdownstream": "v0.0.1dev"
@@ -477,6 +477,8 @@
                 "per_group/condition:scvi-SRR28679758-1.0_leiden:11/characteristic_genes",
                 "per_group/condition:scvi-SRR28679758-1.0_leiden:12",
                 "per_group/condition:scvi-SRR28679758-1.0_leiden:12/characteristic_genes",
+                "per_group/condition:scvi-SRR28679758-1.0_leiden:13",
+                "per_group/condition:scvi-SRR28679758-1.0_leiden:13/characteristic_genes",
                 "per_group/condition:scvi-SRR28679758-1.0_leiden:2",
                 "per_group/condition:scvi-SRR28679758-1.0_leiden:2/characteristic_genes",
                 "per_group/condition:scvi-SRR28679758-1.0_leiden:3",
@@ -591,10 +593,10 @@
                 "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f"
             ]
         ],
-        "timestamp": "2026-03-14T21:33:52.663299912",
+        "timestamp": "2026-03-17T22:32:35.990878498",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     }
 }

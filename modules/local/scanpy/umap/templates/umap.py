@@ -2,6 +2,8 @@
 
 import os
 import platform
+import argparse
+import shlex
 
 os.environ["NUMBA_CACHE_DIR"] = "./tmp/numba"
 os.environ["MPLCONFIGDIR"] = "./tmp/matplotlib"
@@ -17,12 +19,23 @@ sc.settings.n_jobs = int("${task.cpus}")
 
 adata = sc.read_h5ad("${h5ad}", backed='r')
 prefix = "${prefix}"
+args = "${args}"
+parser = argparse.ArgumentParser()
+parser.add_argument("--decimals", type=int, default=None)
+params = parser.parse_args(shlex.split(args))
 
 sc.tl.umap(adata, random_state=0)
 
-# Round to 10 decimal places
-# This ensures hashes are stable
-adata.obsm["X_umap"] = np.round(adata.obsm["X_umap"], 10)
+if params.decimals is not None:
+    adata.obsm["X_umap"] = np.round(adata.obsm["X_umap"].astype(np.float64), params.decimals)
+
+var_per_dim = np.var(adata.obsm["X_umap"].astype(np.float64), axis=0)
+variance_ratio = (var_per_dim / var_per_dim.sum()).tolist()
+if params.decimals is not None:
+    variance_ratio = np.round(variance_ratio, params.decimals).tolist()
+
+with open(f"variance_ratio_{prefix}.yml", "w") as f:
+    yaml.dump({"variance_ratio": variance_ratio}, f)
 
 adata.write_h5ad(f"{prefix}.h5ad")
 df = pd.DataFrame(adata.obsm["X_umap"], index=adata.obs_names)

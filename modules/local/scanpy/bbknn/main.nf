@@ -20,6 +20,7 @@ process SCANPY_BBKNN {
 
     script:
     prefix = task.ext.prefix ?: "${meta.id}"
+    args   = task.ext.args ?: ''
     template 'bbknn.py'
 
     stub:

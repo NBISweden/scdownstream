@@ -19,7 +19,7 @@
                     ]
                 ],
                 "2": [
-                    "versions.yml:md5,820747e56d08a1eae6b8dfb082f347a0"
+                    "versions.yml:md5,b2a073150918c118c3858cf4e82145f7"
                 ],
                 "h5ad": [
                     [
@@ -38,15 +38,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,820747e56d08a1eae6b8dfb082f347a0"
+                    "versions.yml:md5,b2a073150918c118c3858cf4e82145f7"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:14:17.984419949",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-16T22:00:29.120765286"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should extend with obsm data": {
         "content": [
@@ -68,7 +68,7 @@
                     ]
                 ],
                 "2": [
-                    "versions.yml:md5,820747e56d08a1eae6b8dfb082f347a0"
+                    "versions.yml:md5,b2a073150918c118c3858cf4e82145f7"
                 ],
                 "h5ad": [
                     [
@@ -87,15 +87,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,820747e56d08a1eae6b8dfb082f347a0"
+                    "versions.yml:md5,b2a073150918c118c3858cf4e82145f7"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:13:53.551305616",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-16T22:00:13.25388026"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should extend with uns data": {
         "content": [
@@ -117,7 +117,7 @@
                     ]
                 ],
                 "2": [
-                    "versions.yml:md5,820747e56d08a1eae6b8dfb082f347a0"
+                    "versions.yml:md5,b2a073150918c118c3858cf4e82145f7"
                 ],
                 "h5ad": [
                     [
@@ -136,15 +136,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,820747e56d08a1eae6b8dfb082f347a0"
+                    "versions.yml:md5,b2a073150918c118c3858cf4e82145f7"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:14:39.805580912",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-16T22:00:44.610008207"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should extend with obs data": {
         "content": [
@@ -166,7 +166,7 @@
                     ]
                 ],
                 "2": [
-                    "versions.yml:md5,820747e56d08a1eae6b8dfb082f347a0"
+                    "versions.yml:md5,b2a073150918c118c3858cf4e82145f7"
                 ],
                 "h5ad": [
                     [
@@ -185,15 +185,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,820747e56d08a1eae6b8dfb082f347a0"
+                    "versions.yml:md5,b2a073150918c118c3858cf4e82145f7"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:13:30.793377663",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-16T21:59:57.879659481"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should run without failures - stub": {
         "content": [
@@ -238,11 +238,11 @@
                 ]
             }
         ],
+        "timestamp": "2026-01-16T22:01:11.948835963",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-16T22:01:11.948835963"
+        }
     },
     "Should run with no extensions": {
         "content": [
@@ -264,7 +264,7 @@
                     ]
                 ],
                 "2": [
-                    "versions.yml:md5,820747e56d08a1eae6b8dfb082f347a0"
+                    "versions.yml:md5,b2a073150918c118c3858cf4e82145f7"
                 ],
                 "h5ad": [
                     [
@@ -283,14 +283,14 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,820747e56d08a1eae6b8dfb082f347a0"
+                    "versions.yml:md5,b2a073150918c118c3858cf4e82145f7"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:14:59.60059937",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-16T22:00:59.998455502"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     }
 }
