@@ -176,11 +176,7 @@
                 "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f"
             ]
         ],
-<<<<<<< HEAD
-        "timestamp": "2026-03-16T13:44:25.834376674",
-=======
-        "timestamp": "2026-03-17T11:00:24.678041975",
->>>>>>> origin/dev
+        "timestamp": "2026-03-22T18:02:21.271429508",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.4"
