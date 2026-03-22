@@ -22,6 +22,7 @@ process CELLTYPES_SINGLER {
 
     script:
     prefix = task.ext.prefix ?: "${meta.id}"
+    counts_layer = counts_layer ?: "X"
     template 'singleR.R'
 
     stub:

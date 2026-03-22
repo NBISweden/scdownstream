@@ -31,7 +31,7 @@ workflow CELLTYPE_ASSIGNMENT {
         )
 
         CELLTYPES_CELLTYPIST (
-            ch_h5ad,
+            ch_h5ad.map { meta, h5ad, symbol_col, _counts_layer -> [meta, h5ad, symbol_col] },
             celltypist_models
         )
         ch_obs = ch_obs.mix(CELLTYPES_CELLTYPIST.out.obs)
