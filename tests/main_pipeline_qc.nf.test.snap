@@ -11,10 +11,10 @@
                     "seurat": "5.1.0"
                 },
                 "ADATA_UNIFY": {
-                    "anndata": "0.12.7",
-                    "numpy": "2.4.0",
-                    "python": "3.13.11",
-                    "scipy": "1.16.3"
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
                 },
                 "CELDA_DECONTX": {
                     "r": "4.5.3",
@@ -42,8 +42,8 @@
                     "ggplot2": "4.0.2"
                 },
                 "COLLECT_SIZES": {
-                    "python": "3.13.0",
-                    "pandas": "2.2.3"
+                    "pandas": "2.3.3",
+                    "python": "3.13.12"
                 },
                 "DOUBLETDETECTION": {
                     "anndata": "0.11.4",
@@ -51,17 +51,17 @@
                     "python": "3.13.3"
                 },
                 "DOUBLET_REMOVAL": {
-                    "python": "3.13.1",
-                    "anndata": "0.11.1",
-                    "pandas": "2.2.3",
-                    "matplotlib": "3.10.0",
+                    "anndata": "0.12.10",
+                    "matplotlib": "3.10.8",
+                    "pandas": "2.3.3",
+                    "python": "3.13.12",
                     "upsetplot": "0.9.0"
                 },
                 "FINALIZE_QC_ANNDATAS": {
-                    "anndata": "0.12.7",
-                    "numpy": "2.4.0",
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
                     "pandas": "2.3.3",
-                    "python": "3.13.11"
+                    "python": "3.13.12"
                 },
                 "GET_DEDOUBLETED_SIZE": {
                     "python": "3.13.0",
@@ -80,27 +80,27 @@
                     "anndata": "0.10.9"
                 },
                 "QC_FILTERED": {
-                    "matplotlib": "3.10.3",
-                    "python": "3.13.3",
-                    "scanpy": "1.11.2"
+                    "matplotlib": "3.10.8",
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
                 },
                 "QC_RAW": {
-                    "matplotlib": "3.10.3",
-                    "python": "3.13.3",
-                    "scanpy": "1.11.2"
+                    "matplotlib": "3.10.8",
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
                 },
                 "SCANPY_CELLCYCLE": {
-                    "python": "3.13.11",
-                    "scanpy": "1.11.5"
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
                 },
                 "SCANPY_FILTER": {
-                    "python": "3.13.11",
-                    "scanpy": "1.11.5"
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
                 },
                 "UPSET_GENES": {
-                    "python": "3.12.8",
-                    "scanpy": "1.10.4",
-                    "matplotlib": "3.10.0",
+                    "anndata": "0.12.10",
+                    "matplotlib": "3.10.8",
+                    "python": "3.13.12",
                     "upsetplot": "0.9.0"
                 },
                 "Workflow": {
@@ -176,7 +176,11 @@
                 "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f"
             ]
         ],
+<<<<<<< HEAD
         "timestamp": "2026-03-16T13:44:25.834376674",
+=======
+        "timestamp": "2026-03-17T11:00:24.678041975",
+>>>>>>> origin/dev
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.4"

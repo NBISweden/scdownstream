@@ -11,7 +11,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -22,15 +22,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:17:15.684411771",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:49:16.617842836"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle sample column with different value": {
         "content": [
@@ -44,7 +44,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -55,15 +55,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:19:52.912657028",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:55:17.106825064"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle symbols in column": {
         "content": [
@@ -77,7 +77,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -88,15 +88,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:14:30.460619874",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:42:47.584588347"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle label column with different name": {
         "content": [
@@ -110,7 +110,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -121,15 +121,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:17:04.588955265",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:48:45.11500824"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should create condition column when missing": {
         "content": [
@@ -143,7 +143,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -154,15 +154,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:18:48.352425666",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:53:05.480211685"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle label column with unknown values": {
         "content": [
@@ -176,7 +176,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -187,15 +187,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:17:38.16180871",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:50:13.587217388"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle duplicates with sum aggregation": {
         "content": [
@@ -209,7 +209,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -220,15 +220,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:14:59.92375867",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:43:28.569554285"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should create batch column when missing": {
         "content": [
@@ -242,7 +242,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -253,15 +253,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:16:42.291640291",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:47:26.583505263"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should run without failures - stub": {
         "content": [
@@ -290,11 +290,11 @@
                 ]
             }
         ],
+        "timestamp": "2026-01-11T21:38:13.01844773",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-11T21:38:13.01844773"
+        }
     },
     "Should handle duplicates with make_unique": {
         "content": [
@@ -308,7 +308,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -319,15 +319,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:15:57.903315865",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:45:33.942595359"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle condition column with different name": {
         "content": [
@@ -341,7 +341,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -352,15 +352,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:18:22.557718057",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:35:24.146269861"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle duplicates with mean aggregation": {
         "content": [
@@ -374,7 +374,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -385,15 +385,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:15:28.4354681",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:44:18.873198963"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should aggregate isoforms": {
         "content": [
@@ -407,7 +407,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -418,15 +418,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:16:08.914108958",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:46:00.963105875"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle condition column already named condition": {
         "content": [
@@ -440,7 +440,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -451,15 +451,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:18:35.814191761",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:35:48.56536841"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should normalize label column with special characters": {
         "content": [
@@ -473,7 +473,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -484,15 +484,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:18:01.193993289",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:51:05.348919822"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should create label column when missing": {
         "content": [
@@ -506,7 +506,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -517,15 +517,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:17:26.892769495",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:49:42.345441275"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle CSR sparse matrix": {
         "content": [
@@ -539,7 +539,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -550,15 +550,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:19:12.458275697",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:53:54.697904663"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle CSC sparse matrix": {
         "content": [
@@ -572,7 +572,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -583,15 +583,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:19:26.441833105",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:54:24.116245288"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle batch column with different name": {
         "content": [
@@ -605,7 +605,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -616,15 +616,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:16:19.536570356",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:46:30.895881087"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle label column with NaN values": {
         "content": [
@@ -638,7 +638,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -649,15 +649,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:17:49.960531221",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:50:42.325787968"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should remove obsm, varm, uns, and layers": {
         "content": [
@@ -671,7 +671,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -682,15 +682,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:20:17.793802423",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:56:14.909270655"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle duplicates with max aggregation": {
         "content": [
@@ -704,7 +704,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -715,15 +715,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:15:47.399791749",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:45:11.52755975"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should create sample column when missing": {
         "content": [
@@ -737,7 +737,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -748,15 +748,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:20:04.777517593",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:55:45.249066929"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle batch column already named batch": {
         "content": [
@@ -770,7 +770,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -781,15 +781,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:16:31.488655855",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:46:59.435368013"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle complex structure": {
         "content": [
@@ -803,7 +803,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -814,15 +814,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:20:42.731739831",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.7"
-        },
-        "timestamp": "2026-01-18T18:57:10.435405253"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle counts in layer": {
         "content": [
@@ -836,7 +836,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -847,15 +847,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:13:51.662484416",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:41:55.235709418"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle counts in X matrix": {
         "content": [
@@ -869,7 +869,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -880,15 +880,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:13:30.614823898",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:41:25.789126853"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle symbols as index": {
         "content": [
@@ -902,7 +902,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -913,15 +913,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:14:12.108232932",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:42:20.789018974"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle minimal structure": {
         "content": [
@@ -935,7 +935,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -946,15 +946,15 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:20:30.122685513",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-18T18:56:42.366561291"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     },
     "Should handle duplicate cell names": {
         "content": [
@@ -968,7 +968,7 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ],
                 "h5ad": [
                     [
@@ -979,14 +979,14 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,57b488d3f30e987841c6af3280b8ee5c"
+                    "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:19:39.263298116",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.7"
-        },
-        "timestamp": "2026-01-18T18:54:50.19110591"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     }
 }
