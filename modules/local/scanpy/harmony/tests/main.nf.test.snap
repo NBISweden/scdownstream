@@ -14,6 +14,9 @@
                     "X_test.pkl:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "2": [
+                    "variance_ratio_test.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ],
+                "3": [
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "h5ad": [
@@ -27,54 +30,89 @@
                 "obsm": [
                     "X_test.pkl:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
+                "variance_ratio": [
+                    "variance_ratio_test.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ],
                 "versions": [
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ]
             }
         ],
-        "timestamp": "2025-06-03T07:49:23.776105374",
+        "timestamp": "2026-03-22T10:56:43.269700775",
         "meta": {
-            "nf-test": "0.9.0",
-            "nextflow": "25.04.2"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
         }
     },
     "Should run without failures": {
         "content": [
             {
-                "0": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test.h5ad:md5,cb091497dc2678a813f80adaeb29a323"
-                    ]
-                ],
-                "1": [
-                    "X_test.pkl:md5,8c6a2d9d4ff13704cbc9d69f883a8057"
-                ],
-                "2": [
-                    "versions.yml:md5,215a816af7a4cacc8aa720128fa77ce8"
-                ],
-                "h5ad": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test.h5ad:md5,cb091497dc2678a813f80adaeb29a323"
-                    ]
-                ],
-                "obsm": [
-                    "X_test.pkl:md5,8c6a2d9d4ff13704cbc9d69f883a8057"
-                ],
-                "versions": [
-                    "versions.yml:md5,215a816af7a4cacc8aa720128fa77ce8"
+                "variance_ratio": [
+                    0.203,
+                    0.049,
+                    0.052,
+                    0.043,
+                    0.035,
+                    0.033,
+                    0.026,
+                    0.023,
+                    0.021,
+                    0.022,
+                    0.019,
+                    0.019,
+                    0.018,
+                    0.018,
+                    0.017,
+                    0.016,
+                    0.016,
+                    0.016,
+                    0.015,
+                    0.015,
+                    0.015,
+                    0.014,
+                    0.014,
+                    0.013,
+                    0.013,
+                    0.013,
+                    0.012,
+                    0.012,
+                    0.012,
+                    0.012,
+                    0.012,
+                    0.011,
+                    0.011,
+                    0.011,
+                    0.011,
+                    0.01,
+                    0.01,
+                    0.01,
+                    0.01,
+                    0.01,
+                    0.009,
+                    0.009,
+                    0.009,
+                    0.009,
+                    0.009,
+                    0.009,
+                    0.008,
+                    0.008,
+                    0.008,
+                    0.008
                 ]
+            },
+            {
+                "SCANPY_HARMONY": {
+                    "harmonypy": "0.2.0",
+                    "pandas": "2.3.3",
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                }
             }
         ],
-        "timestamp": "2026-03-17T23:24:26.472976813",
+        "timestamp": "2026-03-22T10:56:30.726462806",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     }
 }

@@ -14,6 +14,9 @@
                     "X_test.pkl:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "2": [
+                    "variance_ratio_test.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ],
+                "3": [
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "h5ad": [
@@ -27,51 +30,37 @@
                 "obsm": [
                     "X_test.pkl:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
+                "variance_ratio": [
+                    "variance_ratio_test.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ],
                 "versions": [
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ]
             }
         ],
-        "timestamp": "2025-06-02T10:39:13.014143908",
+        "timestamp": "2026-03-22T11:03:38.032169255",
         "meta": {
-            "nf-test": "0.9.0",
-            "nextflow": "25.04.2"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
         }
     },
     "Should run without failures": {
         "content": [
             {
-                "0": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test.h5ad:md5,3245b06580e7e5dff5fa602b79c98d3a"
-                    ]
-                ],
-                "1": [
-                    "X_test.pkl:md5,b0aaa5b49aa3e9111d8479c2dc0c6489"
-                ],
-                "2": [
-                    "versions.yml:md5,f7e77a6f6fe060c4158eb2a86e7c0754"
-                ],
-                "h5ad": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test.h5ad:md5,3245b06580e7e5dff5fa602b79c98d3a"
-                    ]
-                ],
-                "obsm": [
-                    "X_test.pkl:md5,b0aaa5b49aa3e9111d8479c2dc0c6489"
-                ],
-                "versions": [
-                    "versions.yml:md5,f7e77a6f6fe060c4158eb2a86e7c0754"
+                "variance_ratio": [
+                    0.81,
+                    0.19
                 ]
+            },
+            {
+                "SCANPY_UMAP": {
+                    "pandas": "2.3.3",
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                }
             }
         ],
-        "timestamp": "2026-03-21T08:49:15.928656736",
+        "timestamp": "2026-03-22T11:03:25.274578244",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

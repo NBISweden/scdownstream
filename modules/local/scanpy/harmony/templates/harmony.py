@@ -12,6 +12,7 @@ os.environ["NUMBA_CACHE_DIR"] = "./tmp/numba"
 import harmonypy
 import scanpy as sc
 import pandas as pd
+import numpy as np
 
 from threadpoolctl import threadpool_limits
 threadpool_limits(int("${task.cpus}"))
@@ -21,6 +22,8 @@ args = "${args}"
 parser = argparse.ArgumentParser()
 parser.add_argument("--decimals", type=int, default=None)
 params = parser.parse_args(shlex.split(args))
+
+prefix = "${prefix}"
 
 adata_processing = adata.copy()
 
@@ -50,15 +53,22 @@ else:
         f"expected {adata_processing.obsm['X_pca'].shape} or its transpose."
     )
 
-# Round to avoid floating point precision issues across platforms
 if params.decimals is not None:
     adata_processing.obsm["X_emb"] = adata_processing.obsm["X_emb"].round(params.decimals)
 adata.obsm["X_emb"] = adata_processing.obsm["X_emb"]
 
-adata.write_h5ad("${prefix}.h5ad")
+var_per_dim = np.var(adata.obsm["X_emb"].astype(np.float64), axis=0)
+variance_ratio = (var_per_dim / var_per_dim.sum()).tolist()
+if params.decimals is not None:
+    variance_ratio = np.round(variance_ratio, params.decimals).tolist()
+
+with open(f"variance_ratio_{prefix}.yml", "w") as f:
+    yaml.dump({"variance_ratio": variance_ratio}, f)
+
+adata.write_h5ad(f"{prefix}.h5ad")
 
 df = pd.DataFrame(adata.obsm["X_emb"], index=adata.obs_names)
-df.to_pickle("X_${prefix}.pkl")
+df.to_pickle(f"X_{prefix}.pkl")
 
 # Versions
 
