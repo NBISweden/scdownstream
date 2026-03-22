@@ -8,7 +8,7 @@ process CELLTYPES_SINGLER {
         'community.wave.seqera.io/library/bioconductor-anndatar_bioconductor-celldex_bioconductor-hdf5array_bioconductor-rhdf5_pruned:74e0a8e51f7ab89c' }"
 
     input:
-    tuple val(meta), path(h5ad), val(symbol_col)
+    tuple val(meta), path(h5ad), val(symbol_col), val(counts_layer)
     tuple val(meta2), val(names), val(labels), path(references)
 
     output:

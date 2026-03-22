@@ -7,10 +7,20 @@ library(ggplot2)
 library(anndataR)
 library(HDF5Array)
 
-symbol_col <- "${symbol_col}"
-h5ad_file  <- "${h5ad}"
+symbol_col   <- "${symbol_col}"
+counts_layer <- "${counts_layer}"
+h5ad_file    <- "${h5ad}"
 adata <- read_h5ad(h5ad_file)
-sce   <- adata\$as_SingleCellExperiment(x_mapping = "counts", assays_mapping = FALSE)
+
+if (counts_layer == "X") {
+  x_mapping <- "counts"
+  assays_mapping <- FALSE
+} else {
+  x_mapping <- FALSE
+  assays_mapping <- c(counts = counts_layer)
+}
+
+sce <- adata\$as_SingleCellExperiment(x_mapping = x_mapping, assays_mapping = assays_mapping)
 
 if (symbol_col != "index") {
   if (!symbol_col %in% colnames(rowData(sce))) {
@@ -42,15 +52,19 @@ for (ref_idx in seq_along(references)) {
   ref_dir <- gsub(".tar", "", ref)
   untar(ref, exdir = "./")
   # Read the SummarizedExperiment object from the provided path
+  # Realize the HDF5-backed assay into a sparse matrix to avoid
+  # multi-threaded HDF5 file locking inside SingleR's C++ thread pool
   reference <- loadHDF5SummarizedExperiment(dir = ref_dir)
+  assay(reference) <- as(assay(reference), "dgCMatrix")
   stopifnot(
     reflabel %in% colnames(colData(reference))
   )
   predictions <- SingleR(
-    test = assay(sce, 'counts'),
-    ref = reference,
-    labels = colData(reference)[[reflabel]],
-    num.threads = num_threads
+    test            = sce,
+    assay.type.test = 1,
+    ref             = reference,
+    labels          = colData(reference)[[reflabel]],
+    num.threads     = num_threads
   )
 
   # Plot and save heatmap
