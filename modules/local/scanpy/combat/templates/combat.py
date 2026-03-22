@@ -30,14 +30,15 @@ prefix = "${prefix}"
 sc.pp.combat(adata, key="${batch_col}")
 adata.X = csr_matrix(adata.X)
 
-if args.decimals is not None:
-    adata.X.data = np.round(adata.X.data.astype(np.float64), args.decimals)
-    adata.X.eliminate_zeros()
-
 sc.pp.pca(adata)
 
 if args.decimals is not None:
+    adata.X.data = np.round(adata.X.data.astype(np.float64), args.decimals)
+    adata.X.eliminate_zeros()
     adata.obsm["X_pca"] = np.round(adata.obsm["X_pca"].astype(np.float64), args.decimals)
+    adata.varm["PCs"] = np.round(adata.varm["PCs"].astype(np.float64), args.decimals)
+    adata.uns["pca"]["variance"] = np.round(adata.uns["pca"]["variance"].astype(np.float64), args.decimals)
+    adata.uns["pca"]["variance_ratio"] = np.round(adata.uns["pca"]["variance_ratio"].astype(np.float64), args.decimals)
 
 adata.obsm["X_emb"] = adata.obsm["X_pca"]
 
