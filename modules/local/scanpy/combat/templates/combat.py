@@ -19,10 +19,10 @@ threadpool_limits(int("${task.cpus}"))
 sc.settings.n_jobs = int("${task.cpus}")
 
 args = argparse.Namespace(decimals=None)
-if "${task.ext.args}" != "":
+if "${args}" != "":
     parser = argparse.ArgumentParser()
     parser.add_argument('--decimals', type=int, default=None)
-    args = parser.parse_args(shlex.split("${task.ext.args}"))
+    args = parser.parse_args(shlex.split("${args}"))
 
 adata = sc.read_h5ad("${h5ad}")
 prefix = "${prefix}"

@@ -272,54 +272,13 @@
     },
     "Should run without failures - harmony": {
         "content": [
-            {
-                "0": [
-                    [
-                        {
-                            "id": "harmony"
-                        },
-                        "harmony.h5ad:md5,65d2b91a155e7ef4237269e4c0276424"
-                    ]
-                ],
-                "1": [
-                    
-                ],
-                "2": [
-                    
-                ],
-                "3": [
-                    "X_harmony.pkl:md5,adb0fb9abdfc64a6a52293d987b44bfd"
-                ],
-                "4": [
-                    "versions.yml:md5,20020d8c9cf585aaa75dd5a14aa5d3ae",
-                    "versions.yml:md5,d28b65c4c18c54e1abc34040b584b823",
-                    "versions.yml:md5,f838f281f13db0dd578a991df1d8b57c"
-                ],
-                "integrations": [
-                    [
-                        {
-                            "id": "harmony"
-                        },
-                        "harmony.h5ad:md5,65d2b91a155e7ef4237269e4c0276424"
-                    ]
-                ],
-                "obs": [
-                    
-                ],
-                "obsm": [
-                    "X_harmony.pkl:md5,adb0fb9abdfc64a6a52293d987b44bfd"
-                ],
-                "var": [
-                    
-                ],
-                "versions": [
-                    "versions.yml:md5,20020d8c9cf585aaa75dd5a14aa5d3ae",
-                    "versions.yml:md5,d28b65c4c18c54e1abc34040b584b823",
-                    "versions.yml:md5,f838f281f13db0dd578a991df1d8b57c"
-                ]
-            }
+            [
+                "versions.yml:md5,20020d8c9cf585aaa75dd5a14aa5d3ae",
+                "versions.yml:md5,d28b65c4c18c54e1abc34040b584b823",
+                "versions.yml:md5,f838f281f13db0dd578a991df1d8b57c"
+            ]
         ],
-        "timestamp": "2026-03-17T22:20:54.130445253",
+        "timestamp": "2026-03-22T13:40:54.235838286",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
