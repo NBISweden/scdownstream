@@ -1,32 +1,11 @@
 {
     "Should run without failures without batch column": {
         "content": [
-            {
-                "0": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test_decontx.h5ad:md5,1eb88b5ef4b605b4f62030c2a607e28a"
-                    ]
-                ],
-                "1": [
-                    "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
-                ],
-                "h5ad": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test_decontx.h5ad:md5,1eb88b5ef4b605b4f62030c2a607e28a"
-                    ]
-                ],
-                "versions": [
-                    "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
-                ]
-            }
+            [
+                "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
+            ]
         ],
-        "timestamp": "2026-03-17T09:34:58.951790521",
+        "timestamp": "2026-03-23T22:48:36.887205847",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.4"
@@ -34,49 +13,38 @@
     },
     "Should run without failures without raw - single batch": {
         "content": [
-            {
-                "0": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test_decontx.h5ad:md5,1eb88b5ef4b605b4f62030c2a607e28a"
-                    ]
-                ],
-                "1": [
-                    "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
-                ],
-                "h5ad": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test_decontx.h5ad:md5,1eb88b5ef4b605b4f62030c2a607e28a"
-                    ]
-                ],
-                "versions": [
-                    "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
-                ]
-            }
+            [
+                "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
+            ]
         ],
-        "timestamp": "2026-03-17T09:36:18.348394268",
+        "timestamp": "2026-03-23T22:55:17.598632412",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run without failures with raw": {
         "content": [
             [
                 "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
-            ],
-            true,
-            14471228
+            ]
         ],
-        "timestamp": "2026-03-15T21:34:49.311520618",
+        "timestamp": "2026-03-23T22:58:14.087588206",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
+        }
+    },
+    "Should write to a custom output layer": {
+        "content": [
+            [
+                "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
+            ]
+        ],
+        "timestamp": "2026-03-23T22:59:07.21446379",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
         }
     },
     "Should run without failures with raw - stub": {
@@ -116,13 +84,12 @@
         "content": [
             [
                 "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
-            ],
-            true
+            ]
         ],
-        "timestamp": "2026-03-15T21:28:36.997964027",
+        "timestamp": "2026-03-23T22:57:05.67552094",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run without failures without raw - stub": {

@@ -14,7 +14,7 @@ process CELDA_DECONTX {
     val(output_layer)
 
     output:
-    tuple val(meta), path("*.h5ad"), emit: h5ad
+    tuple val(meta), path("${prefix}.h5ad"), emit: h5ad
     path "versions.yml"            , emit: versions
 
     when:
