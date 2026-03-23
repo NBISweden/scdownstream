@@ -1,6 +1,9 @@
 #!/opt/conda/bin/python
 
+# Disable OpenMP CPU topology detection for MacOS compatibility
 import os
+os.environ["KMP_AFFINITY"] = "disabled"
+
 import platform
 import base64
 import json
