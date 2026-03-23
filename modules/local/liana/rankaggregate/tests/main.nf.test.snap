@@ -32,11 +32,11 @@
                 ]
             }
         ],
+        "timestamp": "2026-01-10T22:29:55.568090889",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-10T22:29:55.568090889"
+        }
     },
     "Should run without failures": {
         "content": [
@@ -46,11 +46,11 @@
                         {
                             "id": "test"
                         },
-                        "test_liana.h5ad:md5,838c40e5139038ed414f5aac25a90021"
+                        "test_liana.h5ad:md5,c227d198aa472576b58ffe61ff37027b"
                     ]
                 ],
                 "1": [
-                    "test_liana.pkl:md5,2722c86a29d8a950d572d88926d482d0"
+                    "test_liana.pkl:md5,058214ae3910f43472b791830a606047"
                 ],
                 "2": [
                     "versions.yml:md5,44f181a9b2e8bebcda641e7400af14cd"
@@ -60,21 +60,21 @@
                         {
                             "id": "test"
                         },
-                        "test_liana.h5ad:md5,838c40e5139038ed414f5aac25a90021"
+                        "test_liana.h5ad:md5,c227d198aa472576b58ffe61ff37027b"
                     ]
                 ],
                 "uns": [
-                    "test_liana.pkl:md5,2722c86a29d8a950d572d88926d482d0"
+                    "test_liana.pkl:md5,058214ae3910f43472b791830a606047"
                 ],
                 "versions": [
                     "versions.yml:md5,44f181a9b2e8bebcda641e7400af14cd"
                 ]
             }
         ],
+        "timestamp": "2026-03-22T09:53:42.436168666",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.10.4"
-        },
-        "timestamp": "2026-03-16T20:02:10.896510363"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
+        }
     }
 }

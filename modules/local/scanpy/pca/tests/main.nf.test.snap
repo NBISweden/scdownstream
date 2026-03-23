@@ -14,7 +14,10 @@
                     "X_test_pca.pkl:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "2": [
-                    "versions.yml:md5,37ca8e1dd3e9ade1be7b837234c3f80d"
+                    "variance_ratio_test_pca.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ],
+                "3": [
+                    "versions.yml:md5,dc1add0c140202bbbef205a9cc48e097"
                 ],
                 "h5ad": [
                     [
@@ -27,54 +30,88 @@
                 "obsm": [
                     "X_test_pca.pkl:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
+                "variance_ratio": [
+                    "variance_ratio_test_pca.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ],
                 "versions": [
-                    "versions.yml:md5,37ca8e1dd3e9ade1be7b837234c3f80d"
+                    "versions.yml:md5,dc1add0c140202bbbef205a9cc48e097"
                 ]
             }
         ],
+        "timestamp": "2026-03-18T23:28:51.301024619",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.3"
-        },
-        "timestamp": "2025-06-22T17:36:56.019814716"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
+        }
     },
     "Should run without failures": {
         "content": [
             {
-                "0": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test_pca.h5ad:md5,300ab9817f87b67054edcab843b578a7"
-                    ]
-                ],
-                "1": [
-                    "X_test_pca.pkl:md5,4cc49ce9e576288eba7ef206bb4ebda8"
-                ],
-                "2": [
-                    "versions.yml:md5,2773b6a3cada54f9812b357f83c33107"
-                ],
-                "h5ad": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test_pca.h5ad:md5,300ab9817f87b67054edcab843b578a7"
-                    ]
-                ],
-                "obsm": [
-                    "X_test_pca.pkl:md5,4cc49ce9e576288eba7ef206bb4ebda8"
-                ],
-                "versions": [
-                    "versions.yml:md5,2773b6a3cada54f9812b357f83c33107"
+                "variance_ratio": [
+                    0.724,
+                    0.028,
+                    0.02,
+                    0.014,
+                    0.008,
+                    0.006,
+                    0.004,
+                    0.004,
+                    0.003,
+                    0.003,
+                    0.003,
+                    0.002,
+                    0.002,
+                    0.002,
+                    0.002,
+                    0.002,
+                    0.002,
+                    0.002,
+                    0.002,
+                    0.002,
+                    0.002,
+                    0.002,
+                    0.002,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001,
+                    0.001
                 ]
+            },
+            {
+                "SCANPY_PCA": {
+                    "pandas": "2.3.3",
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                }
             }
         ],
+        "timestamp": "2026-03-18T23:35:10.339944767",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.10.4"
-        },
-        "timestamp": "2026-03-16T20:10:03.76837009"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
+        }
     }
 }

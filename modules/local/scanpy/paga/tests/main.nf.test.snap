@@ -50,11 +50,11 @@
                 ]
             }
         ],
+        "timestamp": "2026-01-10T22:22:14.395891088",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
-        },
-        "timestamp": "2026-01-10T22:22:14.395891088"
+        }
     },
     "Should run without failures": {
         "content": [
@@ -64,53 +64,53 @@
                         {
                             "id": "test"
                         },
-                        "test_paga.h5ad:md5,6f6fea55b62e262e6c882ec0be157c7a"
+                        "test_paga.h5ad:md5,7a142fee9bf3547a5116b86d5b2ea0bf"
                     ]
                 ],
                 "1": [
-                    "test_paga.pkl:md5,7da3431dedf5c401099916b71d4cad15"
+                    "test_paga.pkl:md5,be4a96dcfb43fa22c2d2434ead197dc7"
                 ],
                 "2": [
-                    "test_paga_connectivities.npy:md5,6005228b5a29e4993d8d55956df56124"
+                    "test_paga_connectivities.npy:md5,2e82cf3df20614e1fbcf55196c9f80a8"
                 ],
                 "3": [
-                    "test_paga.png:md5,a81c4731c7d18eea45c87e51537a2ed2"
+                    "test_paga.png:md5,983446530143c3d928dfe3e19731b5ec"
                 ],
                 "4": [
-                    "test_paga_mqc.json:md5,32d615e1b3398c59ffd3631ed9701b6a"
+                    "test_paga_mqc.json:md5,ab9b9db8e3a4d458d0dfe366175c64f8"
                 ],
                 "5": [
-                    "versions.yml:md5,7d089d9c448b243744079651f98821b5"
+                    "versions.yml:md5,a87c0e3b4494aaca112a02c554da3084"
                 ],
                 "h5ad": [
                     [
                         {
                             "id": "test"
                         },
-                        "test_paga.h5ad:md5,6f6fea55b62e262e6c882ec0be157c7a"
+                        "test_paga.h5ad:md5,7a142fee9bf3547a5116b86d5b2ea0bf"
                     ]
                 ],
                 "multiqc_files": [
-                    "test_paga_mqc.json:md5,32d615e1b3398c59ffd3631ed9701b6a"
+                    "test_paga_mqc.json:md5,ab9b9db8e3a4d458d0dfe366175c64f8"
                 ],
                 "obsp": [
-                    "test_paga_connectivities.npy:md5,6005228b5a29e4993d8d55956df56124"
+                    "test_paga_connectivities.npy:md5,2e82cf3df20614e1fbcf55196c9f80a8"
                 ],
                 "plot": [
-                    "test_paga.png:md5,a81c4731c7d18eea45c87e51537a2ed2"
+                    "test_paga.png:md5,983446530143c3d928dfe3e19731b5ec"
                 ],
                 "uns": [
-                    "test_paga.pkl:md5,7da3431dedf5c401099916b71d4cad15"
+                    "test_paga.pkl:md5,be4a96dcfb43fa22c2d2434ead197dc7"
                 ],
                 "versions": [
-                    "versions.yml:md5,7d089d9c448b243744079651f98821b5"
+                    "versions.yml:md5,a87c0e3b4494aaca112a02c554da3084"
                 ]
             }
         ],
+        "timestamp": "2026-03-22T09:51:51.950233221",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.10.4"
-        },
-        "timestamp": "2026-03-16T20:09:38.20887898"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
+        }
     }
 }

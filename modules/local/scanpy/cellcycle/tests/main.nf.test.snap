@@ -19,7 +19,7 @@
                     ]
                 ],
                 "2": [
-                    "versions.yml:md5,4425f4c95b2ea84225533e0266f83f6a"
+                    "versions.yml:md5,835e61377485d04a9622f14de885ffe8"
                 ],
                 "h5ad": [
                     [
@@ -38,14 +38,14 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,4425f4c95b2ea84225533e0266f83f6a"
+                    "versions.yml:md5,835e61377485d04a9622f14de885ffe8"
                 ]
             }
         ],
-        "timestamp": "2026-03-13T18:34:31.617196",
+        "timestamp": "2026-03-16T15:15:03.013574886",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
+            "nextflow": "25.10.4"
         }
     },
     "Should run without failures - stub": {

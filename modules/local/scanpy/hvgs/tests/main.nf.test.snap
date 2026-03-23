@@ -14,7 +14,7 @@
                     "test_hvg.pkl:md5,6e7304cb50e936bf78b69ad70b29495e"
                 ],
                 "2": [
-                    "versions.yml:md5,0dd6121b661ca9111145ac517cbdbac6"
+                    "versions.yml:md5,082c751136be043b260385c9829a571d"
                 ],
                 "h5ad": [
                     [
@@ -28,15 +28,15 @@
                     "test_hvg.pkl:md5,6e7304cb50e936bf78b69ad70b29495e"
                 ],
                 "versions": [
-                    "versions.yml:md5,0dd6121b661ca9111145ac517cbdbac6"
+                    "versions.yml:md5,082c751136be043b260385c9829a571d"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:33:26.657516082",
         "meta": {
-            "nf-test": "0.9.2",
+            "nf-test": "0.9.4",
             "nextflow": "25.10.4"
-        },
-        "timestamp": "2026-03-16T20:06:50.094106717"
+        }
     },
     "Should run without a specified number of HVGs": {
         "content": [
@@ -53,7 +53,7 @@
                     "test_hvg.pkl:md5,82f4f37286430dbfbe76a531a53b867d"
                 ],
                 "2": [
-                    "versions.yml:md5,0dd6121b661ca9111145ac517cbdbac6"
+                    "versions.yml:md5,082c751136be043b260385c9829a571d"
                 ],
                 "h5ad": [
                     [
@@ -67,15 +67,15 @@
                     "test_hvg.pkl:md5,82f4f37286430dbfbe76a531a53b867d"
                 ],
                 "versions": [
-                    "versions.yml:md5,0dd6121b661ca9111145ac517cbdbac6"
+                    "versions.yml:md5,082c751136be043b260385c9829a571d"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:33:11.035461884",
         "meta": {
-            "nf-test": "0.9.2",
+            "nf-test": "0.9.4",
             "nextflow": "25.10.4"
-        },
-        "timestamp": "2026-03-16T20:06:36.914244299"
+        }
     },
     "Should run without failures - stub": {
         "content": [
@@ -110,11 +110,11 @@
                 ]
             }
         ],
+        "timestamp": "2025-06-03T07:49:56.630416945",
         "meta": {
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
-        },
-        "timestamp": "2025-06-03T07:49:56.630416945"
+        }
     },
     "Should run with a list of genes excluded from integration": {
         "content": [
@@ -131,7 +131,7 @@
                     "test_hvg.pkl:md5,e7432bf749f3ff633369d0b3199a24c4"
                 ],
                 "2": [
-                    "versions.yml:md5,0dd6121b661ca9111145ac517cbdbac6"
+                    "versions.yml:md5,082c751136be043b260385c9829a571d"
                 ],
                 "h5ad": [
                     [
@@ -145,14 +145,14 @@
                     "test_hvg.pkl:md5,e7432bf749f3ff633369d0b3199a24c4"
                 ],
                 "versions": [
-                    "versions.yml:md5,0dd6121b661ca9111145ac517cbdbac6"
+                    "versions.yml:md5,082c751136be043b260385c9829a571d"
                 ]
             }
         ],
+        "timestamp": "2026-03-16T15:33:45.021373498",
         "meta": {
-            "nf-test": "0.9.2",
+            "nf-test": "0.9.4",
             "nextflow": "25.10.4"
-        },
-        "timestamp": "2026-03-16T20:07:26.804188152"
+        }
     }
 }

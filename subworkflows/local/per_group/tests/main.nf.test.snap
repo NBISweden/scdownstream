@@ -3,152 +3,158 @@
         "content": [
             {
                 "0": [
-                    "test_paga.pkl:md5,07b93f305187d6aba25d97ef10375828"
+                    "test_paga.pkl:md5,fbd4ae54e51678480c8c4712a9aad0c8"
                 ],
                 "1": [
-                    "test_paga_mqc.json:md5,e7d8ee95f42035897fe8dfcfbb7927d4"
+                    "test_paga_mqc.json:md5,71c52f6ea9306b6763abd0496e55fe98"
                 ],
                 "2": [
-                    "versions.yml:md5,5b34c4b9386bbb236e0ed6df9506729e"
+                    "versions.yml:md5,7d65ff4a31af5f58251f2f57320c8c94"
                 ],
                 "multiqc_files": [
-                    "test_paga_mqc.json:md5,e7d8ee95f42035897fe8dfcfbb7927d4"
+                    "test_paga_mqc.json:md5,71c52f6ea9306b6763abd0496e55fe98"
                 ],
                 "uns": [
-                    "test_paga.pkl:md5,07b93f305187d6aba25d97ef10375828"
+                    "test_paga.pkl:md5,fbd4ae54e51678480c8c4712a9aad0c8"
                 ],
                 "versions": [
-                    "versions.yml:md5,5b34c4b9386bbb236e0ed6df9506729e"
+                    "versions.yml:md5,7d65ff4a31af5f58251f2f57320c8c94"
                 ]
             }
         ],
+        "timestamp": "2026-03-22T16:22:14.976995704",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.10.4"
-        },
-        "timestamp": "2026-03-16T21:03:06.960869049"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
+        }
     },
     "Should run without failures - full run": {
         "content": [
             {
                 "0": [
-                    "condition:leiden:0_characteristic_genes.pkl:md5,fda979bda957c3e98a43807f4af0b797",
-                    "condition:leiden:10_characteristic_genes.pkl:md5,9317e248b1dd3c93ef47b29f8c309c20",
-                    "condition:leiden:1_characteristic_genes.pkl:md5,40e045768574bdef69bfb26365e8b6f6",
-                    "condition:leiden:2_characteristic_genes.pkl:md5,f5dc4e7bfcd668ee04ad815820299427",
-                    "condition:leiden:3_characteristic_genes.pkl:md5,594e964bc8e07359bcd8ad040f84e1b0",
-                    "condition:leiden:4_characteristic_genes.pkl:md5,722393d0684311db0f4a2cbfd4a6a738",
-                    "condition:leiden:5_characteristic_genes.pkl:md5,85c0f2cdc0e2046d581868f0748621f6",
-                    "condition:leiden:6_characteristic_genes.pkl:md5,3b51881d0ba388231a7caea5e7a373f4",
-                    "condition:leiden:7_characteristic_genes.pkl:md5,a0cd9d4ccc9e4c58d2f80b28f9d57907",
-                    "condition:leiden:8_characteristic_genes.pkl:md5,72216801241e2cfa7f348f818b6f782e",
-                    "condition:leiden:9_characteristic_genes.pkl:md5,a5e2416d0a89fe32a809a633f7b47eb8",
-                    "leiden:condition:Disease_characteristic_genes.pkl:md5,ba07668bd4caa23e5f737e16cdf38d37",
-                    "leiden:condition:Healthy_characteristic_genes.pkl:md5,ca865670dc6bc7a77e91bfd60bc7ebb2",
-                    "leiden:condition:Treated_characteristic_genes.pkl:md5,4ea215d957fd1bc1d82b3192e213d6d5",
-                    "leiden_characteristic_genes.pkl:md5,b69f4b065a4054c43f32f824d46250de",
-                    "test_liana.pkl:md5,9e66db9c5f232ce20344d6e0722b0b13",
-                    "test_paga.pkl:md5,07b93f305187d6aba25d97ef10375828"
+                    "condition:leiden:0_characteristic_genes.pkl:md5,d6be6f9447ed67f6bb5d5df1acf22b86",
+                    "condition:leiden:10_characteristic_genes.pkl:md5,7fd29daa10b8008e16f5c9639a402587",
+                    "condition:leiden:11_characteristic_genes.pkl:md5,9e96aaf44b8d0f0c26a5bda59f63b096",
+                    "condition:leiden:1_characteristic_genes.pkl:md5,f2d38b8ddd01bfd820945fc25fb15f06",
+                    "condition:leiden:2_characteristic_genes.pkl:md5,184a05f08b741d4a0b6e0ee17a9609ec",
+                    "condition:leiden:3_characteristic_genes.pkl:md5,b1bcd5c5d3332c121b01d24cb46a2334",
+                    "condition:leiden:4_characteristic_genes.pkl:md5,15bc73779b616c2276eeedc94bd448b6",
+                    "condition:leiden:5_characteristic_genes.pkl:md5,f314433d06e822b6bcdcccfe1635d32c",
+                    "condition:leiden:6_characteristic_genes.pkl:md5,96e0edc86bf4df08008ff1af3cc10522",
+                    "condition:leiden:7_characteristic_genes.pkl:md5,91ae9da4509aaddb59fb79505f6d37af",
+                    "condition:leiden:8_characteristic_genes.pkl:md5,fae74f6935930804cd95b1e62b393f44",
+                    "condition:leiden:9_characteristic_genes.pkl:md5,635e5ca72000437e64a458a4fc89dc4b",
+                    "leiden:condition:Disease_characteristic_genes.pkl:md5,029b3b97860e8ba00b2b7701c0ef4836",
+                    "leiden:condition:Healthy_characteristic_genes.pkl:md5,f638b9a63be41a80c24367c329ad9c92",
+                    "leiden:condition:Treated_characteristic_genes.pkl:md5,5761aff9c5fff490dee108a0127a8af4",
+                    "leiden_characteristic_genes.pkl:md5,e387d9c66878055c92c3d4de44cec54a",
+                    "test_liana.pkl:md5,45ccfc4e57fcb1687a4fe33535900110",
+                    "test_paga.pkl:md5,fbd4ae54e51678480c8c4712a9aad0c8"
                 ],
                 "1": [
-                    "condition:leiden:0_characteristic_genes_mqc.json:md5,3f73482b0f8038e9b5fef6749c685618",
-                    "condition:leiden:10_characteristic_genes_mqc.json:md5,2932a3e289f97d53cc789850a0546d5b",
-                    "condition:leiden:1_characteristic_genes_mqc.json:md5,90ce6d62e9a22421fe5ec344bfd65b2e",
-                    "condition:leiden:2_characteristic_genes_mqc.json:md5,d35c272bc18ceb7f488d03942b5a575f",
-                    "condition:leiden:3_characteristic_genes_mqc.json:md5,89ef881ad93fc9c8d6edeedb56a04ee1",
-                    "condition:leiden:4_characteristic_genes_mqc.json:md5,15465b16dc422d6ed94bb930f591f5d4",
-                    "condition:leiden:5_characteristic_genes_mqc.json:md5,38583c3ddbc5aa1143eb7784c3d7801a",
-                    "condition:leiden:6_characteristic_genes_mqc.json:md5,96276c29632651ca6c418ac66cf9ddbf",
-                    "condition:leiden:7_characteristic_genes_mqc.json:md5,5bd8c86c5cb693f1c2a1e764cad64b43",
-                    "condition:leiden:8_characteristic_genes_mqc.json:md5,72713214d31bf0ce947aca87605985c8",
-                    "condition:leiden:9_characteristic_genes_mqc.json:md5,39b436c609a6349ebf711be754acc504",
-                    "leiden:condition:Disease_characteristic_genes_mqc.json:md5,df537c8242d52adcab7b8a3be4a0c74a",
-                    "leiden:condition:Healthy_characteristic_genes_mqc.json:md5,26b26d2e3211a1b3aad9f86c4333d255",
-                    "leiden:condition:Treated_characteristic_genes_mqc.json:md5,fe8fe5ea16980fb942e2cf6c2a0fad0f",
-                    "leiden_characteristic_genes_mqc.json:md5,41a0a53bd2e21886c14686dc1ae8a82c",
-                    "test_paga_mqc.json:md5,e7d8ee95f42035897fe8dfcfbb7927d4"
+                    "condition:leiden:0_characteristic_genes_mqc.json:md5,0d9173af58f05a6a017b7bf62a8ab6a8",
+                    "condition:leiden:10_characteristic_genes_mqc.json:md5,1c42e764ba8a629df84a9f6a7b7cb889",
+                    "condition:leiden:11_characteristic_genes_mqc.json:md5,0778f0f0cd0bd3edf2317a7b557ce952",
+                    "condition:leiden:1_characteristic_genes_mqc.json:md5,a3b5df45edbd4dcc5fb3cf73864f4e76",
+                    "condition:leiden:2_characteristic_genes_mqc.json:md5,1656d5018a65811325f95449b34f302b",
+                    "condition:leiden:3_characteristic_genes_mqc.json:md5,1ce90ec438f14d33bebd26db002544cb",
+                    "condition:leiden:4_characteristic_genes_mqc.json:md5,375733d6a0a018ad6ef0776d5039fb64",
+                    "condition:leiden:5_characteristic_genes_mqc.json:md5,17df859608e296b50492d4fbcaff66f2",
+                    "condition:leiden:6_characteristic_genes_mqc.json:md5,21ec62fdde2bb968127d4f8b5acabaa7",
+                    "condition:leiden:7_characteristic_genes_mqc.json:md5,d1fa8613daecf0aafb769d14c9be39d7",
+                    "condition:leiden:8_characteristic_genes_mqc.json:md5,2602bc68c47188fda2742ad9f222cf4e",
+                    "condition:leiden:9_characteristic_genes_mqc.json:md5,c968bea56d8763520f0d68de394ccb79",
+                    "leiden:condition:Disease_characteristic_genes_mqc.json:md5,46ee7c6e656b2419d618650d7c67d0b0",
+                    "leiden:condition:Healthy_characteristic_genes_mqc.json:md5,cc6e0fe227a84f1036f893945604dcc2",
+                    "leiden:condition:Treated_characteristic_genes_mqc.json:md5,a7a78be0d9f0655ae8a5cae77daf0a74",
+                    "leiden_characteristic_genes_mqc.json:md5,875d02a88fd8f4f0c0462f4da112d1ed",
+                    "test_paga_mqc.json:md5,71c52f6ea9306b6763abd0496e55fe98"
                 ],
                 "2": [
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
                     "versions.yml:md5,44f181a9b2e8bebcda641e7400af14cd",
-                    "versions.yml:md5,5b34c4b9386bbb236e0ed6df9506729e"
+                    "versions.yml:md5,7d65ff4a31af5f58251f2f57320c8c94"
                 ],
                 "multiqc_files": [
-                    "condition:leiden:0_characteristic_genes_mqc.json:md5,3f73482b0f8038e9b5fef6749c685618",
-                    "condition:leiden:10_characteristic_genes_mqc.json:md5,2932a3e289f97d53cc789850a0546d5b",
-                    "condition:leiden:1_characteristic_genes_mqc.json:md5,90ce6d62e9a22421fe5ec344bfd65b2e",
-                    "condition:leiden:2_characteristic_genes_mqc.json:md5,d35c272bc18ceb7f488d03942b5a575f",
-                    "condition:leiden:3_characteristic_genes_mqc.json:md5,89ef881ad93fc9c8d6edeedb56a04ee1",
-                    "condition:leiden:4_characteristic_genes_mqc.json:md5,15465b16dc422d6ed94bb930f591f5d4",
-                    "condition:leiden:5_characteristic_genes_mqc.json:md5,38583c3ddbc5aa1143eb7784c3d7801a",
-                    "condition:leiden:6_characteristic_genes_mqc.json:md5,96276c29632651ca6c418ac66cf9ddbf",
-                    "condition:leiden:7_characteristic_genes_mqc.json:md5,5bd8c86c5cb693f1c2a1e764cad64b43",
-                    "condition:leiden:8_characteristic_genes_mqc.json:md5,72713214d31bf0ce947aca87605985c8",
-                    "condition:leiden:9_characteristic_genes_mqc.json:md5,39b436c609a6349ebf711be754acc504",
-                    "leiden:condition:Disease_characteristic_genes_mqc.json:md5,df537c8242d52adcab7b8a3be4a0c74a",
-                    "leiden:condition:Healthy_characteristic_genes_mqc.json:md5,26b26d2e3211a1b3aad9f86c4333d255",
-                    "leiden:condition:Treated_characteristic_genes_mqc.json:md5,fe8fe5ea16980fb942e2cf6c2a0fad0f",
-                    "leiden_characteristic_genes_mqc.json:md5,41a0a53bd2e21886c14686dc1ae8a82c",
-                    "test_paga_mqc.json:md5,e7d8ee95f42035897fe8dfcfbb7927d4"
+                    "condition:leiden:0_characteristic_genes_mqc.json:md5,0d9173af58f05a6a017b7bf62a8ab6a8",
+                    "condition:leiden:10_characteristic_genes_mqc.json:md5,1c42e764ba8a629df84a9f6a7b7cb889",
+                    "condition:leiden:11_characteristic_genes_mqc.json:md5,0778f0f0cd0bd3edf2317a7b557ce952",
+                    "condition:leiden:1_characteristic_genes_mqc.json:md5,a3b5df45edbd4dcc5fb3cf73864f4e76",
+                    "condition:leiden:2_characteristic_genes_mqc.json:md5,1656d5018a65811325f95449b34f302b",
+                    "condition:leiden:3_characteristic_genes_mqc.json:md5,1ce90ec438f14d33bebd26db002544cb",
+                    "condition:leiden:4_characteristic_genes_mqc.json:md5,375733d6a0a018ad6ef0776d5039fb64",
+                    "condition:leiden:5_characteristic_genes_mqc.json:md5,17df859608e296b50492d4fbcaff66f2",
+                    "condition:leiden:6_characteristic_genes_mqc.json:md5,21ec62fdde2bb968127d4f8b5acabaa7",
+                    "condition:leiden:7_characteristic_genes_mqc.json:md5,d1fa8613daecf0aafb769d14c9be39d7",
+                    "condition:leiden:8_characteristic_genes_mqc.json:md5,2602bc68c47188fda2742ad9f222cf4e",
+                    "condition:leiden:9_characteristic_genes_mqc.json:md5,c968bea56d8763520f0d68de394ccb79",
+                    "leiden:condition:Disease_characteristic_genes_mqc.json:md5,46ee7c6e656b2419d618650d7c67d0b0",
+                    "leiden:condition:Healthy_characteristic_genes_mqc.json:md5,cc6e0fe227a84f1036f893945604dcc2",
+                    "leiden:condition:Treated_characteristic_genes_mqc.json:md5,a7a78be0d9f0655ae8a5cae77daf0a74",
+                    "leiden_characteristic_genes_mqc.json:md5,875d02a88fd8f4f0c0462f4da112d1ed",
+                    "test_paga_mqc.json:md5,71c52f6ea9306b6763abd0496e55fe98"
                 ],
                 "uns": [
-                    "condition:leiden:0_characteristic_genes.pkl:md5,fda979bda957c3e98a43807f4af0b797",
-                    "condition:leiden:10_characteristic_genes.pkl:md5,9317e248b1dd3c93ef47b29f8c309c20",
-                    "condition:leiden:1_characteristic_genes.pkl:md5,40e045768574bdef69bfb26365e8b6f6",
-                    "condition:leiden:2_characteristic_genes.pkl:md5,f5dc4e7bfcd668ee04ad815820299427",
-                    "condition:leiden:3_characteristic_genes.pkl:md5,594e964bc8e07359bcd8ad040f84e1b0",
-                    "condition:leiden:4_characteristic_genes.pkl:md5,722393d0684311db0f4a2cbfd4a6a738",
-                    "condition:leiden:5_characteristic_genes.pkl:md5,85c0f2cdc0e2046d581868f0748621f6",
-                    "condition:leiden:6_characteristic_genes.pkl:md5,3b51881d0ba388231a7caea5e7a373f4",
-                    "condition:leiden:7_characteristic_genes.pkl:md5,a0cd9d4ccc9e4c58d2f80b28f9d57907",
-                    "condition:leiden:8_characteristic_genes.pkl:md5,72216801241e2cfa7f348f818b6f782e",
-                    "condition:leiden:9_characteristic_genes.pkl:md5,a5e2416d0a89fe32a809a633f7b47eb8",
-                    "leiden:condition:Disease_characteristic_genes.pkl:md5,ba07668bd4caa23e5f737e16cdf38d37",
-                    "leiden:condition:Healthy_characteristic_genes.pkl:md5,ca865670dc6bc7a77e91bfd60bc7ebb2",
-                    "leiden:condition:Treated_characteristic_genes.pkl:md5,4ea215d957fd1bc1d82b3192e213d6d5",
-                    "leiden_characteristic_genes.pkl:md5,b69f4b065a4054c43f32f824d46250de",
-                    "test_liana.pkl:md5,9e66db9c5f232ce20344d6e0722b0b13",
-                    "test_paga.pkl:md5,07b93f305187d6aba25d97ef10375828"
+                    "condition:leiden:0_characteristic_genes.pkl:md5,d6be6f9447ed67f6bb5d5df1acf22b86",
+                    "condition:leiden:10_characteristic_genes.pkl:md5,7fd29daa10b8008e16f5c9639a402587",
+                    "condition:leiden:11_characteristic_genes.pkl:md5,9e96aaf44b8d0f0c26a5bda59f63b096",
+                    "condition:leiden:1_characteristic_genes.pkl:md5,f2d38b8ddd01bfd820945fc25fb15f06",
+                    "condition:leiden:2_characteristic_genes.pkl:md5,184a05f08b741d4a0b6e0ee17a9609ec",
+                    "condition:leiden:3_characteristic_genes.pkl:md5,b1bcd5c5d3332c121b01d24cb46a2334",
+                    "condition:leiden:4_characteristic_genes.pkl:md5,15bc73779b616c2276eeedc94bd448b6",
+                    "condition:leiden:5_characteristic_genes.pkl:md5,f314433d06e822b6bcdcccfe1635d32c",
+                    "condition:leiden:6_characteristic_genes.pkl:md5,96e0edc86bf4df08008ff1af3cc10522",
+                    "condition:leiden:7_characteristic_genes.pkl:md5,91ae9da4509aaddb59fb79505f6d37af",
+                    "condition:leiden:8_characteristic_genes.pkl:md5,fae74f6935930804cd95b1e62b393f44",
+                    "condition:leiden:9_characteristic_genes.pkl:md5,635e5ca72000437e64a458a4fc89dc4b",
+                    "leiden:condition:Disease_characteristic_genes.pkl:md5,029b3b97860e8ba00b2b7701c0ef4836",
+                    "leiden:condition:Healthy_characteristic_genes.pkl:md5,f638b9a63be41a80c24367c329ad9c92",
+                    "leiden:condition:Treated_characteristic_genes.pkl:md5,5761aff9c5fff490dee108a0127a8af4",
+                    "leiden_characteristic_genes.pkl:md5,e387d9c66878055c92c3d4de44cec54a",
+                    "test_liana.pkl:md5,45ccfc4e57fcb1687a4fe33535900110",
+                    "test_paga.pkl:md5,fbd4ae54e51678480c8c4712a9aad0c8"
                 ],
                 "versions": [
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
-                    "versions.yml:md5,3c1be5ebefb3f22724e961fc80b0a3b4",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
+                    "versions.yml:md5,1a9c1aa04f881610ab37fe0d8c9c9cb1",
                     "versions.yml:md5,44f181a9b2e8bebcda641e7400af14cd",
-                    "versions.yml:md5,5b34c4b9386bbb236e0ed6df9506729e"
+                    "versions.yml:md5,7d65ff4a31af5f58251f2f57320c8c94"
                 ]
             }
         ],
+        "timestamp": "2026-03-22T16:23:46.565771167",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.10.4"
-        },
-        "timestamp": "2026-03-16T21:06:04.957696091"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
+        }
     }
 }
