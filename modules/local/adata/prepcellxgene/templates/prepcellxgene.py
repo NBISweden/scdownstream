@@ -4,6 +4,7 @@
 import os
 os.environ["KMP_AFFINITY"] = "disabled"
 
+os.environ["MPLCONFIGDIR"] = "./tmp"
 os.environ["NUMBA_CACHE_DIR"] = "./tmp/numba"
 
 import platform
