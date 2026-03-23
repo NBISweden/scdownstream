@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 
+# Disable OpenMP CPU topology detection for MacOS compatibility
 import os
+os.environ["KMP_AFFINITY"] = "disabled"
+
 import json
 import platform
 import base64
@@ -136,7 +139,7 @@ else:
     elif len(valid_groups) == 1:
         print(f"Skipping rank_genes_groups computation: only one group has >= 2 samples (group: {valid_groups[0]}).")
     else:
-        print(f"Skipping rank_genes_groups computation: less than 2 valid groups remaining after filtering.")
+        print("Skipping rank_genes_groups computation: less than 2 valid groups remaining after filtering.")
 
 # Versions
 
