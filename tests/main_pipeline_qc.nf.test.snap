@@ -1,7 +1,7 @@
 {
     "Should process data from scratch": {
         "content": [
-            60,
+            57,
             {
                 "ADATA_READRDS": {
                     "anndata": "0.11.1",
@@ -44,11 +44,6 @@
                 "COLLECT_SIZES": {
                     "pandas": "2.3.3",
                     "python": "3.13.12"
-                },
-                "DOUBLETDETECTION": {
-                    "anndata": "0.11.4",
-                    "doubletdetection": "4.3.0.post1",
-                    "python": "3.13.3"
                 },
                 "DOUBLET_REMOVAL": {
                     "anndata": "0.12.10",
@@ -96,6 +91,10 @@
                 "SCANPY_FILTER": {
                     "python": "3.13.12",
                     "scanpy": "1.12"
+                },
+                "SCANPY_SCRUBLET": {
+                    "python": "3.12.11",
+                    "scanpy": "1.11.2"
                 },
                 "UPSET_GENES": {
                     "anndata": "0.12.10",
@@ -176,10 +175,10 @@
                 "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f"
             ]
         ],
-        "timestamp": "2026-03-22T18:02:21.271429508",
+        "timestamp": "2026-03-24T15:19:23.048545534",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     }
 }
