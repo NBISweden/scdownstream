@@ -150,12 +150,6 @@
                 "multiqc/multiqc_data/multiqc_software_versions.txt",
                 "multiqc/multiqc_data/multiqc_sources.txt",
                 "multiqc/multiqc_plots",
-                "multiqc/multiqc_plots/pdf",
-                "multiqc/multiqc_plots/pdf/sizes.pdf",
-                "multiqc/multiqc_plots/png",
-                "multiqc/multiqc_plots/png/sizes.png",
-                "multiqc/multiqc_plots/svg",
-                "multiqc/multiqc_plots/svg/sizes.svg",
                 "multiqc/multiqc_report.html",
                 "pipeline_info",
                 "pipeline_info/nf_core_scdownstream_software_mqc_versions.yml",
@@ -175,7 +169,7 @@
                 "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f"
             ]
         ],
-        "timestamp": "2026-03-24T15:19:23.048545534",
+        "timestamp": "2026-03-24T18:39:32.940515591",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
