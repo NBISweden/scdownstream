@@ -27,9 +27,11 @@ nextflow_process {
         }
 
         then {
+            def h5ad = process.out.h5ad[0][1]
             assertAll(
             { assert process.success },
-            { assert snapshot(process.out).match() }
+            { assert snapshot(process.out.versions).match() },
+            { assert "highly_variable" in anndata(h5ad).var.colnames }
             )
         }
 
@@ -55,9 +57,11 @@ nextflow_process {
         }
 
         then {
+            def h5ad = process.out.h5ad[0][1]
             assertAll(
             { assert process.success },
-            { assert snapshot(process.out).match() }
+            { assert snapshot(process.out.versions).match() },
+            { assert "highly_variable" in anndata(h5ad).var.colnames }
             )
         }
 
@@ -84,9 +88,11 @@ nextflow_process {
         }
 
         then {
+            def h5ad = process.out.h5ad[0][1]
             assertAll(
             { assert process.success },
-            { assert snapshot(process.out).match() }
+            { assert snapshot(process.out.versions).match() },
+            { assert "highly_variable" in anndata(h5ad).var.colnames }
             )
         }
 
