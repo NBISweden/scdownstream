@@ -30,7 +30,8 @@ nextflow_process {
                 input[0] = channel.of([
                         [ id: 'test' ],
                         file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_filtered_matrix.h5ad', checkIfExists: true),
-                        "index"
+                        "index",
+                        "X"
                     ]
                 )
                 input[1] = CELLDEX_FETCHREFERENCE.out.tar.map { meta, ref -> [[id: "test"], [meta.id], [meta.label], [ref]] }
@@ -61,7 +62,8 @@ nextflow_process {
                 input[0] = channel.of([
                         [ id: 'test' ],
                         file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_filtered_matrix.h5ad', checkIfExists: true),
-                        "index"
+                        "index",
+                        "X"
                     ]
                 )
                 input[1] = [
@@ -99,7 +101,8 @@ nextflow_process {
                 input[0] = channel.of([
                         [ id: 'test' ],
                         file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_filtered_matrix.h5ad', checkIfExists: true),
-                        "symbols"
+                        "symbols",
+                        "X"
                     ]
                 )
                 input[1] = [
@@ -137,7 +140,8 @@ nextflow_process {
                 input[0] = channel.of([
                         [ id: 'test' ],
                         file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_filtered_matrix.h5ad', checkIfExists: true),
-                        "not_a_column"
+                        "not_a_column",
+                        "X"
                     ]
                 )
                 input[1] = [
@@ -169,7 +173,8 @@ nextflow_process {
                 input[0] = channel.of([
                         [ id: 'test' ],
                         file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_filtered_matrix.h5ad', checkIfExists: true),
-                        "index"
+                        "index",
+                        "X"
                     ]
                 )
                 input[1] = [
@@ -211,7 +216,8 @@ nextflow_process {
                 input[0] = channel.of([
                         [ id: 'test' ],
                         file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_filtered_matrix.h5ad', checkIfExists: true),
-                        "index"
+                        "index",
+                        "X"
                     ]
                 )
                 input[1] = [

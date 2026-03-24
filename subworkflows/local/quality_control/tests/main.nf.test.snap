@@ -44,10 +44,10 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-16T19:05:07.026753393",
+        "timestamp": "2026-03-22T17:47:36.928267661",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run without ambient RNA removal and doublet detection, but with custom mito genes": {
@@ -95,10 +95,10 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-16T19:05:28.527368256",
+        "timestamp": "2026-03-22T17:49:49.029435332",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run with ambient RNA removal and doublet detection - stub": {
@@ -184,7 +184,7 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-13T17:31:11.866715",
+        "timestamp": "2026-03-22T17:58:03.346618166",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -199,6 +199,7 @@
             ],
             [
                 "versions.yml:md5,09337464bba597568401c441bedb9b61",
+                "versions.yml:md5,2a595c6f30f1d3a0217f04cc2ffdf4de",
                 "versions.yml:md5,36d44f6713879308f604b5387983c640",
                 "versions.yml:md5,3c7417bff601859a86cdcb86fa6bfcb3",
                 "versions.yml:md5,53938cd26fe63616cc4524da4b6062c5",
@@ -209,16 +210,15 @@
                 "versions.yml:md5,c4bcd7799f794fb7a2ab6b9a32d346f9",
                 "versions.yml:md5,d5b598692c585148c4d3027bc296f6fd",
                 "versions.yml:md5,e10aa3cdeade2300701438cb1bc47b29",
-                "versions.yml:md5,e61165f42026015d85d0eb1c40ba58ca",
                 "versions.yml:md5,e98df7a38d5622b937cdabcf7dd7a7d4"
             ],
             12939,
             9887
         ],
-        "timestamp": "2026-03-16T19:07:29.740053618",
+        "timestamp": "2026-03-22T17:57:09.098006399",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run with cell cycle scoring": {
@@ -266,10 +266,10 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-16T19:08:11.938405018",
+        "timestamp": "2026-03-22T17:58:51.427722446",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     }
 }

@@ -24,9 +24,9 @@
                     "scipy": "1.17.1"
                 },
                 "CELDA_DECONTX": {
-                    "r": "4.4.3",
-                    "anndataR": "0.99.0",
-                    "celda": "1.22.0"
+                    "r": "4.5.3",
+                    "anndataR": "1.0.2",
+                    "celda": "1.26.0"
                 },
                 "CELLDEX_FETCHREFERENCE": {
                     "R": "R version 4.4.1 (2024-06-14)",
@@ -42,13 +42,11 @@
                     "celltypist": "1.6.3"
                 },
                 "CELLTYPES_SINGLER": {
-                    "R": "R version 4.4.1 (2024-06-14)",
-                    "SingleR": "2.8.0",
-                    "celldex": "1.16.0",
-                    "anndataR": "0.99.0",
-                    "yaml": "2.3.10",
-                    "Seurat": "5.1.0",
-                    "ggplot2": "3.5.2"
+                    "R": "R version 4.5.3 (2026-03-11)",
+                    "SingleR": "2.12.0",
+                    "celldex": "1.20.0",
+                    "anndataR": "1.0.2",
+                    "ggplot2": "4.0.2"
                 },
                 "COLLECT_SIZES": {
                     "pandas": "2.3.3",
@@ -217,7 +215,7 @@
                 "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f"
             ]
         ],
-        "timestamp": "2026-03-17T10:47:22.546106064",
+        "timestamp": "2026-03-22T18:01:37.608502342",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.4"

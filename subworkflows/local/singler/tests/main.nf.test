@@ -15,7 +15,8 @@ nextflow_workflow {
                 input[0] = channel.of([
                         [ id: 'test' ],
                         file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_filtered_matrix.h5ad', checkIfExists: true),
-                        "index"
+                        "index",
+                        "X"
                     ]
                 )
                 input[1] = channel.of([
@@ -50,7 +51,8 @@ nextflow_workflow {
                 input[0] = channel.of([
                         [ id: 'test' ],
                         file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_filtered_matrix.h5ad', checkIfExists: true),
-                        "index"
+                        "index",
+                        "X"
                     ]
                 )
                 input[1] = channel.of([

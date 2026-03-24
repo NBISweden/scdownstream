@@ -29,14 +29,11 @@ nextflow_process {
         }
 
         then {
+            def h5ad = process.out.h5ad[0][1]
             assertAll(
             { assert process.success },
-            { assert snapshot(
-                // Hashing does not work due to this issue:
-                // https://github.com/scverse/anndataR/issues/272
-                process.out.versions,
-                file(process.out.h5ad.get(0).get(1)).name
-            ).match() }
+            { assert snapshot(process.out.versions).match() },
+            { assert anndata(h5ad).obs.rownames.size() > 0 }
             )
         }
 
@@ -64,14 +61,11 @@ nextflow_process {
         }
 
         then {
+            def h5ad = process.out.h5ad[0][1]
             assertAll(
             { assert process.success },
-            { assert snapshot(
-                // Hashing does not work due to this issue:
-                // https://github.com/scverse/anndataR/issues/272
-                process.out.versions,
-                file(process.out.h5ad.get(0).get(1)).name
-            ).match() }
+            { assert snapshot(process.out.versions).match() },
+            { assert anndata(h5ad).obs.rownames.size() > 0 }
             )
         }
 
@@ -99,12 +93,11 @@ nextflow_process {
         }
 
         then {
+            def h5ad = process.out.h5ad[0][1]
             assertAll(
             { assert process.success },
-            { assert snapshot(
-                process.out.versions,
-                file(process.out.h5ad.get(0).get(1)).exists()
-            ).match() }
+            { assert snapshot(process.out.versions).match() },
+            { assert anndata(h5ad).obs.rownames.size() > 0 }
             )
         }
 
@@ -164,13 +157,43 @@ nextflow_process {
         }
 
         then {
+            def h5ad = process.out.h5ad[0][1]
             assertAll(
             { assert process.success },
-            { assert snapshot(
-                process.out.versions,
-                file(process.out.h5ad.get(0).get(1)).exists(),
-                file(process.out.h5ad.get(0).get(1)).size()
-            ).match() }
+            { assert snapshot(process.out.versions).match() },
+            { assert anndata(h5ad).obs.rownames.size() > 0 }
+            )
+        }
+
+    }
+
+    test("Should write to a custom output layer") {
+
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = channel.of([
+                        [ id: 'test' ],
+                        file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scrnaseq/h5ad/SRR28679756_filtered_matrix.h5ad', checkIfExists: true),
+                        []
+                    ]
+                )
+                input[1] = []
+                input[2] = "X"
+                input[3] = "ambient_corrected_decontx"
+                """
+            }
+        }
+
+        then {
+            def h5ad = process.out.h5ad[0][1]
+            assertAll(
+            { assert process.success },
+            { assert snapshot(process.out.versions).match() },
+            { assert "ambient_corrected_decontx" in anndata(h5ad).layers }
             )
         }
 
