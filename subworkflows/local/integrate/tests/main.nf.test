@@ -136,8 +136,11 @@ nextflow_workflow {
         }
 
         then {
-            assert workflow.success
-            assert snapshot(workflow.out).match()
+            assertAll(
+            { assert workflow.success },
+            { assert snapshot(workflow.out.versions).match() },
+            { assert "connectivities" in anndata(workflow.out.integrations[0][1]).obsp }
+            )
         }
 
     }

@@ -245,54 +245,13 @@
     },
     "Should run without failures - bbknn": {
         "content": [
-            {
-                "0": [
-                    [
-                        {
-                            "id": "bbknn"
-                        },
-                        "bbknn.h5ad:md5,ed856f9046e0bc4e313697ca4aabcf04"
-                    ]
-                ],
-                "1": [
-                    
-                ],
-                "2": [
-                    
-                ],
-                "3": [
-                    
-                ],
-                "4": [
-                    "versions.yml:md5,20020d8c9cf585aaa75dd5a14aa5d3ae",
-                    "versions.yml:md5,ccf730637c4c61a84ac4a002bf9832e0",
-                    "versions.yml:md5,d28b65c4c18c54e1abc34040b584b823"
-                ],
-                "integrations": [
-                    [
-                        {
-                            "id": "bbknn"
-                        },
-                        "bbknn.h5ad:md5,ed856f9046e0bc4e313697ca4aabcf04"
-                    ]
-                ],
-                "obs": [
-                    
-                ],
-                "obsm": [
-                    
-                ],
-                "var": [
-                    
-                ],
-                "versions": [
-                    "versions.yml:md5,20020d8c9cf585aaa75dd5a14aa5d3ae",
-                    "versions.yml:md5,ccf730637c4c61a84ac4a002bf9832e0",
-                    "versions.yml:md5,d28b65c4c18c54e1abc34040b584b823"
-                ]
-            }
+            [
+                "versions.yml:md5,20020d8c9cf585aaa75dd5a14aa5d3ae",
+                "versions.yml:md5,ccf730637c4c61a84ac4a002bf9832e0",
+                "versions.yml:md5,d28b65c4c18c54e1abc34040b584b823"
+            ]
         ],
-        "timestamp": "2026-03-17T22:22:18.579980166",
+        "timestamp": "2026-03-24T14:11:21.672408157",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

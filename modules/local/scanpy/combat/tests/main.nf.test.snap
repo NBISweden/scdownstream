@@ -46,44 +46,11 @@
     },
     "Should run without failures": {
         "content": [
-            {
-                "0": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test.h5ad:md5,c03a96f7779dc1c979d1dd920d4217b6"
-                    ]
-                ],
-                "1": [
-                    "X_test.pkl:md5,8997a5b3f6b3e7cbfc21f8c1e4dff221"
-                ],
-                "2": [
-                    "test.npy:md5,5f2ff24403d91d7ed811542e97092393"
-                ],
-                "3": [
-                    "versions.yml:md5,9e3850fe91d236b81ba7557c47344e64"
-                ],
-                "h5ad": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test.h5ad:md5,c03a96f7779dc1c979d1dd920d4217b6"
-                    ]
-                ],
-                "layers": [
-                    "test.npy:md5,5f2ff24403d91d7ed811542e97092393"
-                ],
-                "obsm": [
-                    "X_test.pkl:md5,8997a5b3f6b3e7cbfc21f8c1e4dff221"
-                ],
-                "versions": [
-                    "versions.yml:md5,9e3850fe91d236b81ba7557c47344e64"
-                ]
-            }
+            [
+                "versions.yml:md5,9e3850fe91d236b81ba7557c47344e64"
+            ]
         ],
-        "timestamp": "2026-03-22T14:16:42.06841452",
+        "timestamp": "2026-03-24T14:03:10.04909002",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

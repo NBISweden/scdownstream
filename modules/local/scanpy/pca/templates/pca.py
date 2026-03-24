@@ -7,9 +7,6 @@ import shlex
 
 os.environ["NUMBA_CACHE_DIR"] = "./tmp/numba"
 os.environ["MPLCONFIGDIR"] = "./tmp/matplotlib"
-os.environ["OMP_NUM_THREADS"] = "1"
-os.environ["OPENBLAS_NUM_THREADS"] = "1"
-os.environ["MKL_NUM_THREADS"] = "1"
 
 import scanpy as sc
 import numpy as np
@@ -40,10 +37,6 @@ if params.decimals is not None:
 adata.write_h5ad(f"{prefix}.h5ad")
 df = pd.DataFrame(adata.obsm[key_added], index=adata.obs_names)
 df.to_pickle(f"X_{prefix}.pkl")
-
-variance_ratio = adata.uns[key_added]["variance_ratio"].tolist()
-with open(f"variance_ratio_{prefix}.yml", "w") as f:
-    yaml.dump({"variance_ratio": variance_ratio}, f)
 
 # Versions
 versions = {
