@@ -34,32 +34,11 @@
     },
     "Should run without failures": {
         "content": [
-            {
-                "0": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test.h5ad:md5,3c1099e86daa14ca31012813ddf198c8"
-                    ]
-                ],
-                "1": [
-                    "versions.yml:md5,c160ec9ef4b681e3c034bd0e0d165987"
-                ],
-                "h5ad": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test.h5ad:md5,3c1099e86daa14ca31012813ddf198c8"
-                    ]
-                ],
-                "versions": [
-                    "versions.yml:md5,c160ec9ef4b681e3c034bd0e0d165987"
-                ]
-            }
+            [
+                "versions.yml:md5,c160ec9ef4b681e3c034bd0e0d165987"
+            ]
         ],
-        "timestamp": "2026-03-22T23:11:41.627863668",
+        "timestamp": "2026-03-23T23:41:50.78672933",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
