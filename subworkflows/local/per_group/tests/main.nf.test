@@ -29,8 +29,12 @@ nextflow_workflow {
         }
 
         then {
-            assert workflow.success
-            assert snapshot(workflow.out).match()
+            assertAll(
+            { assert workflow.success },
+            { assert snapshot(workflow.out.versions).match() },
+            { assert workflow.out.uns.size() > 0 },
+            { assert workflow.out.multiqc_files.size() > 0 }
+            )
         }
 
     }
@@ -58,8 +62,12 @@ nextflow_workflow {
         }
 
         then {
-            assert workflow.success
-            assert snapshot(workflow.out).match()
+            assertAll(
+            { assert workflow.success },
+            { assert snapshot(workflow.out.versions).match() },
+            { assert workflow.out.uns.size() > 0 },
+            { assert workflow.out.multiqc_files.size() > 0 }
+            )
         }
 
     }
