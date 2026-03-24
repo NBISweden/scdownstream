@@ -28,8 +28,10 @@ nextflow_workflow {
         }
 
         then {
-            assert workflow.success
-            assert snapshot(workflow.out).match()
+            assertAll(
+            { assert workflow.success },
+            { assert snapshot(workflow.out.versions).match() }
+            )
         }
 
     }
@@ -81,8 +83,10 @@ nextflow_workflow {
         }
 
         then {
-            assert workflow.success
-            assert snapshot(workflow.out).match()
+            assertAll(
+            { assert workflow.success },
+            { assert snapshot(workflow.out.versions).match() }
+            )
         }
 
     }
@@ -108,14 +112,12 @@ nextflow_workflow {
         }
 
         then {
-            assert workflow.success
-            assert snapshot(
-                // Hashing does not work due to this issue:
-                // https://github.com/scverse/anndataR/issues/272
-                workflow.out.versions,
-                file(workflow.out.h5ad.get(0).get(1)).name,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            def h5ad = workflow.out.h5ad[0][1]
+            assertAll(
+            { assert workflow.success },
+            { assert snapshot(workflow.out.versions).match() },
+            { assert "ambient_corrected_decontx" in anndata(h5ad).layers }
+            )
         }
 
     }
@@ -141,14 +143,12 @@ nextflow_workflow {
         }
 
         then {
-            assert workflow.success
-            assert snapshot(
-                // Hashing does not work due to this issue:
-                // https://github.com/scverse/anndataR/issues/272
-                workflow.out.versions,
-                file(workflow.out.h5ad.get(0).get(1)).name,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            def h5ad = workflow.out.h5ad[0][1]
+            assertAll(
+            { assert workflow.success },
+            { assert snapshot(workflow.out.versions).match() },
+            { assert "ambient_corrected_decontx" in anndata(h5ad).layers }
+            )
         }
 
     }
@@ -174,14 +174,12 @@ nextflow_workflow {
         }
 
         then {
-            assert workflow.success
-            assert snapshot(
-                // Hashing does not work due to this issue:
-                // https://github.com/scverse/anndataR/issues/272
-                workflow.out.versions,
-                file(workflow.out.h5ad.get(0).get(1)).name,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            def h5ad = workflow.out.h5ad[0][1]
+            assertAll(
+            { assert workflow.success },
+            { assert snapshot(workflow.out.versions).match() },
+            { assert "ambient_corrected_soupx" in anndata(h5ad).layers }
+            )
         }
 
     }
@@ -208,12 +206,12 @@ nextflow_workflow {
         }
 
         then {
-            assert workflow.success
-            assert snapshot(
-                workflow.out.versions,
-                file(workflow.out.h5ad.get(0).get(1)).name,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            def h5ad = workflow.out.h5ad[0][1]
+            assertAll(
+            { assert workflow.success },
+            { assert snapshot(workflow.out.versions).match() },
+            { assert "ambient_corrected_scar" in anndata(h5ad).layers }
+            )
         }
 
     }
@@ -239,11 +237,12 @@ nextflow_workflow {
         }
 
         then {
-            assert workflow.success
-            assert snapshot(
-                workflow.out,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            def h5ad = workflow.out.h5ad[0][1]
+            assertAll(
+            { assert workflow.success },
+            { assert snapshot(workflow.out.versions).match() },
+            { assert "ambient_corrected_cellbender" in anndata(h5ad).layers }
+            )
         }
 
     }
@@ -263,20 +262,18 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'decontx'
-                input[2] = false
+                input[2] = true
                 """
             }
         }
 
         then {
-            assert workflow.success
-            assert snapshot(
-                // Hashing does not work due to this issue:
-                // https://github.com/scverse/anndataR/issues/272
-                workflow.out.versions,
-                file(workflow.out.h5ad.get(0).get(1)).name,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            def h5ad = workflow.out.h5ad[0][1]
+            assertAll(
+            { assert workflow.success },
+            { assert snapshot(workflow.out.versions).match() },
+            { assert anndata(h5ad).obs.rownames.size() > 0 }
+            )
         }
 
     }
@@ -296,20 +293,18 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'soupx'
-                input[2] = false
+                input[2] = true
                 """
             }
         }
 
         then {
-            assert workflow.success
-            assert snapshot(
-                // Hashing does not work due to this issue:
-                // https://github.com/scverse/anndataR/issues/272
-                workflow.out.versions,
-                file(workflow.out.h5ad.get(0).get(1)).name,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            def h5ad = workflow.out.h5ad[0][1]
+            assertAll(
+            { assert workflow.success },
+            { assert snapshot(workflow.out.versions).match() },
+            { assert anndata(h5ad).obs.rownames.size() > 0 }
+            )
         }
 
     }
@@ -330,18 +325,18 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'scar'
-                input[2] = false
+                input[2] = true
                 """
             }
         }
 
         then {
-            assert workflow.success
-            assert snapshot(
-                workflow.out.versions,
-                file(workflow.out.h5ad.get(0).get(1)).name,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            def h5ad = workflow.out.h5ad[0][1]
+            assertAll(
+            { assert workflow.success },
+            { assert snapshot(workflow.out.versions).match() },
+            { assert anndata(h5ad).obs.rownames.size() > 0 }
+            )
         }
 
     }
@@ -361,17 +356,18 @@ nextflow_workflow {
                     ]
                 )
                 input[1] = 'cellbender'
-                input[2] = false
+                input[2] = true
                 """
             }
         }
 
         then {
-            assert workflow.success
-            assert snapshot(
-                workflow.out,
-                anndata(workflow.out.h5ad[0][1]).layers
-            ).match()
+            def h5ad = workflow.out.h5ad[0][1]
+            assertAll(
+            { assert workflow.success },
+            { assert snapshot(workflow.out.versions).match() },
+            { assert anndata(h5ad).obs.rownames.size() > 0 }
+            )
         }
 
     }

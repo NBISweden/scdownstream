@@ -26,23 +26,22 @@
                 ]
             }
         ],
+        "timestamp": "2026-01-25T17:20:38.340547924",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.10.2"
-        },
-        "timestamp": "2026-01-25T17:20:38.340547924"
+        }
     },
     "Should run without failures": {
         "content": [
             [
-                "versions.yml:md5,67f5337e9b1baa0a3e435cc497950023"
-            ],
-            true
+                "versions.yml:md5,c160ec9ef4b681e3c034bd0e0d165987"
+            ]
         ],
+        "timestamp": "2026-03-23T23:41:50.78672933",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.2"
-        },
-        "timestamp": "2025-06-07T11:39:31.978148146"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
+        }
     }
 }

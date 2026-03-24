@@ -135,7 +135,7 @@ workflow SCDOWNSTREAM {
         // Perform automated celltype assignment
         //
         CELLTYPE_ASSIGNMENT (
-            ch_h5ad.map { meta, h5ad -> [meta, h5ad, meta.symbol_col] },
+            ch_h5ad.map { meta, h5ad -> [meta, h5ad, meta.symbol_col, meta.counts_layer ?: "X"] },
             celldex_reference,
             celltypist_model
         )

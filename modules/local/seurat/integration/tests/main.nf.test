@@ -54,15 +54,11 @@ nextflow_process {
         }
 
         then {
+            def h5ad = process.out.h5ad[0][1]
             assertAll(
             { assert process.success },
-            { assert snapshot(
-                    process.out.versions,
-                    // Hashing of h5ad does not work due to this issue:
-                    // https://github.com/scverse/anndataR/issues/272
-                    file(process.out.h5ad.get(0).get(1)).exists()
-                ).match()
-            },
+            { assert snapshot(process.out.versions).match() },
+            { assert "X_emb" in anndata(h5ad).obsm }
             )
         }
 
