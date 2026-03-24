@@ -29,12 +29,7 @@ nextflow_process {
         then {
             assertAll(
             { assert process.success },
-            {
-                assert snapshot(
-                    path(process.out.variance_ratio[0]).yaml,
-                    path(process.out.versions[0]).yaml
-                ).match()
-            },
+            { assert snapshot(process.out.versions).match() },
             { assert "X_umap" in anndata(process.out.h5ad[0][1]).obsm }
             )
         }

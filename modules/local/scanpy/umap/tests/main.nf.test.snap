@@ -14,9 +14,6 @@
                     "X_test.pkl:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "2": [
-                    "variance_ratio_test.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
-                ],
-                "3": [
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "h5ad": [
@@ -29,9 +26,6 @@
                 ],
                 "obsm": [
                     "X_test.pkl:md5,d41d8cd98f00b204e9800998ecf8427e"
-                ],
-                "variance_ratio": [
-                    "variance_ratio_test.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "versions": [
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
@@ -46,24 +40,14 @@
     },
     "Should run without failures": {
         "content": [
-            {
-                "variance_ratio": [
-                    0.812,
-                    0.188
-                ]
-            },
-            {
-                "SCANPY_UMAP": {
-                    "pandas": "2.3.3",
-                    "python": "3.13.12",
-                    "scanpy": "1.12"
-                }
-            }
+            [
+                "versions.yml:md5,f7e77a6f6fe060c4158eb2a86e7c0754"
+            ]
         ],
-        "timestamp": "2026-03-24T19:16:21.013943",
+        "timestamp": "2026-03-24T22:36:15.214017742",
         "meta": {
-            "nf-test": "0.9.5",
-            "nextflow": "25.10.4"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
         }
     }
 }
