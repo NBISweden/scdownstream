@@ -52,7 +52,7 @@
                         {
                             "id": "test"
                         },
-                        "test.h5ad:md5,c03a96f7779dc1c979d1dd920d4217b6"
+                        "test.h5ad:md5,7aa13728a4d39b7b4eb8c875aff90d0f"
                     ]
                 ],
                 "1": [
@@ -69,7 +69,7 @@
                         {
                             "id": "test"
                         },
-                        "test.h5ad:md5,c03a96f7779dc1c979d1dd920d4217b6"
+                        "test.h5ad:md5,7aa13728a4d39b7b4eb8c875aff90d0f"
                     ]
                 ],
                 "layers": [
@@ -83,10 +83,10 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-22T14:16:42.06841452",
+        "timestamp": "2026-03-23T16:42:35.154195",
         "meta": {
-            "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
         }
     }
 }

@@ -3,7 +3,7 @@
         "content": [
             {
                 "0": [
-
+                    
                 ],
                 "1": [
                     [
@@ -14,13 +14,13 @@
                     ]
                 ],
                 "2": [
-
+                    
                 ],
                 "3": [
                     "sizes_mqc.json:md5,756ad6aae0f322aadfac95c2b38fcef2",
                     "test_raw_mqc.json:md5,1892d1a9408417050623e6bc2c2480a3"
                 ],
-                "3": [
+                "4": [
                     "versions.yml:md5,09337464bba597568401c441bedb9b61",
                     "versions.yml:md5,53938cd26fe63616cc4524da4b6062c5",
                     "versions.yml:md5,5ce128aab0a55bc373e4a4f1c945a603",
@@ -31,14 +31,14 @@
                     "versions.yml:md5,e98df7a38d5622b937cdabcf7dd7a7d4"
                 ],
                 "h5ad": [
-
+                    
                 ],
                 "multiqc_files": [
                     "sizes_mqc.json:md5,756ad6aae0f322aadfac95c2b38fcef2",
                     "test_raw_mqc.json:md5,1892d1a9408417050623e6bc2c2480a3"
                 ],
                 "obs": [
-
+                    
                 ],
                 "sizes": [
                     [
@@ -60,9 +60,9 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-16T19:05:07.026753393",
+        "timestamp": "2026-03-23T18:03:31.737433",
         "meta": {
-            "nf-test": "0.9.4",
+            "nf-test": "0.9.5",
             "nextflow": "25.10.4"
         }
     },
@@ -70,7 +70,7 @@
         "content": [
             {
                 "0": [
-
+                    
                 ],
                 "1": [
                     [
@@ -81,13 +81,13 @@
                     ]
                 ],
                 "2": [
-
+                    
                 ],
                 "3": [
                     "sizes_mqc.json:md5,756ad6aae0f322aadfac95c2b38fcef2",
                     "test_raw_mqc.json:md5,1892d1a9408417050623e6bc2c2480a3"
                 ],
-                "3": [
+                "4": [
                     "versions.yml:md5,09337464bba597568401c441bedb9b61",
                     "versions.yml:md5,53938cd26fe63616cc4524da4b6062c5",
                     "versions.yml:md5,5ce128aab0a55bc373e4a4f1c945a603",
@@ -98,14 +98,14 @@
                     "versions.yml:md5,e98df7a38d5622b937cdabcf7dd7a7d4"
                 ],
                 "h5ad": [
-
+                    
                 ],
                 "multiqc_files": [
                     "sizes_mqc.json:md5,756ad6aae0f322aadfac95c2b38fcef2",
                     "test_raw_mqc.json:md5,1892d1a9408417050623e6bc2c2480a3"
                 ],
                 "obs": [
-
+                    
                 ],
                 "sizes": [
                     [
@@ -127,9 +127,9 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-16T19:05:28.527368256",
+        "timestamp": "2026-03-23T18:03:53.790536",
         "meta": {
-            "nf-test": "0.9.4",
+            "nf-test": "0.9.5",
             "nextflow": "25.10.4"
         }
     },
@@ -159,7 +159,7 @@
                     ]
                 ],
                 "2": [
-
+                    
                 ],
                 "3": [
                     "sizes_mqc.json:md5,d41d8cd98f00b204e9800998ecf8427e",
@@ -205,7 +205,7 @@
                     "upset_mqc.json:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "obs": [
-
+                    
                 ],
                 "sizes": [
                     [
@@ -232,11 +232,11 @@
                 ]
             }
         ],
+        "timestamp": "2026-03-16T21:10:36.748857192",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.10.4"
-        },
-        "timestamp": "2026-03-16T21:10:36.748857192"
+        }
     },
     "Should run with ambient RNA removal and doublet detection": {
         "content": [
@@ -273,7 +273,7 @@
         "content": [
             {
                 "0": [
-
+                    
                 ],
                 "1": [
                     [
@@ -284,13 +284,13 @@
                     ]
                 ],
                 "2": [
-
+                    
                 ],
                 "3": [
                     "sizes_mqc.json:md5,756ad6aae0f322aadfac95c2b38fcef2",
                     "test_raw_mqc.json:md5,1892d1a9408417050623e6bc2c2480a3"
                 ],
-                "3": [
+                "4": [
                     "versions.yml:md5,09337464bba597568401c441bedb9b61",
                     "versions.yml:md5,53938cd26fe63616cc4524da4b6062c5",
                     "versions.yml:md5,5ce128aab0a55bc373e4a4f1c945a603",
@@ -301,14 +301,14 @@
                     "versions.yml:md5,e98df7a38d5622b937cdabcf7dd7a7d4"
                 ],
                 "h5ad": [
-
+                    
                 ],
                 "multiqc_files": [
                     "sizes_mqc.json:md5,756ad6aae0f322aadfac95c2b38fcef2",
                     "test_raw_mqc.json:md5,1892d1a9408417050623e6bc2c2480a3"
                 ],
                 "obs": [
-
+                    
                 ],
                 "sizes": [
                     [
@@ -330,9 +330,9 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-16T19:08:11.938405018",
+        "timestamp": "2026-03-23T18:06:35.852701",
         "meta": {
-            "nf-test": "0.9.4",
+            "nf-test": "0.9.5",
             "nextflow": "25.10.4"
         }
     }

@@ -54,31 +54,31 @@
         "content": [
             {
                 "0": [
-
+                    
                 ],
                 "1": [
-
+                    
                 ],
                 "2": [
-
+                    
                 ],
                 "3": [
-
+                    
                 ],
                 "4": [
                     "versions.yml:md5,a279f17d763d69028f9d84346e55dec8"
                 ],
                 "h5ad": [
-
+                    
                 ],
                 "multiqc_files": [
-
+                    
                 ],
                 "plots": [
-
+                    
                 ],
                 "uns": [
-
+                    
                 ],
                 "versions": [
                     "versions.yml:md5,a279f17d763d69028f9d84346e55dec8"
@@ -150,7 +150,7 @@
                         {
                             "id": "test"
                         },
-                        "test_characteristic_genes.h5ad:md5,557ccc34f354c9c0b8b74dedd4550688"
+                        "test_characteristic_genes.h5ad:md5,d8ad5714c35d2bda2f6ddefb99ec6a81"
                     ]
                 ],
                 "1": [
@@ -170,7 +170,7 @@
                         {
                             "id": "test"
                         },
-                        "test_characteristic_genes.h5ad:md5,557ccc34f354c9c0b8b74dedd4550688"
+                        "test_characteristic_genes.h5ad:md5,d8ad5714c35d2bda2f6ddefb99ec6a81"
                     ]
                 ],
                 "multiqc_files": [
@@ -187,10 +187,10 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-22T10:08:54.64745021",
+        "timestamp": "2026-03-23T16:46:51.876655",
         "meta": {
-            "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
         }
     }
 }

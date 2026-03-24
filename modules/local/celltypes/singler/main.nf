@@ -4,7 +4,6 @@ process CELLTYPES_SINGLER {
 
     container 'docker.io/saditya88/singler:0.0.1'
 
-
     input:
     tuple val(meta), path(h5ad), val(symbol_col)
     tuple val(meta2), val(names), val(labels), path(references)
