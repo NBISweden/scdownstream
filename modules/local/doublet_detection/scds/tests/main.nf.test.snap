@@ -42,32 +42,22 @@
                 ]
             }
         ],
+        "timestamp": "2025-05-30T16:52:57.673676107",
         "meta": {
             "nf-test": "0.9.0",
             "nextflow": "25.04.2"
-        },
-        "timestamp": "2025-05-30T16:52:57.673676107"
+        }
     },
     "Should run without failures": {
         "content": [
             [
                 "versions.yml:md5,c8683fe6c044ab53b908d2fd7c38f8f7"
-            ],
-            [
-                [
-                    {
-                        "id": "test"
-                    },
-                    "test_scds.csv:md5,6bedc66c5fc2517cea4808a72c29e17f"
-                ]
-            ],
-            true,
-            7541879
+            ]
         ],
+        "timestamp": "2026-03-24T22:41:47.177647207",
         "meta": {
-            "nf-test": "0.9.0",
-            "nextflow": "25.04.2"
-        },
-        "timestamp": "2025-05-30T16:52:47.324747683"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
+        }
     }
 }

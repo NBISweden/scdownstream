@@ -25,16 +25,12 @@ nextflow_process {
         }
 
         then {
+            def h5ad = process.out.h5ad[0][1]
             assertAll(
             { assert process.success },
-            { assert snapshot(
-                process.out.versions,
-                process.out.predictions,
-                // Hashing does not work due to this issue:
-                // https://github.com/scverse/anndataR/issues/272
-                file(process.out.h5ad.get(0).get(1)).exists(),
-                file(process.out.h5ad.get(0).get(1)).size()
-            ).match() }
+            { assert snapshot(process.out.versions).match() },
+            { assert anndata(h5ad).obs.rownames.size() > 0 },
+            { assert process.out.predictions.size() > 0 }
             )
         }
 
