@@ -67,11 +67,12 @@ nextflow_workflow {
         }
 
         then {
-            assert workflow.success
-            assert snapshot(
-                workflow.out.versions
-            ).match()
-            assert "X_emb" in anndata(workflow.out.integrations[0][1]).obsm
+            def h5ad = workflow.out.integrations[0][1]
+            assertAll(
+            { assert workflow.success },
+            { assert snapshot(workflow.out.versions, anndata(h5ad).yaml).match() },
+            { assert "X_emb" in anndata(h5ad).obsm }
+            )
         }
 
     }
@@ -136,10 +137,12 @@ nextflow_workflow {
         }
 
         then {
+            def h5ad = workflow.out.integrations[0][1]
             assertAll(
             { assert workflow.success },
-            { assert snapshot(workflow.out.versions).match() },
-            { assert "connectivities" in anndata(workflow.out.integrations[0][1]).obsp }
+            { assert snapshot(workflow.out.versions, anndata(h5ad).yaml).match() },
+            { assert "connectivities" in anndata(h5ad).obsp },
+            { assert "distances" in anndata(h5ad).obsp }
             )
         }
 
@@ -205,11 +208,12 @@ nextflow_workflow {
         }
 
         then {
-            assert workflow.success
-            assert snapshot(
-                workflow.out.versions
-            ).match()
-            assert "X_emb" in anndata(workflow.out.integrations[0][1]).obsm
+            def h5ad = workflow.out.integrations[0][1]
+            assertAll(
+            { assert workflow.success },
+            { assert snapshot(workflow.out.versions, anndata(h5ad).yaml).match() },
+            { assert "X_emb" in anndata(h5ad).obsm }
+            )
         }
 
     }

@@ -26,19 +26,24 @@
                 ]
             }
         ],
-        "timestamp": "2026-01-25T17:20:38.340547924",
+        "timestamp": "2026-03-25T15:46:56.458125743",
         "meta": {
-            "nf-test": "0.9.2",
+            "nf-test": "0.9.4",
             "nextflow": "25.10.2"
         }
     },
     "Should run without failures": {
         "content": [
-            [
-                "versions.yml:md5,c160ec9ef4b681e3c034bd0e0d165987"
-            ]
+            {
+                "SEURAT_INTEGRATION": {
+                    "R": "4.5.3",
+                    "Seurat": "5.4.0",
+                    "anndataR": "1.0.2"
+                }
+            },
+            "n_obs: 27350\nn_vars: 100\nobs:\n  index: _index\n  columns:\n    - n_counts\n    - n_genes\n    - n_genes_by_counts\n    - pct_counts_mt\n    - sample\n    - total_counts\n    - total_counts_mt\nvar:\n  index: _index\n  columns:\n    - dispersions\n    - dispersions_norm\n    - highly_variable\n    - mean_counts\n    - means\n    - mt\n    - n_cells\n    - n_cells_by_counts\n    - n_counts\n    - pct_dropout_by_counts\n    - total_counts\nlayers:\nobsm:\n  - X_emb\nvarm:\nobsp:\nvarp:\nuns:\n  - hvg\n  - log1p\n"
         ],
-        "timestamp": "2026-03-23T23:41:50.78672933",
+        "timestamp": "2026-03-25T15:46:39.138426369",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

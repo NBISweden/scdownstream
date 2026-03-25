@@ -1,11 +1,15 @@
 {
     "Should run with a specified number of HVGs": {
         "content": [
-            [
-                "versions.yml:md5,082c751136be043b260385c9829a571d"
-            ]
+            {
+                "SCANPY_HVGS": {
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                }
+            },
+            "n_obs: 38234\nn_vars: 100\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\n    - dispersions\n    - dispersions_norm\n    - highly_variable\n    - means\nlayers:\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n  - hvg\n  - log1p\n"
         ],
-        "timestamp": "2026-03-24T22:39:20.219700483",
+        "timestamp": "2026-03-25T15:44:54.05696891",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -13,11 +17,15 @@
     },
     "Should run without a specified number of HVGs": {
         "content": [
-            [
-                "versions.yml:md5,082c751136be043b260385c9829a571d"
-            ]
+            {
+                "SCANPY_HVGS": {
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                }
+            },
+            "n_obs: 38234\nn_vars: 251\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\n    - dispersions\n    - dispersions_norm\n    - highly_variable\n    - means\nlayers:\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n  - hvg\n  - log1p\n"
         ],
-        "timestamp": "2026-03-24T22:38:55.263409625",
+        "timestamp": "2026-03-25T15:44:22.933975481",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -56,19 +64,23 @@
                 ]
             }
         ],
-        "timestamp": "2025-06-03T07:49:56.630416945",
+        "timestamp": "2026-03-25T15:46:02.052667216",
         "meta": {
-            "nf-test": "0.9.0",
-            "nextflow": "25.04.2"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
         }
     },
     "Should run with a list of genes excluded from integration": {
         "content": [
-            [
-                "versions.yml:md5,082c751136be043b260385c9829a571d"
-            ]
+            {
+                "SCANPY_HVGS": {
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                }
+            },
+            "n_obs: 38234\nn_vars: 100\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\n    - dispersions\n    - dispersions_norm\n    - highly_variable\n    - means\nlayers:\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n  - hvg\n  - log1p\n"
         ],
-        "timestamp": "2026-03-24T22:39:44.588148179",
+        "timestamp": "2026-03-25T15:45:40.075913692",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

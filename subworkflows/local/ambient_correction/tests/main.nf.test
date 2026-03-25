@@ -30,7 +30,7 @@ nextflow_workflow {
         then {
             assertAll(
             { assert workflow.success },
-            { assert snapshot(workflow.out.versions).match() }
+            { assert snapshot(workflow.out.versions, workflow.out.h5ad.size()).match() }
             )
         }
 
@@ -85,7 +85,7 @@ nextflow_workflow {
         then {
             assertAll(
             { assert workflow.success },
-            { assert snapshot(workflow.out.versions).match() }
+            { assert snapshot(workflow.out.versions, workflow.out.h5ad.size()).match() }
             )
         }
 
@@ -115,7 +115,7 @@ nextflow_workflow {
             def h5ad = workflow.out.h5ad[0][1]
             assertAll(
             { assert workflow.success },
-            { assert snapshot(workflow.out.versions).match() },
+            { assert snapshot(workflow.out.versions, anndata(h5ad).yaml).match() },
             { assert "ambient_corrected_decontx" in anndata(h5ad).layers }
             )
         }
@@ -146,7 +146,7 @@ nextflow_workflow {
             def h5ad = workflow.out.h5ad[0][1]
             assertAll(
             { assert workflow.success },
-            { assert snapshot(workflow.out.versions).match() },
+            { assert snapshot(workflow.out.versions, anndata(h5ad).yaml).match() },
             { assert "ambient_corrected_decontx" in anndata(h5ad).layers }
             )
         }
@@ -177,7 +177,7 @@ nextflow_workflow {
             def h5ad = workflow.out.h5ad[0][1]
             assertAll(
             { assert workflow.success },
-            { assert snapshot(workflow.out.versions).match() },
+            { assert snapshot(workflow.out.versions, anndata(h5ad).yaml).match() },
             { assert "ambient_corrected_soupx" in anndata(h5ad).layers }
             )
         }
@@ -209,7 +209,7 @@ nextflow_workflow {
             def h5ad = workflow.out.h5ad[0][1]
             assertAll(
             { assert workflow.success },
-            { assert snapshot(workflow.out.versions).match() },
+            { assert snapshot(workflow.out.versions, anndata(h5ad).yaml).match() },
             { assert "ambient_corrected_scar" in anndata(h5ad).layers }
             )
         }
@@ -240,7 +240,7 @@ nextflow_workflow {
             def h5ad = workflow.out.h5ad[0][1]
             assertAll(
             { assert workflow.success },
-            { assert snapshot(workflow.out.versions).match() },
+            { assert snapshot(workflow.out.versions, anndata(h5ad).yaml).match() },
             { assert "ambient_corrected_cellbender" in anndata(h5ad).layers }
             )
         }
@@ -271,8 +271,7 @@ nextflow_workflow {
             def h5ad = workflow.out.h5ad[0][1]
             assertAll(
             { assert workflow.success },
-            { assert snapshot(workflow.out.versions).match() },
-            { assert anndata(h5ad).obs.rownames.size() > 0 }
+            { assert snapshot(workflow.out.versions, anndata(h5ad).yaml).match() }
             )
         }
 
@@ -302,8 +301,7 @@ nextflow_workflow {
             def h5ad = workflow.out.h5ad[0][1]
             assertAll(
             { assert workflow.success },
-            { assert snapshot(workflow.out.versions).match() },
-            { assert anndata(h5ad).obs.rownames.size() > 0 }
+            { assert snapshot(workflow.out.versions, anndata(h5ad).yaml).match() }
             )
         }
 
@@ -334,8 +332,7 @@ nextflow_workflow {
             def h5ad = workflow.out.h5ad[0][1]
             assertAll(
             { assert workflow.success },
-            { assert snapshot(workflow.out.versions).match() },
-            { assert anndata(h5ad).obs.rownames.size() > 0 }
+            { assert snapshot(workflow.out.versions, anndata(h5ad).yaml).match() }
             )
         }
 
@@ -365,8 +362,7 @@ nextflow_workflow {
             def h5ad = workflow.out.h5ad[0][1]
             assertAll(
             { assert workflow.success },
-            { assert snapshot(workflow.out.versions).match() },
-            { assert anndata(h5ad).obs.rownames.size() > 0 }
+            { assert snapshot(workflow.out.versions, anndata(h5ad).yaml).match() }
             )
         }
 

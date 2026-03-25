@@ -32,8 +32,7 @@ nextflow_process {
             def h5ad = process.out.h5ad[0][1]
             assertAll(
             { assert process.success },
-            { assert snapshot(process.out.versions).match() },
-            { assert anndata(h5ad).obs.rownames.size() > 0 }
+            { assert snapshot(path(process.out.versions[0]).yaml, anndata(h5ad).yaml).match() }
             )
         }
 
@@ -64,8 +63,7 @@ nextflow_process {
             def h5ad = process.out.h5ad[0][1]
             assertAll(
             { assert process.success },
-            { assert snapshot(process.out.versions).match() },
-            { assert anndata(h5ad).obs.rownames.size() > 0 }
+            { assert snapshot(path(process.out.versions[0]).yaml, anndata(h5ad).yaml).match() }
             )
         }
 
@@ -96,8 +94,7 @@ nextflow_process {
             def h5ad = process.out.h5ad[0][1]
             assertAll(
             { assert process.success },
-            { assert snapshot(process.out.versions).match() },
-            { assert anndata(h5ad).obs.rownames.size() > 0 }
+            { assert snapshot(path(process.out.versions[0]).yaml, anndata(h5ad).yaml).match() }
             )
         }
 
@@ -160,8 +157,7 @@ nextflow_process {
             def h5ad = process.out.h5ad[0][1]
             assertAll(
             { assert process.success },
-            { assert snapshot(process.out.versions).match() },
-            { assert anndata(h5ad).obs.rownames.size() > 0 }
+            { assert snapshot(path(process.out.versions[0]).yaml, anndata(h5ad).yaml).match() }
             )
         }
 
@@ -192,7 +188,7 @@ nextflow_process {
             def h5ad = process.out.h5ad[0][1]
             assertAll(
             { assert process.success },
-            { assert snapshot(process.out.versions).match() },
+            { assert snapshot(path(process.out.versions[0]).yaml, anndata(h5ad).yaml).match() },
             { assert "ambient_corrected_decontx" in anndata(h5ad).layers }
             )
         }

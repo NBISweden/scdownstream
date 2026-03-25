@@ -1,0 +1,92 @@
+---
+description: nf-test assertion patterns for scdownstream — how to write platform-independent, targeted tests
+globs: "**/*.nf.test"
+alwaysApply: false
+---
+
+# nf-test Assertion Patterns
+
+## Core principle
+
+Never snapshot platform-sensitive data (h5ad file hashes, floating-point arrays). Instead, assert structural properties and snapshot only stable values.
+
+## Assertion hierarchy
+
+### 1. Stub tests — full snapshot
+
+Stub tests always use `snapshot(process.out).match()` since all outputs are empty touch files with deterministic MD5s:
+
+```groovy
+test("Should run without failures - stub") {
+    options '-stub'
+    then {
+        assertAll(
+        { assert process.success },
+        { assert snapshot(process.out).match() }
+        )
+    }
+}
+```
+
+### 2. Non-stub tests — single combined snapshot
+
+For every non-stub test, use a **single** `snapshot(...).match()` call containing:
+1. **`path(process.out.versions[0]).yaml`** — reads the actual `versions.yml` content (tool names + versions) as a structured object, more human-readable than MD5
+2. **`anndata(h5ad).yaml`** — captures the complete AnnData structure (n_obs, n_vars, obs/var column names, all field keys)
+
+Then add direct boolean assertions for the key fields that the test is specifically validating.
+
+```groovy
+then {
+    def h5ad = process.out.h5ad[0][1]
+    assertAll(
+    { assert process.success },
+    { assert snapshot(path(process.out.versions[0]).yaml, anndata(h5ad).yaml).match() },
+    { assert "X_pca" in anndata(h5ad).obsm }   // what this test specifically validates
+    )
+}
+```
+
+For **subworkflows** with multiple `versions.yml` files, snapshot the whole versions channel via MD5 (no single file to read):
+
+```groovy
+{ assert snapshot(workflow.out.versions, anndata(h5ad).yaml).match() }
+```
+
+### 3. Tests without h5ad output
+
+When a test has no h5ad output (e.g. only `uns`, `multiqc_files`, `obs`), snapshot versions + stable counts:
+
+```groovy
+{ assert snapshot(path(process.out.versions[0]).yaml, process.out.uns.size(), process.out.multiqc_files.size()).match() }
+```
+
+### 4. One snapshot call per test
+
+Each test can only have **one** `snapshot(...).match()` call — nf-test keys snapshots by test name. Multiple calls cause duplicate ID errors. Always combine into one:
+
+```groovy
+// ❌ BAD — duplicate snapshot IDs
+{ assert snapshot(process.out.versions).match() }
+{ assert snapshot(anndata(h5ad).yaml).match() }
+
+// ✅ GOOD
+{ assert snapshot(path(process.out.versions[0]).yaml, anndata(h5ad).yaml).match() }
+```
+
+### 5. Boolean presence checks
+
+Fields that either exist or don't are expressed as direct assertions, not snapshots. These document the functional purpose of the test:
+
+```groovy
+{ assert "X_pca" in anndata(h5ad).obsm }
+{ assert "connectivities" in anndata(h5ad).obsp }
+{ assert "ambient_corrected_decontx" in anndata(h5ad).layers }
+```
+
+These are **in addition to** the combined snapshot, not instead of it.
+
+## API references
+
+- **nft-anndata**: [github.com/nictru/nft-anndata](https://github.com/nictru/nft-anndata)
+- **nf-test path API** (yaml, json, md5, linesGzip): [nf-test.com/docs/assertions/files](https://www.nf-test.com/docs/assertions/files/)

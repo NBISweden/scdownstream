@@ -1,11 +1,21 @@
 {
     "Should run with a symbol column other than index": {
         "content": [
+            {
+                "CELLTYPES_CELLTYPIST": {
+                    "python": "3.12.8",
+                    "pandas": "2.2.3",
+                    "scanpy": "1.10.4",
+                    "celltypist": "1.6.3"
+                }
+            },
             [
-                "versions.yml:md5,d30822b1ba7cc7a7dc35c749b2353b57"
+                "celltypist:Adult_COVID19_PBMC",
+                "celltypist:Adult_COVID19_PBMC:conf",
+                "sample"
             ]
         ],
-        "timestamp": "2026-03-24T14:04:37.944003887",
+        "timestamp": "2026-03-25T15:44:41.940273199",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -54,19 +64,29 @@
                 ]
             }
         ],
-        "timestamp": "2025-06-01T22:03:47.365626813",
+        "timestamp": "2026-03-25T15:45:36.6350805",
         "meta": {
-            "nf-test": "0.9.0",
-            "nextflow": "25.04.2"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
         }
     },
     "Should run without failures": {
         "content": [
+            {
+                "CELLTYPES_CELLTYPIST": {
+                    "python": "3.12.8",
+                    "pandas": "2.2.3",
+                    "scanpy": "1.10.4",
+                    "celltypist": "1.6.3"
+                }
+            },
             [
-                "versions.yml:md5,d30822b1ba7cc7a7dc35c749b2353b57"
+                "celltypist:Adult_COVID19_PBMC",
+                "celltypist:Adult_COVID19_PBMC:conf",
+                "sample"
             ]
         ],
-        "timestamp": "2026-03-24T14:01:47.279173042",
+        "timestamp": "2026-03-25T15:44:12.70140271",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

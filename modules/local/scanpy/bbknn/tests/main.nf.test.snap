@@ -26,19 +26,25 @@
                 ]
             }
         ],
-        "timestamp": "2025-06-03T07:44:27.274185863",
+        "timestamp": "2026-03-25T15:44:42.434469309",
         "meta": {
-            "nf-test": "0.9.0",
-            "nextflow": "25.04.2"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
         }
     },
     "Should run without failures": {
         "content": [
-            [
-                "versions.yml:md5,0e8d49948d318a0226fecc9b8d3372bb"
-            ]
+            {
+                "SCANPY_BBKNN": {
+                    "bbknn": "1.6.0",
+                    "pandas": "2.3.3",
+                    "python": "3.12.12",
+                    "scanpy": "1.11.5"
+                }
+            },
+            "n_obs: 38234\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\nobsm:\n  - X_pca\nvarm:\n  - PCs\nobsp:\n  - connectivities\n  - distances\nvarp:\nuns:\n  - neighbors\n  - pca\n"
         ],
-        "timestamp": "2026-03-24T14:03:12.708585961",
+        "timestamp": "2026-03-25T15:44:30.059984814",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

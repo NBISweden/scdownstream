@@ -38,19 +38,25 @@
                 ]
             }
         ],
-        "timestamp": "2025-06-03T07:48:07.847500785",
+        "timestamp": "2026-03-25T15:44:57.270966951",
         "meta": {
-            "nf-test": "0.9.0",
-            "nextflow": "25.04.2"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
         }
     },
     "Should run without failures": {
         "content": [
-            [
-                "versions.yml:md5,9e3850fe91d236b81ba7557c47344e64"
-            ]
+            {
+                "SCANPY_COMBAT": {
+                    "numpy": "2.3.5",
+                    "pandas": "2.3.3",
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                }
+            },
+            "n_obs: 38234\nn_vars: 100\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\n    - dispersions\n    - dispersions_norm\n    - highly_variable\n    - means\nlayers:\nobsm:\n  - X_emb\n  - X_pca\nvarm:\n  - PCs\nobsp:\nvarp:\nuns:\n  - hvg\n  - log1p\n  - pca\n"
         ],
-        "timestamp": "2026-03-24T14:03:10.04909002",
+        "timestamp": "2026-03-25T15:44:41.450577055",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

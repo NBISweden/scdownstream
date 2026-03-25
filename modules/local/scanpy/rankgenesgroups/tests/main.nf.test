@@ -32,8 +32,7 @@ nextflow_process {
         then {
             assertAll(
             { assert process.success },
-            { assert snapshot(process.out.versions).match() },
-            { assert process.out.uns.size() > 0 }
+            { assert snapshot(path(process.out.versions[0]).yaml, process.out.uns.size(), process.out.plots.size(), process.out.multiqc_files.size()).match() }
             )
         }
 
@@ -95,8 +94,7 @@ nextflow_process {
         then {
             assertAll(
             { assert process.success },
-            { assert snapshot(process.out.versions).match() },
-            { assert process.out.uns.size() > 0 }
+            { assert snapshot(path(process.out.versions[0]).yaml, process.out.uns.size(), process.out.plots.size(), process.out.multiqc_files.size()).match() }
             )
         }
 
@@ -127,7 +125,7 @@ nextflow_process {
         then {
             assertAll(
             { assert process.success },
-            { assert snapshot(process.out.versions).match() }
+            { assert snapshot(path(process.out.versions[0]).yaml, process.out.uns.size(), process.out.plots.size(), process.out.multiqc_files.size()).match() }
             )
         }
 

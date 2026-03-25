@@ -32,7 +32,7 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-24T18:04:19.704797397",
+        "timestamp": "2026-03-25T15:44:51.46301442",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -40,11 +40,16 @@
     },
     "Should run without failures": {
         "content": [
-            [
-                "versions.yml:md5,1645b3233d21217bd7e2f01acd4a5892"
-            ]
+            {
+                "SCANPY_PCA": {
+                    "pandas": "2.3.3",
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                }
+            },
+            "n_obs: 38234\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\nobsm:\n  - X_pca\nvarm:\n  - X_pca\nobsp:\nvarp:\nuns:\n  - X_pca\n"
         ],
-        "timestamp": "2026-03-24T14:01:58.554176502",
+        "timestamp": "2026-03-25T15:44:23.378021891",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
