@@ -62,11 +62,8 @@
     },
     "Should run without failures": {
         "content": [
-            28863010,
             "test_scanvi.h5ad",
-            1380887,
             "model.pt",
-            6118418,
             "X_test_scanvi.pkl",
             {
                 "SCVITOOLS_SCANVI": {

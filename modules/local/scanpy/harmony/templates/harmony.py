@@ -60,14 +60,6 @@ if params.decimals is not None:
     adata_processing.obsm["X_emb"] = adata_processing.obsm["X_emb"].round(params.decimals)
 adata.obsm["X_emb"] = adata_processing.obsm["X_emb"]
 
-var_per_dim = np.var(adata.obsm["X_emb"].astype(np.float64), axis=0)
-variance_ratio = (var_per_dim / var_per_dim.sum()).tolist()
-if params.decimals is not None:
-    variance_ratio = np.round(variance_ratio, params.decimals).tolist()
-
-with open(f"variance_ratio_{prefix}.yml", "w") as f:
-    yaml.dump({"variance_ratio": variance_ratio}, f)
-
 adata.write_h5ad(f"{prefix}.h5ad")
 
 df = pd.DataFrame(adata.obsm["X_emb"], index=adata.obs_names)

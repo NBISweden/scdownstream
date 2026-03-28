@@ -33,7 +33,6 @@ nextflow_process {
             assert process.success
             assert "X_emb" in adata.obsm
             assert snapshot(
-                path(process.out.variance_ratio[0]).yaml,
                 path(process.out.versions[0]).yaml,
                 adata.yaml
             ).match()

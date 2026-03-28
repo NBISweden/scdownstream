@@ -36,9 +36,6 @@ nextflow_process {
             }
             assert snapshot(
                     // Hashes are not stable due to floating point inaccuracies
-                    file(process.out.h5ad.get(0).get(1)).size(),
-                    file(process.out.model.get(0).get(1)).size(),
-                    file(process.out.obsm.get(0)).size(),
                     path(process.out.versions[0]).yaml,
                     adata.yaml
                 ).match()

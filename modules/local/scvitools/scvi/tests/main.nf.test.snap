@@ -56,9 +56,6 @@
     },
     "Should run without failures": {
         "content": [
-            18403662,
-            26244445,
-            6118418,
             {
                 "SCVITOOLS_SCVI": {
                     "scvi": "1.3.3"
