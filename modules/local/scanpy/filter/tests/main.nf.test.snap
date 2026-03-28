@@ -47,12 +47,19 @@
                 "versions": [
                     "versions.yml:md5,b522587d103606ffd4959a6297fb9476"
                 ]
-            }
+            },
+            {
+                "SCANPY_FILTER": {
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                }
+            },
+            "n_obs: 5719\nn_vars: 992\nobs:\n  index: _index\n  columns:\n    - n_counts\n    - n_genes\n    - n_genes_by_counts\n    - pct_counts_mt\n    - sample\n    - total_counts\n    - total_counts_mt\nvar:\n  index: _index\n  columns:\n    - mean_counts\n    - mt\n    - n_cells\n    - n_cells_by_counts\n    - n_counts\n    - pct_dropout_by_counts\n    - symbols\n    - total_counts\nlayers:\n  - counts\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
         ],
-        "timestamp": "2026-03-16T15:33:26.743121974",
+        "timestamp": "2026-03-28T22:09:49.666922142",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run without failures - stub": {
@@ -113,12 +120,19 @@
                 "versions": [
                     "versions.yml:md5,b522587d103606ffd4959a6297fb9476"
                 ]
-            }
+            },
+            {
+                "SCANPY_FILTER": {
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                }
+            },
+            "n_obs: 5719\nn_vars: 992\nobs:\n  index: _index\n  columns:\n    - n_counts\n    - n_genes\n    - n_genes_by_counts\n    - pct_counts_mt\n    - sample\n    - total_counts\n    - total_counts_mt\nvar:\n  index: _index\n  columns:\n    - mean_counts\n    - mt\n    - n_cells\n    - n_cells_by_counts\n    - n_counts\n    - pct_dropout_by_counts\n    - symbols\n    - total_counts\nlayers:\n  - counts\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
         ],
-        "timestamp": "2026-03-16T15:33:11.353190554",
+        "timestamp": "2026-03-28T22:09:25.003400702",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run without failures - with custom mito genes": {
@@ -146,12 +160,19 @@
                 "versions": [
                     "versions.yml:md5,b522587d103606ffd4959a6297fb9476"
                 ]
-            }
+            },
+            {
+                "SCANPY_FILTER": {
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                }
+            },
+            "n_obs: 5719\nn_vars: 992\nobs:\n  index: _index\n  columns:\n    - n_counts\n    - n_genes\n    - n_genes_by_counts\n    - pct_counts_mt\n    - sample\n    - total_counts\n    - total_counts_mt\nvar:\n  index: _index\n  columns:\n    - mean_counts\n    - mt\n    - n_cells\n    - n_cells_by_counts\n    - n_counts\n    - pct_dropout_by_counts\n    - symbols\n    - total_counts\nlayers:\n  - counts\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
         ],
-        "timestamp": "2026-03-16T15:34:02.974430103",
+        "timestamp": "2026-03-28T22:10:39.378358618",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     }
 }

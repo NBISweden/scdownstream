@@ -52,11 +52,15 @@
     },
     "Should run without failures": {
         "content": [
-            [
-                "versions.yml:md5,094091f84634347067c71751fa7c6b27"
-            ]
+            {
+                "SCANPY_LEIDEN": {
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                }
+            },
+            "n_obs: 7373\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - leiden\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\nobsm:\n  - X_pca\nvarm:\n  - X_pca\nobsp:\n  - connectivities\n  - distances\nvarp:\nuns:\n  - X_pca\n  - leiden\n  - neighbors\n"
         ],
-        "timestamp": "2026-03-22T15:00:00.781565748",
+        "timestamp": "2026-03-28T22:11:18.707514777",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
