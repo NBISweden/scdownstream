@@ -41,13 +41,43 @@
     "Should run without failures": {
         "content": [
             {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_liana.h5ad:md5,c227d198aa472576b58ffe61ff37027b"
+                    ]
+                ],
+                "1": [
+                    "test_liana.pkl:md5,058214ae3910f43472b791830a606047"
+                ],
+                "2": [
+                    "versions.yml:md5,44f181a9b2e8bebcda641e7400af14cd"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_liana.h5ad:md5,c227d198aa472576b58ffe61ff37027b"
+                    ]
+                ],
+                "uns": [
+                    "test_liana.pkl:md5,058214ae3910f43472b791830a606047"
+                ],
+                "versions": [
+                    "versions.yml:md5,44f181a9b2e8bebcda641e7400af14cd"
+                ]
+            },
+            {
                 "liana": "1.6.1",
                 "python": "3.12.12",
                 "scanpy": "1.11.5"
             },
-            1
+            "n_obs: 7373\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - leiden\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\nobsm:\n  - X_pca\nvarm:\n  - X_pca\nobsp:\n  - connectivities\n  - distances\nvarp:\nuns:\n  - X_pca\n  - leiden\n  - liana_res\n  - log1p\n  - neighbors\n"
         ],
-        "timestamp": "2026-03-25T15:46:58.7462693",
+        "timestamp": "2026-03-28T17:34:38.380015311",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

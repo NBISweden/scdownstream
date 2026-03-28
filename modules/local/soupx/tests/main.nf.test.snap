@@ -57,12 +57,63 @@
                 "versions": [
                     "versions.yml:md5,eebdf63518e672c2ceb40e1bd9c9fbdf"
                 ]
-            }
+            },
+            {
+                "SOUPX": {
+                    "r": "4.5.3",
+                    "anndataR": "1.0.2",
+                    "SoupX": "1.6.2",
+                    "Seurat": "5.4.0"
+                }
+            },
+            "n_obs: 7373\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
         ],
-        "timestamp": "2026-03-17T09:51:41.65597708",
+        "timestamp": "2026-03-28T17:53:34.957086995",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
+        }
+    },
+    "Should write to a custom output layer": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_soupX.h5ad:md5,0a5f1e7591e5598537771755d312f35f"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,eebdf63518e672c2ceb40e1bd9c9fbdf"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_soupX.h5ad:md5,0a5f1e7591e5598537771755d312f35f"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,eebdf63518e672c2ceb40e1bd9c9fbdf"
+                ]
+            },
+            {
+                "SOUPX": {
+                    "r": "4.5.3",
+                    "anndataR": "1.0.2",
+                    "SoupX": "1.6.2",
+                    "Seurat": "5.4.0"
+                }
+            },
+            "n_obs: 7373\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\n  - ambient_corrected_soupx\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
+        ],
+        "timestamp": "2026-03-28T17:54:16.513364716",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
         }
     }
 }

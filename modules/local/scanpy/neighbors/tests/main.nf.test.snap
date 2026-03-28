@@ -1,5 +1,5 @@
 {
-    "Should run without failures": {
+    "Should run without failures - stub": {
         "content": [
             {
                 "0": [
@@ -26,7 +26,23 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-22T16:18:04.455217395",
+        "timestamp": "2026-03-28T16:08:57.025739289",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
+        }
+    },
+    "Should run without failures": {
+        "content": [
+            {
+                "SCANPY_NEIGHBORS": {
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                }
+            },
+            "n_obs: 7373\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - leiden\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\nobsm:\n  - X_pca\nvarm:\n  - X_pca\nobsp:\n  - connectivities\n  - distances\nvarp:\nuns:\n  - X_pca\n  - leiden\n  - neighbors\n"
+        ],
+        "timestamp": "2026-03-28T16:08:43.931518403",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

@@ -30,10 +30,14 @@ nextflow_process {
         }
 
         then {
-            assertAll(
-            { assert process.success },
-            { assert snapshot(path(process.out.versions[0]).yaml, process.out.uns.size(), process.out.plots.size(), process.out.multiqc_files.size()).match() }
-            )
+            def adata = anndata(process.out.h5ad[0][1])
+            assert process.success
+            assert "rank_genes_groups" in adata.uns
+            assert snapshot(
+                process.out,
+                path(process.out.versions[0]).yaml,
+                adata.yaml
+            ).match()
         }
 
     }
@@ -61,10 +65,8 @@ nextflow_process {
         }
 
         then {
-            assertAll(
-            { assert process.success },
-            { assert snapshot(process.out).match() }
-            )
+            assert process.success
+            assert snapshot(process.out).match()
         }
 
     }
@@ -92,10 +94,14 @@ nextflow_process {
         }
 
         then {
-            assertAll(
-            { assert process.success },
-            { assert snapshot(path(process.out.versions[0]).yaml, process.out.uns.size(), process.out.plots.size(), process.out.multiqc_files.size()).match() }
-            )
+            def adata = anndata(process.out.h5ad[0][1])
+            assert process.success
+            assert "rank_genes_groups" in adata.uns
+            assert snapshot(
+                process.out,
+                path(process.out.versions[0]).yaml,
+                adata.yaml
+            ).match()
         }
 
     }
@@ -123,10 +129,11 @@ nextflow_process {
         }
 
         then {
-            assertAll(
-            { assert process.success },
-            { assert snapshot(path(process.out.versions[0]).yaml, process.out.uns.size(), process.out.plots.size(), process.out.multiqc_files.size()).match() }
-            )
+            assert process.success
+            assert process.out.h5ad.size() == 0
+            assert snapshot(
+                path(process.out.versions[0]).yaml
+            ).match()
         }
 
     }

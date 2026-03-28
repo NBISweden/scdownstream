@@ -28,17 +28,22 @@ nextflow_process {
         }
 
         then {
-            assertAll(
-            { assert process.success },
-            { assert snapshot(process.out.versions).match() },
-            {
-                def ad = anndata(process.out.h5ad[0][1])
-                assert "connectivities" in ad.obsp
-                assert "distances" in ad.obsp
-                assert "neighbors" in ad.uns
+            def adata = anndata(process.out.h5ad[0][1])
+            assert process.success
+            with(adata) {
+                assert "connectivities" in obsp
+                assert "distances" in obsp
+                assert "neighbors" in uns
             }
-            )
+            assert snapshot(
+                path(process.out.versions[0]).yaml,
+                adata.yaml
+            ).match()
         }
+
+    }
+
+    test("Should run without failures - stub") {
 
         options '-stub'
 
@@ -59,10 +64,8 @@ nextflow_process {
         }
 
         then {
-            assertAll(
-            { assert process.success },
-            { assert snapshot(process.out).match() }
-            )
+            assert process.success
+            assert snapshot(process.out).match()
         }
 
     }

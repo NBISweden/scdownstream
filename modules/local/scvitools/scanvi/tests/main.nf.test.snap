@@ -68,11 +68,14 @@
             "model.pt",
             6118418,
             "X_test_scanvi.pkl",
-            [
-                "versions.yml:md5,3d5ccecd49a7565e7f6c86996381d8d4"
-            ]
+            {
+                "SCVITOOLS_SCANVI": {
+                    "scvi": "1.3.3"
+                }
+            },
+            "n_obs: 38234\nn_vars: 100\nobs:\n  index: _index\n  columns:\n    - _scvi_batch\n    - _scvi_labels\n    - label:scANVI\n    - leiden\n    - sample\nvar:\n  index: _index\n  columns:\n    - dispersions\n    - dispersions_norm\n    - highly_variable\n    - means\nlayers:\nobsm:\n  - X_emb\n  - X_pca\nvarm:\n  - PCs\nobsp:\n  - connectivities\n  - distances\nvarp:\nuns:\n  - hvg\n  - leiden\n  - log1p\n  - neighbors\n  - pca\n"
         ],
-        "timestamp": "2026-03-22T10:00:38.083128488",
+        "timestamp": "2026-03-28T16:19:18.135819708",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

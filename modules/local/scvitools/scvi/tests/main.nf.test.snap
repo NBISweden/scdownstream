@@ -59,14 +59,17 @@
             18403662,
             26244445,
             6118418,
-            [
-                "versions.yml:md5,8c1ab0d537dc26cb0c55b4fa49f7dafb"
-            ]
+            {
+                "SCVITOOLS_SCVI": {
+                    "scvi": "1.3.3"
+                }
+            },
+            "n_obs: 38234\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - _scvi_batch\n    - _scvi_labels\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\nobsm:\n  - X_emb\nvarm:\nobsp:\nvarp:\nuns:\n"
         ],
-        "timestamp": "2026-03-16T20:35:30.494274963",
+        "timestamp": "2026-03-28T16:17:00.032046985",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     }
 }

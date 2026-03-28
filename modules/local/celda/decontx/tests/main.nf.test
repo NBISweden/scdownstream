@@ -29,11 +29,15 @@ nextflow_process {
         }
 
         then {
-            def h5ad = process.out.h5ad[0][1]
-            assertAll(
-            { assert process.success },
-            { assert snapshot(path(process.out.versions[0]).yaml, anndata(h5ad).yaml).match() }
-            )
+            def adata = anndata(process.out.h5ad[0][1])
+            assert process.success
+            // output written to X, so no named decontx layer
+            assert !("ambient_corrected_decontx" in adata.layers)
+            assert snapshot(
+                process.out,
+                path(process.out.versions[0]).yaml,
+                adata.yaml
+            ).match()
         }
 
     }
@@ -60,11 +64,15 @@ nextflow_process {
         }
 
         then {
-            def h5ad = process.out.h5ad[0][1]
-            assertAll(
-            { assert process.success },
-            { assert snapshot(path(process.out.versions[0]).yaml, anndata(h5ad).yaml).match() }
-            )
+            def adata = anndata(process.out.h5ad[0][1])
+            assert process.success
+            // output written to X, so no named decontx layer
+            assert !("ambient_corrected_decontx" in adata.layers)
+            assert snapshot(
+                process.out,
+                path(process.out.versions[0]).yaml,
+                adata.yaml
+            ).match()
         }
 
     }
@@ -91,11 +99,15 @@ nextflow_process {
         }
 
         then {
-            def h5ad = process.out.h5ad[0][1]
-            assertAll(
-            { assert process.success },
-            { assert snapshot(path(process.out.versions[0]).yaml, anndata(h5ad).yaml).match() }
-            )
+            def adata = anndata(process.out.h5ad[0][1])
+            assert process.success
+            // output written to X, so no named decontx layer
+            assert !("ambient_corrected_decontx" in adata.layers)
+            assert snapshot(
+                process.out,
+                path(process.out.versions[0]).yaml,
+                adata.yaml
+            ).match()
         }
 
     }
@@ -124,10 +136,9 @@ nextflow_process {
         }
 
         then {
-            assertAll(
-            { assert process.success },
-            { assert snapshot(process.out).match() }
-            )
+            assert process.success
+
+            assert snapshot(process.out).match()
         }
 
     }
@@ -154,11 +165,15 @@ nextflow_process {
         }
 
         then {
-            def h5ad = process.out.h5ad[0][1]
-            assertAll(
-            { assert process.success },
-            { assert snapshot(path(process.out.versions[0]).yaml, anndata(h5ad).yaml).match() }
-            )
+            def adata = anndata(process.out.h5ad[0][1])
+            assert process.success
+            // output written to X, so no named decontx layer
+            assert !("ambient_corrected_decontx" in adata.layers)
+            assert snapshot(
+                process.out,
+                path(process.out.versions[0]).yaml,
+                adata.yaml
+            ).match()
         }
 
     }
@@ -185,12 +200,15 @@ nextflow_process {
         }
 
         then {
-            def h5ad = process.out.h5ad[0][1]
-            assertAll(
-            { assert process.success },
-            { assert snapshot(path(process.out.versions[0]).yaml, anndata(h5ad).yaml).match() },
-            { assert "ambient_corrected_decontx" in anndata(h5ad).layers }
-            )
+            def adata = anndata(process.out.h5ad[0][1])
+            assert process.success
+
+            assert "ambient_corrected_decontx" in adata.layers
+
+            assert snapshot(
+                path(process.out.versions[0]).yaml,
+                adata.yaml
+            ).match()
         }
 
     }
@@ -219,10 +237,9 @@ nextflow_process {
         }
 
         then {
-            assertAll(
-            { assert process.success },
-            { assert snapshot(process.out).match() }
-            )
+            assert process.success
+
+            assert snapshot(process.out).match()
         }
 
     }

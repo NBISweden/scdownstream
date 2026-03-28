@@ -24,9 +24,17 @@
                 "versions": [
                     "versions.yml:md5,85681d93adbb062a90bb197b31eea879"
                 ]
-            }
+            },
+            {
+                "SCIMILARITY_PSEUDOBULK": {
+                    "anndata": "0.12.10",
+                    "python": "3.12.13",
+                    "scimilarity": "0.4.1"
+                }
+            },
+            "n_obs: 3\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - cells\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\n  - count_nonzero\n  - sum\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
         ],
-        "timestamp": "2026-03-20T23:28:46.83306667",
+        "timestamp": "2026-03-28T17:48:52.497299288",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -57,9 +65,17 @@
                 "versions": [
                     "versions.yml:md5,85681d93adbb062a90bb197b31eea879"
                 ]
-            }
+            },
+            {
+                "SCIMILARITY_PSEUDOBULK": {
+                    "anndata": "0.12.10",
+                    "python": "3.12.13",
+                    "scimilarity": "0.4.1"
+                }
+            },
+            "n_obs: 43\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - cells\n    - leiden\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\n  - count_nonzero\n  - sum\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
         ],
-        "timestamp": "2026-03-21T08:56:36.22861983",
+        "timestamp": "2026-03-28T17:49:47.066833253",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

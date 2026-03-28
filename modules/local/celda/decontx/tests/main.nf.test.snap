@@ -2,6 +2,30 @@
     "Should run without failures without batch column": {
         "content": [
             {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_decontx.h5ad:md5,1eb88b5ef4b605b4f62030c2a607e28a"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_decontx.h5ad:md5,1eb88b5ef4b605b4f62030c2a607e28a"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
+                ]
+            },
+            {
                 "CELDA_DECONTX": {
                     "r": "4.5.3",
                     "anndataR": "1.0.2",
@@ -10,7 +34,7 @@
             },
             "n_obs: 12940\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\n    - symbols\nlayers:\n  - counts\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
         ],
-        "timestamp": "2026-03-25T16:03:20.607863222",
+        "timestamp": "2026-03-28T16:50:38.098489322",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -19,22 +43,29 @@
     "Should run without failures without raw - single batch": {
         "content": [
             {
-                "CELDA_DECONTX": {
-                    "r": "4.5.3",
-                    "anndataR": "1.0.2",
-                    "celda": "1.26.0"
-                }
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_decontx.h5ad:md5,1eb88b5ef4b605b4f62030c2a607e28a"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_decontx.h5ad:md5,1eb88b5ef4b605b4f62030c2a607e28a"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
+                ]
             },
-            "n_obs: 12940\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\n    - symbols\nlayers:\n  - counts\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
-        ],
-        "timestamp": "2026-03-25T16:04:16.789960757",
-        "meta": {
-            "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
-        }
-    },
-    "Should run without failures with raw": {
-        "content": [
             {
                 "CELDA_DECONTX": {
                     "r": "4.5.3",
@@ -44,7 +75,48 @@
             },
             "n_obs: 12940\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\n    - symbols\nlayers:\n  - counts\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
         ],
-        "timestamp": "2026-03-25T16:07:08.797021713",
+        "timestamp": "2026-03-28T16:51:40.101871935",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
+        }
+    },
+    "Should run without failures with raw": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_decontx.h5ad:md5,5b66bb96352049340b9214c45e8706cd"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_decontx.h5ad:md5,5b66bb96352049340b9214c45e8706cd"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
+                ]
+            },
+            {
+                "CELDA_DECONTX": {
+                    "r": "4.5.3",
+                    "anndataR": "1.0.2",
+                    "celda": "1.26.0"
+                }
+            },
+            "n_obs: 12940\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\n    - symbols\nlayers:\n  - counts\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
+        ],
+        "timestamp": "2026-03-28T16:54:46.7175794",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -103,6 +175,30 @@
     "Should run without failures without raw - multi-batch": {
         "content": [
             {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_decontx.h5ad:md5,cf9801305448dfc1ecbae9ab102d09f3"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
+                ],
+                "h5ad": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test_decontx.h5ad:md5,cf9801305448dfc1ecbae9ab102d09f3"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,7aee6256bf034aaa7fef6492db7bcb88"
+                ]
+            },
+            {
                 "CELDA_DECONTX": {
                     "r": "4.5.3",
                     "anndataR": "1.0.2",
@@ -111,7 +207,7 @@
             },
             "n_obs: 38234\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
         ],
-        "timestamp": "2026-03-25T16:05:55.215308418",
+        "timestamp": "2026-03-28T16:46:02.200693929",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
