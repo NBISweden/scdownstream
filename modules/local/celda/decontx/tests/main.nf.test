@@ -34,7 +34,6 @@ nextflow_process {
             // output written to X, so no named decontx layer
             assert !("ambient_corrected_decontx" in adata.layers)
             assert snapshot(
-                process.out,
                 path(process.out.versions[0]).yaml,
                 adata.yaml
             ).match()
@@ -69,7 +68,6 @@ nextflow_process {
             // output written to X, so no named decontx layer
             assert !("ambient_corrected_decontx" in adata.layers)
             assert snapshot(
-                process.out,
                 path(process.out.versions[0]).yaml,
                 adata.yaml
             ).match()
@@ -104,7 +102,6 @@ nextflow_process {
             // output written to X, so no named decontx layer
             assert !("ambient_corrected_decontx" in adata.layers)
             assert snapshot(
-                process.out,
                 path(process.out.versions[0]).yaml,
                 adata.yaml
             ).match()
@@ -170,7 +167,6 @@ nextflow_process {
             // output written to X, so no named decontx layer
             assert !("ambient_corrected_decontx" in adata.layers)
             assert snapshot(
-                process.out,
                 path(process.out.versions[0]).yaml,
                 adata.yaml
             ).match()

@@ -123,9 +123,9 @@ The **Dev branch implied** column is derived mechanically from whether the `dev`
 
 ### `soupx/`
 
-| Module  | Description                                                                                                                       | Reproducibility                                                                                                      | Dev branch implied |
-| ------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `soupx` | Estimates and removes ambient RNA contamination using SoupX, preceded by Seurat clustering to define cluster-level contamination. | Fully deterministic — the Seurat clustering step uses a fixed seed; the original tests used `snapshot(process.out)`. | Deterministic ✓    |
+| Module  | Description                                                                                                                       | Reproducibility                                                                                                                                                               | Dev branch implied  |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `soupx` | Estimates and removes ambient RNA contamination using SoupX, preceded by Seurat clustering to define cluster-level contamination. | **Non-deterministic** — Seurat clustering is seeded but graph-based steps (Louvain/Leiden) vary across library versions; soup fraction estimates can differ across platforms. | Non-deterministic ✓ |
 
 ---
 
