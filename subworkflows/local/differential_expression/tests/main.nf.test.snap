@@ -2,27 +2,121 @@
     "Should run differential expression with leiden clustering": {
         "content": [
             [
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934"
-            ],
-            16,
-            16
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                }
+            ]
         ],
-        "timestamp": "2026-03-25T15:46:36.932593016",
+        "timestamp": "2026-03-28T19:42:40.224566991",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -31,21 +125,79 @@
     "Should run differential expression with label column": {
         "content": [
             [
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934",
-                "versions.yml:md5,c4e56a7a79e312d6f945d4913899b934"
-            ],
-            10,
-            10
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "DIFFERENTIAL_EXPRESSION:SCANPY_RANKGENESGROUPS": {
+                        "pandas": "2.3.3",
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                }
+            ]
         ],
-        "timestamp": "2026-03-25T15:48:05.790450423",
+        "timestamp": "2026-03-28T19:43:40.510185657",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

@@ -28,8 +28,16 @@ nextflow_workflow {
         }
 
         then {
+            def adata = anndata(workflow.out.h5ad_pseudobulk[0][1])
             assert workflow.success
-            assert snapshot(workflow.out).match()
+            with(adata) {
+                assert "sample" in obs.colnames
+                assert n_obs > 0
+            }
+            assert snapshot(
+                workflow.out,
+                adata.yaml
+            ).match()
         }
 
     }

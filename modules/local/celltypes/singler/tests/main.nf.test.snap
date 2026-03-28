@@ -11,14 +11,20 @@
             ],
             "test_singler_hpca_distribution.pdf",
             "test_singler_hpca_heatmap.pdf",
-            [
-                "versions.yml:md5,70b80d9d31fab709351b4448a54a0528"
-            ]
+            {
+                "CELLTYPES_SINGLER": {
+                    "R": "R version 4.5.3 (2026-03-11)",
+                    "SingleR": "2.12.0",
+                    "celldex": "1.20.0",
+                    "anndataR": "1.0.2",
+                    "ggplot2": "4.0.2"
+                }
+            }
         ],
-        "timestamp": "2026-03-16T12:37:54.417981638",
+        "timestamp": "2026-03-28T18:59:53.764238934",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run after celldex reference is fetched": {
@@ -33,14 +39,20 @@
             ],
             "test_singler_test_distribution.pdf",
             "test_singler_test_heatmap.pdf",
-            [
-                "versions.yml:md5,70b80d9d31fab709351b4448a54a0528"
-            ]
+            {
+                "CELLTYPES_SINGLER": {
+                    "R": "R version 4.5.3 (2026-03-11)",
+                    "SingleR": "2.12.0",
+                    "celldex": "1.20.0",
+                    "anndataR": "1.0.2",
+                    "ggplot2": "4.0.2"
+                }
+            }
         ],
-        "timestamp": "2026-03-16T11:40:03.222322422",
+        "timestamp": "2026-03-28T18:54:39.185673723",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run with a single reference": {
@@ -55,14 +67,20 @@
             ],
             "test_singler_hpca_distribution.pdf",
             "test_singler_hpca_heatmap.pdf",
-            [
-                "versions.yml:md5,70b80d9d31fab709351b4448a54a0528"
-            ]
+            {
+                "CELLTYPES_SINGLER": {
+                    "R": "R version 4.5.3 (2026-03-11)",
+                    "SingleR": "2.12.0",
+                    "celldex": "1.20.0",
+                    "anndataR": "1.0.2",
+                    "ggplot2": "4.0.2"
+                }
+            }
         ],
-        "timestamp": "2026-03-16T12:35:27.022696083",
+        "timestamp": "2026-03-28T18:57:17.216120097",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run with a single reference - stub": {
@@ -140,14 +158,20 @@
                     "test_singler_predictions.csv:md5,11a52bcaca3f7e8ad88a9fe7d26b49c5"
                 ]
             ],
-            [
-                "versions.yml:md5,70b80d9d31fab709351b4448a54a0528"
-            ]
+            {
+                "CELLTYPES_SINGLER": {
+                    "R": "R version 4.5.3 (2026-03-11)",
+                    "SingleR": "2.12.0",
+                    "celldex": "1.20.0",
+                    "anndataR": "1.0.2",
+                    "ggplot2": "4.0.2"
+                }
+            }
         ],
-        "timestamp": "2026-03-16T12:40:51.446458814",
+        "timestamp": "2026-03-28T19:03:07.666721816",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     }
 }

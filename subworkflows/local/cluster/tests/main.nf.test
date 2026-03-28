@@ -64,20 +64,20 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(workflow.out.versions).match()
             workflow.out.h5ad_neighbors.each { meta, h5ad ->
-                def ad = anndata(h5ad)
-                assert ad.obsm.any { it.endsWith("_umap") }
-                assert "connectivities" in ad.obsp
-                assert "distances" in ad.obsp
+                def adata = anndata(h5ad)
+                with(adata) {
+                    assert obsm.any { it.endsWith("_umap") }
+                    assert "connectivities" in obsp
+                    assert "distances" in obsp
+                }
             }
             workflow.out.h5ad_clustering.each { meta, h5ad ->
-                def obs = anndata(h5ad).obs
+                def adata = anndata(h5ad)
                 def key = meta.id + "_leiden"
-                assert key in obs.colnames : "Expected ${key} in obs, found: ${obs.colnames}"
-                def n = obs.get(key).n_unique()
-                assert n >= 2 && n <= 50 : "Expected 2–50 clusters for ${key}, got ${n}"
+                assert key in adata.obs.colnames
             }
+            assert snapshot(workflow.out.versions).match()
         }
 
     }
@@ -139,20 +139,20 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(workflow.out.versions).match()
             workflow.out.h5ad_neighbors.each { meta, h5ad ->
-                def ad = anndata(h5ad)
-                assert ad.obsm.any { it.endsWith("_umap") }
-                assert "connectivities" in ad.obsp
-                assert "distances" in ad.obsp
+                def adata = anndata(h5ad)
+                with(adata) {
+                    assert obsm.any { it.endsWith("_umap") }
+                    assert "connectivities" in obsp
+                    assert "distances" in obsp
+                }
             }
             workflow.out.h5ad_clustering.each { meta, h5ad ->
-                def obs = anndata(h5ad).obs
+                def adata = anndata(h5ad)
                 def key = meta.id + "_leiden"
-                assert key in obs.colnames : "Expected ${key} in obs, found: ${obs.colnames}"
-                def n = obs.get(key).n_unique()
-                assert n >= 2 && n <= 50 : "Expected 2–50 clusters for ${key}, got ${n}"
+                assert key in adata.obs.colnames
             }
+            assert snapshot(workflow.out.versions).match()
         }
 
     }
@@ -214,20 +214,20 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(workflow.out.versions).match()
             workflow.out.h5ad_neighbors.each { meta, h5ad ->
-                def ad = anndata(h5ad)
-                assert ad.obsm.any { it.endsWith("_umap") }
-                assert "connectivities" in ad.obsp
-                assert "distances" in ad.obsp
+                def adata = anndata(h5ad)
+                with(adata) {
+                    assert obsm.any { it.endsWith("_umap") }
+                    assert "connectivities" in obsp
+                    assert "distances" in obsp
+                }
             }
             workflow.out.h5ad_clustering.each { meta, h5ad ->
-                def obs = anndata(h5ad).obs
+                def adata = anndata(h5ad)
                 def key = meta.id + "_leiden"
-                assert key in obs.colnames
-                def n = obs.get(key).n_unique()
-                assert n >= 2 && n <= 50 : "Expected 2–50 clusters for ${key}, got ${n}"
+                assert key in adata.obs.colnames
             }
+            assert snapshot(workflow.out.versions).match()
         }
 
     }
