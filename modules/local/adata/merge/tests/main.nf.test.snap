@@ -186,10 +186,10 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-29T13:52:58.903537417",
+        "timestamp": "2026-03-29T15:15:03.443383668",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run with base": {
