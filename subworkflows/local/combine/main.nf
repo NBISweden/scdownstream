@@ -27,7 +27,7 @@ workflow COMBINE {
     ADATA_MERGE(
         ch_h5ad
             .map { _meta, h5ad -> [[id: "merged"], h5ad] }
-            .groupTuple(),
+            .groupTuple(sort: true),
         ch_base,
     )
     ch_var = ch_var.mix(ADATA_MERGE.out.intersect_genes)
