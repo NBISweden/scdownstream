@@ -96,29 +96,38 @@ assert snapshot(process.out, path(process.out.versions[0]).yaml, adata.yaml).mat
 
 ### Subworkflow tests
 
-For subworkflows with multiple `versions.yml` files, snapshot the whole versions channel:
+For subworkflows with multiple `versions.yml` files, collect them as parsed YAML for readability:
 
 ```groovy
-assert snapshot(workflow.out.versions, adata.yaml).match()
+assert snapshot(
+    workflow.out.versions.collect { path(it).yaml },
+    adata.yaml
+).match()
 ```
 
 Or for deterministic subworkflows:
 
 ```groovy
-assert snapshot(workflow.out, workflow.out.versions, adata.yaml).match()
+assert snapshot(
+    workflow.out,
+    workflow.out.versions.collect { path(it).yaml },
+    adata.yaml
+).match()
 ```
 
 ## Deterministic vs non-deterministic modules
 
-**Deterministic** (always include `process.out` in snapshot):
-`adata/entropy`, `adata/extend`, `adata/merge`, `adata/mergeembeddings`, `adata/mygene`, `adata/prepcellxgene`, `adata/readcsv`, `adata/readrds`, `adata/setindex`, `adata/splitcol`, `adata/splitembeddings`, `adata/tords`, `adata/unify`, `adata/upsetgenes`, `celda/decontx`, `celltypes/celltypist`, `celltypes/singler`, `custom/collectsizes`, `doublet_detection/doublet_removal`, `doublet_detection/scds`, `hugounifier/apply`, `hugounifier/get`, `liana/rankaggregate`, `scanpy/bbknn`, `scanpy/cellcycle`, `scanpy/combat`, `scanpy/filter`, `scanpy/harmony`, `scanpy/hvgs`, `scanpy/leiden`, `scanpy/neighbors`, `scanpy/paga`, `scanpy/plotqc`, `scanpy/rankgenesgroups`, `scanpy/readh5`, `scanpy/sample`, `scanpy/umap`, `soupx`
+See [`docs/reproducibility.md`](../docs/reproducibility.md) for the full classification of every module and subworkflow. The relevant column for tests is **"Test strategy (this branch)"**:
 
-**Non-deterministic** (omit `process.out` from snapshot, use structural/size checks):
-`scanpy/pca` (floating-point variance), `scvitools/scvi`, `scvitools/scanvi`, `seurat/integration`, `scimilarity/embed`, `scimilarity/annotate`, `scimilarity/pseudobulk`
+| Strategy | Snapshot pattern |
+|----------|-----------------|
+| `hash` | `process.out, path(process.out.versions[0]).yaml, adata.yaml` |
+| `structural` | drop `process.out`; keep `path(process.out.versions[0]).yaml, adata.yaml` |
+| `stub only` | no non-stub test; stub uses `snapshot(process.out).match()` |
 
-## Common mistake — do NOT drop `process.out` from deterministic modules
+## Common mistake — do NOT drop `process.out` from `hash`-strategy modules
 
-For deterministic modules, the original tests used exact MD5 hashes. That means `process.out` **must** remain in the snapshot. Only omit it for ML/randomness-based modules.
+For modules classified as `hash` in `docs/reproducibility.md`, the original tests used exact MD5 hashes. That means `process.out` **must** remain in the snapshot. Only omit it for `structural`-strategy modules.
 
 ```groovy
 // ❌ WRONG — drops the full output snapshot for a deterministic module
@@ -131,7 +140,7 @@ assert snapshot(process.out, path(process.out.versions[0]).yaml, adata.yaml).mat
 ## Versions channel
 
 - **Module tests**: `path(process.out.versions[0]).yaml` — reads the single `versions.yml` as YAML
-- **Subworkflow tests**: `workflow.out.versions` — snapshot the whole versions channel (multiple files, use MD5)
+- **Subworkflow tests**: `workflow.out.versions.collect { path(it).yaml }` — parses each file for human-readable version names
 
 The versions channel should never include `meta`. In module tests, `process.out.versions[0]` is a plain path (no tuple).
 

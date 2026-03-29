@@ -84,7 +84,7 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-29T13:17:18.066551589",
+        "timestamp": "2026-03-29T13:32:53.623653313",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -92,90 +92,88 @@
     },
     "Should run without failures - without base": {
         "content": [
+            [
+                [
+                    {
+                        "id": "merged"
+                    },
+                    "merged_outer.h5ad:md5,4c254e264541c969b4984867b21377d7"
+                ]
+            ],
+            [
+                [
+                    {
+                        "id": "merged"
+                    },
+                    "merged_inner.h5ad:md5,4c254e264541c969b4984867b21377d7"
+                ]
+            ],
+            [
+                "gene_intersection.pkl:md5,ac5a8f750a472fa0fd9d393c8e8593fc"
+            ],
+            [
+                {
+                    "COMBINE:INTEGRATE:SCVITOOLS_SCVI": {
+                        "scvi": "1.3.3"
+                    }
+                },
+                {
+                    "COMBINE:INTEGRATE:SCANPY_HVGS": {
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                },
+                {
+                    "COMBINE:ADATA_MERGE": {
+                        "anndata": "0.12.10",
+                        "python": "3.13.12",
+                        "scanpy": "1.12",
+                        "scipy": "1.17.1"
+                    }
+                },
+                {
+                    "COMBINE:INTEGRATE:SCANPY_FILTER": {
+                        "python": "3.13.12",
+                        "scanpy": "1.12"
+                    }
+                }
+            ],
             {
-                "0": [
-                    [
-                        {
-                            "id": "merged"
-                        },
-                        "merged_outer.h5ad:md5,4c254e264541c969b4984867b21377d7"
+                "n_obs": 25880,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch"
                     ]
-                ],
-                "1": [
-                    [
-                        {
-                            "id": "merged"
-                        },
-                        "merged_inner.h5ad:md5,4c254e264541c969b4984867b21377d7"
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
                     ]
-                ],
-                "2": [
-                    [
-                        {
-                            "id": "scvi",
-                            "integration": "scvi"
-                        },
-                        "scvi.h5ad:md5,98926b9a9feba2c6c9d3db14bccbb0e3"
-                    ]
-                ],
-                "3": [
-                    "gene_intersection.pkl:md5,ac5a8f750a472fa0fd9d393c8e8593fc"
-                ],
-                "4": [
-                    
-                ],
-                "5": [
-                    "X_scvi.pkl:md5,4e060be031c055cfa8812e5d0b138527"
-                ],
-                "6": [
-                    "versions.yml:md5,0bfc384d091cd0b62c696af886df2c74",
-                    "versions.yml:md5,195b81aece6ef2297facddfe7982f3ae",
-                    "versions.yml:md5,ab044221564d1fdd7b4fca018253b58a",
-                    "versions.yml:md5,e0ddd235448fc155982490a373f9d6fb"
-                ],
-                "h5ad": [
-                    [
-                        {
-                            "id": "merged"
-                        },
-                        "merged_outer.h5ad:md5,4c254e264541c969b4984867b21377d7"
-                    ]
-                ],
-                "h5ad_inner": [
-                    [
-                        {
-                            "id": "merged"
-                        },
-                        "merged_inner.h5ad:md5,4c254e264541c969b4984867b21377d7"
-                    ]
-                ],
-                "integrations": [
-                    [
-                        {
-                            "id": "scvi",
-                            "integration": "scvi"
-                        },
-                        "scvi.h5ad:md5,98926b9a9feba2c6c9d3db14bccbb0e3"
-                    ]
-                ],
-                "obs": [
-                    
+                },
+                "layers": [
+                    "counts"
                 ],
                 "obsm": [
-                    "X_scvi.pkl:md5,4e060be031c055cfa8812e5d0b138527"
+                    
                 ],
-                "var": [
-                    "gene_intersection.pkl:md5,ac5a8f750a472fa0fd9d393c8e8593fc"
+                "varm": [
+                    
                 ],
-                "versions": [
-                    "versions.yml:md5,0bfc384d091cd0b62c696af886df2c74",
-                    "versions.yml:md5,195b81aece6ef2297facddfe7982f3ae",
-                    "versions.yml:md5,ab044221564d1fdd7b4fca018253b58a",
-                    "versions.yml:md5,e0ddd235448fc155982490a373f9d6fb"
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
                 ]
             }
         ],
-        "timestamp": "2026-03-29T13:18:55.833490331",
+        "timestamp": "2026-03-29T13:34:40.022498245",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
