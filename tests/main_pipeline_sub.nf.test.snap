@@ -1,7 +1,7 @@
 {
     "Should be able to perform subclustering": {
         "content": [
-            289,
+            291,
             {
                 "ADATA_EXTEND": {
                     "anndata": "0.12.10",
@@ -183,6 +183,8 @@
                 "per_group/condition:combat-SRR28679756-0.5_leiden:7/characteristic_genes",
                 "per_group/condition:combat-SRR28679756-0.5_leiden:8",
                 "per_group/condition:combat-SRR28679756-0.5_leiden:8/characteristic_genes",
+                "per_group/condition:combat-SRR28679756-0.5_leiden:9",
+                "per_group/condition:combat-SRR28679756-0.5_leiden:9/characteristic_genes",
                 "per_group/condition:combat-SRR28679756-1.0_leiden:0",
                 "per_group/condition:combat-SRR28679756-1.0_leiden:0/characteristic_genes",
                 "per_group/condition:combat-SRR28679756-1.0_leiden:1",
@@ -197,6 +199,8 @@
                 "per_group/condition:combat-SRR28679756-1.0_leiden:13/characteristic_genes",
                 "per_group/condition:combat-SRR28679756-1.0_leiden:14",
                 "per_group/condition:combat-SRR28679756-1.0_leiden:14/characteristic_genes",
+                "per_group/condition:combat-SRR28679756-1.0_leiden:15",
+                "per_group/condition:combat-SRR28679756-1.0_leiden:15/characteristic_genes",
                 "per_group/condition:combat-SRR28679756-1.0_leiden:2",
                 "per_group/condition:combat-SRR28679756-1.0_leiden:2/characteristic_genes",
                 "per_group/condition:combat-SRR28679756-1.0_leiden:3",
@@ -589,9 +593,9 @@
                 "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f"
             ]
         ],
-        "timestamp": "2026-03-26T09:48:21.621218",
+        "timestamp": "2026-03-29T10:17:32.99372406",
         "meta": {
-            "nf-test": "0.9.5",
+            "nf-test": "0.9.4",
             "nextflow": "25.10.4"
         }
     }
