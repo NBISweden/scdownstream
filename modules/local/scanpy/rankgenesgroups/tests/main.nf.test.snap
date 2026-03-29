@@ -172,7 +172,7 @@
                         {
                             "id": "test"
                         },
-                        "test_characteristic_genes.h5ad:md5,557ccc34f354c9c0b8b74dedd4550688"
+                        "test_characteristic_genes.h5ad:md5,d8ad5714c35d2bda2f6ddefb99ec6a81"
                     ]
                 ],
                 "1": [
@@ -192,7 +192,7 @@
                         {
                             "id": "test"
                         },
-                        "test_characteristic_genes.h5ad:md5,557ccc34f354c9c0b8b74dedd4550688"
+                        "test_characteristic_genes.h5ad:md5,d8ad5714c35d2bda2f6ddefb99ec6a81"
                     ]
                 ],
                 "multiqc_files": [
@@ -260,10 +260,10 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-29T11:19:18.847060178",
+        "timestamp": "2026-03-29T17:51:08.826799",
         "meta": {
-            "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
         }
     }
 }
