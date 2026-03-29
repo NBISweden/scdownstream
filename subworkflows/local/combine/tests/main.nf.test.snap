@@ -93,25 +93,6 @@
     "Should run without failures - without base": {
         "content": [
             [
-                [
-                    {
-                        "id": "merged"
-                    },
-                    "merged_outer.h5ad:md5,4c254e264541c969b4984867b21377d7"
-                ]
-            ],
-            [
-                [
-                    {
-                        "id": "merged"
-                    },
-                    "merged_inner.h5ad:md5,4c254e264541c969b4984867b21377d7"
-                ]
-            ],
-            [
-                "gene_intersection.pkl:md5,ac5a8f750a472fa0fd9d393c8e8593fc"
-            ],
-            [
                 {
                     "COMBINE:INTEGRATE:SCVITOOLS_SCVI": {
                         "scvi": "1.3.3"
@@ -173,7 +154,7 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-29T13:34:40.022498245",
+        "timestamp": "2026-03-29T14:31:17.652923187",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

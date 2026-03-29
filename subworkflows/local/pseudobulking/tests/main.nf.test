@@ -36,6 +36,7 @@ nextflow_workflow {
             }
             assert snapshot(
                 workflow.out,
+                workflow.out.versions.collect { path(it).yaml },
                 adata.yaml
             ).match()
         }

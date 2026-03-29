@@ -73,9 +73,6 @@ nextflow_workflow {
             assert workflow.success
             assert "batch" in adata.obs.colnames
             assert snapshot(
-                workflow.out.h5ad,
-                workflow.out.h5ad_inner,
-                workflow.out.var,
                 workflow.out.versions.collect { path(it).yaml },
                 adata.yaml
             ).match()

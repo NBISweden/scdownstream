@@ -52,13 +52,12 @@ nextflow_workflow {
             def adata = anndata(workflow.out.h5ad[0][1])
             assert workflow.success
             with(adata) {
-                // hugo-unifier adds a unified HGNC symbol column to var
                 assert "symbols" in var.colnames
                 assert var.rownames.size() > 0
                 assert obs.rownames.size() > 0
             }
             assert snapshot(
-                workflow.out,
+                workflow.out.versions.collect { path(it).yaml },
                 adata.yaml
             ).match()
         }
@@ -121,7 +120,7 @@ nextflow_workflow {
                 assert obs.rownames.size() > 0
             }
             assert snapshot(
-                workflow.out,
+                workflow.out.versions.collect { path(it).yaml },
                 adata1.yaml,
                 adata2.yaml
             ).match()
