@@ -117,9 +117,48 @@
                     "scanpy": "1.12"
                 }
             },
-            "n_obs: 7373\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - leiden\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\nobsm:\n  - X_pca\nvarm:\n  - X_pca\nobsp:\n  - connectivities\n  - distances\nvarp:\nuns:\n  - X_pca\n  - leiden\n  - log1p\n  - neighbors\n  - rank_genes_groups\n"
+            {
+                "n_obs": 7373,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "leiden",
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    "X_pca"
+                ],
+                "varm": [
+                    "X_pca"
+                ],
+                "obsp": [
+                    "connectivities",
+                    "distances"
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    "X_pca",
+                    "leiden",
+                    "log1p",
+                    "neighbors",
+                    "rank_genes_groups"
+                ]
+            }
         ],
-        "timestamp": "2026-03-28T17:38:32.692483999",
+        "timestamp": "2026-03-29T11:17:32.94515289",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -176,9 +215,52 @@
                     "scanpy": "1.12"
                 }
             },
-            "n_obs: 4386\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - batch\n    - condition\n    - label\n    - leiden\n    - sample\n    - sample_original\nvar:\n  index: _index\n  columns:\n    - symbols\nlayers:\nobsm:\n  - X_pca\nvarm:\n  - PCs\nobsp:\n  - connectivities\n  - distances\nvarp:\nuns:\n  - leiden\n  - log1p\n  - neighbors\n  - pca\n  - rank_genes_groups\n"
+            {
+                "n_obs": 4386,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "leiden",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    "X_pca"
+                ],
+                "varm": [
+                    "PCs"
+                ],
+                "obsp": [
+                    "connectivities",
+                    "distances"
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    "leiden",
+                    "log1p",
+                    "neighbors",
+                    "pca",
+                    "rank_genes_groups"
+                ]
+            }
         ],
-        "timestamp": "2026-03-28T17:39:26.160880497",
+        "timestamp": "2026-03-29T11:19:18.847060178",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

@@ -116,9 +116,62 @@
                 "versions.yml:md5,a6c1e0a77e0d31423a9d77edba85127d",
                 "versions.yml:md5,d28b65c4c18c54e1abc34040b584b823"
             ],
-            "n_obs: 12940\nn_vars: 2077\nobs:\n  index: _index\n  columns:\n    - batch\n    - n_counts\n    - n_genes\n    - n_genes_by_counts\n    - pct_counts_mt\n    - total_counts\n    - total_counts_mt\nvar:\n  index: _index\n  columns:\n    - dispersions\n    - dispersions_norm\n    - highly_variable\n    - mean_counts\n    - means\n    - mt\n    - n_cells\n    - n_cells_by_counts\n    - n_counts\n    - pct_dropout_by_counts\n    - symbols\n    - total_counts\nlayers:\n  - counts\nobsm:\n  - X_emb\n  - X_pca\nvarm:\n  - PCs\nobsp:\nvarp:\nuns:\n  - hvg\n  - log1p\n  - pca\n"
+            {
+                "n_obs": 12940,
+                "n_vars": 2077,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "n_counts",
+                        "n_genes",
+                        "n_genes_by_counts",
+                        "pct_counts_mt",
+                        "total_counts",
+                        "total_counts_mt"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "dispersions",
+                        "dispersions_norm",
+                        "highly_variable",
+                        "mean_counts",
+                        "means",
+                        "mt",
+                        "n_cells",
+                        "n_cells_by_counts",
+                        "n_counts",
+                        "pct_dropout_by_counts",
+                        "symbols",
+                        "total_counts"
+                    ]
+                },
+                "layers": [
+                    "counts"
+                ],
+                "obsm": [
+                    "X_emb",
+                    "X_pca"
+                ],
+                "varm": [
+                    "PCs"
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    "hvg",
+                    "log1p",
+                    "pca"
+                ]
+            }
         ],
-        "timestamp": "2026-03-25T15:50:43.745384682",
+        "timestamp": "2026-03-29T11:24:13.787124189",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -237,9 +290,60 @@
                 "versions.yml:md5,d28b65c4c18c54e1abc34040b584b823",
                 "versions.yml:md5,f838f281f13db0dd578a991df1d8b57c"
             ],
-            "n_obs: 12940\nn_vars: 2077\nobs:\n  index: _index\n  columns:\n    - batch\n    - n_counts\n    - n_genes\n    - n_genes_by_counts\n    - pct_counts_mt\n    - total_counts\n    - total_counts_mt\nvar:\n  index: _index\n  columns:\n    - dispersions\n    - dispersions_norm\n    - highly_variable\n    - mean_counts\n    - means\n    - mt\n    - n_cells\n    - n_cells_by_counts\n    - n_counts\n    - pct_dropout_by_counts\n    - symbols\n    - total_counts\nlayers:\n  - counts\nobsm:\n  - X_emb\nvarm:\nobsp:\nvarp:\nuns:\n  - hvg\n  - log1p\n"
+            {
+                "n_obs": 12940,
+                "n_vars": 2077,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "n_counts",
+                        "n_genes",
+                        "n_genes_by_counts",
+                        "pct_counts_mt",
+                        "total_counts",
+                        "total_counts_mt"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "dispersions",
+                        "dispersions_norm",
+                        "highly_variable",
+                        "mean_counts",
+                        "means",
+                        "mt",
+                        "n_cells",
+                        "n_cells_by_counts",
+                        "n_counts",
+                        "pct_dropout_by_counts",
+                        "symbols",
+                        "total_counts"
+                    ]
+                },
+                "layers": [
+                    "counts"
+                ],
+                "obsm": [
+                    "X_emb"
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    "hvg",
+                    "log1p"
+                ]
+            }
         ],
-        "timestamp": "2026-03-25T15:47:16.180497374",
+        "timestamp": "2026-03-29T11:19:08.193313955",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -252,9 +356,63 @@
                 "versions.yml:md5,ccf730637c4c61a84ac4a002bf9832e0",
                 "versions.yml:md5,d28b65c4c18c54e1abc34040b584b823"
             ],
-            "n_obs: 12940\nn_vars: 2077\nobs:\n  index: _index\n  columns:\n    - batch\n    - n_counts\n    - n_genes\n    - n_genes_by_counts\n    - pct_counts_mt\n    - total_counts\n    - total_counts_mt\nvar:\n  index: _index\n  columns:\n    - dispersions\n    - dispersions_norm\n    - highly_variable\n    - mean_counts\n    - means\n    - mt\n    - n_cells\n    - n_cells_by_counts\n    - n_counts\n    - pct_dropout_by_counts\n    - symbols\n    - total_counts\nlayers:\n  - counts\nobsm:\n  - X_pca\nvarm:\n  - PCs\nobsp:\n  - connectivities\n  - distances\nvarp:\nuns:\n  - hvg\n  - log1p\n  - neighbors\n  - pca\n"
+            {
+                "n_obs": 12940,
+                "n_vars": 2077,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "n_counts",
+                        "n_genes",
+                        "n_genes_by_counts",
+                        "pct_counts_mt",
+                        "total_counts",
+                        "total_counts_mt"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "dispersions",
+                        "dispersions_norm",
+                        "highly_variable",
+                        "mean_counts",
+                        "means",
+                        "mt",
+                        "n_cells",
+                        "n_cells_by_counts",
+                        "n_counts",
+                        "pct_dropout_by_counts",
+                        "symbols",
+                        "total_counts"
+                    ]
+                },
+                "layers": [
+                    "counts"
+                ],
+                "obsm": [
+                    "X_pca"
+                ],
+                "varm": [
+                    "PCs"
+                ],
+                "obsp": [
+                    "connectivities",
+                    "distances"
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    "hvg",
+                    "log1p",
+                    "neighbors",
+                    "pca"
+                ]
+            }
         ],
-        "timestamp": "2026-03-25T15:49:08.65878862",
+        "timestamp": "2026-03-29T11:22:31.479708062",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

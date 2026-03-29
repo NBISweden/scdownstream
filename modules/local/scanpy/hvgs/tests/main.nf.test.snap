@@ -7,9 +7,46 @@
                     "scanpy": "1.12"
                 }
             },
-            "n_obs: 38234\nn_vars: 100\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\n    - dispersions\n    - dispersions_norm\n    - highly_variable\n    - means\nlayers:\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n  - hvg\n  - log1p\n"
+            {
+                "n_obs": 38234,
+                "n_vars": 100,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "dispersions",
+                        "dispersions_norm",
+                        "highly_variable",
+                        "means"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    "hvg",
+                    "log1p"
+                ]
+            }
         ],
-        "timestamp": "2026-03-25T15:44:54.05696891",
+        "timestamp": "2026-03-29T11:18:05.314404083",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -23,9 +60,46 @@
                     "scanpy": "1.12"
                 }
             },
-            "n_obs: 38234\nn_vars: 251\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\n    - dispersions\n    - dispersions_norm\n    - highly_variable\n    - means\nlayers:\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n  - hvg\n  - log1p\n"
+            {
+                "n_obs": 38234,
+                "n_vars": 251,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "dispersions",
+                        "dispersions_norm",
+                        "highly_variable",
+                        "means"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    "hvg",
+                    "log1p"
+                ]
+            }
         ],
-        "timestamp": "2026-03-25T15:44:22.933975481",
+        "timestamp": "2026-03-29T11:17:05.806436168",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -78,9 +152,46 @@
                     "scanpy": "1.12"
                 }
             },
-            "n_obs: 38234\nn_vars: 100\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\n    - dispersions\n    - dispersions_norm\n    - highly_variable\n    - means\nlayers:\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n  - hvg\n  - log1p\n"
+            {
+                "n_obs": 38234,
+                "n_vars": 100,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "dispersions",
+                        "dispersions_norm",
+                        "highly_variable",
+                        "means"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    "hvg",
+                    "log1p"
+                ]
+            }
         ],
-        "timestamp": "2026-03-25T15:45:40.075913692",
+        "timestamp": "2026-03-29T11:19:17.695541068",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

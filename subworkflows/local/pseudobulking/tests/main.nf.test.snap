@@ -58,9 +58,44 @@
                     "versions.yml:md5,7629f78da2c667f7f5975f67b4cc521c"
                 ]
             },
-            "n_obs: 3\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - cells\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\n  - count_nonzero\n  - sum\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
+            {
+                "n_obs": 3,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "cells",
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    "count_nonzero",
+                    "sum"
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
+            }
         ],
-        "timestamp": "2026-03-28T18:09:14.725182453",
+        "timestamp": "2026-03-29T11:18:26.343309887",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

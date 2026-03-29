@@ -42,9 +42,42 @@
                     "Seurat": "5.4.0"
                 }
             },
-            "n_obs: 7373\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
+            {
+                "n_obs": 7373,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
+            }
         ],
-        "timestamp": "2026-03-28T17:53:34.957086995",
+        "timestamp": "2026-03-29T11:17:40.208088329",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -60,9 +93,42 @@
                     "Seurat": "5.4.0"
                 }
             },
-            "n_obs: 7373\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\n  - ambient_corrected_soupx\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
+            {
+                "n_obs": 7373,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    "ambient_corrected_soupx"
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
+            }
         ],
-        "timestamp": "2026-03-28T17:54:16.513364716",
+        "timestamp": "2026-03-29T11:21:01.296297672",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

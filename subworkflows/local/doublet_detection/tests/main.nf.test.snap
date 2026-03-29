@@ -18,9 +18,42 @@
                     }
                 }
             ],
-            "n_obs: 5968\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
+            {
+                "n_obs": 5968,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
+            }
         ],
-        "timestamp": "2026-03-28T19:43:37.850974576",
+        "timestamp": "2026-03-29T11:19:54.674217844",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

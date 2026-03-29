@@ -32,9 +32,44 @@
                     "scimilarity": "0.4.1"
                 }
             },
-            "n_obs: 3\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - cells\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\n  - count_nonzero\n  - sum\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
+            {
+                "n_obs": 3,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "cells",
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    "count_nonzero",
+                    "sum"
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
+            }
         ],
-        "timestamp": "2026-03-28T17:48:52.497299288",
+        "timestamp": "2026-03-29T11:18:26.581328121",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -73,9 +108,45 @@
                     "scimilarity": "0.4.1"
                 }
             },
-            "n_obs: 43\nn_vars: 9887\nobs:\n  index: _index\n  columns:\n    - cells\n    - leiden\n    - sample\nvar:\n  index: _index\n  columns:\nlayers:\n  - count_nonzero\n  - sum\nobsm:\nvarm:\nobsp:\nvarp:\nuns:\n"
+            {
+                "n_obs": 43,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "cells",
+                        "leiden",
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    "count_nonzero",
+                    "sum"
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
+            }
         ],
-        "timestamp": "2026-03-28T17:49:47.066833253",
+        "timestamp": "2026-03-29T11:20:35.310554907",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

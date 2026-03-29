@@ -41,9 +41,59 @@
                     "anndataR": "1.0.2"
                 }
             },
-            "n_obs: 27350\nn_vars: 100\nobs:\n  index: _index\n  columns:\n    - n_counts\n    - n_genes\n    - n_genes_by_counts\n    - pct_counts_mt\n    - sample\n    - total_counts\n    - total_counts_mt\nvar:\n  index: _index\n  columns:\n    - dispersions\n    - dispersions_norm\n    - highly_variable\n    - mean_counts\n    - means\n    - mt\n    - n_cells\n    - n_cells_by_counts\n    - n_counts\n    - pct_dropout_by_counts\n    - total_counts\nlayers:\nobsm:\n  - X_emb\nvarm:\nobsp:\nvarp:\nuns:\n  - hvg\n  - log1p\n"
+            {
+                "n_obs": 27350,
+                "n_vars": 100,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "n_counts",
+                        "n_genes",
+                        "n_genes_by_counts",
+                        "pct_counts_mt",
+                        "sample",
+                        "total_counts",
+                        "total_counts_mt"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "dispersions",
+                        "dispersions_norm",
+                        "highly_variable",
+                        "mean_counts",
+                        "means",
+                        "mt",
+                        "n_cells",
+                        "n_cells_by_counts",
+                        "n_counts",
+                        "pct_dropout_by_counts",
+                        "total_counts"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    "X_emb"
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    "hvg",
+                    "log1p"
+                ]
+            }
         ],
-        "timestamp": "2026-03-25T15:46:39.138426369",
+        "timestamp": "2026-03-29T11:22:37.77182437",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
