@@ -14,7 +14,7 @@
                     "X_test_pca.pkl:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "2": [
-                    "versions.yml:md5,dc1add0c140202bbbef205a9cc48e097"
+                    "versions.yml:md5,85b9ff36f73e94f430edad4b394ba258"
                 ],
                 "h5ad": [
                     [
@@ -28,13 +28,13 @@
                     "X_test_pca.pkl:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "versions": [
-                    "versions.yml:md5,dc1add0c140202bbbef205a9cc48e097"
+                    "versions.yml:md5,85b9ff36f73e94f430edad4b394ba258"
                 ]
             }
         ],
-        "timestamp": "2026-03-30T07:53:20.208532988",
+        "timestamp": "2026-03-30T10:39:25.66784",
         "meta": {
-            "nf-test": "0.9.4",
+            "nf-test": "0.9.5",
             "nextflow": "25.10.4"
         }
     },

@@ -145,59 +145,6 @@
             "nextflow": "25.10.2"
         }
     },
-    "Should run without failures - symbol_col index, unify_gene_symbols false, snapshot stability": {
-        "content": [
-            {
-                "0": [
-                    [
-                        {
-                            "id": "test",
-                            "symbol_col": "index",
-                            "batch_col": "batch",
-                            "label_col": "label",
-                            "condition_col": "condition",
-                            "unknown_label": "unknown",
-                            "counts_layer": "X"
-                        },
-                        "test_unified.h5ad:md5,634cda43f3cc2ce7ffeddcd8cb0a1e76"
-                    ]
-                ],
-                "1": [
-                    
-                ],
-                "2": [
-                    "versions.yml:md5,56975dcf8aab71705ad7f822233409b8",
-                    "versions.yml:md5,f4baeb211a033b2534fb83ba7ec2cd86"
-                ],
-                "h5ad": [
-                    [
-                        {
-                            "id": "test",
-                            "symbol_col": "index",
-                            "batch_col": "batch",
-                            "label_col": "label",
-                            "condition_col": "condition",
-                            "unknown_label": "unknown",
-                            "counts_layer": "X"
-                        },
-                        "test_unified.h5ad:md5,634cda43f3cc2ce7ffeddcd8cb0a1e76"
-                    ]
-                ],
-                "multiqc_files": [
-                    
-                ],
-                "versions": [
-                    "versions.yml:md5,56975dcf8aab71705ad7f822233409b8",
-                    "versions.yml:md5,f4baeb211a033b2534fb83ba7ec2cd86"
-                ]
-            }
-        ],
-        "timestamp": "2026-03-16T16:28:57.027859362",
-        "meta": {
-            "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
-        }
-    },
     "Should run without failures - symbol_col index, unify_gene_symbols true": {
         "content": [
             {
