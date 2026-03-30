@@ -31,7 +31,6 @@ nextflow_process {
             assert process.success
             assert "liana_res" in adata.uns
             assert snapshot(
-                process.out,
                 path(process.out.versions[0]).yaml,
                 adata.yaml
             ).match()

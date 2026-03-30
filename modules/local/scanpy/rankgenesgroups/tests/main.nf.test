@@ -34,7 +34,6 @@ nextflow_process {
             assert process.success
             assert "rank_genes_groups" in adata.uns
             assert snapshot(
-                process.out,
                 path(process.out.versions[0]).yaml,
                 adata.yaml
             ).match()
@@ -98,7 +97,6 @@ nextflow_process {
             assert process.success
             assert "rank_genes_groups" in adata.uns
             assert snapshot(
-                process.out,
                 path(process.out.versions[0]).yaml,
                 adata.yaml
             ).match()

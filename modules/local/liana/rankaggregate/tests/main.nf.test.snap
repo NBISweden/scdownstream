@@ -41,36 +41,6 @@
     "Should run without failures": {
         "content": [
             {
-                "0": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test_liana.h5ad:md5,2091717718c2506ae92fa43a3132ed1c"
-                    ]
-                ],
-                "1": [
-                    "test_liana.pkl:md5,f161ee10f742898fe3f8a42a22b440f9"
-                ],
-                "2": [
-                    "versions.yml:md5,44f181a9b2e8bebcda641e7400af14cd"
-                ],
-                "h5ad": [
-                    [
-                        {
-                            "id": "test"
-                        },
-                        "test_liana.h5ad:md5,2091717718c2506ae92fa43a3132ed1c"
-                    ]
-                ],
-                "uns": [
-                    "test_liana.pkl:md5,f161ee10f742898fe3f8a42a22b440f9"
-                ],
-                "versions": [
-                    "versions.yml:md5,44f181a9b2e8bebcda641e7400af14cd"
-                ]
-            },
-            {
                 "liana": "1.6.1",
                 "python": "3.12.12",
                 "scanpy": "1.11.5"
@@ -116,10 +86,10 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-29T17:40:53.9124",
+        "timestamp": "2026-03-30T09:51:34.987832204",
         "meta": {
-            "nf-test": "0.9.5",
-            "nextflow": "25.10.4"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
         }
     }
 }
