@@ -107,8 +107,7 @@
     "Should run with 'cellbender' ambient correction to 'X'": {
         "content": [
             [
-                "versions.yml:md5,1d70371b0f0ca5e50f7ba70335f8946f",
-                "versions.yml:md5,e6e98e83cbc9a2924c66e901445bbc4f"
+                
             ],
             {
                 "n_obs": 7373,
@@ -145,7 +144,7 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-29T11:32:46.973630904",
+        "timestamp": "2026-03-30T08:50:28.315741473",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -307,8 +306,7 @@
     "Should run with 'cellbender' ambient correction": {
         "content": [
             [
-                "versions.yml:md5,1d70371b0f0ca5e50f7ba70335f8946f",
-                "versions.yml:md5,e6e98e83cbc9a2924c66e901445bbc4f"
+                
             ],
             {
                 "n_obs": 7373,
@@ -345,7 +343,7 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-29T11:27:11.134006387",
+        "timestamp": "2026-03-30T08:42:11.218749814",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
