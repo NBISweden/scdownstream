@@ -17,13 +17,11 @@ workflow SINGLER {
 
     CELLDEX_FETCHREFERENCE (
         ch_reference.names
-            .map {
-                meta, ref -> {
+            .map { meta, ref ->
                 if (!meta.version) {
                     error "If you specify a celldex reference, you also need to specify a version"
                 }
-                return [meta, ref, meta.version]
-                }
+                [meta, ref, meta.version]
             }
     )
     ch_versions = ch_versions.mix(CELLDEX_FETCHREFERENCE.out.versions)

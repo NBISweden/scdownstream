@@ -1,7 +1,6 @@
 {
     "Should process data from scratch": {
         "content": [
-            57,
             {
                 "ADATA_READRDS": {
                     "anndata": "0.11.1",
@@ -9,12 +8,6 @@
                     "rpy2": "3.5.11",
                     "pandas": "2.2.3",
                     "seurat": "5.1.0"
-                },
-                "ADATA_UNIFY": {
-                    "anndata": "0.12.10",
-                    "numpy": "2.3.5",
-                    "python": "3.13.12",
-                    "scipy": "1.17.1"
                 },
                 "CELDA_DECONTX": {
                     "r": "4.5.3",
@@ -28,45 +21,7 @@
                     "SingleCellExperiment": "1.28.0",
                     "HDF5Array": "1.34.0"
                 },
-                "CELLTYPES_CELLTYPIST": {
-                    "python": "3.12.8",
-                    "pandas": "2.2.3",
-                    "scanpy": "1.10.4",
-                    "celltypist": "1.6.3"
-                },
-                "CELLTYPES_SINGLER": {
-                    "R": "R version 4.5.3 (2026-03-11)",
-                    "SingleR": "2.12.0",
-                    "celldex": "1.20.0",
-                    "anndataR": "1.0.2",
-                    "ggplot2": "4.0.2"
-                },
-                "COLLECT_SIZES": {
-                    "pandas": "2.3.3",
-                    "python": "3.13.12"
-                },
-                "DOUBLET_REMOVAL": {
-                    "anndata": "0.12.10",
-                    "matplotlib": "3.10.8",
-                    "pandas": "2.3.3",
-                    "python": "3.13.12",
-                    "upsetplot": "0.9.0"
-                },
-                "FINALIZE_QC_ANNDATAS": {
-                    "anndata": "0.12.10",
-                    "numpy": "2.3.5",
-                    "pandas": "2.3.3",
-                    "python": "3.13.12"
-                },
-                "GET_DEDOUBLETED_SIZE": {
-                    "python": "3.13.0",
-                    "anndata": "0.10.9"
-                },
                 "GET_FILTERED_SIZE": {
-                    "python": "3.13.0",
-                    "anndata": "0.10.9"
-                },
-                "GET_THRESHOLDED_SIZE": {
                     "python": "3.13.0",
                     "anndata": "0.10.9"
                 },
@@ -74,104 +29,22 @@
                     "python": "3.13.0",
                     "anndata": "0.10.9"
                 },
-                "QC_FILTERED": {
-                    "matplotlib": "3.10.8",
-                    "python": "3.13.12",
-                    "scanpy": "1.12"
-                },
-                "QC_RAW": {
-                    "matplotlib": "3.10.8",
-                    "python": "3.13.12",
-                    "scanpy": "1.12"
-                },
-                "SCANPY_CELLCYCLE": {
-                    "python": "3.13.12",
-                    "scanpy": "1.12"
-                },
-                "SCANPY_FILTER": {
-                    "python": "3.13.12",
-                    "scanpy": "1.12"
-                },
-                "SCANPY_SCRUBLET": {
-                    "python": "3.12.11",
-                    "scanpy": "1.11.2"
-                },
-                "UPSET_GENES": {
-                    "anndata": "0.12.10",
-                    "matplotlib": "3.10.8",
-                    "python": "3.13.12",
-                    "upsetplot": "0.9.0"
-                },
                 "Workflow": {
                     "nf-core/scdownstream": "v0.0.1dev"
                 }
             },
             [
-                "celltypes",
-                "celltypes/singler",
-                "celltypes/singler/SRR28679756_singler_hpca_celldex_distribution.pdf",
-                "celltypes/singler/SRR28679756_singler_hpca_celldex_heatmap.pdf",
-                "celltypes/singler/SRR28679756_singler_hpca_direct_distribution.pdf",
-                "celltypes/singler/SRR28679756_singler_hpca_direct_heatmap.pdf",
-                "celltypes/singler/SRR28679756_singler_immune_celldex_distribution.pdf",
-                "celltypes/singler/SRR28679756_singler_immune_celldex_heatmap.pdf",
-                "celltypes/singler/SRR28679756_singler_immune_direct_distribution.pdf",
-                "celltypes/singler/SRR28679756_singler_immune_direct_heatmap.pdf",
-                "celltypes/singler/SRR28679756_singler_predictions.csv",
-                "celltypes/singler/SRR28679757_singler_hpca_celldex_distribution.pdf",
-                "celltypes/singler/SRR28679757_singler_hpca_celldex_heatmap.pdf",
-                "celltypes/singler/SRR28679757_singler_hpca_direct_distribution.pdf",
-                "celltypes/singler/SRR28679757_singler_hpca_direct_heatmap.pdf",
-                "celltypes/singler/SRR28679757_singler_immune_celldex_distribution.pdf",
-                "celltypes/singler/SRR28679757_singler_immune_celldex_heatmap.pdf",
-                "celltypes/singler/SRR28679757_singler_immune_direct_distribution.pdf",
-                "celltypes/singler/SRR28679757_singler_immune_direct_heatmap.pdf",
-                "celltypes/singler/SRR28679757_singler_predictions.csv",
-                "celltypes/singler/SRR28679758_singler_hpca_celldex_distribution.pdf",
-                "celltypes/singler/SRR28679758_singler_hpca_celldex_heatmap.pdf",
-                "celltypes/singler/SRR28679758_singler_hpca_direct_distribution.pdf",
-                "celltypes/singler/SRR28679758_singler_hpca_direct_heatmap.pdf",
-                "celltypes/singler/SRR28679758_singler_immune_celldex_distribution.pdf",
-                "celltypes/singler/SRR28679758_singler_immune_celldex_heatmap.pdf",
-                "celltypes/singler/SRR28679758_singler_immune_direct_distribution.pdf",
-                "celltypes/singler/SRR28679758_singler_immune_direct_heatmap.pdf",
-                "celltypes/singler/SRR28679758_singler_predictions.csv",
-                "combine",
-                "combine/merge",
-                "combine/merge/upset_genes.png",
-                "multiqc",
-                "multiqc/multiqc_data",
-                "multiqc/multiqc_data/llms-full.txt",
-                "multiqc/multiqc_data/multiqc.log",
-                "multiqc/multiqc_data/multiqc.parquet",
-                "multiqc/multiqc_data/multiqc_citations.txt",
-                "multiqc/multiqc_data/multiqc_data.json",
-                "multiqc/multiqc_data/multiqc_sizes.txt",
-                "multiqc/multiqc_data/multiqc_software_versions.txt",
-                "multiqc/multiqc_data/multiqc_sources.txt",
-                "multiqc/multiqc_report.html",
                 "pipeline_info",
-                "pipeline_info/nf_core_scdownstream_software_mqc_versions.yml",
-                "quality_control",
-                "quality_control/qc_filtered",
-                "quality_control/qc_filtered/SRR28679756_preprocessed_total_counts_vs_n_genes_by_counts.png",
-                "quality_control/qc_filtered/SRR28679757_preprocessed_total_counts_vs_n_genes_by_counts.png",
-                "quality_control/qc_filtered/SRR28679758_preprocessed_total_counts_vs_n_genes_by_counts.png",
-                "quality_control/qc_raw",
-                "quality_control/qc_raw/SRR28679756_raw_total_counts_vs_n_genes_by_counts.png",
-                "quality_control/qc_raw/SRR28679757_raw_total_counts_vs_n_genes_by_counts.png",
-                "quality_control/qc_raw/SRR28679758_raw_total_counts_vs_n_genes_by_counts.png",
-                "quality_control/sizes",
-                "quality_control/sizes/sizes.tsv"
+                "pipeline_info/nf_core_scdownstream_software_mqc_versions.yml"
             ],
             [
-                "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f"
+                
             ]
         ],
-        "timestamp": "2026-03-30T12:30:59.441635",
+        "timestamp": "2026-03-30T21:34:25.526334913",
         "meta": {
-            "nf-test": "0.9.5",
-            "nextflow": "25.10.4"
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
         }
     }
 }
