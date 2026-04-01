@@ -56,11 +56,6 @@
                     "pandas": "2.3.3",
                     "python": "3.13.12"
                 },
-                "DOUBLETDETECTION": {
-                    "anndata": "0.11.4",
-                    "doubletdetection": "4.3.0.post1",
-                    "python": "3.13.3"
-                },
                 "DOUBLET_REMOVAL": {
                     "anndata": "0.12.10",
                     "matplotlib": "3.10.8",
@@ -134,6 +129,10 @@
                     "python": "3.13.12",
                     "scanpy": "1.12"
                 },
+                "SCANPY_SCRUBLET": {
+                    "python": "3.12.11",
+                    "scanpy": "1.11.2"
+                },
                 "SCVITOOLS_SCVI": {
                     "scvi": "1.3.3"
                 },
@@ -187,16 +186,6 @@
                 "finalized/merged.rds",
                 "finalized/merged_metadata.csv",
                 "multiqc",
-                "multiqc/multiqc_data",
-                "multiqc/multiqc_data/llms-full.txt",
-                "multiqc/multiqc_data/multiqc.log",
-                "multiqc/multiqc_data/multiqc.parquet",
-                "multiqc/multiqc_data/multiqc_citations.txt",
-                "multiqc/multiqc_data/multiqc_data.json",
-                "multiqc/multiqc_data/multiqc_sizes.txt",
-                "multiqc/multiqc_data/multiqc_software_versions.txt",
-                "multiqc/multiqc_data/multiqc_sources.txt",
-                "multiqc/multiqc_report.html",
                 "per_group",
                 "pipeline_info",
                 "pipeline_info/nf_core_scdownstream_software_mqc_versions.yml",
@@ -229,7 +218,7 @@
                 "qc-report.qmd:md5,1f56aafa1a5ca0b10d27f0db34a5c2ff"
             ]
         ],
-        "timestamp": "2026-03-22T18:03:53.563393217",
+        "timestamp": "2026-03-31T19:27:24.64774367",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "25.10.4"

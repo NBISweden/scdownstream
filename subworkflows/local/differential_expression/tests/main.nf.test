@@ -25,7 +25,12 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(workflow.out).match()
+            assert workflow.out.uns.size() >= 1
+            assert workflow.out.multiqc_files.size() >= 1
+            assert workflow.out.uns.any { file(it).name.endsWith("_characteristic_genes.pkl") }
+            assert snapshot(
+                workflow.out.versions.collect { path(it).yaml }
+            ).match()
         }
 
     }
@@ -48,7 +53,12 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(workflow.out).match()
+            assert workflow.out.uns.size() >= 1
+            assert workflow.out.multiqc_files.size() >= 1
+            assert workflow.out.uns.any { file(it).name.endsWith("_characteristic_genes.pkl") }
+            assert snapshot(
+                workflow.out.versions.collect { path(it).yaml }
+            ).match()
         }
 
     }

@@ -36,12 +36,52 @@
                 "versions": [
                     "versions.yml:md5,3d07e17bd07e6c00aca3a44b734c7932"
                 ]
+            },
+            {
+                "ADATA_MERGEEMBEDDINGS": {
+                    "anndata": "0.12.10",
+                    "python": "3.13.12"
+                }
+            },
+            {
+                "n_obs": 80,
+                "n_vars": 100,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "label:scANVI"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    "X_emb"
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:44:44.292571618",
+        "timestamp": "2026-03-29T14:52:29.252580895",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run without failures - stub": {
@@ -126,12 +166,52 @@
                 "versions": [
                     "versions.yml:md5,3d07e17bd07e6c00aca3a44b734c7932"
                 ]
+            },
+            {
+                "ADATA_MERGEEMBEDDINGS": {
+                    "anndata": "0.12.10",
+                    "python": "3.13.12"
+                }
+            },
+            {
+                "n_obs": 80,
+                "n_vars": 100,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    "X_emb"
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:44:33.161545572",
+        "timestamp": "2026-03-29T14:52:09.297927484",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     }
 }

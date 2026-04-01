@@ -30,16 +30,17 @@ nextflow_process {
         }
 
         then {
-            assertAll(
-            { assert process.success },
-            { assert snapshot(process.out.versions).match() },
-            {
-                def obs = anndata(process.out.h5ad[0][1]).obs
+            def adata = anndata(process.out.h5ad[0][1])
+            assert process.success
+            with(adata) {
                 assert "leiden" in obs.colnames
                 def n_clusters = obs.get("leiden").n_unique()
-                assert n_clusters >= 5 && n_clusters <= 30 : "Expected 5–30 Leiden clusters, got ${n_clusters}"
+                assert n_clusters >= 5 && n_clusters <= 30 : "Expected 5-30 Leiden clusters, got ${n_clusters}"
             }
-            )
+            assert snapshot(
+                path(process.out.versions[0]).yaml,
+                adata.yaml
+            ).match()
         }
 
     }
@@ -67,10 +68,9 @@ nextflow_process {
         }
 
         then {
-            assertAll(
-            { assert process.success },
-            { assert snapshot(process.out).match() }
-            )
+            assert process.success
+
+            assert snapshot(process.out).match()
         }
 
     }

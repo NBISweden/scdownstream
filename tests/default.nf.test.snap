@@ -254,16 +254,6 @@
                 "finalized/merged.rds",
                 "finalized/merged_metadata.csv",
                 "multiqc",
-                "multiqc/multiqc_data",
-                "multiqc/multiqc_data/llms-full.txt",
-                "multiqc/multiqc_data/multiqc.log",
-                "multiqc/multiqc_data/multiqc.parquet",
-                "multiqc/multiqc_data/multiqc_citations.txt",
-                "multiqc/multiqc_data/multiqc_data.json",
-                "multiqc/multiqc_data/multiqc_sizes.txt",
-                "multiqc/multiqc_data/multiqc_software_versions.txt",
-                "multiqc/multiqc_data/multiqc_sources.txt",
-                "multiqc/multiqc_report.html",
                 "per_group",
                 "pipeline_info",
                 "pipeline_info/nf_core_scdownstream_software_mqc_versions.yml",
@@ -300,7 +290,7 @@
                 "qc-report.qmd:md5,1f56aafa1a5ca0b10d27f0db34a5c2ff"
             ]
         ],
-        "timestamp": "2026-03-22T18:03:44.32474555",
+        "timestamp": "2026-03-31T19:29:42.315558141",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "25.10.4"

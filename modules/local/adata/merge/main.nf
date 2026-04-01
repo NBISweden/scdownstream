@@ -8,7 +8,7 @@ process ADATA_MERGE {
         'community.wave.seqera.io/library/harmonypy_anndata_leidenalg_numpy_pruned:43066d5f86f18261' }"
 
     input:
-    tuple val(meta),  path(h5ads)
+    tuple val(meta),  path(h5ads, stageAs: 'input/sample_?.h5ad')
     tuple val(meta2), path(base)
 
     output:

@@ -13,7 +13,6 @@ process SCANPY_UMAP {
     output:
     tuple val(meta), path("${prefix}.h5ad"),     emit: h5ad
     path "X_${prefix}.pkl",                      emit: obsm
-    path "variance_ratio_${prefix}.yml",         emit: variance_ratio
     path "versions.yml",                         emit: versions
 
     when:
@@ -29,7 +28,6 @@ process SCANPY_UMAP {
     """
     touch "${prefix}.h5ad"
     touch "X_${prefix}.pkl"
-    touch "variance_ratio_${prefix}.yml"
     touch "versions.yml"
     """
 }

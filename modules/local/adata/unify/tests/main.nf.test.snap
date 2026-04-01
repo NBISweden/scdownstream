@@ -24,12 +24,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:17:15.684411771",
+        "timestamp": "2026-03-29T14:56:53.251161983",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle sample column with different value": {
@@ -57,12 +103,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:19:52.912657028",
+        "timestamp": "2026-03-29T15:01:01.165008808",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle symbols in column": {
@@ -90,12 +182,59 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "original_index",
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:14:30.460619874",
+        "timestamp": "2026-03-29T14:53:06.26109274",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle label column with different name": {
@@ -123,12 +262,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:17:04.588955265",
+        "timestamp": "2026-03-29T14:56:34.900590714",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should create condition column when missing": {
@@ -156,12 +341,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:18:48.352425666",
+        "timestamp": "2026-03-29T14:59:24.088148335",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle label column with unknown values": {
@@ -189,12 +420,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:17:38.16180871",
+        "timestamp": "2026-03-29T14:57:31.870669065",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle duplicates with sum aggregation": {
@@ -222,12 +499,59 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "original_index",
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:14:59.92375867",
+        "timestamp": "2026-03-29T14:53:32.347938099",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should create batch column when missing": {
@@ -255,12 +579,57 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:16:42.291640291",
+        "timestamp": "2026-03-29T14:55:55.84386358",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run without failures - stub": {
@@ -321,12 +690,59 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9937,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "original_index",
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:15:57.903315865",
+        "timestamp": "2026-03-29T14:54:38.882767578",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle condition column with different name": {
@@ -354,12 +770,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:18:22.557718057",
+        "timestamp": "2026-03-29T14:58:45.748755829",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle duplicates with mean aggregation": {
@@ -387,12 +849,59 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "original_index",
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:15:28.4354681",
+        "timestamp": "2026-03-29T14:53:56.526120053",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should aggregate isoforms": {
@@ -420,12 +929,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:16:08.914108958",
+        "timestamp": "2026-03-29T14:54:57.071278012",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle condition column already named condition": {
@@ -453,12 +1008,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:18:35.814191761",
+        "timestamp": "2026-03-29T14:59:04.275089995",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should normalize label column with special characters": {
@@ -486,12 +1087,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:18:01.193993289",
+        "timestamp": "2026-03-29T14:58:09.361409579",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should create label column when missing": {
@@ -519,12 +1166,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:17:26.892769495",
+        "timestamp": "2026-03-29T14:57:12.4063596",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle CSR sparse matrix": {
@@ -552,12 +1245,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:19:12.458275697",
+        "timestamp": "2026-03-29T15:00:01.784544718",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle CSC sparse matrix": {
@@ -585,12 +1324,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:19:26.441833105",
+        "timestamp": "2026-03-29T15:00:21.051026466",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle batch column with different name": {
@@ -618,12 +1403,57 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:16:19.536570356",
+        "timestamp": "2026-03-29T14:55:16.158601868",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle label column with NaN values": {
@@ -651,12 +1481,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:17:49.960531221",
+        "timestamp": "2026-03-29T14:57:50.573060947",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should remove obsm, varm, uns, and layers": {
@@ -684,12 +1560,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:20:17.793802423",
+        "timestamp": "2026-03-29T15:01:41.445930077",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle duplicates with max aggregation": {
@@ -717,12 +1639,59 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "original_index",
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:15:47.399791749",
+        "timestamp": "2026-03-29T14:54:20.647392444",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should create sample column when missing": {
@@ -750,12 +1719,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:20:04.777517593",
+        "timestamp": "2026-03-29T15:01:21.148229802",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle batch column already named batch": {
@@ -783,12 +1798,57 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:16:31.488655855",
+        "timestamp": "2026-03-29T14:55:35.420110559",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle complex structure": {
@@ -816,12 +1876,60 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "gene_id",
+                        "original_index",
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:20:42.731739831",
+        "timestamp": "2026-03-29T15:02:22.64116359",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle counts in layer": {
@@ -849,12 +1957,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:13:51.662484416",
+        "timestamp": "2026-03-29T14:52:30.401577773",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle counts in X matrix": {
@@ -882,12 +2036,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:13:30.614823898",
+        "timestamp": "2026-03-29T14:52:10.928524596",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle symbols as index": {
@@ -915,12 +2115,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:14:12.108232932",
+        "timestamp": "2026-03-29T14:52:48.132443363",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle minimal structure": {
@@ -948,12 +2194,57 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:20:30.122685513",
+        "timestamp": "2026-03-29T15:02:01.13903733",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should handle duplicate cell names": {
@@ -981,12 +2272,58 @@
                 "versions": [
                     "versions.yml:md5,3584046bdacc455c1d7d03d51ded03cb"
                 ]
+            },
+            {
+                "ADATA_UNIFY": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "python": "3.13.12",
+                    "scipy": "1.17.1"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "batch",
+                        "condition",
+                        "label",
+                        "sample",
+                        "sample_original"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:19:39.263298116",
+        "timestamp": "2026-03-29T15:00:41.681029229",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     }
 }

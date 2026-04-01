@@ -14,10 +14,7 @@
                     "X_test_pca.pkl:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "2": [
-                    "variance_ratio_test_pca.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
-                ],
-                "3": [
-                    "versions.yml:md5,85b9ff36f73e94f430edad4b394ba258"
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "h5ad": [
                     [
@@ -30,15 +27,12 @@
                 "obsm": [
                     "X_test_pca.pkl:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
-                "variance_ratio": [
-                    "variance_ratio_test_pca.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
-                ],
                 "versions": [
-                    "versions.yml:md5,85b9ff36f73e94f430edad4b394ba258"
+                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ]
             }
         ],
-        "timestamp": "2026-03-23T16:45:50.5285",
+        "timestamp": "2026-04-01T15:10:58.212224761",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "25.10.4"
@@ -47,68 +41,48 @@
     "Should run without failures": {
         "content": [
             {
-                "variance_ratio": [
-                    0.724,
-                    0.028,
-                    0.02,
-                    0.014,
-                    0.008,
-                    0.006,
-                    0.004,
-                    0.004,
-                    0.003,
-                    0.003,
-                    0.003,
-                    0.002,
-                    0.002,
-                    0.002,
-                    0.002,
-                    0.002,
-                    0.002,
-                    0.002,
-                    0.002,
-                    0.002,
-                    0.002,
-                    0.002,
-                    0.002,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001,
-                    0.001
-                ]
-            },
-            {
                 "SCANPY_PCA": {
                     "pandas": "2.3.3",
                     "python": "3.13.12",
                     "scanpy": "1.12"
                 }
+            },
+            {
+                "n_obs": 38234,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+
+                    ]
+                },
+                "layers": [
+
+                ],
+                "obsm": [
+                    "X_pca"
+                ],
+                "varm": [
+                    "X_pca"
+                ],
+                "obsp": [
+
+                ],
+                "varp": [
+
+                ],
+                "uns": [
+                    "X_pca"
+                ]
             }
         ],
-        "timestamp": "2026-03-18T23:35:10.339944767",
+        "timestamp": "2026-03-29T11:17:21.253081099",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

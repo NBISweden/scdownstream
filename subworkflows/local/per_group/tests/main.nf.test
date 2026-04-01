@@ -7,6 +7,36 @@ nextflow_workflow {
     tag "subworkflows"
     tag "subworkflows_local"
 
+    test("Should run without failures - PAGA only - stub") {
+
+        options '-stub'
+
+        when {
+            params {
+                outdir = "$outputDir"
+                skip_liana = true
+                skip_rankgenesgroups = true
+            }
+            workflow {
+                """
+                input[0] = channel.of([
+                    [id: 'test', obs_key: 'leiden', condition_col: 'condition'],
+                    file(params.pipelines_testdata_base_path + '/pbmc/with_label_and_condition_pca.h5ad', checkIfExists: true)
+                ])
+                input[1] = channel.empty()
+                input[2] = true
+                input[3] = true
+                """
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert snapshot(workflow.out).match()
+        }
+
+    }
+
     test("Should run without failures - PAGA only") {
 
         when {
@@ -24,6 +54,43 @@ nextflow_workflow {
                 input[1] = channel.empty()
                 input[2] = true
                 input[3] = true
+                """
+            }
+        }
+
+        then {
+            assert workflow.success
+            // PAGA produces exactly one uns pkl
+            assert workflow.out.uns.size() == 1
+            assert workflow.out.uns.any { file(it).name == "test_paga.pkl" }
+            assert workflow.out.multiqc_files.size() == 1
+            assert snapshot(
+                workflow.out.versions.collect { path(it).yaml }
+            ).match()
+        }
+
+    }
+
+    test("Should run without failures - full run - stub") {
+
+        options '-stub'
+
+        when {
+            params {
+                outdir = "$outputDir"
+                skip_liana = false
+                skip_rankgenesgroups = false
+            }
+            workflow {
+                """
+                def h5ad = channel.of([
+                    [id: 'test', obs_key: 'leiden', condition_col: 'condition'],
+                    file(params.pipelines_testdata_base_path + '/pbmc/with_label_and_condition_pca.h5ad', checkIfExists: true)
+                ])
+                input[0] = h5ad
+                input[1] = h5ad
+                input[2] = false
+                input[3] = false
                 """
             }
         }
@@ -59,7 +126,14 @@ nextflow_workflow {
 
         then {
             assert workflow.success
-            assert snapshot(workflow.out).match()
+            // PAGA + LIANA + RANKGENESGROUPS all produce uns pkls
+            assert workflow.out.uns.size() >= 1
+            assert workflow.out.uns.any { file(it).name == "test_paga.pkl" }
+            assert workflow.out.uns.any { file(it).name == "test_liana.pkl" }
+            assert workflow.out.multiqc_files.size() >= 1
+            assert snapshot(
+                workflow.out.versions.collect { path(it).yaml }
+            ).match()
         }
 
     }

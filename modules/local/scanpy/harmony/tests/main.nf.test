@@ -29,16 +29,13 @@ nextflow_process {
         }
 
         then {
-            assertAll(
-            { assert process.success },
-            {
-                assert snapshot(
-                    path(process.out.variance_ratio[0]).yaml,
-                    path(process.out.versions[0]).yaml
-                ).match()
-            },
-            { assert "X_emb" in anndata(process.out.h5ad[0][1]).obsm }
-            )
+            def adata = anndata(process.out.h5ad[0][1])
+            assert process.success
+            assert "X_emb" in adata.obsm
+            assert snapshot(
+                path(process.out.versions[0]).yaml,
+                adata.yaml
+            ).match()
         }
 
     }
@@ -65,10 +62,8 @@ nextflow_process {
         }
 
         then {
-            assertAll(
-            { assert process.success },
-            { assert snapshot(process.out).match() }
-            )
+            assert process.success
+            assert snapshot(process.out).match()
         }
 
     }
