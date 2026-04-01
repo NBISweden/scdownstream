@@ -30,6 +30,7 @@ nextflow_workflow {
 
         then {
             assert workflow.success
+            assert workflow.out.obs.size() >= 1
             assert snapshot(
                 workflow.out.versions,
                 workflow.out.obs.size()

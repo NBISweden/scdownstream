@@ -71,12 +71,122 @@
                 "versions": [
                     "versions.yml:md5,a74338e0a89adfeb07bdad07af3877f7"
                 ]
-            }
+            },
+            {
+                "ADATA_SPLITCOL": {
+                    "anndata": "0.12.10",
+                    "python": "3.13.12"
+                }
+            },
+            [
+                {
+                    "n_obs": 12940,
+                    "n_vars": 9887,
+                    "obs": {
+                        "index": "_index",
+                        "columns": [
+                            "sample"
+                        ]
+                    },
+                    "var": {
+                        "index": "_index",
+                        "columns": [
+                            
+                        ]
+                    },
+                    "layers": [
+                        
+                    ],
+                    "obsm": [
+                        
+                    ],
+                    "varm": [
+                        
+                    ],
+                    "obsp": [
+                        
+                    ],
+                    "varp": [
+                        
+                    ],
+                    "uns": [
+                        
+                    ]
+                },
+                {
+                    "n_obs": 12640,
+                    "n_vars": 9887,
+                    "obs": {
+                        "index": "_index",
+                        "columns": [
+                            "sample"
+                        ]
+                    },
+                    "var": {
+                        "index": "_index",
+                        "columns": [
+                            
+                        ]
+                    },
+                    "layers": [
+                        
+                    ],
+                    "obsm": [
+                        
+                    ],
+                    "varm": [
+                        
+                    ],
+                    "obsp": [
+                        
+                    ],
+                    "varp": [
+                        
+                    ],
+                    "uns": [
+                        
+                    ]
+                },
+                {
+                    "n_obs": 12654,
+                    "n_vars": 9887,
+                    "obs": {
+                        "index": "_index",
+                        "columns": [
+                            "sample"
+                        ]
+                    },
+                    "var": {
+                        "index": "_index",
+                        "columns": [
+                            
+                        ]
+                    },
+                    "layers": [
+                        
+                    ],
+                    "obsm": [
+                        
+                    ],
+                    "varm": [
+                        
+                    ],
+                    "obsp": [
+                        
+                    ],
+                    "varp": [
+                        
+                    ],
+                    "uns": [
+                        
+                    ]
+                }
+            ]
         ],
-        "timestamp": "2026-03-16T15:13:30.797750659",
+        "timestamp": "2026-03-29T12:57:38.085403361",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     }
 }

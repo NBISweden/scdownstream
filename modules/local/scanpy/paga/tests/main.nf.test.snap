@@ -105,9 +105,55 @@
                 "versions": [
                     "versions.yml:md5,a87c0e3b4494aaca112a02c554da3084"
                 ]
+            },
+            {
+                "SCANPY_PAGA": {
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                }
+            },
+            {
+                "n_obs": 7373,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "leiden",
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    "X_pca"
+                ],
+                "varm": [
+                    "X_pca"
+                ],
+                "obsp": [
+                    "connectivities",
+                    "distances"
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    "X_pca",
+                    "leiden",
+                    "leiden_sizes",
+                    "neighbors",
+                    "paga"
+                ]
             }
         ],
-        "timestamp": "2026-03-22T09:51:51.950233221",
+        "timestamp": "2026-03-29T11:17:22.514762435",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

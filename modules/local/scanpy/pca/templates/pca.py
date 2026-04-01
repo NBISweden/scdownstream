@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 
+# Disable OpenMP CPU topology detection for MacOS compatibility
 import os
+os.environ["KMP_AFFINITY"] = "disabled"
+
 import platform
 import argparse
 import shlex
 
 os.environ["NUMBA_CACHE_DIR"] = "./tmp/numba"
 os.environ["MPLCONFIGDIR"] = "./tmp/matplotlib"
-os.environ["OMP_NUM_THREADS"] = "1"
-os.environ["OPENBLAS_NUM_THREADS"] = "1"
-os.environ["MKL_NUM_THREADS"] = "1"
 
 import scanpy as sc
 import numpy as np
@@ -33,17 +33,10 @@ sc.pp.pca(adata, random_state=0, key_added=key_added)
 
 if params.decimals is not None:
     adata.obsm[key_added] = np.round(adata.obsm[key_added].astype(np.float64), params.decimals)
-    adata.uns[key_added]["variance_ratio"] = np.round(
-        adata.uns[key_added]["variance_ratio"].astype(np.float64), params.decimals
-    )
 
 adata.write_h5ad(f"{prefix}.h5ad")
 df = pd.DataFrame(adata.obsm[key_added], index=adata.obs_names)
 df.to_pickle(f"X_{prefix}.pkl")
-
-variance_ratio = adata.uns[key_added]["variance_ratio"].tolist()
-with open(f"variance_ratio_{prefix}.yml", "w") as f:
-    yaml.dump({"variance_ratio": variance_ratio}, f)
 
 # Versions
 versions = {

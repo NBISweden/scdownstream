@@ -30,10 +30,18 @@ nextflow_process {
         }
 
         then {
-            assertAll(
-            { assert process.success },
-            { assert snapshot(process.out).match() }
-            )
+            def adata = anndata(process.out.h5ad[0][1])
+            assert process.success
+            with(adata) {
+                // one pseudobulk row per unique sample
+                assert "sample" in obs.colnames
+                assert n_obs > 0
+            }
+            assert snapshot(
+                process.out,
+                path(process.out.versions[0]).yaml,
+                adata.yaml
+            ).match()
         }
 
     }
@@ -61,10 +69,19 @@ nextflow_process {
         }
 
         then {
-            assertAll(
-            { assert process.success },
-            { assert snapshot(process.out).match() }
-            )
+            def adata = anndata(process.out.h5ad[0][1])
+            assert process.success
+            with(adata) {
+                // one pseudobulk row per unique sample × leiden combination
+                assert "sample" in obs.colnames
+                assert "leiden" in obs.colnames
+                assert n_obs > 0
+            }
+            assert snapshot(
+                process.out,
+                path(process.out.versions[0]).yaml,
+                adata.yaml
+            ).match()
         }
 
     }
@@ -93,10 +110,8 @@ nextflow_process {
         }
 
         then {
-            assertAll(
-            { assert process.success },
-            { assert snapshot(process.out).match() }
-            )
+            assert process.success
+            assert snapshot(process.out).match()
         }
 
     }

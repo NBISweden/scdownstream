@@ -3,9 +3,10 @@
         "content": [
             [
                 
-            ]
+            ],
+            1
         ],
-        "timestamp": "2026-03-23T22:53:42.301253063",
+        "timestamp": "2026-03-25T15:46:16.218237575",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -15,22 +16,43 @@
         "content": [
             [
                 "versions.yml:md5,f9ea95abb10a7769d50d14fcaa5734ee"
-            ]
+            ],
+            {
+                "n_obs": 7373,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
+            }
         ],
-        "timestamp": "2026-03-23T23:01:44.949156977",
-        "meta": {
-            "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
-        }
-    },
-    "Should run with 'cellbender' ambient correction to 'X'": {
-        "content": [
-            [
-                "versions.yml:md5,1d70371b0f0ca5e50f7ba70335f8946f",
-                "versions.yml:md5,e6e98e83cbc9a2924c66e901445bbc4f"
-            ]
-        ],
-        "timestamp": "2026-03-23T23:06:59.552055248",
+        "timestamp": "2026-03-29T11:28:03.511988284",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -40,9 +62,89 @@
         "content": [
             [
                 "versions.yml:md5,f9ea95abb10a7769d50d14fcaa5734ee"
-            ]
+            ],
+            {
+                "n_obs": 7373,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    "ambient_corrected_decontx"
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
+            }
         ],
-        "timestamp": "2026-03-23T22:55:48.212429509",
+        "timestamp": "2026-03-29T11:21:35.00820843",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
+        }
+    },
+    "Should run with 'cellbender' ambient correction to 'X'": {
+        "content": [
+            [
+                
+            ],
+            {
+                "n_obs": 7373,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
+            }
+        ],
+        "timestamp": "2026-03-30T08:50:28.315741473",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -52,9 +154,43 @@
         "content": [
             [
                 "versions.yml:md5,f9ea95abb10a7769d50d14fcaa5734ee"
-            ]
+            ],
+            {
+                "n_obs": 7373,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    "ambient_corrected_decontx"
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
+            }
         ],
-        "timestamp": "2026-03-23T22:54:53.07199224",
+        "timestamp": "2026-03-29T11:18:56.290966056",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -64,21 +200,43 @@
         "content": [
             [
                 "versions.yml:md5,0266faf0b40a7b86ec9f2b1948f8c7aa"
-            ]
+            ],
+            {
+                "n_obs": 7373,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
+            }
         ],
-        "timestamp": "2026-03-23T23:02:27.711519463",
-        "meta": {
-            "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
-        }
-    },
-    "Should run with 'scar' ambient correction": {
-        "content": [
-            [
-                "versions.yml:md5,2717cb5f250a65aec0a76a456f7028ba"
-            ]
-        ],
-        "timestamp": "2026-03-23T22:57:58.607959901",
+        "timestamp": "2026-03-29T11:28:48.515147711",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -88,9 +246,58 @@
         "content": [
             [
                 
-            ]
+            ],
+            1
         ],
-        "timestamp": "2026-03-23T22:54:01.532131592",
+        "timestamp": "2026-03-25T15:46:46.64367644",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.2"
+        }
+    },
+    "Should run with 'scar' ambient correction": {
+        "content": [
+            [
+                "versions.yml:md5,2717cb5f250a65aec0a76a456f7028ba"
+            ],
+            {
+                "n_obs": 7373,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "_scvi_batch",
+                        "_scvi_labels",
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    "ambient_corrected_scar"
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    "ambient_profile"
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
+            }
+        ],
+        "timestamp": "2026-03-29T11:24:02.851605031",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -99,11 +306,44 @@
     "Should run with 'cellbender' ambient correction": {
         "content": [
             [
-                "versions.yml:md5,1d70371b0f0ca5e50f7ba70335f8946f",
-                "versions.yml:md5,e6e98e83cbc9a2924c66e901445bbc4f"
-            ]
+                
+            ],
+            {
+                "n_obs": 7373,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    "ambient_corrected_cellbender"
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
+            }
         ],
-        "timestamp": "2026-03-23T23:00:54.238589778",
+        "timestamp": "2026-03-30T08:42:11.218749814",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -113,9 +353,43 @@
         "content": [
             [
                 "versions.yml:md5,0266faf0b40a7b86ec9f2b1948f8c7aa"
-            ]
+            ],
+            {
+                "n_obs": 7373,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    "ambient_corrected_soupx"
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
+            }
         ],
-        "timestamp": "2026-03-23T22:56:39.961201724",
+        "timestamp": "2026-03-29T11:22:41.092799679",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"
@@ -125,9 +399,45 @@
         "content": [
             [
                 "versions.yml:md5,2717cb5f250a65aec0a76a456f7028ba"
-            ]
+            ],
+            {
+                "n_obs": 7373,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "_scvi_batch",
+                        "_scvi_labels",
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    "ambient_profile"
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
+            }
         ],
-        "timestamp": "2026-03-23T23:03:37.590823873",
+        "timestamp": "2026-03-29T11:29:53.928496596",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

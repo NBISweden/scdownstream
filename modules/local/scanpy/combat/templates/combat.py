@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 
+# Disable OpenMP CPU topology detection for MacOS compatibility
 import os
+os.environ["KMP_AFFINITY"] = "disabled"
+
 import platform
 
 os.environ["MPLCONFIGDIR"] = "./tmp/mpl"
@@ -38,7 +41,6 @@ if args.decimals is not None:
     adata.obsm["X_pca"] = np.round(adata.obsm["X_pca"].astype(np.float64), args.decimals)
     adata.varm["PCs"] = np.round(adata.varm["PCs"].astype(np.float64), args.decimals)
     adata.uns["pca"]["variance"] = np.round(adata.uns["pca"]["variance"].astype(np.float64), args.decimals)
-    adata.uns["pca"]["variance_ratio"] = np.round(adata.uns["pca"]["variance_ratio"].astype(np.float64), args.decimals)
 
 adata.obsm["X_emb"] = adata.obsm["X_pca"]
 

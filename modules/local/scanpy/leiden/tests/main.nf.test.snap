@@ -52,11 +52,52 @@
     },
     "Should run without failures": {
         "content": [
-            [
-                "versions.yml:md5,094091f84634347067c71751fa7c6b27"
-            ]
+            {
+                "SCANPY_LEIDEN": {
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                }
+            },
+            {
+                "n_obs": 7373,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "leiden",
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        
+                    ]
+                },
+                "layers": [
+                    
+                ],
+                "obsm": [
+                    "X_pca"
+                ],
+                "varm": [
+                    "X_pca"
+                ],
+                "obsp": [
+                    "connectivities",
+                    "distances"
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    "X_pca",
+                    "leiden",
+                    "neighbors"
+                ]
+            }
         ],
-        "timestamp": "2026-03-22T15:00:00.781565748",
+        "timestamp": "2026-03-29T11:17:20.376586064",
         "meta": {
             "nf-test": "0.9.4",
             "nextflow": "25.10.2"

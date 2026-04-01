@@ -24,12 +24,52 @@
                 "versions": [
                     "versions.yml:md5,3849ee644c0cc7554e8328607967f0f0"
                 ]
+            },
+            {
+                "ADATA_SETINDEX": {
+                    "anndata": "0.12.10",
+                    "python": "3.13.12"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    "counts"
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:13:51.064093335",
+        "timestamp": "2026-03-29T12:58:00.87153549",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run without failures - obs": {
@@ -57,12 +97,52 @@
                 "versions": [
                     "versions.yml:md5,3849ee644c0cc7554e8328607967f0f0"
                 ]
+            },
+            {
+                "ADATA_SETINDEX": {
+                    "anndata": "0.12.10",
+                    "python": "3.13.12"
+                }
+            },
+            {
+                "n_obs": 12940,
+                "n_vars": 9887,
+                "obs": {
+                    "index": "_index",
+                    "columns": [
+                        "sample"
+                    ]
+                },
+                "var": {
+                    "index": "_index",
+                    "columns": [
+                        "symbols"
+                    ]
+                },
+                "layers": [
+                    "counts"
+                ],
+                "obsm": [
+                    
+                ],
+                "varm": [
+                    
+                ],
+                "obsp": [
+                    
+                ],
+                "varp": [
+                    
+                ],
+                "uns": [
+                    
+                ]
             }
         ],
-        "timestamp": "2026-03-16T15:13:30.688344891",
+        "timestamp": "2026-03-29T12:57:38.294706928",
         "meta": {
             "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nextflow": "25.10.2"
         }
     },
     "Should run without failures - stub": {
