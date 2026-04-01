@@ -30,16 +30,8 @@ process SCANPY_PCA {
     stub:
     prefix = task.ext.prefix ?: "${meta.id}_pca"
     """
-    export MPLCONFIGDIR=./tmp/mpl
-    export NUMBA_CACHE_DIR=./tmp/numba
-
     touch ${prefix}.h5ad
     touch X_${prefix}.pkl
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        python: \$(python3 -c 'import platform; print(platform.python_version())')
-        scanpy: \$(python3 -c 'import scanpy; print(scanpy.__version__)')
-    END_VERSIONS
+    touch versions.yml
     """
 }
