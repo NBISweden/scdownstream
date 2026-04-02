@@ -167,8 +167,6 @@
                 ],
                 "2": [
                     "versions.yml:md5,36bf3fb866d0085291382bf6713f7698",
-                    "versions.yml:md5,4e6f35e1d0c91cec3120567db9f0bdfe",
-                    "versions.yml:md5,56867b1608bf70187c185b4fecb3eab7",
                     "versions.yml:md5,56975dcf8aab71705ad7f822233409b8",
                     "versions.yml:md5,f4baeb211a033b2534fb83ba7ec2cd86"
                 ],
@@ -191,8 +189,6 @@
                 ],
                 "versions": [
                     "versions.yml:md5,36bf3fb866d0085291382bf6713f7698",
-                    "versions.yml:md5,4e6f35e1d0c91cec3120567db9f0bdfe",
-                    "versions.yml:md5,56867b1608bf70187c185b4fecb3eab7",
                     "versions.yml:md5,56975dcf8aab71705ad7f822233409b8",
                     "versions.yml:md5,f4baeb211a033b2534fb83ba7ec2cd86"
                 ]
@@ -236,10 +232,10 @@
                 ]
             }
         ],
-        "timestamp": "2026-03-29T11:22:29.327390466",
+        "timestamp": "2026-04-01T23:09:51.012417",
         "meta": {
-            "nf-test": "0.9.4",
-            "nextflow": "25.10.2"
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
         }
     },
     "Should run without failures - symbol_col index, unify_gene_symbols false - stub": {
@@ -319,8 +315,6 @@
                 "2": [
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
-                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
-                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
                 "h5ad": [
@@ -344,16 +338,14 @@
                 "versions": [
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
-                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
-                    "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ]
             }
         ],
-        "timestamp": "2026-01-18T17:41:17.198064779",
+        "timestamp": "2026-04-01T23:09:23.763996",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
         }
     },
     "Should run without failures - symbol_col none, unify_gene_symbols false": {
