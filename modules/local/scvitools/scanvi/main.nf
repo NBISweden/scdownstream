@@ -19,11 +19,11 @@ process SCVITOOLS_SCANVI {
     val continuous_covariates
 
     output:
-    tuple val(meta), path("${prefix}.h5ad"), emit: h5ad
+    tuple val(meta), path("${prefix}.h5ad")          , emit: h5ad
     tuple val(meta), path("${prefix}_model/model.pt"), emit: model
-    path "${prefix}.pkl", emit: obs
-    path "X_${prefix}.pkl", emit: obsm
-    path "versions.yml", emit: versions
+    path "${prefix}.pkl"                             , emit: obs
+    path "X_${prefix}.pkl"                           , emit: obsm
+    path "versions.yml"                              , emit: versions, topic: versions
 
     when:
     task.ext.when == null || task.ext.when

@@ -13,7 +13,7 @@ process CUSTOM_COLLECTSIZES {
     output:
     tuple val(meta), path("*.tsv"), emit: tsv
     path("*_mqc.json")            , emit: multiqc_files
-    path "versions.yml"           , emit: versions
+    path "versions.yml"           , emit: versions, topic: versions
 
     script:
     prefix = task.ext.prefix ?: "${meta.id}"

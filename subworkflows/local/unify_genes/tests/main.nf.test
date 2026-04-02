@@ -57,7 +57,7 @@ nextflow_workflow {
                 assert obs.rownames.size() > 0
             }
             assert snapshot(
-                workflow.out.versions.collect { path(it).yaml },
+                workflow.out.versions,
                 adata.yaml
             ).match()
         }

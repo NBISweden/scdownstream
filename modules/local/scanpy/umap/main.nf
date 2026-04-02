@@ -11,9 +11,9 @@ process SCANPY_UMAP {
     tuple val(meta), path(h5ad, arity: 1)
 
     output:
-    tuple val(meta), path("${prefix}.h5ad"),     emit: h5ad
-    path "X_${prefix}.pkl",                      emit: obsm
-    path "versions.yml",                         emit: versions
+    tuple val(meta), path("${prefix}.h5ad"), emit: h5ad
+    path "X_${prefix}.pkl"                 , emit: obsm
+    path "versions.yml"                    , emit: versions, topic: versions
 
     when:
     task.ext.when == null || task.ext.when
