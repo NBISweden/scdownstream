@@ -45,19 +45,18 @@ nextflow_process {
         }
 
         then {
-            def adata = anndata(process.out.h5ad[0][1])
             assert process.success
+            def adata = anndata(process.out.h5ad[0][1])
             with(adata) {
                 assert "X_emb" in obsm
             }
             assert snapshot(
-                    // Hashes are not stable due to floating point inaccuracies
-                    file(process.out.h5ad[0][1]).name,
-                    file(process.out.model[0][1]).name,
-                    file(process.out.obsm[0]).name,
-                    path(process.out.versions[0]).yaml,
-                    adata.yaml
-                ).match()
+                file(process.out.h5ad[0][1]).name,
+                file(process.out.model[0][1]).name,
+                file(process.out.obsm[0]).name,
+                path(process.out.versions[0]).yaml,
+                adata.yaml
+            ).match()
         }
 
     }
@@ -111,15 +110,19 @@ nextflow_process {
         }
 
         then {
-            assertAll(
-                { assert process.success },
-                {
-                    with(anndata(process.out.h5ad[0][1])) {
-                        assert "label:scANVI" in obs.colnames
-                        assert obs.get("label:scANVI").unique().size() > 1
-                    }
-                }
-            )
+            assert process.success
+            def adata = anndata(process.out.h5ad[0][1])
+            with(adata) {
+                assert "label:scANVI" in obs.colnames
+                assert obs.get("label:scANVI").unique().size() > 1
+            }
+            assert snapshot(
+                file(process.out.h5ad[0][1]).name,
+                file(process.out.model[0][1]).name,
+                file(process.out.obsm[0]).name,
+                path(process.out.versions[0]).yaml,
+                adata.yaml
+            ).match()
         }
 
     }
