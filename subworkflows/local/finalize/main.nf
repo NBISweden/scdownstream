@@ -36,6 +36,7 @@ workflow FINALIZE {
         ADATA_PREPCELLXGENE (
             ADATA_EXTEND.out.h5ad
         )
+        ch_h5ad = ADATA_PREPCELLXGENE.out.h5ad
         ch_versions = ch_versions.mix(ADATA_PREPCELLXGENE.out.versions)
     } else {
         ch_h5ad = ADATA_EXTEND.out.h5ad
