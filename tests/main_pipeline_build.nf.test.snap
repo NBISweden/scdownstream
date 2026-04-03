@@ -2,12 +2,27 @@
     "Should process data from scratch": {
         "content": [
             {
+                "ADATA_EXTEND": {
+                    "anndata": "0.12.10",
+                    "numpy": "2.3.5",
+                    "pandas": "2.3.3",
+                    "python": "3.13.12"
+                },
+                "ADATA_MERGE": {
+                    "anndata": "0.12.10",
+                    "python": "3.13.12",
+                    "scanpy": "1.12",
+                    "scipy": "1.17.1"
+                },
                 "ADATA_READRDS": {
                     "anndata": "0.11.1",
                     "anndata2ri": "1.3.2",
                     "rpy2": "3.5.11",
                     "pandas": "2.2.3",
                     "seurat": "5.1.0"
+                },
+                "ADATA_TORDS": {
+                    "anndataR": "1.0.2"
                 },
                 "ADATA_UNIFY": {
                     "anndata": "0.12.10",
@@ -78,8 +93,41 @@
                     "python": "3.13.0",
                     "anndata": "0.10.9"
                 },
+                "LEIDEN": {
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                },
+                "NEIGHBORS": {
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                },
+                "QC_FILTERED": {
+                    "matplotlib": "3.10.8",
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                },
                 "QC_RAW": {
                     "matplotlib": "3.10.8",
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                },
+                "QC_REPORT": {
+                    "quarto": "1.8.27",
+                    "papermill": "2.7.0"
+                },
+                "SCANPY_BBKNN": {
+                    "bbknn": "1.6.0",
+                    "pandas": "2.3.3",
+                    "python": "3.12.12",
+                    "scanpy": "1.11.5"
+                },
+                "SCANPY_CELLCYCLE": {
+                    "python": "3.13.12",
+                    "scanpy": "1.12"
+                },
+                "SCANPY_COMBAT": {
+                    "numpy": "2.3.5",
+                    "pandas": "2.3.3",
                     "python": "3.13.12",
                     "scanpy": "1.12"
                 },
@@ -135,10 +183,87 @@
                 },
                 "Workflow": {
                     "nf-core/scdownstream": "v0.0.1dev"
-                }
+                },
+                "liana": "1.6.1",
+                "python": "3.12.12",
+                "scanpy": "1.11.5"
             },
             [
+                "celltypes",
+                "celltypes/singler",
+                "celltypes/singler/SRR28679756_singler_hpca_celldex_distribution.pdf",
+                "celltypes/singler/SRR28679756_singler_hpca_celldex_heatmap.pdf",
+                "celltypes/singler/SRR28679756_singler_hpca_direct_distribution.pdf",
+                "celltypes/singler/SRR28679756_singler_hpca_direct_heatmap.pdf",
+                "celltypes/singler/SRR28679756_singler_immune_celldex_distribution.pdf",
+                "celltypes/singler/SRR28679756_singler_immune_celldex_heatmap.pdf",
+                "celltypes/singler/SRR28679756_singler_immune_direct_distribution.pdf",
+                "celltypes/singler/SRR28679756_singler_immune_direct_heatmap.pdf",
+                "celltypes/singler/SRR28679756_singler_predictions.csv",
+                "celltypes/singler/SRR28679757_singler_hpca_celldex_distribution.pdf",
+                "celltypes/singler/SRR28679757_singler_hpca_celldex_heatmap.pdf",
+                "celltypes/singler/SRR28679757_singler_hpca_direct_distribution.pdf",
+                "celltypes/singler/SRR28679757_singler_hpca_direct_heatmap.pdf",
+                "celltypes/singler/SRR28679757_singler_immune_celldex_distribution.pdf",
+                "celltypes/singler/SRR28679757_singler_immune_celldex_heatmap.pdf",
+                "celltypes/singler/SRR28679757_singler_immune_direct_distribution.pdf",
+                "celltypes/singler/SRR28679757_singler_immune_direct_heatmap.pdf",
+                "celltypes/singler/SRR28679757_singler_predictions.csv",
+                "celltypes/singler/SRR28679758_singler_hpca_celldex_distribution.pdf",
+                "celltypes/singler/SRR28679758_singler_hpca_celldex_heatmap.pdf",
+                "celltypes/singler/SRR28679758_singler_hpca_direct_distribution.pdf",
+                "celltypes/singler/SRR28679758_singler_hpca_direct_heatmap.pdf",
+                "celltypes/singler/SRR28679758_singler_immune_celldex_distribution.pdf",
+                "celltypes/singler/SRR28679758_singler_immune_celldex_heatmap.pdf",
+                "celltypes/singler/SRR28679758_singler_immune_direct_distribution.pdf",
+                "celltypes/singler/SRR28679758_singler_immune_direct_heatmap.pdf",
+                "celltypes/singler/SRR28679758_singler_predictions.csv",
+                "cluster_dimred",
+                "cluster_dimred/bbknn",
+                "cluster_dimred/bbknn/entropy",
+                "cluster_dimred/bbknn/entropy/bbknn-global-0.5_entropy.png",
+                "cluster_dimred/bbknn/entropy/bbknn-global-1.0_entropy.png",
+                "cluster_dimred/bbknn/leiden",
+                "cluster_dimred/bbknn/leiden/bbknn-global-0.5_leiden.png",
+                "cluster_dimred/bbknn/leiden/bbknn-global-1.0_leiden.png",
+                "cluster_dimred/bbknn/umap",
+                "cluster_dimred/combat",
+                "cluster_dimred/combat/entropy",
+                "cluster_dimred/combat/entropy/combat-global-0.5_entropy.png",
+                "cluster_dimred/combat/entropy/combat-global-1.0_entropy.png",
+                "cluster_dimred/combat/leiden",
+                "cluster_dimred/combat/leiden/combat-global-0.5_leiden.png",
+                "cluster_dimred/combat/leiden/combat-global-1.0_leiden.png",
+                "cluster_dimred/combat/umap",
+                "cluster_dimred/harmony",
+                "cluster_dimred/harmony/entropy",
+                "cluster_dimred/harmony/entropy/harmony-global-0.5_entropy.png",
+                "cluster_dimred/harmony/entropy/harmony-global-1.0_entropy.png",
+                "cluster_dimred/harmony/leiden",
+                "cluster_dimred/harmony/leiden/harmony-global-0.5_leiden.png",
+                "cluster_dimred/harmony/leiden/harmony-global-1.0_leiden.png",
+                "cluster_dimred/harmony/umap",
+                "cluster_dimred/scvi",
+                "cluster_dimred/scvi/entropy",
+                "cluster_dimred/scvi/entropy/scvi-global-0.5_entropy.png",
+                "cluster_dimred/scvi/entropy/scvi-global-1.0_entropy.png",
+                "cluster_dimred/scvi/leiden",
+                "cluster_dimred/scvi/leiden/scvi-global-0.5_leiden.png",
+                "cluster_dimred/scvi/leiden/scvi-global-1.0_leiden.png",
+                "cluster_dimred/scvi/umap",
+                "cluster_dimred/seurat",
+                "cluster_dimred/seurat/entropy",
+                "cluster_dimred/seurat/entropy/seurat-global-0.5_entropy.png",
+                "cluster_dimred/seurat/entropy/seurat-global-1.0_entropy.png",
+                "cluster_dimred/seurat/leiden",
+                "cluster_dimred/seurat/leiden/seurat-global-0.5_leiden.png",
+                "cluster_dimred/seurat/leiden/seurat-global-1.0_leiden.png",
+                "cluster_dimred/seurat/umap",
                 "combine",
+                "combine/integrate",
+                "combine/integrate/scvi",
+                "combine/integrate/scvi/scvi_model",
+                "combine/integrate/scvi/scvi_model/model.pt",
                 "combine/merge",
                 "combine/merge/upset_genes.png",
                 "finalized",
@@ -150,16 +275,39 @@
                 "pipeline_info",
                 "pipeline_info/nf_core_scdownstream_software_mqc_versions.yml",
                 "quality_control",
+                "quality_control/qc_filtered",
+                "quality_control/qc_filtered/SRR28679756_preprocessed_total_counts_vs_n_genes_by_counts.png",
+                "quality_control/qc_filtered/SRR28679757_preprocessed_total_counts_vs_n_genes_by_counts.png",
+                "quality_control/qc_filtered/SRR28679758_preprocessed_total_counts_vs_n_genes_by_counts.png",
                 "quality_control/qc_raw",
                 "quality_control/qc_raw/SRR28679756_raw_total_counts_vs_n_genes_by_counts.png",
                 "quality_control/qc_raw/SRR28679757_raw_total_counts_vs_n_genes_by_counts.png",
-                "quality_control/qc_raw/SRR28679758_raw_total_counts_vs_n_genes_by_counts.png"
+                "quality_control/qc_raw/SRR28679758_raw_total_counts_vs_n_genes_by_counts.png",
+                "quality_control/sizes",
+                "quality_control/sizes/sizes.tsv",
+                "reports",
+                "reports/_extensions",
+                "reports/_extensions/nf-core",
+                "reports/_extensions/nf-core/_extension.yml",
+                "reports/_extensions/nf-core/nf-core-scdownstream_logo_light.png",
+                "reports/_extensions/nf-core/nf-core.scss",
+                "reports/_extensions/nf-core/nf-core.theme",
+                "reports/_extensions/nf-core/toc.html",
+                "reports/params.yml",
+                "reports/qc-report.html",
+                "reports/qc-report.qmd"
             ],
             [
-
+                "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f",
+                "_extension.yml:md5,1771443b5d44c88feb54a56c5a9a2319",
+                "nf-core.scss:md5,b9826d146ce24fe3d3c51bfd4e450baa",
+                "nf-core.theme:md5,ac9559ae18b3f513cf7a5419e4a69c24",
+                "toc.html:md5,fe6831ffaecfb53058310943d42942ca",
+                "params.yml:md5,fd440939de9a042afb07e8767e9c7c73",
+                "qc-report.qmd:md5,1f56aafa1a5ca0b10d27f0db34a5c2ff"
             ]
         ],
-        "timestamp": "2026-04-01T23:42:09.08374",
+        "timestamp": "2026-04-03T09:10:11.920668",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "25.10.4"
