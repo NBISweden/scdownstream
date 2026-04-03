@@ -21,8 +21,8 @@ process ADATA_EXTEND {
 
     output:
     tuple val(meta), path("*.h5ad"), emit: h5ad
-    tuple val(meta), path("*.csv"), emit: metadata
-    path "versions.yml", emit: versions
+    tuple val(meta), path("*.csv") , emit: metadata
+    path "versions.yml"            , emit: versions, topic: versions
 
     when:
     task.ext.when == null || task.ext.when

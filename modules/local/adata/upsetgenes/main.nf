@@ -12,8 +12,8 @@ process ADATA_UPSETGENES {
 
     output:
     tuple val(meta), path("*.png"), emit: plot, optional: true
-    path ("*_mqc.json"), emit: multiqc_files, optional: true
-    path "versions.yml", emit: versions
+    path ("*_mqc.json")           , emit: multiqc_files, optional: true
+    path "versions.yml"           , emit: versions, topic: versions
 
     when:
     task.ext.when == null || task.ext.when

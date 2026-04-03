@@ -15,10 +15,10 @@ process SCANPY_RANKGENESGROUPS {
 
     output:
     tuple val(meta), path("*.h5ad"), emit: h5ad, optional: true
-    path "*.pkl", emit: uns, optional: true
-    path "*.png", emit: plots, optional: true
-    path "*_mqc.json", emit: multiqc_files, optional: true
-    path "versions.yml", emit: versions
+    path "*.pkl"                   , emit: uns, optional: true
+    path "*.png"                   , emit: plots, optional: true
+    path "*_mqc.json"              , emit: multiqc_files, optional: true
+    path "versions.yml"            , emit: versions, topic: versions
 
     when:
     task.ext.when == null || task.ext.when

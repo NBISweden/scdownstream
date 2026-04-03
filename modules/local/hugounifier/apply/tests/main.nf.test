@@ -52,7 +52,7 @@ nextflow_process {
                 assert obs.rownames.size() > 0
             }
             assert snapshot(
-                path(process.out.versions[0]).yaml,
+                process.out.versions,
                 adata.yaml
             ).match()
         }
