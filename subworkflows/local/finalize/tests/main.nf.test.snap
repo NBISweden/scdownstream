@@ -84,7 +84,7 @@
                     {
                         "id": "test"
                     },
-                    "test_cellxgene.h5ad:md5,25255fe968e6270deb28e8bba3fd4560"
+                    "test.h5ad:md5,f1586170686d73b8143e95aad0f331ce"
                 ]
             ],
             [
@@ -152,11 +152,11 @@
                     
                 ],
                 "uns": [
-                    "log1p"
+                    
                 ]
             }
         ],
-        "timestamp": "2026-04-03T12:01:52.856132",
+        "timestamp": "2026-04-09T11:04:35.371702",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "25.10.4"
@@ -174,6 +174,9 @@
                     ]
                 ],
                 "1": [
+                    
+                ],
+                "2": [
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
@@ -185,13 +188,16 @@
                         "test.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
                 ],
+                "h5ad_cellxgene": [
+                    
+                ],
                 "versions": [
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ]
             }
         ],
-        "timestamp": "2026-04-03T12:02:24.889969",
+        "timestamp": "2026-04-09T11:03:32.024676",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "25.10.4"
@@ -209,6 +215,9 @@
                     ]
                 ],
                 "1": [
+                    
+                ],
+                "2": [
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ],
@@ -220,13 +229,16 @@
                         "test.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
                 ],
+                "h5ad_cellxgene": [
+                    
+                ],
                 "versions": [
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e",
                     "versions.yml:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ]
             }
         ],
-        "timestamp": "2026-04-03T12:02:54.661599",
+        "timestamp": "2026-04-09T11:03:57.863559",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "25.10.4"
