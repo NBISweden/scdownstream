@@ -313,12 +313,11 @@ workflow SCDOWNSTREAM {
         has_input: ch_input != null
     ]
     QC_REPORT (
-        qc_report_notebook,
+        [[id: 'qc-report'], qc_report_notebook],
         qc_report_params,
         ch_qc_report_input_data,
         extensions
     )
-    ch_versions = ch_versions.mix(QC_REPORT.out.versions)
 
     //
     // Collate and save software versions

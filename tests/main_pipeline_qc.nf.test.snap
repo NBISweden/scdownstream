@@ -84,8 +84,8 @@
                     "scanpy": "1.12"
                 },
                 "QC_REPORT": {
-                    "quarto": "1.8.27",
-                    "papermill": "2.7.0"
+                    "papermill": "2.7.0",
+                    "quarto": "1.8.27"
                 },
                 "SCANPY_CELLCYCLE": {
                     "python": "3.13.12",
@@ -180,11 +180,11 @@
                 "nf-core.scss:md5,b9826d146ce24fe3d3c51bfd4e450baa",
                 "nf-core.theme:md5,ac9559ae18b3f513cf7a5419e4a69c24",
                 "toc.html:md5,fe6831ffaecfb53058310943d42942ca",
-                "params.yml:md5,8e0a65f99b215b6f195e70d75b371c91",
+                "params.yml:md5,cd7fb3f941b1b5ad10a8e413ad70623c",
                 "qc-report.qmd:md5,1f56aafa1a5ca0b10d27f0db34a5c2ff"
             ]
         ],
-        "timestamp": "2026-04-01T23:55:39.973262",
+        "timestamp": "2026-04-09T19:07:55.691884",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "25.10.4"

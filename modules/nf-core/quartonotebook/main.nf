@@ -4,6 +4,7 @@
 // Papermill and whatever language you are running your analyses on; you can see
 // an example in this module's environment file.
 process QUARTONOTEBOOK {
+    tag "${meta.id}"
     label 'process_low'
     conda "${moduleDir}/environment.yml"
     container "${workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
@@ -11,27 +12,29 @@ process QUARTONOTEBOOK {
         : 'community.wave.seqera.io/library/jupyter_matplotlib_papermill_quarto_r-rmarkdown:6d15193ce3dfc665'}"
 
     input:
-    path(notebook)
+    tuple val(meta), path(notebook)
     val(parameters)
     path input_files
     path extensions
 
     output:
-    path("*.html")                               , emit: html
-    path(notebook)                               , emit: notebook
-    path("params.yml")                           , emit: params_yaml
-    path("${notebook_parameters.artifact_dir}/*"), emit: artifacts , optional: true
-    path("_extensions")                          , emit: extensions, optional: true
-    path "versions.yml"                          , emit: versions
+    tuple val(meta), path("*.html")                                                            , emit: html
+    tuple val(meta), path(notebook)                                                            , emit: notebook
+    tuple val(meta), path("params.yml")                                                        , emit: params_yaml
+    tuple val(meta), path("${notebook_parameters.artifact_dir}/*")                             , emit: artifacts  , optional: true
+    tuple val(meta), path("_extensions")                                                       , emit: extensions , optional: true
+    tuple val("${task.process}"), val('quarto'), eval('quarto -v'), emit: versions_quarto, topic: versions
+    tuple val("${task.process}"), val('papermill'), eval('papermill --version | cut -f1 -d" "'), emit: versions_papermill, topic: versions
 
     when:
     task.ext.when == null || task.ext.when
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: ""
+    def prefix = task.ext.prefix ?: "${meta.id}"
     // Implicit parameters can be overwritten by supplying a value with parameters
     notebook_parameters = [
+        meta: meta,
         cpus: task.cpus,
         artifact_dir: "artifacts",
     ] + (parameters ?: [:])
@@ -40,7 +43,7 @@ process QUARTONOTEBOOK {
     //  - Allows passing nested maps instead of just single values
     //  - Allows running with the language-agnostic `--execute-params`
     def yamlBuilder = new groovy.yaml.YamlBuilder()
-    yamlBuilder(notebook_parameters)
+    yamlBuilder.call(notebook_parameters)
     def yaml_content = yamlBuilder.toString().tokenize('\n').join("\n    ")
     """
     # Dump parameters to yaml file
@@ -75,18 +78,13 @@ process QUARTONOTEBOOK {
         ${args} \\
         --execute-params params.yml \\
         --output ${prefix}.html
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        quarto: \$(quarto -v)
-        papermill: \$(papermill --version | cut -f1 -d' ')
-    END_VERSIONS
     """
 
     stub:
-    def prefix = task.ext.prefix ?: ""
+    def prefix = task.ext.prefix ?: "${meta.id}"
     // Implicit parameters can be overwritten by supplying a value with parameters
     notebook_parameters = [
+        meta: meta,
         cpus: task.cpus,
         artifact_dir: "artifacts",
     ] + (parameters ?: [:])
@@ -102,11 +100,5 @@ process QUARTONOTEBOOK {
 
     touch ${prefix}.html
     touch params.yml
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        quarto: \$(quarto -v)
-        papermill: \$(papermill --version | cut -f1 -d' ')
-    END_VERSIONS
     """
 }

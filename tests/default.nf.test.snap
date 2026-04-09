@@ -112,8 +112,8 @@
                     "scanpy": "1.12"
                 },
                 "QC_REPORT": {
-                    "quarto": "1.8.27",
-                    "papermill": "2.7.0"
+                    "papermill": "2.7.0",
+                    "quarto": "1.8.27"
                 },
                 "SCANPY_BBKNN": {
                     "bbknn": "1.6.0",
@@ -290,11 +290,11 @@
                 "nf-core.scss:md5,b9826d146ce24fe3d3c51bfd4e450baa",
                 "nf-core.theme:md5,ac9559ae18b3f513cf7a5419e4a69c24",
                 "toc.html:md5,fe6831ffaecfb53058310943d42942ca",
-                "params.yml:md5,fd440939de9a042afb07e8767e9c7c73",
+                "params.yml:md5,1b2f06e328f9635998c2401a89c501ec",
                 "qc-report.qmd:md5,1f56aafa1a5ca0b10d27f0db34a5c2ff"
             ]
         ],
-        "timestamp": "2026-04-01T23:24:38.004721",
+        "timestamp": "2026-04-09T18:37:05.453685",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "25.10.4"
